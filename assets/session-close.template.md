@@ -1,0 +1,13 @@
+# Adaptive session close
+
+Use after a substantive learning session. Select 3–5 questions suited to the actual topic and responses. The prompts below are a menu, not a repeated survey. Credit checks already completed during the session; do not ask them again merely to fill the template.
+
+- Explain: "Without looking at the solution, why does [the key relationship] hold? State the condition it needs."
+- Predict or test a boundary: "What would change if [one relevant constraint or limiting case] changed? Explain before calculating."
+- Transfer: present a different, verified problem with a genuinely changed setup, representation, constraint, or method choice. State its source or label it generated. Keep the answer separate and preserve protected papers.
+- Reflect: "Which step still feels uncertain, and what was useful enough to use again?"
+- Optional diagnostic: ask one targeted question that resolves an uncertainty exposed by the learner's actual work.
+
+Give a requested solution directly. Record any assistance rather than withholding help to preserve a test. A declined or unanswered question remains unassessed.
+
+Before saving a session record, distinguish observed work, the learner's statements, and tutor interpretations. Record exposure to each problem, the assistance used, and one concrete next step. Do not infer mastery or invent elapsed time. Save only to the authorized project location, identify the saved file, and note that a later session must load it to use the record.

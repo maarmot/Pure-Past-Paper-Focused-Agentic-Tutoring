@@ -1,0 +1,37 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.9', '3.12']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install media tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Run tests
+        run: python -B -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Validate starter records
+        shell: bash
+        run: |
+          for record in assets/*.json; do
+            python scripts/ppp_tools.py validate-record "$record" --allow-template
+            if python scripts/ppp_tools.py validate-record "$record"; then
+              echo "Starter record was accepted without --allow-template: $record"
+              exit 1
+            fi
+          done

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "kind": "session",
+  "date": "2026-11-09",
+  "topic": "Template: replace before logging",
+  "goals": [
+    "Replace with the capability targeted in the actual session"
+  ],
+  "events": [],
+  "duration": {
+    "seconds": null,
+    "basis": "unknown"
+  },
+  "next_step": "Replace with the next practice task supported by actual session evidence"
+}

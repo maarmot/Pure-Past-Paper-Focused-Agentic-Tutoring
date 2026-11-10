@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "kind": "session",
+  "date": "2026-11-09",
+  "topic": "Template: replace with the actual inquiry topic",
+  "goals": [
+    "Replace with the capability or question targeted in the actual session"
+  ],
+  "events": [],
+  "inquiry": {
+    "question": null,
+    "prediction": null,
+    "observation": null,
+    "open_question": null
+  },
+  "duration": {
+    "seconds": null,
+    "basis": "unknown"
+  },
+  "next_step": "Replace with the next investigation supported by actual session evidence",
+  "template_notice": "Template only. The date is the template creation date, not a learner-session observation. Replace it and the instructional text before saving a real record. Keep unanswered learner fields null; do not fill them with tutor or agent responses."
+}

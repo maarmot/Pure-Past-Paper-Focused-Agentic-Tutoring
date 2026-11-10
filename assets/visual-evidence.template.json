@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "kind": "visual-evidence",
+  "source": {
+    "title": "Template: replace with verified video title",
+    "creator": "Replace with verified creator",
+    "url": "https://www.youtube.com/watch?v=qb40J4N1fa4"
+  },
+  "captured_at": "2026-11-09T00:00:00-05:00",
+  "visual_status": "incomplete",
+  "frames": [],
+  "observations": [],
+  "transcript_claims": [],
+  "interpretations": [],
+  "note": "Template only. Replace source and capture time before recording evidence. No creator frame has been inspected in this record."
+}

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Same samples, different motion</title>
+<!--
+  Starter for a PPP learning interactive. It is a complete worked example (sampling
+  ambiguity) so every pattern is shown running; copy it into the project and replace the
+  model, controls, and expected values. One file, no network, no build step.
+  Structure to keep: (1) pure model, (2) one state object, (3) render reads state only,
+  (4) expected values written out by hand, (5) a self-check that reads the drawn marks.
+-->
+<style>
+  :root { --bg:#fbfaf7; --fg:#1c2530; --muted:#5b6673; --line:#c9cfd6; --a:#1d5fa8; --b:#b4530f; --extra:#6b3fa0; --panel:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#12161b; --fg:#e8ecf0; --muted:#9aa5b1; --line:#3a444f; --a:#7db7f5; --b:#f2a15c; --extra:#c3a2f0; --panel:#1a2027; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:16px; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.35rem; margin: 0 0 4px; }
+  p { margin: 6px 0; }
+  .muted { color: var(--muted); }
+  .views { display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1.4fr); gap:12px; margin:12px 0; }
+  @media (max-width: 700px) { .views { grid-template-columns: 1fr; } }
+  svg { width:100%; height:auto; background:var(--panel); border:1px solid var(--line); border-radius:8px; }
+  .controls { display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:10px 18px; }
+  label { display:block; }
+  input[type=range] { width:100%; }
+  button { font:inherit; padding:6px 14px; border-radius:6px; border:1px solid var(--line); background:var(--panel); color:var(--fg); cursor:pointer; }
+  button:focus-visible, input:focus-visible, summary:focus-visible { outline:3px solid var(--a); outline-offset:2px; }
+  #verdict { font-weight:600; margin:10px 0; min-height:3em; }
+  details { margin-top:14px; border-top:1px solid var(--line); padding-top:8px; }
+  #check { white-space:pre-wrap; overflow-wrap:anywhere; }
+  .axis { stroke:var(--line); stroke-width:1; fill:none; }
+  .tick { fill:var(--muted); font-size:calc(12px * var(--label-scale, 1)); }
+  .A { stroke:var(--a); fill:none; stroke-width:2; }
+  .B { stroke:var(--b); fill:none; stroke-width:2; stroke-dasharray:5 4; }
+  .mA { fill:var(--a); stroke:var(--panel); stroke-width:1; }
+  .mB { fill:none; stroke:var(--b); stroke-width:2.5; }
+  .mX { fill:none; stroke:var(--extra); stroke-width:2.5; }
+  .lab { fill:var(--fg); font-size:calc(12px * var(--label-scale, 1)); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Same samples, different motion</h1>
+  <p>A dot goes round a unit circle. A camera records where it is at fixed moments. Two candidate motions are fixed throughout: <strong style="color:var(--a)">A makes 1 turn per second</strong> (filled circles) and <strong style="color:var(--b)">B makes 11 turns per second</strong> (open squares). The controls change only the camera.</p>
+  <p class="muted">Before you reveal anything: at 10 photographs per second, could the camera tell A from B? What one extra photograph would settle it?</p>
+
+  <div class="views">
+    <svg id="circle" viewBox="0 0 300 300" role="img" aria-labelledby="circleTitle"><title id="circleTitle">Where each candidate is at each photograph</title></svg>
+    <svg id="trace" viewBox="0 0 420 300" role="img" aria-labelledby="traceTitle"><title id="traceTitle">Measured coordinate against time for one second</title></svg>
+  </div>
+
+  <div id="verdict" role="status" aria-live="polite"></div>
+
+  <div class="controls">
+    <label>Camera rate: <output id="rateOut"></output> photographs per second
+      <input id="rate" type="range" min="5" max="24" step="1"></label>
+    <label><input id="extra" type="checkbox"> Add one photograph at t = 0.05 s</label>
+    <label><input id="horizontal" type="checkbox"> Camera sees horizontal position only</label>
+    <label><input id="reveal" type="checkbox"> Reveal both motions between photographs</label>
+    <div><button id="reset" type="button">Reset</button></div>
+  </div>
+
+  <details>
+    <summary>The mathematics, when you want it</summary>
+    <p>Position at time t for f turns per second is (cos 2πft, sin 2πft). At t = n/10 the two angles differ by 2πn, a whole number of turns, so every photograph agrees. At t = 0.05 s the angles differ by π, so the dots are opposite and 2 radii apart. This distinguishes these two candidates; it does not identify an arbitrary motion.</p>
+  </details>
+  <details>
+    <summary>Self-check of this page</summary>
+    <p class="muted">Expected values below were derived by hand and are compared with the marks actually drawn.</p>
+    <pre id="check"></pre>
+  </details>
+</main>
+
+<script>
+"use strict";
+// 1. Pure model. No DOM, no clamping of bad input into a plausible answer.
+const WORLD = Object.freeze({ A: 1, B: 11 });           // turns per second; never changed by a control
+const TOL = 1e-9;                                        // fixed before any comparison
+function position(f, t) {
+  if (!Number.isFinite(f) || !Number.isFinite(t)) throw new RangeError("frequency and time must be finite");
+  const angle = 2 * Math.PI * f * t;
+  return { x: Math.cos(angle), y: Math.sin(angle) };
+}
+function sampleTimes(rate, extra) {
+  if (!Number.isInteger(rate) || rate < 1) throw new RangeError("rate must be a positive integer");
+  const times = Array.from({ length: rate }, (_, n) => ({ t: n / rate, extra: false }));
+  if (extra) times.push({ t: 0.05, extra: true });
+  return times.sort((p, q) => p.t - q.t);
+}
+function compare(state) {
+  return sampleTimes(state.rate, state.extra).map(({ t, extra }) => {
+    const a = position(WORLD.A, t), b = position(WORLD.B, t);
+    const gap = state.horizontal ? Math.abs(a.x - b.x) : Math.hypot(a.x - b.x, a.y - b.y);
+    return { t, extra, a, b, gap, differs: gap > 1e-6 };
+  });
+}
+
+// 2. One state object. Reset restores exactly this.
+const START = Object.freeze({ rate: 10, extra: false, horizontal: false, reveal: false });
+let state = { ...START };
+
+// 3. Render reads state and the model, nothing else.
+const NS = "http://www.w3.org/2000/svg";
+const $ = (id) => document.getElementById(id);
+function el(parent, name, attrs, text) {
+  const node = document.createElementNS(NS, name);
+  for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+  if (text !== undefined) node.textContent = text;
+  parent.appendChild(node);
+  return node;
+}
+const C = { cx: 150, cy: 150, r: 115 };                  // circle view: model (x,y) -> pixels
+const toCircle = (p) => ({ x: C.cx + C.r * p.x, y: C.cy - C.r * p.y });
+const T = { x0: 44, x1: 404, yMid: 150, amp: 110 };      // trace view: (t, value) -> pixels
+const toTrace = (t, v) => ({ x: T.x0 + (T.x1 - T.x0) * t, y: T.yMid - T.amp * v });
+
+// SVG viewBox scaling must not shrink labels below their readable screen size.
+// This changes text size only; all model-to-diagram coordinates stay fixed.
+function fitLabels(svg) {
+  const matrix = svg.getScreenCTM();
+  if (!matrix) return;
+  const scale = Math.hypot(matrix.a, matrix.b);
+  if (Number.isFinite(scale) && scale > 0) {
+    svg.style.setProperty("--label-scale", Math.max(1, 1 / scale));
+  }
+}
+
+function render() {
+  const rows = compare(state);
+  $("rate").value = state.rate; $("rateOut").textContent = state.rate;
+  $("extra").checked = state.extra; $("horizontal").checked = state.horizontal; $("reveal").checked = state.reveal;
+
+  const circle = $("circle"); circle.replaceChildren(circle.querySelector("title"));
+  el(circle, "circle", { cx: C.cx, cy: C.cy, r: C.r, class: "axis" });
+  el(circle, "line", { x1: C.cx - C.r - 12, y1: C.cy, x2: C.cx + C.r + 12, y2: C.cy, class: "axis" });
+  el(circle, "line", { x1: C.cx, y1: C.cy - C.r - 12, x2: C.cx, y2: C.cy + C.r + 12, class: "axis" });
+  for (const row of rows) {
+    const a = toCircle(state.horizontal ? { x: row.a.x, y: 0 } : row.a);
+    const b = toCircle(state.horizontal ? { x: row.b.x, y: 0 } : row.b);
+    el(circle, "rect", { x: b.x - 7, y: b.y - 7, width: 14, height: 14, class: row.extra ? "mX" : "mB", "data-world": "B", "data-t": row.t });
+    el(circle, "circle", { cx: a.x, cy: a.y, r: 4.5, class: "mA", "data-world": "A", "data-t": row.t });
+  }
+  el(circle, "text", { x: 8, y: 18, class: "lab" }, state.horizontal ? "Horizontal position only" : "Full position on the circle");
+
+  const trace = $("trace"); trace.replaceChildren(trace.querySelector("title"));
+  el(trace, "line", { x1: T.x0, y1: T.yMid, x2: T.x1, y2: T.yMid, class: "axis" });
+  el(trace, "line", { x1: T.x0, y1: T.yMid - T.amp, x2: T.x0, y2: T.yMid + T.amp, class: "axis" });
+  for (const v of [-1, 0, 1]) el(trace, "text", { x: 30, y: toTrace(0, v).y + 4, class: "tick", "text-anchor": "end" }, v);
+  for (const t of [0, 0.5, 1]) el(trace, "text", { x: toTrace(t, 0).x, y: 285, class: "tick", "text-anchor": "middle" }, t + " s");
+  el(trace, "text", { x: T.x0 + 6, y: 18, class: "lab" }, "Horizontal coordinate against time");
+  if (state.reveal) {
+    for (const [name, f] of Object.entries(WORLD)) {
+      const pts = Array.from({ length: 1201 }, (_, i) => { const t = i / 1200; const p = toTrace(t, position(f, t).x); return p.x.toFixed(2) + "," + p.y.toFixed(2); });
+      el(trace, "polyline", { points: pts.join(" "), class: name });
+    }
+  }
+  for (const row of rows) {
+    const a = toTrace(row.t, row.a.x), b = toTrace(row.t, row.b.x);
+    el(trace, "rect", { x: b.x - 6, y: b.y - 6, width: 12, height: 12, class: row.extra ? "mX" : "mB" });
+    el(trace, "circle", { cx: a.x, cy: a.y, r: 4, class: "mA" });
+  }
+
+  const differing = rows.filter((row) => row.differs);
+  const largest = Math.max(...rows.map((row) => row.gap));
+  const what = state.horizontal ? "horizontal positions" : "positions";
+  $("verdict").textContent = differing.length === 0
+    ? `All ${rows.length} photographs show the same ${what} for A and B. This camera cannot tell them apart.`
+    : `${differing.length} of ${rows.length} photographs differ; the largest gap is ${largest.toFixed(3)} radii. This camera separates these two candidates, and only these two.`;
+  fitLabels(circle);
+  fitLabels(trace);
+}
+
+// 4 and 5. Hand-derived expectations, checked against the model and the drawn marks.
+function selfCheck() {
+  const saved = { ...state }, lines = []; let ok = true;
+  const expect = (name, got, want) => { const pass = Math.abs(got - want) <= 1e-6; ok = ok && pass; lines.push(`${pass ? "pass" : "FAIL"}  ${name}: expected ${want}, observed ${Number(got.toFixed(6))}`); };
+  const drawn = (world, t) => {
+    const node = [...$("circle").querySelectorAll(`[data-world="${world}"]`)].find((n) => Math.abs(Number(n.dataset.t) - t) < TOL);
+    const px = world === "A" ? { x: +node.getAttribute("cx"), y: +node.getAttribute("cy") } : { x: +node.getAttribute("x") + 7, y: +node.getAttribute("y") + 7 };
+    return { x: (px.x - C.cx) / C.r, y: (C.cy - px.y) / C.r };
+  };
+  state = { ...START }; render();
+  expect("10 per second: photographs that differ", compare(state).filter((r) => r.differs).length, 0);
+  state = { ...START, extra: true }; render();
+  expect("extra photograph at 0.05 s: gap in radii", compare(state).find((r) => r.extra).gap, 2);
+  state = { ...START, rate: 12 }; render();
+  expect("12 per second, t = 1/12: gap in radii", compare(state)[1].gap, 1);
+  expect("drawn A at t = 1/12: x", drawn("A", 1 / 12).x, Math.sqrt(3) / 2);
+  expect("drawn A at t = 1/12: y", drawn("A", 1 / 12).y, 0.5);
+  expect("drawn B at t = 1/12: y", drawn("B", 1 / 12).y, -0.5);
+  expect("12 per second: photographs that differ (all but n = 0 and 6)", compare(state).filter((r) => r.differs).length, 10);
+  state = { ...START, rate: 12, horizontal: true }; render();
+  expect("12 per second, horizontal only: photographs that differ", compare(state).filter((r) => r.differs).length, 0);
+  expect("candidate frequencies untouched by controls", WORLD.A * 100 + WORLD.B, 111);
+  state = saved; render();
+  $("check").textContent = lines.join("\n") + `\n\n${ok ? "All checks passed." : "A CHECK FAILED - do not rely on this page."}`;
+  return { ok, lines };
+}
+
+$("rate").addEventListener("input", (e) => { state.rate = Number(e.target.value); render(); });
+for (const key of ["extra", "horizontal", "reveal"]) $(key).addEventListener("change", (e) => { state[key] = e.target.checked; render(); });
+$("reset").addEventListener("click", () => { state = { ...START }; render(); });
+render();
+window.__selfCheck = selfCheck();
+const labelObserver = new ResizeObserver((entries) => {
+  for (const entry of entries) fitLabels(entry.target);
+});
+labelObserver.observe($("circle"));
+labelObserver.observe($("trace"));
+</script>
+</body>
+</html>

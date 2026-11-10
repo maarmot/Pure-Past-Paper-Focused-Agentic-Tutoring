@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "kind": "question-bank",
+  "items": [],
+  "template_notice": "Template only. Remove this notice when the bank holds real items. Add a problem when the learner first meets it, never in advance on their behalf. A recall rating is the learner's own word, and next_review is a planning date that nothing enforces."
+}

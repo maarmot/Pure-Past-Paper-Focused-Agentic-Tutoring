@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+capability-audit.json
+
+# Local records and build output belong outside the published skill.
+records/
+output/
+media/
+.venv/
+.pytest_cache/
+docs/PR-HANDOFF.md
+.env
+.env.*
