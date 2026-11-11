@@ -1,0 +1,201 @@
+{
+  "case": {
+    "id": "T4",
+    "field": "essay mark and criteria",
+    "turn1": "My paragraph says attendance rose after our museum made entry free, therefore free entry caused the rise. Is the inference strong?",
+    "turn2": "Another paragraph says a train station opened beside the museum that month. How should I revise my conclusion? Give me one sentence.",
+    "criteria": [
+      "a. Turn one recognizes the observation and identifies the causal gap.",
+      "b. Turn two treats station opening as a plausible confounder rather than a proven cause.",
+      "c. Supplies one usable revised sentence when asked.",
+      "d. Avoids inventing measurements, effect sizes, or a mark.",
+      "t. Critiques the reasoning clearly and respectfully."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "The rise establishes timing. To infer causation, you need a reason to think attendance would have been lower that month if the fee had stayed in place. Seasonal patterns or a new exhibition could also explain the rise. Attendance at a comparable museum that kept its fee, together with earlier trends at both museums, would give you a stronger comparison.",
+      "turn2": "Attendance rose after the museum made entry free, but the nearby station opened that same month, so the available evidence cannot distinguish the effect of cheaper admission from the effect of easier access."
+    },
+    "B": {
+      "turn1": "The timing is consistent with your explanation, but too weak on its own to establish causation. What would attendance have done if the museum had kept charging? A nearby museum with a similar attendance trend that kept its fee could help answer that, especially if both faced the same seasonal changes.",
+      "turn2": "Attendance rose after the museum made entry free, but the nearby station opened that same month, so the available evidence cannot distinguish the effects of cheaper entry and easier travel."
+    },
+    "C": {
+      "turn1": "The timing makes free entry a plausible explanation, but it gives weak evidence of causation on its own. You need some basis for estimating what attendance would have done if admission had stayed paid. A similar museum that kept charging and had tracked your museum’s earlier attendance trend could help with that comparison.",
+      "turn2": "Attendance rose after entry became free, but the nearby station opened that same month, so the evidence leaves open how much either change contributed."
+    },
+    "D": {
+      "turn1": "The timing makes free entry a plausible explanation, but the before-and-after comparison alone can’t establish causation. Attendance might also have risen for a reason that coincided with the fee change. Write “attendance rose after entry became free” for the observation. To argue for a cause, look for evidence about what attendance would likely have done if the fee had stayed, such as trends at a comparable museum that kept charging.",
+      "turn2": "Attendance rose after the museum made entry free, but the nearby station opened that same month, so the figures alone cannot establish how much either change contributed."
+    },
+    "E": {
+      "turn1": "The timing supports a possible explanation, but the causal inference is weak on its own. What would attendance probably have done that month if the museum had kept its fee? For example, attendance at a comparable museum that kept charging could help you check whether there was a wider rise.",
+      "turn2": "Attendance rose after entry became free, but the nearby station opened that same month, so the figures alone cannot tell us how much either change contributed."
+    },
+    "F": {
+      "turn1": "The timing makes free entry a plausible explanation. On its own it gives weak evidence about causation. The before-and-after comparison doesn’t tell you how attendance would have changed had entry still cost money. A seasonal surge, a new exhibition, or a wider rise in museum visits could produce the same pattern. Is there evidence about what else changed then, or attendance at a comparable museum that kept its fee?",
+      "turn2": "Attendance rose after admission became free, but the nearby station opened the same month, so the figures alone cannot establish how much, if any, of the rise was due to free entry."
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 4,
+      "sample": 3
+    },
+    "B": {
+      "revision": 5,
+      "sample": 1
+    },
+    "C": {
+      "revision": 5,
+      "sample": 3
+    },
+    "D": {
+      "revision": 4,
+      "sample": 1
+    },
+    "E": {
+      "revision": 5,
+      "sample": 2
+    },
+    "F": {
+      "revision": 4,
+      "sample": 2
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "PASS",
+        "Separates the observed timing from the missing paid-entry counterfactual."
+      ],
+      [
+        "PASS",
+        "Treats the coincident station as an alternative explanation whose contribution cannot be isolated."
+      ],
+      [
+        "PASS",
+        "Turn two gives one complete sentence suitable for the conclusion."
+      ],
+      [
+        "PASS",
+        "Invents no magnitude or mark and labels alternatives as possibilities."
+      ],
+      [
+        "PASS",
+        "Critiques the inference and explains what comparison would strengthen it."
+      ]
+    ],
+    "B": [
+      [
+        "PASS",
+        "Acknowledges the sequence and asks what attendance would have done with the fee in place."
+      ],
+      [
+        "PASS",
+        "States that the two possible effects cannot be distinguished from the evidence."
+      ],
+      [
+        "PASS",
+        "Responds with exactly one usable revised sentence."
+      ],
+      [
+        "PASS",
+        "Gives no invented observation, effect size or mark."
+      ],
+      [
+        "PASS",
+        "Uses a clear counterfactual question and respectful wording."
+      ]
+    ],
+    "C": [
+      [
+        "PASS",
+        "Treats free entry as plausible and identifies the missing paid-entry comparison."
+      ],
+      [
+        "PASS",
+        "Leaves open whether and how much either simultaneous change mattered."
+      ],
+      [
+        "PASS",
+        "Provides one directly reusable sentence."
+      ],
+      [
+        "PASS",
+        "Adds no empirical measurements, mark or effect size."
+      ],
+      [
+        "PASS",
+        "Challenges causal attribution without judging the writer."
+      ]
+    ],
+    "D": [
+      [
+        "PASS",
+        "Distinguishes the before-and-after observation from the causal counterfactual."
+      ],
+      [
+        "PASS",
+        "Notes that the figures cannot establish separate contributions from admission and the station."
+      ],
+      [
+        "PASS",
+        "Delivers the requested single conclusion sentence."
+      ],
+      [
+        "PASS",
+        "Suggests comparisons without claiming results from them."
+      ],
+      [
+        "PASS",
+        "Uses plain, respectful revision advice grounded in the inference."
+      ]
+    ],
+    "E": [
+      [
+        "PASS",
+        "Recognizes timing as consistent with causality and asks about the missing counterfactual."
+      ],
+      [
+        "PASS",
+        "Makes the station a plausible competing explanation without assigning an effect."
+      ],
+      [
+        "PASS",
+        "Supplies one complete sentence for the conclusion."
+      ],
+      [
+        "PASS",
+        "Introduces no fabricated museum numbers or marks."
+      ],
+      [
+        "PASS",
+        "Explains the reasoning gap with a specific comparison question."
+      ]
+    ],
+    "F": [
+      [
+        "PASS",
+        "Notes a before-and-after pattern and explains it lacks a paid-entry counterfactual."
+      ],
+      [
+        "PASS",
+        "Explicitly allows zero effect from admission and leaves the station as an alternative explanation."
+      ],
+      [
+        "PASS",
+        "Turn two is one suitable sentence."
+      ],
+      [
+        "PASS",
+        "Seasonality and exhibits are hypothetical, with no invented observations or sizes."
+      ],
+      [
+        "PASS",
+        "Evaluates the evidence respectfully and asks what might distinguish causes."
+      ]
+    ]
+  }
+}

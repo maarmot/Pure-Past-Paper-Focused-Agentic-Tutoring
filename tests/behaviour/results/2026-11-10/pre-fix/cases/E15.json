@@ -1,0 +1,223 @@
+{
+  "case": {
+    "id": "E15",
+    "field": "cross-field transfer",
+    "msg": "I'm fine at mechanics but my history essays keep getting 'assertion without support' in the margins. Will my physics habits help?",
+    "criteria": [
+      "a. Says which habits can carry and that they carry only when made explicit (for example stating assumptions, finding the first unsupported step, testing a claim against a counter-case).",
+      "b. Says what does not carry (content, conventions).",
+      "c. Promises no improvement and cites no invented study or number.",
+      "d. Offers one concrete next task on a real essay or paragraph of theirs.",
+      "e. Not bloated: FAIL if over about 350 words.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "context": "The synthetic project is preparing for a calculus exam on 2026-11-17. A reserved 2025 paper is off limits. Two reviews are due. The philosophy marking scheme has five levels; level 3 reads \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" No Manim or LaTeX is available in the fixture. Tutor work is read-only.",
+  "key": {
+    "W": {
+      "revision": 4,
+      "sample": 2,
+      "tutor_result_line": 147
+    },
+    "X": {
+      "revision": 5,
+      "sample": 2,
+      "tutor_result_line": 145
+    },
+    "Y": {
+      "revision": 4,
+      "sample": 1,
+      "tutor_result_line": 141
+    },
+    "Z": {
+      "revision": 5,
+      "sample": 1,
+      "tutor_result_line": 131
+    }
+  },
+  "replies": [
+    {
+      "label": "W",
+      "turn_1": "Partly, yes. Your physics habits cover about half of what \"assertion without support\" is asking for. The other half is new.\n\n**What carries over.** In a physics solution you'd never write \"so v = 12 m/s\" without showing which relation you used and where the numbers came from. A history essay needs the same discipline. Each claim should have something under it that a reader can check. You're also already used to asking \"what does this step assume?\", and that is how you find a weak link in an argument.\n\n**What doesn't carry over.** There are two differences.\n- In physics, the equation is the support. In history, the support is evidence (a source, a date, a figure, an event) plus a sentence that explains why that evidence bears on your claim. Markers often call that sentence the warrant. The most common cause of that margin note is a paragraph with a claim and some evidence but no warrant. The reader has to guess the link.\n- A physics answer can be checked against a right answer. A historical claim is judged against rival explanations. \"Support\" therefore includes saying why your reading beats the obvious alternative, and not only that it is plausible. A line like \"this is a strong reading because X, though Y could suggest otherwise\" is what turns an assertion into an argument.\n\nA quick test you can run on any paragraph is to point at each sentence and ask \"says who, and so what?\" If you can't point to evidence for the \"says who\" and a link for the \"so what\", that sentence is an assertion.\n\nI'd rather work from your real essays than from my examples. Could you paste one paragraph that got the \"assertion without support\" comment, along with the comment as written? I'll find the first sentence where the support runs out. I'll tell you what I see there, and then you can repair it yourself, which will teach you more than my rewriting it. Then I'll give you a different paragraph to try the same fix on.\n\nIf you'd rather have the full explanation first, with a worked before-and-after paragraph, say so and I'll give you that instead.",
+      "words": 366
+    },
+    {
+      "label": "X",
+      "turn_1": "Possibly, but only the part that gets made explicit, and I can't promise it will carry over. Being good at mechanics doesn't by itself improve history essays, and I haven't seen any of your history writing yet, so I can't say it will.\n\n\"Assertion without support\" means a claim sits there with nothing connecting it to evidence. A physics solution can't get away with that, because every line has to follow from the ones before it. Some of that habit transfers if you apply it on purpose:\n\n- Separate three things: the claim, the evidence, and the link that says why the evidence shows the claim. Margin comments like yours usually mean the link is missing, not the evidence.\n- Find the first step that doesn't follow from what came before, the way you would in a worked solution.\n- Test the claim against a counterexample, the way you'd test a formula at a limiting case.\n\nContent knowledge, essay conventions and marking habits don't carry over. Method-mark thinking in particular doesn't fit an essay, which is marked by best fit against criteria.\n\nNext move: paste one paragraph that got \"assertion without support\", with the question it answers and the margin comment. I'll point to the exact sentence where the support runs out and what it would need. You then fix it yourself, and I'll give you a different question to try cold.\n\nIf you have the history marking criteria or rubric, paste those too. I can only comment on how a paragraph fits a band once I can see the wording.",
+      "words": 261
+    },
+    {
+      "label": "Y",
+      "turn_1": "Partly, yes. Some of your physics habits carry over and one important one doesn't. I'm working from what you've told me and haven't seen your essays, so treat this as a hypothesis until I do.\n\n**What should carry over**\n- **Showing every step.** In physics you lose marks for a line that doesn't follow from the one before. In an essay, \"assertion without support\" usually means the same thing: the reader can't see how you got from your evidence to your claim.\n- **Stating assumptions.** \"Assuming no friction\" has a history equivalent: \"if we trust this source's account of events...\" or \"taking 'cause' to mean the main trigger, not a precondition.\"\n- **Sanity-checking a result.** You'd test an answer against a limiting case. For a claim, ask what would have to be true if it's right, and whether the evidence you cite shows that.\n\n**What doesn't carry over**\n- In physics the data is given and a wrong step can be checked against an answer. In history you choose the evidence, and the evidence is partial and open to dispute. So a fact placed next to your claim isn't support. The support is the sentence that explains why this evidence, from this source, makes your claim more believable than the alternative. That link is the step markers most often find missing.\n- A physics derivation ends when it reaches the result. An essay claim also has to face the best counter-reading, so support includes saying why you reject it.\n\nA rough translation is claim = result, evidence = given values, and the explaining sentence between them = the algebra line you'd never skip.\n\nThe most useful next step is to look at a real example. Paste one paragraph that got the \"assertion without support\" comment, along with the margin note if you can. I'll find the first point where the argument jumps and ask you to repair it yourself. I won't rewrite it for you unless you ask. If you'd rather have a worked example of a supported paragraph first, say so and I'll give one straight away.",
+      "words": 348
+    },
+    {
+      "label": "Z",
+      "turn_1": "Maybe, but I can't promise it, and nothing so far shows it. A few physics habits do carry to essays, but only when you apply them on purpose. Others don't carry at all.\n\nThe habits that can carry are the ones about structure. A physics solution lists its assumptions and doesn't let a line stand without a reason. \"Assertion without support\" is the same failure in an essay: a claim with nothing under it. The same applies to separating a claim from its evidence and from the link between them. If your marker writes that in the margin, the evidence may be missing, or it may be there without the sentence that explains why it supports the claim. Testing a claim against a counterexample is also the essay version of checking a formula at a limit.\n\nOther things won't carry. Your formulas, your problem types, and the habit of earning marks step by step don't transfer. Essays are marked by best fit against criteria, so a tally of correct steps doesn't apply.\n\nThe quickest way to find out is to look at one real case. Paste a paragraph that got \"assertion without support\", along with the margin comment and the essay question. I'll read it as a whole and tell you what holds. Then I'll point to the one sentence where a claim is standing without support, and you can try to repair it yourself.\n\nWhich paragraph will you start with? If you have the marker's criteria for history, paste those too, and I'll use them as the basis for judging the paragraph.",
+      "words": 263
+    }
+  ],
+  "grading": {
+    "grades": [
+      {
+        "label": "W",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PARTIAL",
+            "reason": "Names showing the relation used and asking 'what does this step assume?', but never says these carry only when applied deliberately; it presents the transfer as already in place ('You're also already used to')."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "The 'What doesn't carry over' section says the equation is not the support in history and that claims are judged against rival explanations, not a right answer, which covers conventions, though content knowledge is not named."
+          },
+          {
+            "id": "c",
+            "verdict": "PARTIAL",
+            "reason": "No outright promise or study, but it opens with 'Partly, yes' and the invented quantity 'cover about half', and asserts 'The most common cause of that margin note' with no basis."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Asks the learner to paste one paragraph that got the comment, with the comment as written, and says it will find the first sentence where support runs out for the learner to repair."
+          },
+          {
+            "id": "e",
+            "verdict": "PARTIAL",
+            "reason": "At 366 words it sits slightly past the 350 mark, with a 'says who, and so what' test and a closing alternative offer that could have been cut."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Addresses the work and not the person, with no ability praise or minimising words, and is neither curt nor preachy."
+          }
+        ],
+        "worst_problem": "Overstates transfer with the unsupported 'about half' and never says the habits carry only when applied on purpose; it is also slightly over length."
+      },
+      {
+        "label": "X",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Says 'only the part that gets made explicit' and 'if you apply it on purpose', then lists separating claim, evidence and link, finding the first step that doesn't follow, and testing against a counterexample."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "States that 'Content knowledge, essay conventions and marking habits don't carry over' and that method-mark thinking does not fit an essay."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Says 'I can't promise it will carry over' and that it has not seen any history writing; it cites no study or number, though 'usually mean the link is missing' is an unsupported generalisation."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Asks for one paragraph that got the comment, with the question and margin note, and says it will point to the exact sentence for the learner to fix."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "261 words, and every paragraph does work."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Plain and direct about limits without being curt, with no praise, minimising or lecturing."
+          }
+        ],
+        "worst_problem": "The claim that such margin comments 'usually mean the link is missing, not the evidence' is asserted without having seen the essay."
+      },
+      {
+        "label": "Y",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PARTIAL",
+            "reason": "Lists showing every step, stating assumptions and limiting-case checks, but says they 'should carry over' and frames the whole as a hypothesis, without saying they carry only when made explicit."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "The 'What doesn't carry over' section says evidence is chosen and disputable, not given, and that an essay claim must face the best counter-reading, which covers conventions; content is not named."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Hedges with 'treat this as a hypothesis until I do' and cites no study or number, though 'Partly, yes' and 'the step markers most often find missing' lean confident."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Asks for one paragraph that got the comment plus the margin note, and says it will find the first jump and ask the learner to repair it."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "348 words is within the limit, though only narrowly, and it is the densest of the four."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Criticises nothing about the person, uses no praise or minimising words, and keeps an even tone."
+          }
+        ],
+        "worst_problem": "Never says the transfer depends on applying the habits deliberately; the 'claim = result, evidence = given values' mapping also sits awkwardly beside its own point that history evidence is not given."
+      },
+      {
+        "label": "Z",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Says habits carry 'only when you apply them on purpose' and names listing assumptions, not letting a line stand without a reason, separating claim, evidence and link, and counterexample testing."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Says 'Your formulas, your problem types, and the habit of earning marks step by step don't transfer' and that essays are marked by best fit against criteria."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Opens with 'Maybe, but I can't promise it, and nothing so far shows it' and cites no study or number."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Asks for a paragraph that got the comment, with the margin note and essay question, and says it will point to the one unsupported sentence for the learner to repair."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "263 words with no padding."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Honest about uncertainty without being curt, and says it will tell the learner what holds before pointing to the gap; no praise or minimising."
+          }
+        ],
+        "worst_problem": "The carry-over paragraph is dense prose and does not name 'find the first unsupported step' as a habit the learner can run themselves; this is minor."
+      }
+    ],
+    "maths_or_facts_errors": "No mathematical or physics errors in any reply. W: 'cover about half' is an invented quantification, and 'The most common cause of that margin note' is an unsupported empirical claim. X and Y make similar unsupported frequency claims without numbers ('usually mean the link is missing'; 'the step markers most often find missing'). Y: the mapping 'evidence = given values' is in mild tension with its own statement that history evidence is chosen, not given. X and Z: 'marked by best fit against criteria' is a reasonable description of levels-based marking but was asserted for history without seeing the history criteria; both then ask for those criteria."
+  },
+  "lineage": {
+    "grader_started_line": 182,
+    "grader_result_line": 192,
+    "grade_results_for_label": 1
+  },
+  "counts": {
+    "4": {
+      "PARTIAL": 4,
+      "PASS": 8
+    },
+    "5": {
+      "PASS": 12
+    }
+  }
+}

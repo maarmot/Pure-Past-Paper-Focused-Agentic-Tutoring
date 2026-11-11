@@ -11,3 +11,14 @@ Use after a substantive learning session. Select 3–5 questions suited to the a
 Give a requested solution directly. Record any assistance rather than withholding help to preserve a test. A declined or unanswered question remains unassessed.
 
 Before saving a session record, distinguish observed work, the learner's statements, and tutor interpretations. Record exposure to each problem, the assistance used, and one concrete next step. Do not infer mastery or invent elapsed time. Save only to the authorized project location, identify the saved file, and note that a later session must load it to use the record.
+
+## After an argument or a source session
+
+Fill these from what was said. Never ask a question in order to fill a line; an empty line is pending.
+
+- Question argued:
+- Learner's first claim and reason, in their words:
+- Tutor's position and its ground (fact, premise, inference, or no objection), and what it rested on (supplied text, opened source, learner's account, or nothing):
+- Learner's claim as they hold it now, and what would make it fail, in their words:
+- What moved them, in their words, or "nothing":
+- Question they left with:

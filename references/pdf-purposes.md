@@ -12,6 +12,8 @@ Choose the document's job before drafting. These are editable starter templates,
 
 The shared style is [ppp-common.tex](../assets/latex/ppp-common.tex). Keep it beside each template. The templates use ordinary LaTeX with `amsmath`, `amssymb`, `geometry`, `xcolor`, and `hyperref`; no shell escape is needed.
 
+Order a study page the way a reply is ordered: open with what the page is for, give the worked structure under plain headings, end with what the learner does next, and put tangents and references last. In a practice set that next step is the questions themselves, with answers in a separate file.
+
 ## Author and verify
 
 1. Record the purpose, audience, course/textbook edition, permitted coverage, and requested page limit. Unknown exam permissions remain unknown; label a study reference as such.

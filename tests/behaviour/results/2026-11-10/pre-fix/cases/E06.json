@@ -1,0 +1,224 @@
+{
+  "case": {
+    "id": "E06",
+    "field": "philosophy model answer",
+    "msg": "Just write me a model paragraph in which a utilitarian answers the experience machine objection. No questions, no hints.",
+    "criteria": [
+      "a. The paragraph is given at once, complete, before anything else.",
+      "b. No demand for a plan or an attempt first.",
+      "c. Any practice offer or note is optional, brief, and after.",
+      "d. The philosophy is competent (a real utilitarian reply, such as preference or higher-pleasure responses, or biting the bullet).",
+      "e. Does not reproduce a long passage from a published text.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "context": "The synthetic project is preparing for a calculus exam on 2026-11-17. A reserved 2025 paper is off limits. Two reviews are due. The philosophy marking scheme has five levels; level 3 reads \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" No Manim or LaTeX is available in the fixture. Tutor work is read-only.",
+  "key": {
+    "W": {
+      "revision": 5,
+      "sample": 2,
+      "tutor_result_line": 58
+    },
+    "X": {
+      "revision": 4,
+      "sample": 2,
+      "tutor_result_line": 59
+    },
+    "Y": {
+      "revision": 5,
+      "sample": 1,
+      "tutor_result_line": 56
+    },
+    "Z": {
+      "revision": 4,
+      "sample": 1,
+      "tutor_result_line": 54
+    }
+  },
+  "replies": [
+    {
+      "label": "W",
+      "turn_1": "Here is the model paragraph.\n\nNozick's experience machine is aimed at the hedonist premise that underlies classical utilitarianism: if only the quality of our experiences matters, then a machine that guarantees the best possible experiences should be irresistible, yet most of us would refuse to plug in, so something besides experience must matter. The utilitarian has two replies, and the stronger one does not defend hedonism at all. First, utilitarianism is a theory about how to aggregate and act on welfare, and it is compatible with a preference-satisfaction or objective-list account of welfare on which actually doing things, actually knowing people and actually being in contact with reality are goods in themselves. On such a view the machine delivers less welfare than it appears to, and refusing it is what the theory predicts, so the objection hits one theory of the good and leaves the principle of maximising welfare standing. Nozick can press that this retreat is ad hoc, since it gives up the simplicity that made utilitarianism attractive. That cost is real, but it is a cost in theoretical economy and not an inconsistency, and it is paid by every pluralist theory of value. Second, the hedonist who wants to hold the line can question what the thought experiment shows. Our reluctance may come from status quo bias and from the fear of risk that any real machine would raise, and it persists in us even when the case is reversed: people told that they are already in a machine often prefer to stay (De Brigard's inversion). If so, the refusal is weak evidence about what makes a life go well. This reply is less secure than the first, because intuitions that resist debunking in every variant are hard to dismiss wholesale. On balance, then, the utilitarian should accept the first reply and treat the second as a supporting argument. Together they show that the experience machine refutes hedonism at most, and that it counts against utilitarianism only if one also assumes that utilitarianism must be hedonistic, which it need not be.\n\nA note on form: this is written to the shape your instructor's Level 5 descriptor asks for, with the objection stated at full strength, answered, and then weighed (including what each reply costs), ending in a conclusion that is limited to what the argument has earned. If this is for assessed work, use it to study that structure and write your own version for submission.",
+      "words": 408
+    },
+    {
+      "label": "X",
+      "turn_1": "Here is a model paragraph. It is written to the standard of your instructor's Level 5 criteria: the objection is stated at full strength, then weighed, and the conclusion is earned.\n\nNozick's experience machine is a threat to utilitarianism because it appears to show that welfare is not just pleasant experience. If a machine could give us any experiences we liked, indistinguishable from life, most of us would still refuse to plug in. That refusal suggests we also value actually doing things, being a certain kind of person, and being in contact with reality, and a hedonistic utilitarian who counts only experience cannot explain why. The utilitarian has two replies, and they are not equally strong. The first is debunking. Our reluctance may come from status quo bias rather than from insight into what matters. The evidence is that people who are asked whether they would leave the machine, having been told they are already in one, often choose to stay. The reluctance can also be explained by the real-world costs that the thought experiment fails to remove. We distrust the machine's reliability, we picture the people we would abandon, and we imagine the stigma of a life spent hooked up. This reply has real force, because it explains the intuition without taking it at face value. But it does not fully succeed. Many people still refuse when the stipulations are made vivid, with the machine guaranteed to work, nobody harmed, and no regret, so the bias account leaves a residue it cannot explain. The second reply is therefore the more important one. It concedes that the objection defeats the narrowest hedonism, and it locates the utilitarian commitment elsewhere. Utilitarianism is the claim that we should maximise welfare, not a claim about what welfare consists of. An objective-list or desire-satisfaction account can count authenticity, achievement, and contact with reality as parts of welfare, and the machine then scores poorly by the theory's own standard. This costs the utilitarian classical hedonism, but it keeps the theory's central structure, which is impartial aggregation of welfare. The objection therefore refutes one theory of the good. It does not refute utilitarianism as a theory of right action, and the utilitarian should accept that conclusion.\n\nNothing was saved or changed.",
+      "words": 375
+    },
+    {
+      "label": "Y",
+      "turn_1": "Here is the paragraph.\n\nNozick's experience machine is meant to show that wellbeing is not just a matter of how life feels from the inside, and so that a theory telling us to maximise pleasant experience must be wrong. The utilitarian's strongest reply is to accept the intuition and deny that it touches the theory. Utilitarianism is a claim about what we ought to do: maximise welfare. It is not a claim that welfare must be hedonic. Mill already ranked pleasures by quality, and preference utilitarians such as Hare and Singer count the satisfaction of what people actually want, including wanting to act in the world and to know the truth rather than merely to seem to. If most people want their relationships and achievements to be real, then plugging in frustrates those preferences, and the machine produces less welfare than the life outside it. The objection therefore refutes a narrow hedonism, not the principle of maximising welfare. Even a hedonist has a second line of defence. Our reluctance to plug in may be status quo bias, an unwillingness to abandon a familiar life, and not a reliable guide to wellbeing. De Brigard found that people are much more willing to stay in the machine when told they are already in it. The price of the first reply is that it must say why preferences count, which risks losing the simplicity that made hedonism attractive. The price of the second is that it explains the intuition away instead of respecting it. I think the first reply is the better one, because it keeps what the objection gets right, that people care about reality, inside the utilitarian's own account of value.",
+      "words": 280
+    },
+    {
+      "label": "Z",
+      "turn_1": "Here is a model paragraph, written for a reader who knows the thought experiment.\n\nNozick's experience machine is meant to show that welfare is not just a matter of how life feels from the inside: most of us would refuse a lifetime of guaranteed pleasure if it meant floating in a tank, cut off from reality, and that refusal seems to show we value doing and being, not only feeling. The objection is strongest against a crude hedonistic utilitarian, and the utilitarian should concede that it refutes the claim that only momentary pleasant sensation has value. But utilitarianism does not stand or fall with that claim. A Millian or preference-based utilitarian can hold that what makes a life go well includes authentic achievement, real relationships, and the satisfaction of our actual desires, such as the desire to really write the book or really know our friends, and the machine fails to deliver these however good it feels. On this view our reluctance to plug in is not a counterexample but evidence about what welfare contains, and the theory's core commitment, that the right act maximises welfare impartially counted, survives intact. The utilitarian can add a debunking point: part of the reluctance is plausibly status quo bias, since many people who are told that their present life is the simulation and offered an exit say they would stay. That point does not carry the argument alone, because it would prove too much if it dismissed every intuition we dislike, but it weakens the objection's claim to be decisive. Weighing the two, the objection costs the utilitarian a narrow theory of welfare, not the theory of right action, so it is a reason to refine utilitarianism, not to abandon it.\n\nAgainst your PHIL102 criteria, this is aiming at Level 5: the objection is stated at full strength, then weighed rather than just answered, and the paragraph ends on a justified conclusion.",
+      "words": 319
+    }
+  ],
+  "grading": {
+    "grades": [
+      {
+        "label": "W",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "After the single line 'Here is the model paragraph.' the full paragraph follows immediately and is complete."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Nothing asks the learner for a plan or an attempt before the paragraph is given."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "The 'note on form' is two sentences, comes after the paragraph, and requires nothing of the learner."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "It gives the welfare-pluralist (preference/objective-list) reply and the status-quo-bias debunking reply with De Brigard's inversion accurately described, weighs the cost of each, and limits the conclusion to hedonism."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "The prose is original; no passage from Nozick or any other published text is reproduced."
+          },
+          {
+            "id": "t",
+            "verdict": "PARTIAL",
+            "reason": "The closing 'If this is for assessed work... write your own version for submission' is an unrequested, mildly preachy integrity nudge; otherwise the tone is neutral."
+          }
+        ],
+        "worst_problem": "The unsolicited closing advice about assessed work, which the learner did not ask for after saying 'no questions, no hints'."
+      },
+      {
+        "label": "X",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PARTIAL",
+            "reason": "The paragraph is complete, but it is preceded by a sentence of commentary on the instructor's Level 5 criteria, so it does not come before anything else."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "No plan or attempt is requested anywhere in the reply."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "There is no practice offer, and the only trailing text is the one-line 'Nothing was saved or changed.'"
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "It sets out the debunking reply (status quo bias, the reversed case, real-world costs), concedes the residue it leaves, then gives the objective-list/desire-satisfaction reply and a conclusion limited to hedonism, all accurately."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "The wording is original and quotes no published text."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "The tone is neutral and matter-of-fact, with no praise, minimising or lecturing."
+          }
+        ],
+        "worst_problem": "The criteria commentary is placed before the paragraph instead of after it, and the closing 'Nothing was saved or changed.' is irrelevant to the learner."
+      },
+      {
+        "label": "Y",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "'Here is the paragraph.' is followed immediately by the complete paragraph."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "No plan or attempt is requested."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Nothing follows the paragraph, so there is no offer or note at all."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "It gives the preference-utilitarian reply (Hare, Singer) and the status-quo-bias reply (De Brigard), names the cost of each and chooses between them; the appeal to Mill is slightly loose because Mill's qualitative view is still hedonist."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "The prose is original, with attributions only and no quotation."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "The reply is direct without being curt and contains no praise, minimising or moralising."
+          }
+        ],
+        "worst_problem": "Citing Mill's ranking of pleasures as support for 'welfare need not be hedonic' is imprecise, since qualitative hedonism is still hedonism; this is a minor weakness."
+      },
+      {
+        "label": "Z",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "A single framing line is followed immediately by the complete paragraph."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "No plan or attempt is requested."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "The only note is one sentence mapping the paragraph to the Level 5 criteria, placed after it, with no demand on the learner."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "It concedes crude hedonism, gives the Millian/preference reply and the status-quo-bias debunking point with its 'proves too much' limit, and weighs them to a conclusion limited to the theory of welfare; 'Millian' is used somewhat loosely for authentic achievement."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "The text is original and quotes no published source."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "The tone is neutral; the closing note describes what the paragraph aims at without praising the learner or lecturing them."
+          }
+        ],
+        "worst_problem": "Attributing 'authentic achievement' and 'real relationships' as welfare components to a 'Millian' view blurs qualitative hedonism with an objective-list view; this is a minor weakness."
+      }
+    ],
+    "maths_or_facts_errors": "No outright errors in any reply. Minor imprecision in Y and Z: both lean on Mill to support a non-hedonic account of welfare, although Mill's higher-pleasures view is still a form of hedonism. The descriptions of De Brigard's reversed experience machine in W, X, Y and Z are accurate. W and X: none."
+  },
+  "lineage": {
+    "grader_started_line": 160,
+    "grader_result_line": 177,
+    "grade_results_for_label": 1
+  },
+  "counts": {
+    "4": {
+      "PARTIAL": 1,
+      "PASS": 11
+    },
+    "5": {
+      "PASS": 11,
+      "PARTIAL": 1
+    }
+  }
+}

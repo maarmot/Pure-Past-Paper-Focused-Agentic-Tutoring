@@ -10,6 +10,7 @@ python scripts/ppp_tools.py due path/to/question-bank.json --on 2026-11-09
 python scripts/ppp_tools.py check-captions path/to/captions.srt --media path/to/lesson.mp4
 python scripts/ppp_tools.py check-captions path/to/captions.srt --duration 285.3
 python scripts/ppp_tools.py media-info path/to/lesson.mp4 --require-video --require-audio --timeout 60
+python scripts/ppp_tools.py render-timing path/to/scene.py SceneName --manim "uv run manim"
 python -B -m unittest discover -s tests -p "test_*.py" -v
 ```
 
@@ -24,6 +25,8 @@ Validation, caption, and media commands return 0 when their applicable checks pa
 - `media-info` probes streams and decodes the entire file with FFmpeg. `--timeout` bounds each subprocess separately. Require audio/video explicitly for a finished narrated video; omit those requirements for intentional silent or audio-only artifacts. Presence of an audio stream does not prove intelligible or non-silent narration. Listening remains required.
 - `due` validates a question bank, then lists unprotected items whose `next_review` is on or before the day given (today by default), oldest first. It returns 0 whenever the bank is valid, including when nothing is due, and 1 for an invalid bank. It reads the file and schedules nothing.
 - Output is written as UTF-8 whatever the console code page, so a non-ASCII filename or source title cannot replace a finding with an encoding error.
+- `render-timing` times a final-sized PNG, a 480p MP4 preview and a 1080p MP4 of the requested scene with caching off. Pass an executable path (including spaces) or a launcher such as `--manim "uv run manim"`. Within a launcher string, quote arguments containing spaces using the platform's quoting convention. Each command runs without a shell. A timeout terminates the Windows job or POSIX process group containing the launcher and renderer. The time includes process startup and cleanup.
+- By default the CLI removes its temporary media. With `--keep DIR` it reports a fresh `kept_directory` beneath DIR for the attempt, including partial outputs if rendering fails. An attempt-specific copy of the current directory's Manim configuration routes Manim's output and caches into that directory, selects the requested input and renders its full animation range. Appearance and renderer settings carry through. The CLI clears the configured output filename so the generated names identify the scene Manim selected. Each successful run must exit zero and produce a nonempty final file named for the requested class under its own media directory. Partial movies and section clips do not count. The JSON reports the relative artifact path, command, return code, timeout status and wall time. Inspect and decode the files separately to verify their content.
 - `audit --output` is the only CLI mode that writes a report itself. Other modes print JSON; redirect it if a retained report is needed. It does not write into the media being checked.
 
 ## Session schema, version 1
@@ -62,6 +65,8 @@ Each event requires:
 
 An optional `inquiry` object holds `question`, `prediction`, `observation`, and `open_question`. Each is the learner's own words as a nonempty string, or null when they gave none; never fill one with a tutor's or agent's answer. A transfer task that was shown and not attempted is valid (`outcome: "not-attempted"`, `transfer: true`) and stands for a pending check.
 
+An optional `position` object records an argument ([argument and sources](argument.md)). `question`, `first_claim`, `first_reason`, `revised_claim`, `what_moved`, and `open_question` are the learner's own words or null; a revised claim needs a first claim. `tutor_position` is the tutor's stated position or null. `source_basis` is `supplied-text`, `opened-source`, `learner-account`, or `none`. Start from [the argument template](../assets/argument-session.template.json). Quote no passage from a source in a record.
+
 Record problem exposure, concepts, and diagnostic hypotheses as additional descriptive fields when useful. The validator permits extra fields but does not evaluate their meaning. It does not infer freshness, transfer quality, or mastery from the optional success flag. Read the actual work and prior exposure before making those claims.
 
 ## Question bank schema, version 1
@@ -78,6 +83,10 @@ Use `kind: "question-bank"`, `schema_version: 1`, and an `items` array. Start fr
 | `attempts` | Array in date order; each has `date`, `outcome` (`incorrect`, `partial`, `correct`), `assistance`, and `recall` |
 | `recall` | The learner's own rating `again`, `hard`, `good`, `easy`, or null when not asked |
 | `next_review` | `YYYY-MM-DD` not before the latest attempt, or null |
+
+Two optional attempt fields serve essay subjects and cross-subject work ([across fields](fields.md)). `band` holds a nonempty `estimate`, a nonempty `descriptor_source` naming the marking criteria, and an optional short `quoted` descriptor. Validation checks that the locator is present. Verify the actual criteria before estimating a band.
+
+For a first essay submission, identify an assessable target in the criteria, such as weighing a particular objection. Use `correct`, `partial`, or `incorrect` for the observed extent to which the paragraph demonstrates that target. Keep the overall band estimate in `band`. If a fair target has yet to be established, record qualitative feedback in the authorized journal and defer the bank outcome. An actual submission counts as attempted. On a retry, the agreed repair can serve as the assessable target. The optional `bridge` records the learner's words naming a move they have used before. It supplies context for a later transfer check.
 
 A protected item must be `unseen`, with no attempts and no review date. The validator cannot tell whether a rating was really the learner's or whether a review date is wise.
 

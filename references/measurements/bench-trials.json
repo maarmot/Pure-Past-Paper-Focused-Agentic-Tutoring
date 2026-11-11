@@ -1,0 +1,214 @@
+[
+  {
+    "label": "Tuned 1080p30 cache cold",
+    "scene": "TunedAliasing",
+    "times_s": [
+      9.56
+    ],
+    "video": {
+      "w": 1920,
+      "h": 1080,
+      "fps": "30/1",
+      "frames": 360,
+      "seconds": 12.0,
+      "kb": 582
+    }
+  },
+  {
+    "label": "Tuned 1080p30 cache warm",
+    "scene": "TunedAliasing",
+    "times_s": [
+      7.42,
+      7.35
+    ],
+    "video": {
+      "w": 1920,
+      "h": 1080,
+      "fps": "30/1",
+      "frames": 360,
+      "seconds": 12.0,
+      "kb": 582
+    }
+  },
+  {
+    "label": "Naive 1080p30 cache cold",
+    "scene": "NaiveAliasing",
+    "times_s": [
+      14.36
+    ],
+    "video": {
+      "w": 1920,
+      "h": 1080,
+      "fps": "30/1",
+      "frames": 360,
+      "seconds": 12.0,
+      "kb": 627
+    }
+  },
+  {
+    "label": "Naive 1080p30 cache warm",
+    "scene": "NaiveAliasing",
+    "times_s": [
+      11.81,
+      12.25
+    ],
+    "video": {
+      "w": 1920,
+      "h": 1080,
+      "fps": "30/1",
+      "frames": 360,
+      "seconds": 12.0,
+      "kb": 627
+    }
+  },
+  {
+    "label": "NaiveAliasing 480p15 no-cache",
+    "scene": "NaiveAliasing",
+    "times_s": [
+      8.08,
+      7.93
+    ],
+    "video": {
+      "w": 854,
+      "h": 480,
+      "fps": "15/1",
+      "frames": 180,
+      "seconds": 12.0,
+      "kb": 185
+    }
+  },
+  {
+    "label": "NaiveAliasing 1080p30 no-cache",
+    "scene": "NaiveAliasing",
+    "times_s": [
+      14.22,
+      13.74
+    ],
+    "video": {
+      "w": 1920,
+      "h": 1080,
+      "fps": "30/1",
+      "frames": 360,
+      "seconds": 12.0,
+      "kb": 627
+    }
+  },
+  {
+    "label": "NaiveAliasing 1080p60 no-cache",
+    "scene": "NaiveAliasing",
+    "times_s": [
+      24.58
+    ],
+    "video": {
+      "w": 1920,
+      "h": 1080,
+      "fps": "60/1",
+      "frames": 720,
+      "seconds": 12.0,
+      "kb": 954
+    }
+  },
+  {
+    "label": "TunedAliasing 480p15 no-cache",
+    "scene": "TunedAliasing",
+    "times_s": [
+      4.92,
+      4.73
+    ],
+    "video": {
+      "w": 854,
+      "h": 480,
+      "fps": "15/1",
+      "frames": 180,
+      "seconds": 12.0,
+      "kb": 168
+    }
+  },
+  {
+    "label": "TunedAliasing 1080p30 no-cache",
+    "scene": "TunedAliasing",
+    "times_s": [
+      9.82,
+      9.48
+    ],
+    "video": {
+      "w": 1920,
+      "h": 1080,
+      "fps": "30/1",
+      "frames": 360,
+      "seconds": 12.0,
+      "kb": 582
+    }
+  },
+  {
+    "label": "TunedAliasing 1080p60 no-cache",
+    "scene": "TunedAliasing",
+    "times_s": [
+      15.46
+    ],
+    "video": {
+      "w": 1920,
+      "h": 1080,
+      "fps": "60/1",
+      "frames": 720,
+      "seconds": 12.0,
+      "kb": 876
+    }
+  },
+  {
+    "label": "Tuned 1080p30 opengl",
+    "scene": "TunedAliasing",
+    "times_s": [
+      13.85,
+      12.98
+    ],
+    "video": {
+      "w": 1920,
+      "h": 1080,
+      "fps": "30/1",
+      "frames": 360,
+      "seconds": 12.0,
+      "kb": 588
+    }
+  },
+  {
+    "label": "Naive 1080p30 opengl",
+    "scene": "NaiveAliasing",
+    "times_s": [
+      17.26
+    ],
+    "video": {
+      "w": 1920,
+      "h": 1080,
+      "fps": "30/1",
+      "frames": 360,
+      "seconds": 12.0,
+      "kb": 622
+    }
+  },
+  {
+    "label": "Tuned 1080p30 only animation 2 (-n 2,2)",
+    "scene": "TunedAliasing",
+    "times_s": [
+      7.42,
+      7.43
+    ],
+    "video": {
+      "w": 1920,
+      "h": 1080,
+      "fps": "30/1",
+      "frames": 180,
+      "seconds": 6.0,
+      "kb": 421
+    }
+  },
+  {
+    "label": "Tuned last frame only (-s)",
+    "scene": "TunedAliasing",
+    "times_s": [
+      2.45,
+      2.43
+    ],
+    "video": null
+  }
+]

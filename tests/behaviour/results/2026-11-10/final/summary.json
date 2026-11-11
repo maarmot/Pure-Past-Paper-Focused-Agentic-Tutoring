@@ -1,0 +1,259 @@
+{
+  "cases": 20,
+  "conversations": 120,
+  "tutor_replies": 150,
+  "criterion_totals": {
+    "4": {
+      "PASS": 340,
+      "PARTIAL": 20,
+      "FAIL": 15
+    },
+    "5": {
+      "PASS": 351,
+      "PARTIAL": 19,
+      "FAIL": 5
+    }
+  },
+  "per_case": {
+    "E01": {
+      "4": {
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 6
+      },
+      "5": {
+        "PASS": 18,
+        "PARTIAL": 1,
+        "FAIL": 2
+      }
+    },
+    "E02": {
+      "4": {
+        "PASS": 21,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 21,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "E03": {
+      "4": {
+        "PASS": 15,
+        "PARTIAL": 3,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 15,
+        "PARTIAL": 3,
+        "FAIL": 0
+      }
+    },
+    "E04": {
+      "4": {
+        "PASS": 14,
+        "PARTIAL": 0,
+        "FAIL": 4
+      },
+      "5": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "E05": {
+      "4": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 3
+      },
+      "5": {
+        "PASS": 17,
+        "PARTIAL": 1,
+        "FAIL": 3
+      }
+    },
+    "E06": {
+      "4": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "E07": {
+      "4": {
+        "PASS": 19,
+        "PARTIAL": 2,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 21,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "E08": {
+      "4": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 17,
+        "PARTIAL": 1,
+        "FAIL": 0
+      }
+    },
+    "E09": {
+      "4": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "E10": {
+      "4": {
+        "PASS": 17,
+        "PARTIAL": 1,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "E11": {
+      "4": {
+        "PASS": 19,
+        "PARTIAL": 2,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 21,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "E12": {
+      "4": {
+        "PASS": 11,
+        "PARTIAL": 6,
+        "FAIL": 1
+      },
+      "5": {
+        "PASS": 10,
+        "PARTIAL": 8,
+        "FAIL": 0
+      }
+    },
+    "E13": {
+      "4": {
+        "PASS": 21,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 21,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "E14": {
+      "4": {
+        "PASS": 19,
+        "PARTIAL": 2,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 21,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "E15": {
+      "4": {
+        "PASS": 17,
+        "PARTIAL": 1,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 16,
+        "PARTIAL": 2,
+        "FAIL": 0
+      }
+    },
+    "T1": {
+      "4": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "T2": {
+      "4": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 18,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "T3": {
+      "4": {
+        "PASS": 14,
+        "PARTIAL": 3,
+        "FAIL": 1
+      },
+      "5": {
+        "PASS": 15,
+        "PARTIAL": 3,
+        "FAIL": 0
+      }
+    },
+    "T4": {
+      "4": {
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    },
+    "T5": {
+      "4": {
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      },
+      "5": {
+        "PASS": 15,
+        "PARTIAL": 0,
+        "FAIL": 0
+      }
+    }
+  }
+}

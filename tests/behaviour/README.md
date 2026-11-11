@@ -69,6 +69,6 @@ Also note, from each Actions list, how many reference files were read per messag
 
 Retain the exact skill revision, test fixtures, complete replies, observed actions, grading criteria, and whether grading was blind. Report failures and partial results as well as passes. Repeat samples when drawing conclusions about reliability.
 
-Earlier local development comparisons are not published as benchmark results here because their complete raw outputs are not bundled. The protocol above is the reproducible starting point for a new evaluation.
+The [recovered draft comparison](results/2026-11-10/pre-fix/README.md) includes the source replies, rubrics, grades, keys, and a reproducible count checker for fourteen cases. The [release comparison](results/2026-11-10/final/README.md) evaluates the release candidate in a separate run. Each report identifies its sampling and blinding limits.
 
 This protocol measures tutor responses. It does not measure a person's learning, later retention, or examination performance. It also does not establish whether a host selects the skill from its description; triggering requires a separate set of positive and negative requests.

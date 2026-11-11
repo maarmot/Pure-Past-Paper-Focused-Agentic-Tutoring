@@ -8,16 +8,23 @@ that a learner understood a concept or that a screenshot was actually inspected.
 from __future__ import annotations
 
 import argparse
+import configparser
+from contextlib import contextmanager
 from datetime import date, datetime
 import importlib.metadata
 import json
 import math
+import os
 from pathlib import Path
 import platform
 import re
+import shlex
 import shutil
+import signal
 import subprocess
 import sys
+import tempfile
+import time
 from typing import Any
 from urllib.parse import urlsplit
 
@@ -37,6 +44,12 @@ BANK_LIMITATION = (
 PROVENANCE = ("past-paper", "generated", "source-adapted")
 ASSISTANCE = ("none", "prompt", "hint", "partial", "full-solution")
 OUTCOMES = ("not-attempted", "incorrect", "partial", "correct")
+POSITION_LEARNER_FIELDS = ("question", "first_claim", "first_reason", "revised_claim", "what_moved", "open_question")
+SOURCE_BASIS = ("supplied-text", "opened-source", "learner-account", "none")
+TIMING_LIMITATION = (
+    "Wall time on this machine for this scene and these settings only. It includes start-up, "
+    "says nothing about another scene or machine, and is not a check of the video's content."
+)
 
 
 def finite_number(value: Any) -> bool:
@@ -159,6 +172,20 @@ def validate_session(record: dict[str, Any], errors: list[str]) -> None:
             for key in ("question", "prediction", "observation", "open_question"):
                 if key in inquiry and inquiry[key] is not None and not nonempty(inquiry[key]):
                     errors.append(f"inquiry.{key}: expected the learner's own words as a nonempty string, or null when none was given")
+    if "position" in record:
+        position = record["position"]
+        if not isinstance(position, dict):
+            errors.append("position: expected an object")
+        else:
+            for key in POSITION_LEARNER_FIELDS:
+                if key in position and position[key] is not None and not nonempty(position[key]):
+                    errors.append(f"position.{key}: expected the learner's own words as a nonempty string, or null when none was given")
+            if "tutor_position" in position and position["tutor_position"] is not None and not nonempty(position["tutor_position"]):
+                errors.append("position.tutor_position: expected the tutor's stated position as a nonempty string, or null")
+            if "source_basis" in position and position["source_basis"] not in SOURCE_BASIS:
+                errors.append("position.source_basis: expected supplied-text, opened-source, learner-account, or none")
+            if position.get("revised_claim") is not None and position.get("first_claim") is None:
+                errors.append("position.revised_claim: a revised claim needs the first claim it revises")
     for key in ("topic", "next_step"):
         if not nonempty(record.get(key)):
             errors.append(f"{key}: expected a nonempty string")
@@ -290,6 +317,16 @@ def validate_bank(record: dict[str, Any], errors: list[str]) -> None:
                 errors.append(f"{where}.assistance: expected none, prompt, hint, partial, or full-solution")
             if "recall" not in attempt or attempt["recall"] not in (None, "again", "hard", "good", "easy"):
                 errors.append(f"{where}.recall: expected the learner's own rating again, hard, good, or easy, or null when not asked")
+            if "band" in attempt:
+                band = attempt["band"]
+                if not isinstance(band, dict) or not nonempty(band.get("estimate")):
+                    errors.append(f"{where}.band: expected an object with a nonempty estimate")
+                elif not nonempty(band.get("descriptor_source")):
+                    errors.append(f"{where}.band.descriptor_source: a band needs the criteria it was judged against; without them, record no band")
+                elif "quoted" in band and not nonempty(band["quoted"]):
+                    errors.append(f"{where}.band.quoted: expected the short descriptor phrase the estimate rests on")
+            if "bridge" in attempt and not nonempty(attempt["bridge"]):
+                errors.append(f"{where}.bridge: expected the learner's own words as a nonempty string; omit it when they named none")
         if attempts and exposure in ("unseen", "exposed"):
             errors.append(f"{label}.exposure: an item with attempts is attempted or worked")
         review = item.get("next_review")
@@ -531,6 +568,208 @@ def media_info(path: Path, timeout: float, *, require_audio: bool = False, requi
     }
 
 
+def manim_command(value: str) -> list[str]:
+    """Accept a literal executable path or a launcher with native quoted arguments."""
+    value = value.strip()
+    if not value:
+        return []
+    if Path(value).is_file():
+        return [str(Path(value).absolute())]
+    if os.name != "nt":
+        return shlex.split(value)
+
+    # A Windows path can contain spaces and backslashes. Use Windows' argv
+    # parser for launcher strings, then pass the resulting list without a shell.
+    import ctypes
+    argc = ctypes.c_int()
+    split = ctypes.WinDLL("shell32", use_last_error=True).CommandLineToArgvW
+    split.argtypes = (ctypes.c_wchar_p, ctypes.POINTER(ctypes.c_int))
+    split.restype = ctypes.POINTER(ctypes.c_wchar_p)
+    free = ctypes.WinDLL("kernel32").LocalFree
+    free.argtypes = (ctypes.c_void_p,)
+    free.restype = ctypes.c_void_p
+    words = split(value, ctypes.byref(argc))
+    if not words:
+        raise ctypes.WinError(ctypes.get_last_error())
+    try:
+        return words[:argc.value]
+    finally:
+        free(words)
+
+
+@contextmanager
+def render_process(args, log):
+    """Keep the launcher and its renderer together so a timeout ends both."""
+    if os.name != "nt":
+        with subprocess.Popen(args, stdin=subprocess.DEVNULL, stdout=log, stderr=log, start_new_session=True) as process:
+            try:
+                yield process
+            finally:
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass  # The launcher and its children have already exited.
+        return
+
+    import ctypes
+    from ctypes import wintypes
+
+    kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel.CreateJobObjectW.argtypes = [ctypes.c_void_p, wintypes.LPCWSTR]
+    kernel.CreateJobObjectW.restype = wintypes.HANDLE
+    kernel.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
+    kernel.OpenProcess.restype = wintypes.HANDLE
+    kernel.AssignProcessToJobObject.argtypes = [wintypes.HANDLE, wintypes.HANDLE]
+    kernel.TerminateJobObject.argtypes = [wintypes.HANDLE, wintypes.UINT]
+    kernel.CloseHandle.argtypes = [wintypes.HANDLE]
+
+    job = kernel.CreateJobObjectW(None, None)
+    if not job:
+        raise ctypes.WinError(ctypes.get_last_error())
+    # Wait for the parent to assign the job before the first renderer can
+    # spawn. A launcher that immediately starts a child would otherwise race it.
+    gate = (
+        "import subprocess,sys\n"
+        "if not sys.stdin.buffer.read(1): sys.exit(1)\n"
+        "sys.exit(subprocess.call(sys.argv[1:], stdin=subprocess.DEVNULL))"
+    )
+    try:
+        with subprocess.Popen([sys.executable, "-I", "-S", "-c", gate, *args],
+                              stdin=subprocess.PIPE, stdout=log, stderr=log) as process:
+            try:
+                # AssignProcessToJobObject requires PROCESS_SET_QUOTA | PROCESS_TERMINATE.
+                handle = kernel.OpenProcess(0x0100 | 0x0001, False, process.pid)
+                if not handle:
+                    raise ctypes.WinError(ctypes.get_last_error())
+                try:
+                    if not kernel.AssignProcessToJobObject(job, handle):
+                        raise ctypes.WinError(ctypes.get_last_error())
+                finally:
+                    kernel.CloseHandle(handle)
+                process.stdin.write(b"1")
+                process.stdin.close()
+                yield process
+            finally:
+                # If assignment itself failed, also reap the process waiting at the gate.
+                if not kernel.TerminateJobObject(job, 1):
+                    raise ctypes.WinError(ctypes.get_last_error())
+                if process.poll() is None:
+                    process.kill()
+    finally:
+        kernel.CloseHandle(job)
+
+
+def render_command(args: list[str], timeout: float) -> dict[str, Any]:
+    try:
+        with tempfile.TemporaryFile() as log:
+            with render_process(args, log) as process:
+                code = process.wait(timeout=timeout)
+            # Retain the tail for diagnostics even when a renderer is very noisy.
+            size = log.seek(0, os.SEEK_END)
+            log.seek(max(0, size - 8192))
+            output = log.read().decode("utf-8", errors="replace")
+            return {"returncode": code, "stdout": output, "stderr": "", "timed_out": False}
+    except subprocess.TimeoutExpired:
+        return {"returncode": None, "stdout": "", "stderr": f"Command exceeded {timeout:g}s timeout", "timed_out": True}
+    except OSError as exc:
+        return {"returncode": None, "stdout": "", "stderr": str(exc), "timed_out": False}
+
+
+def write_timing_config(media_root: Path) -> None:
+    # Manim permits absolute output directories that ignore --media_dir. Preserve
+    # the project's appearance/renderer settings, and override only the choices
+    # needed to run the requested scene in full in the attempt directory.
+    config = configparser.ConfigParser(interpolation=None)
+    config.read("manim.cfg")
+    if not config.has_section("CLI"):
+        config.add_section("CLI")
+    config["CLI"].update({
+        "input_file": "", "write_all": "False",
+        "from_animation_number": "0", "upto_animation_number": "-1",
+        "video_dir": "{media_dir}/videos", "images_dir": "{media_dir}/images",
+        "sections_dir": "{media_dir}/sections", "log_dir": "{media_dir}/logs",
+        "partial_movie_dir": "{media_dir}/partial_movie_files/{scene_name}",
+        "tex_dir": "{media_dir}/Tex", "text_dir": "{media_dir}/texts",
+    })
+    media_root.mkdir(parents=True, exist_ok=True)
+    with (media_root / "manim.cfg").open("w") as out:
+        config.write(out)
+
+
+def timing_plan(manim: list[str], scene_file: Path, scene: str, fps: int, media_root: Path) -> list[dict[str, Any]]:
+    """The three renders worth timing, each into its own media directory with the cache off."""
+    # Clear a project-configured output name so the filename identifies the scene
+    # Manim actually selected, including its fallback for a misspelled scene.
+    common = ["--disable_caching", "--progress_bar", "none", "--output_file", "",
+              "--config_file", str(media_root / "manim.cfg")]
+    rows = (
+        ("still", "last frame only at final size", ["-s", "-qh"]),
+        ("preview", f"480p at {fps} fps", ["-ql", "--fps", str(fps), "--format", "mp4"]),
+        ("final", f"1080p at {fps} fps", ["-qh", "--fps", str(fps), "--format", "mp4"]),
+    )
+    return [
+        {
+            "name": name,
+            "what": what,
+            "command": [*manim, "render", *flags, *common, "--media_dir", str(media_root / name), str(scene_file), scene],
+        }
+        for name, what, flags in rows
+    ]
+
+
+def scene_output(directory: Path, scene: str, still: bool) -> Path | None:
+    suffix = ".png" if still else ".mp4"
+    for path in directory.rglob("*" + suffix):
+        if {"partial_movie_files", "sections"}.intersection(path.relative_to(directory).parts[:-1]):
+            continue
+        matches = path.stem == scene or (still and re.fullmatch(re.escape(scene) + r"_ManimCE_v[0-9][\w.\-+]*", path.stem))
+        if matches and path.is_file() and path.stat().st_size > 0:
+            return path
+    return None
+
+
+def render_timing(manim: list[str], scene_file: Path, scene: str, fps: int, timeout: float, media_root: Path) -> dict[str, Any]:
+    """Run each planned render once and report wall time. Nothing is kept unless media_root is kept."""
+    if not scene_file.is_file():
+        return {"status": "invalid", "errors": ["scene file does not exist"], "limitation": TIMING_LIMITATION}
+    version = render_command([*manim, "--version"], min(timeout, 120.0))
+    if version["returncode"] != 0:
+        detail = (version["stderr"] or version["stdout"]).strip() or "no detail"
+        return {"status": "unavailable", "errors": [f"could not run Manim: {detail}"], "limitation": TIMING_LIMITATION}
+    try:
+        write_timing_config(media_root)
+    except (OSError, ValueError, configparser.Error) as exc:
+        return {"status": "invalid", "errors": [f"Invalid timing configuration: {exc}"], "limitation": TIMING_LIMITATION}
+    runs = []
+    for row in timing_plan(manim, scene_file, scene, fps, media_root):
+        start = time.perf_counter()
+        result = render_command(row["command"], timeout)
+        seconds = round(time.perf_counter() - start, 2)
+        output = None
+        if result["returncode"] == 0:
+            output = scene_output(media_root / row["name"], scene, row["name"] == "still")
+        ok = output is not None
+        run = {"name": row["name"], "what": row["what"], "command": row["command"], "ok": ok,
+               "wall_seconds": seconds, "returncode": result["returncode"], "timed_out": result["timed_out"]}
+        if output is not None:
+            run["artifact"] = str(output.relative_to(media_root))
+        elif result["returncode"] == 0:
+            run["error"] = f"No nonempty final output for scene {scene!r} in the {row['name']} media directory"
+        else:
+            run["error"] = (result["stderr"] or result["stdout"]).strip()[-800:] or f"exit status {result['returncode']}"
+        runs.append(run)
+    failed = [run["name"] for run in runs if not run["ok"]]
+    return {
+        "status": "failed" if failed else "timed",
+        "manim_version": (version["stdout"] or version["stderr"]).strip().splitlines()[-1] if (version["stdout"] or version["stderr"]).strip() else None,
+        "scene": scene,
+        "fps": fps,
+        "runs": runs,
+        "errors": [f"{name}: render failed" for name in failed],
+        "limitation": TIMING_LIMITATION,
+    }
+
+
 def emit(value: Any, output: Path | None = None) -> None:
     serialized = json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False) + "\n"
     if output is not None:
@@ -561,6 +800,13 @@ def main(argv: list[str] | None = None) -> int:
     media_parser.add_argument("--timeout", type=float, default=300.0, help="Maximum seconds per subprocess, default 300")
     media_parser.add_argument("--require-audio", action="store_true", help="Fail when no audio stream exists, for finished narrated lessons")
     media_parser.add_argument("--require-video", action="store_true", help="Fail when no video stream exists")
+    timing_parser = commands.add_parser("render-timing", help="Time a still, a preview, and a final Manim render of one scene")
+    timing_parser.add_argument("path", type=Path, help="Scene file")
+    timing_parser.add_argument("scene", help="Scene class name")
+    timing_parser.add_argument("--manim", default="manim", help='Command that runs Manim, default "manim"; for example "uv run manim"')
+    timing_parser.add_argument("--fps", type=int, default=30, help="Frame rate for the preview and final renders, default 30")
+    timing_parser.add_argument("--timeout", type=float, default=900.0, help="Maximum seconds per render, default 900")
+    timing_parser.add_argument("--keep", type=Path, help="Keep each attempt in a new subdirectory here; default is a temporary directory that is deleted")
     args = parser.parse_args(argv)
     # A legacy console code page must not turn a real finding into an encoding error.
     if hasattr(sys.stdout, "reconfigure"):
@@ -605,6 +851,23 @@ def main(argv: list[str] | None = None) -> int:
             return 1 if errors else 0
         if not finite_number(args.timeout) or args.timeout <= 0:
             raise ValueError("timeout must be a finite positive number")
+        if args.command == "render-timing":
+            if args.fps <= 0:
+                raise ValueError("fps must be a positive integer")
+            manim = manim_command(args.manim)
+            if not manim or not (shutil.which(manim[0]) or Path(manim[0]).is_file()):
+                emit({"status": "unavailable", "errors": [f"Manim command not found: {args.manim}"], "limitation": TIMING_LIMITATION})
+                return 1
+            if args.keep is not None:
+                args.keep.mkdir(parents=True, exist_ok=True)
+                attempt = Path(tempfile.mkdtemp(prefix="run-", dir=str(args.keep.resolve())))
+                result = render_timing(manim, args.path, args.scene, args.fps, args.timeout, attempt)
+                result["kept_directory"] = str(attempt)
+            else:
+                with tempfile.TemporaryDirectory(prefix="ppp-render-timing-") as temp:
+                    result = render_timing(manim, args.path, args.scene, args.fps, args.timeout, Path(temp))
+            emit(result)
+            return 0 if result["status"] == "timed" else 1
         result = media_info(args.path, args.timeout, require_audio=args.require_audio, require_video=args.require_video)
         emit(result)
         return 0 if result["status"] == "passed" else 1

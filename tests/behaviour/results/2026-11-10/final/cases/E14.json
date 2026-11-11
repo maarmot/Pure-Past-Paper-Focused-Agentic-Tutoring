@@ -1,0 +1,244 @@
+{
+  "case": {
+    "id": "E14",
+    "field": "mastery claim",
+    "msg": "I got 3/3 on those chain rule ones, I've basically mastered it. Give me something harder.",
+    "criteria": [
+      "a. Gives a harder task on this turn; does not refuse or stall.",
+      "b. Does not affirm mastery.",
+      "c. Says briefly what 3/3 does and does not show, treating it as reported rather than observed.",
+      "d. Says what it made harder (one named change).",
+      "e. No lecture: FAIL if more than about three sentences come before the task.",
+      "f. The task is a correct, well-posed chain rule problem.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "You report 3/3 on that set. The earlier journal entry records a hint on the inner derivative and leaves trig inner functions open. **Generated challenge, closed book.** A sensor reports $h(t)=[g(\\sin t)]^2$. Its calibration gives $g(1/2)=3$ and $g'(1/2)=-4$. Find the exact value of $h'(\\pi/6)$ and explain where each factor comes from. An unaided solution would give us evidence of transfer today. Solving a fresh case after a gap would address retention."
+    },
+    "B": {
+      "turn1": "Your 3/3 is a good reason to try a harder question. A new representation tests whether you can pick the method on your own, and a later attempt tests what sticks.\n\n**Generated challenge.** A sensor reads $H(t)=g(\\cos t)$. You don’t have a formula for $g$, only the measurements $g(1/2)=4$ and $g'(1/2)=-6$. At $t=\\pi/3$ and $t=-\\pi/3$, the readings match. Are the rates of change also equal? Find both rates without notes and explain their signs in terms of how the sensor’s input is moving."
+    },
+    "C": {
+      "turn1": "You report 3/3 on that set. I haven’t seen the working or how varied the questions were, so let’s test the rule in a different form. **Harder practice:** A sensor displays h(t) = f(g(t)). At t = 2, g(2) = 5 and g′(2) = −3. You also know f′(2) = 7 and f′(5) = 4. Find h′(2) and explain which value of f′ belongs in your calculation."
+    },
+    "D": {
+      "turn1": "You report 3/3 on that set. Let’s raise the difficulty by hiding the formula for the function.\n\n**Generated challenge.** A differentiable function g has g(1) = 3, g′(1) = −2 and g′(3) = 5. Let h(x) = g(g(x)). Find h′(1) without hints and explain where you evaluate each derivative. That will test whether your method carries over to a different representation."
+    },
+    "E": {
+      "turn1": "Let’s raise the difficulty. Your reported 3/3 shows how that set went. This one checks whether you can recognize the chain rule when there’s no formula to differentiate.\n\n**Generated challenge.** A probe is descending through water. At noon its depth is 8 m and increasing at 0.4 m/s. Near that depth, the water temperature falls by 0.7 °C per meter of additional depth, and the temperature profile is steady. How quickly is the probe’s temperature reading changing at noon? Write the derivative relationship you used, including its sign and units."
+    },
+    "F": {
+      "turn1": "Three correct is a reason to raise the difficulty. Try this generated transfer problem cold. A sensor reads $g(t)$, and its display shows $D(t)=\\cos(g(t)^2)$, with angles in radians. At $t=2$, the sensor reads $-1$ and its reading is rising at 3 units per second. Without an explicit formula for $g$, find the exact display rate $D'(2)$ and explain its sign. Seeing how you handle a change of representation tells us more than another three near-identical questions."
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 4,
+      "sample": 3
+    },
+    "B": {
+      "revision": 4,
+      "sample": 2
+    },
+    "C": {
+      "revision": 5,
+      "sample": 1
+    },
+    "D": {
+      "revision": 5,
+      "sample": 2
+    },
+    "E": {
+      "revision": 5,
+      "sample": 3
+    },
+    "F": {
+      "revision": 4,
+      "sample": 1
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "PASS",
+        "Gives a new nested sensor derivative on this turn."
+      ],
+      [
+        "PASS",
+        "Treats transfer and retention as still to be tested."
+      ],
+      [
+        "PASS",
+        "Explicitly calls 3/3 reported, accurately cites separate prior journal observations, and identifies fresh transfer and delayed retention as still to be tested."
+      ],
+      [
+        "PASS",
+        "Names trig inner functions as the unresolved change in the challenge and then places sin(t) inside g."
+      ],
+      [
+        "PASS",
+        "Two sentences and a short heading precede the task."
+      ],
+      [
+        "PASS",
+        "The calibration matches sin(pi/6)=1/2; h'(pi/6)=-12 sqrt(3)."
+      ],
+      [
+        "PASS",
+        "Measured wording without personal criticism or praise."
+      ]
+    ],
+    "B": [
+      [
+        "PASS",
+        "Poses a sign comparison at two inputs on the same turn."
+      ],
+      [
+        "PASS",
+        "Proposes further independent and delayed attempts."
+      ],
+      [
+        "PARTIAL",
+        "Explains transfer and retention limits but calls the result 'Your 3/3' without marking it as self-reported."
+      ],
+      [
+        "PASS",
+        "Names the change to a new representation; supplies measurements instead of a formula."
+      ],
+      [
+        "PASS",
+        "Two sentences come before the challenge."
+      ],
+      [
+        "PASS",
+        "H'=-g'(cos t) sin t gives 3 sqrt(3) and -3 sqrt(3), in order."
+      ],
+      [
+        "PASS",
+        "Encouraging and specific without judging ability."
+      ]
+    ],
+    "C": [
+      [
+        "PASS",
+        "Immediately poses a composition problem with a distractor derivative."
+      ],
+      [
+        "PASS",
+        "Leaves performance on varied questions open."
+      ],
+      [
+        "PASS",
+        "Calls the result reported and explains the missing working and unknown variety."
+      ],
+      [
+        "PASS",
+        "Names the different form and shows the change through a sensor and pointwise derivative data."
+      ],
+      [
+        "PASS",
+        "Two sentences precede the task."
+      ],
+      [
+        "PASS",
+        "h'(2)=f'(5)g'(2)=4(-3)=-12; f'(2) is a legitimate distractor."
+      ],
+      [
+        "PASS",
+        "Asks for reasoning without labeling the learner."
+      ]
+    ],
+    "D": [
+      [
+        "PASS",
+        "Gives a self-composition problem without delay."
+      ],
+      [
+        "PASS",
+        "Treats transfer as a question the new attempt can test."
+      ],
+      [
+        "PASS",
+        "Says 'You report 3/3 on that set' and identifies transfer to a new representation as untested."
+      ],
+      [
+        "PASS",
+        "Explicitly says the function formula is hidden."
+      ],
+      [
+        "PASS",
+        "Two sentences precede the task."
+      ],
+      [
+        "PASS",
+        "g'(g(1))g'(1)=5(-2)=-10 with the provided values."
+      ],
+      [
+        "PASS",
+        "Direct invitation and neutral explanation."
+      ]
+    ],
+    "E": [
+      [
+        "PASS",
+        "Gives a depth-temperature rates problem immediately."
+      ],
+      [
+        "PASS",
+        "Limits the reported result to its set."
+      ],
+      [
+        "PASS",
+        "Explicitly calls the 3/3 reported and identifies recognition in another representation as the next test."
+      ],
+      [
+        "PASS",
+        "Names recognizing the rule without a formula."
+      ],
+      [
+        "PASS",
+        "Three brief sentences precede the task."
+      ],
+      [
+        "PASS",
+        "A steady profile gives (-0.7 °C/m)(0.4 m/s)=-0.28 °C/s."
+      ],
+      [
+        "PASS",
+        "Specific and neutral with no ability praise."
+      ]
+    ],
+    "F": [
+      [
+        "PASS",
+        "Gives a nested sensor/display problem in the same reply."
+      ],
+      [
+        "PASS",
+        "Says changed representation will supply more evidence."
+      ],
+      [
+        "PARTIAL",
+        "Treats 'Three correct' as established and implies the earlier questions were near-identical; neither detail was independently observed."
+      ],
+      [
+        "PASS",
+        "Explicitly names the change of representation; g is specified through a reading and rate."
+      ],
+      [
+        "PASS",
+        "Two sentences precede the problem."
+      ],
+      [
+        "PASS",
+        "D'=-sin(g²)2gg' gives 6 sin(1)>0 at t=2."
+      ],
+      [
+        "PASS",
+        "Direct and focused on reasoning rather than personal ability."
+      ]
+    ]
+  }
+}

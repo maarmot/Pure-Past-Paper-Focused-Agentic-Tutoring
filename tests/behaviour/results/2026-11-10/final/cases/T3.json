@@ -1,0 +1,226 @@
+{
+  "case": {
+    "id": "T3",
+    "field": "repeated error and discouragement",
+    "turn1": "Thevenin resistance: 12 V source in series with 4 ohm, then 6 ohm from that node to ground, output across the 6 ohm. I got R_th = 10 ohm. What am I doing wrong? The 6 ohm resistor stays inside the network when looking into the output terminals.",
+    "turn2": "Ok so I zero the source... then R_th = 4 + 6 = 10 again? I really don't see it. I'm hopeless at this.",
+    "criteria": [
+      "a. Turn 2 says it is the same step again, pointing only to this conversation.",
+      "b. Turn 2 lowers one thing: isolates the step (what the terminals \"see\" with the source shorted) or gives the worked step.",
+      "c. Responds to \"hopeless\" with the size or location of the error; no verdict on ability, no outcome prediction, not ignoring the remark entirely.",
+      "d. Does not simply repeat turn 1 in other words.",
+      "e. Leaves or offers one thing for the learner to do next.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "The first thing to revisit is the addition. Zero the ideal 12 V source by replacing it with a wire. That wire joins the far end of the 4 Ω resistor to ground. From the output node you now have a path to ground through the 4 Ω resistor and a second path through the 6 Ω resistor. With the 6 Ω retained, they are in parallel, giving $R_{\\rm th}=(4\\times6)/(4+6)=2.4\\ \\Omega$.",
+      "turn2": "You did get the source step right. Let’s check the connection with a 12 V **test** voltage across the output, keeping the original source shorted. The 4 Ω branch has 12 V across it, so it draws 3 A. The 6 Ω branch also has 12 V across it, so it draws 2 A. The test source supplies 5 A in total, giving $R_{\\rm th}=12/5=2.4\\ \\Omega$.\n\nFor the two resistors to be in series, the same current would have to flow through both. The test voltage gives two different currents. On your sketch, put a dot where that test current divides. That’s the connection to look for next time."
+    },
+    "B": {
+      "turn1": "The 10 Ω result treats the resistors as series-connected. Short the ideal voltage source and look into the output. One end of the 4 Ω resistor is at the output and its other end is at ground through the short. The retained 6 Ω resistor also runs directly from output to ground. That gives $4\\parallel6=24/10=2.4\\,\\Omega$. Can you trace a route from the output to ground through the 4 Ω alone?",
+      "turn2": "Zeroing the voltage source is exactly right. The sticking point is how the branches connect, and we can test that directly. Put a 1 V test battery between output and ground after replacing the source with a wire. Each resistor now has 1 V across it. The 4 Ω branch draws $1/4$ A and the 6 Ω branch draws $1/6$ A. The battery supplies their sum, $5/12$ A, so it sees $1/(5/12)=2.4$ Ω. Adding 4 and 6 would require the same current to flow through both, and here you can see the two currents are different."
+    },
+    "C": {
+      "turn1": "The 6 Ω resistor does stay. The error is treating the 4 Ω and 6 Ω as series once the ideal voltage source is set to zero. Replacing that source with a wire connects the far end of the 4 Ω resistor to ground. The far end of the 6 Ω resistor is already grounded, so both resistors run between the same two nodes. Their parallel resistance is (4 × 6)/(4 + 6) = 2.4 Ω.",
+      "turn2": "You got the source step right. The sticking point is seeing the two paths it leaves. Put 1 V between the output and ground as a thought experiment. The 4 Ω path carries 1/4 A and the 6 Ω path carries 1/6 A. The source supplies both currents, 5/12 A in total, so the resistance it sees is 1 ÷ (5/12) = 2.4 Ω. Cover the numbers and trace one path from output to ground. Do you ever need to pass through the other resistor?"
+    },
+    "D": {
+      "turn1": "10 Ω comes from treating the resistors as series elements. When you set the ideal 12 V source to zero, replace it with a wire. That connects the far end of the 4 Ω resistor to ground. Look from the output now: each resistor connects the output node to ground, so Rₜₕ = 4 ∥ 6 = (4 × 6)/(4 + 6) = 2.4 Ω.",
+      "turn2": "Zeroing the source was the right move. The sticking point is what happens to the two paths afterward. Imagine applying 1 V between output and ground with the source shorted:\n\n```text\noutput ●──[4 Ω]──● ground\n       └──[6 Ω]──┘\n```\n\nThe 4 Ω branch draws 1/4 A and the 6 Ω branch draws 1/6 A. The test source supplies both, so Rₜₕ = 1 V/(1/4 + 1/6) A = 2.4 Ω. For one small retry, trace a route from output to ground that passes through the 4 Ω resistor. Do you ever have to cross the 6 Ω resistor?"
+    },
+    "E": {
+      "turn1": "Keeping the 6 Ω resistor is correct. The error is treating it as being in series with the 4 Ω resistor. To find R_th, replace the ideal voltage source with a wire. Trace each resistor from the output node: both now end at ground. They’re in parallel, so R_th = 4 × 6/(4 + 6) = 2.4 Ω.",
+      "turn2": "You zeroed the source correctly. The snag is deciding where the test current goes. Picture placing 12 V across the output terminals of the deactivated network. The 4 Ω branch has 12 V across it and draws 3 A. The 6 Ω branch also has 12 V across it and draws 2 A. The supply delivers 5 A, so it sees 12/5 = 2.4 Ω. That one branch decision is something you can check directly. If you lift the 6 Ω branch off the diagram, which route from the output to ground is still there?"
+    },
+    "F": {
+      "turn1": "The first incorrect step is adding 4 Ω and 6 Ω as if they shared a single current path. For R_th, replace the independent ideal voltage source with a short. That puts one end of each resistor at ground, and the other ends already meet at the output. Keeping the 6 Ω inside, the output sees 4 Ω in parallel with 6 Ω: R_th = 24/10 = 2.4 Ω.",
+      "turn2": "You did zero the source correctly. Let’s make the connection visible by putting a hypothetical 12 V test source across the output and ground after the original source is shorted. The 4 Ω resistor has the full test voltage across it, so it draws 3 A. The 6 Ω resistor also has the full 12 V and draws 2 A. The test source supplies 5 A in total, so the resistance it sees is 12/5 = 2.4 Ω. A series pair would carry the same current through both. On a fresh sketch, trace one path from the output to ground through just the 4 Ω resistor; can you trace a second through just the 6 Ω? That wiring step is the part giving you trouble here."
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 4,
+      "sample": 2
+    },
+    "B": {
+      "revision": 4,
+      "sample": 1
+    },
+    "C": {
+      "revision": 5,
+      "sample": 1
+    },
+    "D": {
+      "revision": 5,
+      "sample": 2
+    },
+    "E": {
+      "revision": 5,
+      "sample": 3
+    },
+    "F": {
+      "revision": 4,
+      "sample": 3
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "PARTIAL",
+        "Contrasts the correct source step with the series assumption, but never says this is the same addition as in the first attempt."
+      ],
+      [
+        "PASS",
+        "The 12 V test explicitly demonstrates separate 3 A and 2 A paths."
+      ],
+      [
+        "PASS",
+        "Confirms the correct step and narrows the difficulty to the current-dividing connection."
+      ],
+      [
+        "PASS",
+        "Introduces a test voltage and current comparison absent from turn one."
+      ],
+      [
+        "PASS",
+        "Asks the learner to mark the point where test current splits."
+      ],
+      [
+        "PASS",
+        "The feedback identifies correct and incorrect circuit steps without assessing ability."
+      ]
+    ],
+    "B": [
+      [
+        "PARTIAL",
+        "Identifies branch connectivity as the sticking point, but leaves its recurrence from turn one implicit."
+      ],
+      [
+        "PASS",
+        "A worked 1 V test shows the parallel branch currents and equivalent resistance."
+      ],
+      [
+        "PASS",
+        "Separates successful source deactivation from the specific connection error."
+      ],
+      [
+        "PASS",
+        "The test battery adds a different way of checking the result."
+      ],
+      [
+        "FAIL",
+        "The 1 V test is completely worked, and no further tracing, calculation or question is left for the learner."
+      ],
+      [
+        "PASS",
+        "Validates the source step specifically and treats the connection error respectfully."
+      ]
+    ],
+    "C": [
+      [
+        "PARTIAL",
+        "Identifies the two paths as the sticking point, without identifying the repeated addition from this exchange."
+      ],
+      [
+        "PASS",
+        "Works through both branch currents for a 1 V terminal test."
+      ],
+      [
+        "PASS",
+        "Confirms the source step and locates the difficulty in seeing the two paths."
+      ],
+      [
+        "PASS",
+        "Adds a current test and a number-free tracing exercise."
+      ],
+      [
+        "PASS",
+        "Asks the learner to trace one path and check whether it crosses the other resistor."
+      ],
+      [
+        "PASS",
+        "Focuses the feedback on a visible circuit feature without ability praise or dismissal."
+      ]
+    ],
+    "D": [
+      [
+        "PARTIAL",
+        "Names the two-path issue but does not explicitly connect it to the series assumption in the earlier attempt."
+      ],
+      [
+        "PASS",
+        "Redraws the circuit and works out what the 1 V test source supplies."
+      ],
+      [
+        "PASS",
+        "Affirms deactivation and pinpoints the remaining connection issue."
+      ],
+      [
+        "PASS",
+        "The parallel-branch diagram and current test differ from the original algebraic explanation."
+      ],
+      [
+        "PASS",
+        "Gives one 4-ohm path to trace and a focused question about that route."
+      ],
+      [
+        "PASS",
+        "The sketch and retry address the local obstacle without judging the learner."
+      ]
+    ],
+    "E": [
+      [
+        "PARTIAL",
+        "Calls it one branch decision, but does not explicitly name it as the same decision as before."
+      ],
+      [
+        "PASS",
+        "The 12 V test shows where each part of the 5 A total flows."
+      ],
+      [
+        "PASS",
+        "Says the snag is one branch decision after correct source deactivation."
+      ],
+      [
+        "PASS",
+        "Uses branch currents and a branch-removal thought experiment beyond turn one's node tracing."
+      ],
+      [
+        "PASS",
+        "Asks what route remains after the 6-ohm branch is lifted."
+      ],
+      [
+        "PASS",
+        "Directly limits the issue to one checkable decision without making an ability claim."
+      ]
+    ],
+    "F": [
+      [
+        "PARTIAL",
+        "Identifies the wiring step and contrasts it with the correct source step, but leaves the repetition of turn one's error implicit."
+      ],
+      [
+        "PASS",
+        "The worked 12 V test exposes two unequal currents and yields 2.4 ohms."
+      ],
+      [
+        "PASS",
+        "Explicitly locates the trouble in the wiring step in this exchange."
+      ],
+      [
+        "PASS",
+        "Gives a test-source demonstration and checks identical-current requirements for series."
+      ],
+      [
+        "PASS",
+        "Requests a fresh path-tracing sketch to identify the two routes."
+      ],
+      [
+        "PASS",
+        "The word 'just' specifies which resistor a route traverses and does not belittle the missed step."
+      ]
+    ]
+  }
+}

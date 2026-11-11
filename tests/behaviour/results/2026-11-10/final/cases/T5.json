@@ -1,0 +1,201 @@
+{
+  "case": {
+    "id": "T5",
+    "field": "source correction",
+    "turn1": "Help me think through the third chapter of my electronics book on feedback. I have not shared the text.",
+    "turn2": "Here is the sentence I care about: “The error gets smaller on every update.” Can a stable system violate that? Show me a simple example.",
+    "criteria": [
+      "a. Makes no unsupported claim about this specific edition or chapter.",
+      "b. Gives a mathematically valid example of eventual stability without monotone decrease of error magnitude (overshoot alone is insufficient).",
+      "c. Shows actual values or an equivalent inspectable construction.",
+      "d. Relates the counterexample directly to the supplied sentence.",
+      "t. Critiques the reasoning clearly and respectfully."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "Here’s a general feedback puzzle while the chapter text is unavailable. A thermostat measures a positive temperature error and adds heat. After the room reaches the target, the radiator can still be hot. What would you predict happens to the error next, and why? Share the sentence in chapter 3 that you’d most like to test and we can examine its actual claim.",
+      "turn2": "Yes. If ‘smaller’ means smaller in magnitude, consider a feedback rule with a two-update delay, eₖ₊₂ = −eₖ/2. Start with errors 1 and 0.1. Before looking ahead, predict the third error.\n\n| Update | 0 | 1 | 2 | 3 | 4 |\n|---|---:|---:|---:|---:|---:|\n| Error | 1 | 0.1 | −0.5 | −0.05 | 0.25 |\n\nThe magnitude grows from 0.1 to 0.5 on one update. Yet every two updates the magnitude halves, so from any starting pair both the even and odd errors converge to zero. Stability allows this temporary increase. The sentence in your chapter would need an additional condition to guarantee a decrease on every update."
+    },
+    "B": {
+      "turn1": "What sentence, diagram, or claim in the chapter would you like to test? A short excerpt is enough. Until then we can explore a general feedback question. If a controller keeps correcting an error, what determines whether each correction brings the output closer to its target or sends it past?",
+      "turn2": "Yes. Suppose a discrete feedback loop uses the previous error to correct the current one according to $e_{k+2}=e_{k+1}-\\tfrac12 e_k$. Start with $e_0=e_1=1$. Watch what happens immediately after the error reaches zero.\n\n| Update $k$ | 0 | 1 | 2 | 3 | 4 | 5 |\n|---|---:|---:|---:|---:|---:|---:|\n| Error $e_k$ | 1 | 1 | 1/2 | 0 | −1/4 | −1/4 |\n\nAt update 3 the current error is zero, yet the controller still acts on the earlier $1/2$, so the magnitude grows from 0 to 1/4. Applying the recurrence twice more gives $e_{k+4}=-e_k/4$ for **any** starting pair. Every four updates the magnitude shrinks by a factor of four, so all trajectories converge to zero. Your quoted sentence would require a stronger, step-by-step decrease than asymptotic stability guarantees."
+    },
+    "C": {
+      "turn1": "Here’s a general feedback question to start with. A thermostat reads one sample late, so it keeps heating for an update after the room reaches its target. Can the temperature cross the target and still settle to it over time? If you share the sentence from chapter 3 that prompted your question, we can test its exact claim.",
+      "turn2": "Yes. Suppose a controller corrects half of the previous update’s error each time. Its signed error follows eₖ₊₁ = eₖ − ½eₖ₋₁. Start with e₋₁ = e₀ = 1. When the error first reaches zero, predict the next update before looking across the row.\n\n| Update k | 0 | 1 | 2 | 3 | 4 |\n|---|---:|---:|---:|---:|---:|\n| Error eₖ | 1 | ½ | 0 | −¼ | −¼ |\n\nAt update 3 the controller is still responding to the previous positive error, so the error magnitude grows from 0 to ¼. Yet the recurrence gives eₖ₊₄ = −¼eₖ for every starting pair. Every four updates the magnitude falls to a quarter of its earlier value, so all errors tend to zero. The quoted sentence needs a stronger condition than stability."
+    },
+    "D": {
+      "turn1": "Paste one sentence, circuit diagram or example from chapter 3 that you’d like to test. Until we have the text, take this as a general feedback question: a controller adjusts its output using the last measured error. If it always corrects in the right direction, can the correction still leave the next error farther from zero? Pick a numerical correction and see.",
+      "turn2": "Yes. For a simple feedback rule with one update of memory, let the signed error obey eₖ₊₁ = 1.2eₖ − 0.36eₖ₋₁. Start with e₋₁ = 0 and e₀ = 1. The next three errors are 1.2, 1.08 and 0.864. The first update increases even the absolute error, from 1 to 1.2. Yet every solution tends to zero: the characteristic polynomial (r − 0.6)² has a repeated root of magnitude below one, so solutions have the form (A + Bk)0.6ᵏ. Thus asymptotic stability allows temporary growth. For comparison, a scalar rule eₖ₊₁ = 0.6eₖ really does shrink every nonzero error on every update. The sentence needs a condition like that stronger contraction property."
+    },
+    "E": {
+      "turn1": "What claim or example from the chapter would you like to test? A sentence or a sketch of its circuit is enough. As a starting point from general feedback theory, imagine a controller making a correction based on yesterday’s error: turning up the gain can make it overshoot. That gives you a concrete question to bring to the text about when corrections actually shrink the error.",
+      "turn2": "Yes. A stable system can have a step where the error grows in magnitude. Consider a delayed correction eₖ₊₂ = −eₖ/4. Start with e₀ = 1 and e₁ = 0.1.\n\n| Update k | 0 | 1 | 2 | 3 | 4 |\n|---|---:|---:|---:|---:|---:|\n| Error | 1 | 0.1 | −0.25 | −0.025 | 0.0625 |\n\nFrom update 1 to 2, the distance from zero grows from 0.1 to 0.25. Yet every two updates, each error has one quarter of its previous magnitude, so every initial pair decays to zero. That disproves the sentence as a general claim about asymptotic stability. A narrower claim about a particular update rule could still hold."
+    },
+    "F": {
+      "turn1": "Which sentence, diagram, or example from chapter 3 do you want to examine? While you find it, try a thermostat set to 20°C. The heater switches off at 20°, yet heat stored in the radiator keeps warming the room. What would you expect the temperature to do just after switch-off, and which part of the feedback loop explains your prediction?",
+      "turn2": "Yes. Let $e_k$ be the error and $z_k$ a correction stored in the controller. Suppose $e_{k+1}=e_k/2+z_k$ and $z_{k+1}=0$. Starting with $e_0=1,z_0=1$, the error goes $1\\to1.5\\to0.75\\to0.375\\to\\cdots$. The first update increases even the absolute error. After one update the stored correction is gone, so the error halves on every later update for *any* starting values. The zero state is asymptotically stable, but the quoted claim would need the stronger condition that the error magnitude decreases at each step."
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 5,
+      "sample": 1
+    },
+    "B": {
+      "revision": 4,
+      "sample": 2
+    },
+    "C": {
+      "revision": 5,
+      "sample": 2
+    },
+    "D": {
+      "revision": 4,
+      "sample": 3
+    },
+    "E": {
+      "revision": 5,
+      "sample": 3
+    },
+    "F": {
+      "revision": 4,
+      "sample": 1
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "PASS",
+        "Labels the thermostat puzzle general and asks for the chapter's wording."
+      ],
+      [
+        "PASS",
+        "Each parity subsequence halves in magnitude every two steps, although an adjacent magnitude grows from 0.1 to 0.5."
+      ],
+      [
+        "PASS",
+        "The listed terms satisfy the recurrence from the stated initial pair."
+      ],
+      [
+        "PASS",
+        "Explicitly contrasts a decrease on every update with eventual convergence."
+      ],
+      [
+        "PASS",
+        "Invites prediction and qualifies the sentence without judging its author."
+      ]
+    ],
+    "B": [
+      [
+        "PASS",
+        "Requests the excerpt and identifies the preliminary discussion as general feedback theory."
+      ],
+      [
+        "PASS",
+        "The magnitude grows from zero to one quarter and the fourth-step relation proves convergence for any pair."
+      ],
+      [
+        "PASS",
+        "The six tabulated terms satisfy the stated lagged correction."
+      ],
+      [
+        "PASS",
+        "Explains why asymptotic stability alone cannot imply the quoted stepwise property."
+      ],
+      [
+        "PASS",
+        "Uses the numerical example to test the claim respectfully."
+      ]
+    ],
+    "C": [
+      [
+        "PASS",
+        "Presents the thermostat as a general example and requests the relevant sentence."
+      ],
+      [
+        "PASS",
+        "The return from zero to magnitude one quarter violates monotonicity, and each four-step subsequence contracts."
+      ],
+      [
+        "PASS",
+        "The five values follow from the stated lagged initial pair and recurrence."
+      ],
+      [
+        "PASS",
+        "Explains the quoted sentence requires more than convergence of the errors."
+      ],
+      [
+        "PASS",
+        "The prediction invitation and evidence-based correction are respectful."
+      ]
+    ],
+    "D": [
+      [
+        "PASS",
+        "Distinguishes the general numerical puzzle from the unavailable chapter."
+      ],
+      [
+        "PASS",
+        "Magnitude increases from 1 to 1.2, while the repeated root 0.6 gives decay for all initial pairs."
+      ],
+      [
+        "PASS",
+        "The three computed errors 1.2, 1.08 and 0.864 match the recurrence."
+      ],
+      [
+        "PASS",
+        "Uses a scalar contraction to illustrate the stronger property needed by the quoted sentence."
+      ],
+      [
+        "PASS",
+        "Tests the claim clearly and respectfully with a counterexample and comparison."
+      ]
+    ],
+    "E": [
+      [
+        "PASS",
+        "Requests the excerpt and labels the gain example as general theory."
+      ],
+      [
+        "PASS",
+        "Each parity subsequence contracts by a factor of four every two updates, with a transient magnitude increase from 0.1 to 0.25."
+      ],
+      [
+        "PASS",
+        "All five numbers follow from the delayed correction and initial values."
+      ],
+      [
+        "PASS",
+        "States precisely which general interpretation is disproved, allowing a narrower claim."
+      ],
+      [
+        "PASS",
+        "Addresses the scope of the statement respectfully."
+      ]
+    ],
+    "F": [
+      [
+        "PASS",
+        "Asks for the chapter text and offers a separate thermostat thought experiment."
+      ],
+      [
+        "PASS",
+        "The full state tends to zero for every initial pair despite the initial magnitude growth from 1 to 1.5 in the example."
+      ],
+      [
+        "PASS",
+        "Gives a two-state update and the correct sequence of four error values."
+      ],
+      [
+        "PASS",
+        "Explicitly distinguishes decreasing at every update from asymptotic stability."
+      ],
+      [
+        "PASS",
+        "Tests the sentence through a concrete example and addresses the learner respectfully."
+      ]
+    ]
+  }
+}

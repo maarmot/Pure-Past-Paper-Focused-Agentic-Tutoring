@@ -1,0 +1,90 @@
+[
+  {
+    "id": "9vKqVkMQHKk",
+    "vtt_sha256": "6f3ac42a37083c5fc139a94e691c221512fdc08d4112fdbdeede54232a9ddfff",
+    "words": 2917,
+    "duration_s": 1010,
+    "cue_count": 249,
+    "first_question_mark_cue_s": 179.4,
+    "word_rate_per_full_min": 173.3,
+    "searched_literal": "derivative",
+    "first_literal_cue_s": 15.26
+  },
+  {
+    "id": "HZGCoVF3YvM",
+    "vtt_sha256": "ea5e22c7181839703552a941e6fee89300f36e94da5665c5368a76b09e0d0e6b",
+    "words": 2650,
+    "duration_s": 911,
+    "cue_count": 241,
+    "first_question_mark_cue_s": 84.619,
+    "word_rate_per_full_min": 174.5,
+    "searched_literal": "bayes",
+    "first_literal_cue_s": 3.369
+  },
+  {
+    "id": "WUvTyaaNkzM",
+    "vtt_sha256": "2bdc39d112d425c9c09ab4b3e69e5fbbc82457aaa047578cec13c4c5c9be16f1",
+    "words": 2906,
+    "duration_s": 1024,
+    "cue_count": 243,
+    "first_question_mark_cue_s": 82.032,
+    "word_rate_per_full_min": 170.3,
+    "searched_literal": "calculus",
+    "first_literal_cue_s": 16.82
+  },
+  {
+    "id": "aircAruvnKk",
+    "vtt_sha256": "b7c03fd6e3ab262f1f373fc7b6005cdd3cc9a427de563b554f439448909f599f",
+    "words": 3357,
+    "duration_s": 1120,
+    "cue_count": 286,
+    "first_question_mark_cue_s": 168.52,
+    "word_rate_per_full_min": 179.8,
+    "searched_literal": "neural network",
+    "first_literal_cue_s": 70.857
+  },
+  {
+    "id": "fNk_zzaMoSs",
+    "vtt_sha256": "7cf5f3081d16947a7d37a5173fb3cdd53f28a9c7d9a2fdd73bcb77e9a278d406",
+    "words": 1800,
+    "duration_s": 591,
+    "cue_count": 157,
+    "first_question_mark_cue_s": 244.64,
+    "word_rate_per_full_min": 182.7,
+    "searched_literal": "vector",
+    "first_literal_cue_s": 10.92
+  },
+  {
+    "id": "p_di4Zn4wz4",
+    "vtt_sha256": "e3981cd395fcb3ac7cc863e9e89989879d4f27caa13b5d81d92d7d3133fe9c2a",
+    "words": 4548,
+    "duration_s": 1636,
+    "cue_count": 414,
+    "first_question_mark_cue_s": 207.32,
+    "word_rate_per_full_min": 166.8,
+    "searched_literal": "differential equation",
+    "first_literal_cue_s": 10.54
+  },
+  {
+    "id": "r6sGWTCMz2k",
+    "vtt_sha256": "b30cfbf8d2e3529930df6465c94d8509c64c10b10e6f83f3a988245ae25fc1ce",
+    "words": 4426,
+    "duration_s": 1487,
+    "cue_count": 372,
+    "first_question_mark_cue_s": 303.64,
+    "word_rate_per_full_min": 178.6,
+    "searched_literal": "fourier",
+    "first_literal_cue_s": 8.457
+  },
+  {
+    "id": "zeJD6dqJ5lo",
+    "vtt_sha256": "f5a0ac3d8919880164f02971a066d43c8476402b447ee7268db14cbbd65a3ec4",
+    "words": 6253,
+    "duration_s": 1874,
+    "cue_count": 522,
+    "first_question_mark_cue_s": 339.4,
+    "word_rate_per_full_min": 200.2,
+    "searched_literal": "central limit",
+    "first_literal_cue_s": 74.202
+  }
+]

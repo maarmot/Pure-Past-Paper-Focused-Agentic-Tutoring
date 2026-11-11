@@ -20,6 +20,8 @@ The supplied starter is one file with no network requests, build step, or extern
 
 Name each control by its effect in the situation ("Camera rate"), not by the variable. Say on the page what stays fixed. A control must never quietly change the thing being measured: in the starter, the two candidate frequencies are constants that no control touches, because letting the fast frequency follow the camera rate would make the samples agree at every setting and answer a different question.
 
+Order the page the way a reply is ordered: the reference state and the question first, then the control that matters, then a case where the picture fails, with the derivation and check values in a closed layer at the end.
+
 Offer one meaningful change at a time. Separate changing the system, changing the instrument, changing a model assumption, and changing only the view. Put the prediction prompt above the controls and keep the reveal off at the start; the reveal is a checkbox the learner can turn back off. Put the algebra in a closed disclosure the learner opens when they want it.
 
 State the interpretation in a sentence that updates with the state, and bound the claim in that sentence ("separates these two candidates, and only these two").

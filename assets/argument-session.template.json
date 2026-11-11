@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "kind": "session",
+  "date": "2026-11-10",
+  "topic": "Template: replace with the question that was argued",
+  "goals": [
+    "Replace with the claim or source the learner wanted to test"
+  ],
+  "events": [],
+  "position": {
+    "question": null,
+    "first_claim": null,
+    "first_reason": null,
+    "revised_claim": null,
+    "what_moved": null,
+    "open_question": null,
+    "tutor_position": null,
+    "source_basis": "none"
+  },
+  "duration": {
+    "seconds": null,
+    "basis": "unknown"
+  },
+  "next_step": "Replace with the next question or reading supported by what was actually said",
+  "template_notice": "Template only. Fill the learner fields from what the learner said, in their words, and leave the rest null; never ask a question in order to fill a field. tutor_position is the tutor's own stated position. source_basis is supplied-text, opened-source, learner-account, or none. Quote no passage from a source here."
+}

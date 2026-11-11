@@ -1,0 +1,246 @@
+{
+  "case": {
+    "id": "E01",
+    "field": "statics",
+    "msg": "Beam, pin at A, roller at B, 6 m span, 10 kN point load 2 m from A. I took moments about A and got B = 3.33 kN, then said A = 10 kN. Is that right?",
+    "criteria": [
+      "a. Says within the first two sentences that the work does not fully hold (B right, A wrong).",
+      "b. Confirms B = 3.33 kN is correct.",
+      "c. Names A = 10 kN as the first wrong step and why (vertical equilibrium; A is 6.67 kN).",
+      "d. Leaves the learner to redo the vertical force sum rather than only handing over the number with no invitation to act (PARTIAL if it gives 6.67 but still asks them to verify or continue).",
+      "e. No generic praise, ability words, or softeners that minimise the missed step.",
+      "f. At most one next task.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "context": "The synthetic project is preparing for a calculus exam on 2026-11-17. A reserved 2025 paper is off limits. Two reviews are due. The philosophy marking scheme has five levels; level 3 reads \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" No Manim or LaTeX is available in the fixture. Tutor work is read-only.",
+  "key": {
+    "W": {
+      "revision": 4,
+      "sample": 1,
+      "tutor_result_line": 216
+    },
+    "X": {
+      "revision": 4,
+      "sample": 2,
+      "tutor_result_line": 220
+    },
+    "Y": {
+      "revision": 5,
+      "sample": 1,
+      "tutor_result_line": 224
+    },
+    "Z": {
+      "revision": 5,
+      "sample": 2,
+      "tutor_result_line": 214
+    }
+  },
+  "replies": [
+    {
+      "label": "W",
+      "turn_1": "Half right. Your B is correct, and your A is not.\n\nMoments about A: B x 6 = 10 x 2, so B = 20/6 = 3.33 kN. That step is fine. The pin at A doesn't appear in the moment equation, which is why taking moments there was a good choice.\n\nThe first unsupported step is \"A = 10 kN\". Check it against this: if A were 10 kN upward and B were 3.33 kN upward, the beam would have 13.33 kN pushing up and only 10 kN pushing down. Would that beam sit still?\n\nTry this. Write the vertical force balance for the whole beam, with every force that acts in the vertical direction in it. Then solve for A. Tell me what you get, and what led you to 10 in the first place. I'm curious whether you matched A to the load, or whether it came from somewhere else.\n\nAfter you've fixed A, one extra check: the load is straight down, so what is the horizontal reaction at the pin, and why?",
+      "words": 176
+    },
+    {
+      "label": "X",
+      "turn_1": "Half right.\n\n**B = 3.33 kN is correct.** Taking moments about A, B x 6 = 10 x 2, so B = 20/6 = 3.33 kN upward. Your setup and arithmetic are fine.\n\n**A = 10 kN is not right.** That's the first unsupported step. Look at what A = 10 implies: A alone carries the whole load, so B would be carrying nothing. But you just found that B carries 3.33 kN.\n\nTry this check. Write the vertical force balance for the whole beam, with every vertical force in it: A, B and the 10 kN load. What does it say A must be?\n\nAlso say what the horizontal reaction at A is. The pin can push sideways, and there is no horizontal load here.\n\nOnce you have a new A, check it a second way. Take moments about B instead and see whether you get the same value. Send me your working and I'll look at it.",
+      "words": 159
+    },
+    {
+      "label": "Y",
+      "turn_1": "Half of it holds. B = 3.33 kN is correct, and A = 10 kN is not.\n\nYour moment equation is sound. Taking moments about A removes A's unknown reaction, so 6B = 10 × 2 gives B = 3.33 kN upward (10/3 kN exactly). That is the right way to start.\n\nThe first unsupported step is A = 10 kN. Check it against vertical equilibrium. The only vertical forces are A up, B up and the 10 kN load down. With your two values the upward forces add to 13.33 kN against 10 kN downward, so the beam would not be in equilibrium. I can see the number, but not how you got it, so I won't guess why.\n\nRedo that line with ΣFy = 0, using the B you already found. Say what you get for A and whether the vertical forces now balance. You can also confirm it independently by taking moments about B, which should give the same A.\n\nOne assumption to state in your answer: the load is vertical and there are no horizontal loads, so A's horizontal component is zero.\n\nOnce you have A, send it with your working and we'll move on to a beam where the setup changes, not just the numbers.",
+      "words": 210
+    },
+    {
+      "label": "Z",
+      "turn_1": "B = 3.33 kN is correct, but A = 10 kN is not.\n\nYour moment equation about A is sound: B x 6 = 10 x 2, so B = 3.33 kN. The gap is the next line. A = 10 kN would hold only if A carried the whole load. B is also pushing up with 3.33 kN, and that has to appear in your vertical force balance. Write out the sum of vertical forces for the beam and see what A has to be.\n\nOnce you have a new A, check it a second way. Take moments about B and see whether you get the same value. The two methods agree only if both reactions are right. Assume the 10 kN load is vertical, so the pin at A has no horizontal reaction.\n\nSend me your corrected A and your moments-about-B line when you have them.",
+      "words": 148
+    }
+  ],
+  "grading": {
+    "grades": [
+      {
+        "label": "W",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Opens with \"Half right. Your B is correct, and your A is not.\""
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Shows B x 6 = 10 x 2 and says \"That step is fine.\""
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Names \"A = 10 kN\" as the first unsupported step and shows 13.33 kN up against 10 kN down, pointing to the vertical force balance; it withholds 6.67 deliberately."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Asks the learner to write the vertical force balance and solve for A without giving the value."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "The only positive remark is specific to the method (\"taking moments there was a good choice\"), with no ability words or softeners."
+          },
+          {
+            "id": "f",
+            "verdict": "PARTIAL",
+            "reason": "One main task, but it adds a request to explain where 10 came from and a further horizontal-reaction question for afterwards."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Criticises the step, not the person, and the curiosity about where 10 came from is neither curt nor preachy."
+          }
+        ],
+        "worst_problem": "Tacks a second question (horizontal reaction at the pin) and a why-did-you-get-10 request onto the single repair task."
+      },
+      {
+        "label": "X",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "\"Half right.\" followed immediately by B correct, then A not right."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Bold statement \"B = 3.33 kN is correct\" with the moment equation."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Calls A = 10 the first unsupported step, explains it would mean B carries nothing, and directs to the vertical force balance; the value is withheld."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Asks \"What does it say A must be?\" without supplying 6.67."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "\"Your setup and arithmetic are fine\" is specific and no softeners are used."
+          },
+          {
+            "id": "f",
+            "verdict": "FAIL",
+            "reason": "Sets three separate tasks: the vertical balance, stating the horizontal reaction at A, and re-checking by moments about B."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Direct about the work, with no praise inflation or minimising words."
+          }
+        ],
+        "worst_problem": "Three tasks in one turn (vertical balance, horizontal reaction, moments about B) dilute the single repair."
+      },
+      {
+        "label": "Y",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "\"Half of it holds. B = 3.33 kN is correct, and A = 10 kN is not.\""
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Confirms 6B = 10 x 2 gives B = 3.33 kN (10/3 exactly)."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Names A = 10 kN as the first unsupported step and shows 13.33 kN up against 10 kN down violates vertical equilibrium; the value is withheld."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "\"Redo that line with ΣFy = 0... Say what you get for A\" leaves the computation to the learner."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "\"That is the right way to start\" is method-specific; no ability words or softeners about the error."
+          },
+          {
+            "id": "f",
+            "verdict": "PARTIAL",
+            "reason": "One core task, but it also offers an optional moments-about-B check, an assumption to state, and a preview of the next beam."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Work-focused and explicitly declines to guess at the learner's reasoning; slightly long but not preachy."
+          }
+        ],
+        "worst_problem": "Longest reply, with extras (moments about B, the horizontal assumption, next-beam preview) crowding the one repair task."
+      },
+      {
+        "label": "Z",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "First sentence: \"B = 3.33 kN is correct, but A = 10 kN is not.\""
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "\"Your moment equation about A is sound\" with the working shown."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Locates the gap at \"the next line\", explaining A = 10 only holds if A carried the whole load and that B must appear in the vertical force balance; the value is withheld."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "\"Write out the sum of vertical forces for the beam and see what A has to be\" with no number given."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "No praise beyond \"sound\" for the moment equation, and no softeners."
+          },
+          {
+            "id": "f",
+            "verdict": "PARTIAL",
+            "reason": "Asks for both the corrected A and a moments-about-B line, which is two pieces of work."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Plain and work-focused, brief without being curt."
+          }
+        ],
+        "worst_problem": "Requires a second task (the moments-about-B check) alongside the repair, and never explicitly calls A = 10 the first wrong step, only \"the gap\"."
+      }
+    ],
+    "maths_or_facts_errors": "none. All four correctly confirm B = 20/6 = 3.33 kN and the 13.33 kN versus 10 kN imbalance where it is used. No reply states A = 6.67 kN, but none states a wrong value. The claims that the horizontal reaction at A is zero are correct for a vertical load."
+  },
+  "lineage": {
+    "grader_started_line": 337,
+    "grader_result_line": 344,
+    "grade_results_for_label": 2
+  },
+  "counts": {
+    "4": {
+      "PASS": 12,
+      "PARTIAL": 1,
+      "FAIL": 1
+    },
+    "5": {
+      "PASS": 12,
+      "PARTIAL": 2
+    }
+  }
+}

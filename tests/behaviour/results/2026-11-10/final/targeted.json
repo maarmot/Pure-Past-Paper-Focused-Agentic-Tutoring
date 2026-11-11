@@ -1,0 +1,463 @@
+{
+  "cases": [
+    {
+      "case": {
+        "id": "E12",
+        "field": "render performance",
+        "msg": "My Manim render of a Fourier scene takes 20 minutes. Speed it up.",
+        "criteria": [
+          "a. Asks for or says to record the Manim version and a timing baseline before changing things.",
+          "b. Gives concrete cheaper renders: a still/last-frame render, a low-quality preview, and rendering only part of the scene.",
+          "c. Names code-level causes worth checking (objects or text rebuilt every frame, updaters left running during holds) as things to measure, not certainties.",
+          "d. Promises no specific speedup figure for the learner's scene.",
+          "e. Does not claim the OpenGL renderer (or any switch) is faster without telling them to measure it.",
+          "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+        ]
+      },
+      "replies": {
+        "A": {
+          "turn1": "Which part accounts for the 20 minutes? Send the scene’s `construct` method and updaters, your exact render command, and the output of `manim --version`. Those details distinguish time spent calculating coefficients, rebuilding curves each frame, and encoding frames.\n\nFor a quick Manim Community edit cycle, preview only the slow animation with `manim render -ql -n N,N scene.py SceneName`, replacing `N` with its animation number. For the actual speed comparison, time that same section before and after at identical resolution, frame rate, renderer and cache state. If the coefficients describe a fixed signal and are recomputed in an updater, calculate them once before the animation. Compare the old and new Fourier curve at the same times and harmonic counts. I can’t run the render here, so the speedup is still unmeasured."
+        },
+        "B": {
+          "turn1": "For your next edit, render just the Fourier animation you changed. If you use Manim Community, `manim render -ql -n 4,5 scene.py FourierScene` previews animations 4–5. Substitute your file, class, and animation numbers. That shortens the edit cycle. The 20-minute total alone doesn't tell us which change would speed up the full-quality export.\n\nFor a quick diagnosis, record `manim --version` and your original command. Time these three runs on the same machine with the same renderer and cache policy. The commands below use a cold comparison.\n\n| Run | Command | What to look for |\n|---|---|---|\n| Last frame | `manim render --disable_caching -ql -s scene.py FourierScene` | A slow still makes scene setup, coefficient calculation, or typesetting worth inspecting. |\n| Full low-cost preview | `manim render --disable_caching -ql scene.py FourierScene` | Watch which animation takes the time, including any visually static hold. |\n| Suspect animation | `manim render --disable_caching -ql -n 4,5 scene.py FourierScene` | Use this short range to compare one code change at a time. |\n\nIf an updater recalculates Fourier coefficients for the same input path every frame, compute them once and update only the vector angles and endpoints. If the delay is in a hold, check whether the trace or label updater keeps rebuilding objects after the motion stops. Suspend that updater during the hold and resume it when needed.\n\nTime the same range again at identical settings. Check the curve and endpoint at the same timestamps and watch the transition out of the hold. Then repeat the original full-quality command under matched cache conditions to measure the actual saving. Send the version, original command, three timings, and the updater for the slow section, and I can point to the edit your scene warrants."
+        },
+        "C": {
+          "turn1": "For your next edit, render just the Fourier animation you changed. That gives you a shorter feedback loop while we find out what costs 20 minutes in the full render.\n\nIf you’re using Manim Community, record `manim --version` and your original command. Then time these three commands with the same renderer and cache setting, using your filename and scene name. `manim render --help` lists the flags your installation supports.\n\n1. `manim render -s -qh scene.py FourierScene` saves the last frame so you can check the layout.\n2. `manim render -ql scene.py FourierScene` previews the full motion at low quality.\n3. `manim render -ql -n 4,4 scene.py FourierScene` isolates animation 4. Substitute the number of the slow sweep or hold.\n\nIf a motionless hold takes substantial time, check whether the Fourier updaters keep firing during `self.wait()`. Try suspending the relevant updater for that hold and resuming it before motion restarts. If the sweep is slow, check whether it recomputes fixed Fourier coefficients every frame. For a fixed input curve, you can compute those coefficients once and update just the phase and geometry as time advances.\n\nTime the same segment before and after one change with identical resolution, fps and cache state. Compare the trace and endpoint at the same timestamps, including the first frame after a hold. Send your original command, the three elapsed times and the code that updates the Fourier curve. Those will tell us which edit is worth testing on the full render."
+        },
+        "D": {
+          "turn1": "I’d first time the slowest Fourier animation at your usual settings. The reported 20 minutes is for the whole render, and I don’t yet know which part costs it. If you use Manim Community, run `python -m manim -ql -n 3,3 scene.py FourierScene` for a fast preview, replacing `3` with the animation index you’re editing. This machine lacks Manim, so I haven’t measured a speedup.\n\nOne thing to look for in the scene: are you recomputing Fourier coefficients from the same path on every frame? If so, compute them once and have the updater change the existing arrows’ endpoints as time advances. Time the same segment before and after at identical resolution, frame rate, renderer and cache state. Compare the arrow tips and traced curve at matching times. Paste the part that computes coefficients, the updater, and your render command so we can target the actual bottleneck."
+        },
+        "E": {
+          "turn1": "Which render command are you running, and can you share the part of the scene that rebuilds the Fourier curve and epicycles? Twenty minutes gives us a baseline, but it doesn’t tell us where the time goes. Manim is unavailable here, so I can’t time your scene locally.\n\nOn your render machine, time a representative moving section with `-n` and use `-ql` for iteration. In the scene, check whether every frame recomputes Fourier coefficients for the same source curve. If so, compute them once and update only the phases and geometry. If the coefficients are already cached, profile the frame updates before changing the algorithm. Compare the same section before and after with identical resolution, fps, renderer and cache state. Check the epicycle tips and reconstructed curve at the same frames as well as the elapsed time."
+        },
+        "F": {
+          "turn1": "For your next edit, render just the animation you changed. To find out what makes the full render take 20 minutes, time three smaller runs before changing the scene code.\n\nFirst run `manim --version` and save the exact command you normally use. If it’s Manim Community, confirm the flags with `manim render --help`. For a 30 fps project, try these with your file and scene names. Keep the preview files in a separate media directory.\n\n1. Time a final-size still with `manim render -s -qh scene.py FourierScene`. If even the still is slow, inspect scene setup, coefficient calculation, and label creation first.\n2. Time the whole scene at preview resolution with `manim render -ql --fps 30 scene.py FourierScene`. Use your actual final fps so the frame count stays comparable.\n3. Time one expensive-looking animation with `manim render -ql --fps 30 -n 4,4 scene.py FourierScene`. Replace 4 with the animation index from your log. Compare it with a static hold of similar duration. If the hold is costly, check whether a Fourier updater or `always_redraw` is still rebuilding the curve while its parameters are fixed. Suspend it for that hold, then resume it when motion starts.\n\nIf the moving segment dominates instead, check whether it recomputes fixed Fourier coefficients every frame. Compute those once if they are constant. Test one change at a time on the same segment with the same renderer, resolution, fps, and cache state. Compare elapsed time, the curve at the same phase, and motion across the hold boundary. I haven’t timed your scene. Paste the version, original command, three wall times, and the updater for the slow segment so we can narrow this to a specific edit."
+        }
+      },
+      "ratings": {
+        "A": [
+          [
+            "PASS",
+            "Requests manim --version and a before-and-after timing on the same range with matched settings."
+          ],
+          [
+            "PARTIAL",
+            "The -ql -n command supplies a low-quality preview of a range. It omits a last-frame render."
+          ],
+          [
+            "PARTIAL",
+            "Considers curves rebuilt per frame and repeated fixed-coefficient calculations. It does not check for updaters running through holds."
+          ],
+          [
+            "PASS",
+            "Explicitly calls the scene's speedup unmeasured."
+          ],
+          [
+            "PASS",
+            "Holds the renderer constant for timing and makes no renderer speed claim."
+          ],
+          [
+            "PASS",
+            "The opening question and requests for evidence are direct and collegial."
+          ]
+        ],
+        "B": [
+          [
+            "PASS",
+            "Requests the version and original command, then three timings before editing."
+          ],
+          [
+            "PASS",
+            "Supplies runnable last-frame, low-quality full-scene and animation-range examples."
+          ],
+          [
+            "PASS",
+            "Conditionally checks repeated coefficient computation and a trace or label updater rebuilding objects during a hold."
+          ],
+          [
+            "PASS",
+            "Measures the saving with the original command and gives no numeric promise."
+          ],
+          [
+            "PASS",
+            "Requires matched renderer and cache conditions for comparisons."
+          ],
+          [
+            "PASS",
+            "The wording is matter-of-fact. 'Just the Fourier animation' specifies a range without belittling difficulty."
+          ]
+        ],
+        "C": [
+          [
+            "PASS",
+            "Records the version and command, times three runs, and compares the same segment before and after an edit."
+          ],
+          [
+            "PASS",
+            "Shows -s for the last frame, -ql for motion and -n 4,4 for one animation."
+          ],
+          [
+            "PASS",
+            "Uses timed holds and sweeps to investigate active updaters and per-frame recomputation of fixed coefficients."
+          ],
+          [
+            "PASS",
+            "Gives no speedup figure and asks for elapsed times."
+          ],
+          [
+            "PASS",
+            "Keeps the renderer fixed and proposes a matched segment comparison."
+          ],
+          [
+            "PASS",
+            "Gives actionable directions and uses 'just' to limit what to render or update."
+          ]
+        ],
+        "D": [
+          [
+            "PARTIAL",
+            "Asks for baseline timing at usual settings and the render command, but omits the version."
+          ],
+          [
+            "PARTIAL",
+            "Combines -ql and -n for a low-quality partial render. No still or last-frame example is given."
+          ],
+          [
+            "PARTIAL",
+            "Suggests testing per-frame coefficient recomputation and reusing arrows. It does not check continuing updaters during holds."
+          ],
+          [
+            "PASS",
+            "States that no speedup has been measured and offers no figure."
+          ],
+          [
+            "PASS",
+            "Times a segment with matched renderer settings and endorses no renderer switch."
+          ],
+          [
+            "PASS",
+            "Treats coefficient recomputation as a question and invites the code needed to answer it."
+          ]
+        ],
+        "E": [
+          [
+            "PARTIAL",
+            "Uses the reported total and requests a matched segment baseline, but does not request the Manim version."
+          ],
+          [
+            "PARTIAL",
+            "Names -n for a section and -ql for iteration. The still or last-frame render is missing."
+          ],
+          [
+            "PARTIAL",
+            "Checks for repeated fixed-coefficient work, but presupposes curve rebuilding in the opening and omits updaters persisting during holds."
+          ],
+          [
+            "PASS",
+            "Calls for elapsed-time comparisons without quantifying an expected gain."
+          ],
+          [
+            "PASS",
+            "Keeps renderer and other settings identical for the comparison."
+          ],
+          [
+            "PASS",
+            "Focuses on the scene and gives practical reasons for the measurements without blaming the learner."
+          ]
+        ],
+        "F": [
+          [
+            "PASS",
+            "Requests the version and normal command, and times three runs before code changes."
+          ],
+          [
+            "PASS",
+            "Shows -s for a still, -ql for a preview and -n for one animation. The -qh still matches final size only if the export uses that preset's resolution."
+          ],
+          [
+            "PASS",
+            "Times a hold to test continued rebuilding by always_redraw or another updater, and separately tests for repeated coefficient calculation in motion."
+          ],
+          [
+            "PASS",
+            "Requests wall times and explicitly says the scene has not been timed."
+          ],
+          [
+            "PASS",
+            "Makes no renderer claim and requires matched renderer, resolution, fps and cache state."
+          ],
+          [
+            "PASS",
+            "Uses conditional language about the bottleneck and gives respectful, concrete instructions."
+          ]
+        ]
+      },
+      "key": {
+        "A": {
+          "edition": "before",
+          "sample": 1
+        },
+        "B": {
+          "edition": "after",
+          "sample": 1
+        },
+        "C": {
+          "edition": "after",
+          "sample": 2
+        },
+        "D": {
+          "edition": "before",
+          "sample": 2
+        },
+        "E": {
+          "edition": "before",
+          "sample": 3
+        },
+        "F": {
+          "edition": "after",
+          "sample": 3
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "E15",
+        "field": "cross-field transfer",
+        "msg": "I'm fine at mechanics but my history essays keep getting 'assertion without support' in the margins. Will my physics habits help?",
+        "criteria": [
+          "a. Says which habits can carry and that they carry only when made explicit (for example stating assumptions, finding the first unsupported step, testing a claim against a counter-case).",
+          "b. Says what does not carry (content, conventions).",
+          "c. Promises no improvement and cites no invented study or number.",
+          "d. Offers one concrete next task on a real essay or paragraph of theirs.",
+          "e. Not bloated: FAIL if over about 350 words.",
+          "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+        ]
+      },
+      "replies": {
+        "A": {
+          "turn1": "Yes. In mechanics, you can point to a line in your working and ask, ‘What lets me take this step?’ Ask that at the exact sentence your history marker flagged. Find the claim, underline the detail from a source that supports it, and explain how that detail gets you to the claim. Sometimes the missing piece is that last link, even when you’ve cited a source.\n\nSuppose your claim is ‘The tax caused the protests.’ Imagine a petition dated before the first march whose signatories say they intend to march unless the tax is repealed. That gives you a reason to write, ‘The tax helped motivate the petitioners to march, since they tied their decision to whether it stayed in force.’ Who signed matters. The petition gives you evidence about those people’s stated motive. To extend the claim to other protesters, you’d need evidence from them too. Checking how far a conclusion follows is the mechanics habit. Judging a document’s date, authorship and whose experience it represents takes historical knowledge.\n\nTry it on one flagged sentence. What exact detail in your source would you put next to it, and which words in your claim can that detail support? If you paste the sentence and the detail, we can find the first unsupported step together."
+        },
+        "B": {
+          "turn1": "Yes, one mechanics habit is worth trying. When you draw a force arrow, you can name the interaction that puts it there. Do the same for a causal claim in history: which source supports that particular link, and how?\n\nFor instance, “the tax caused the revolt” needs more than a date showing the tax came first. If a petition from the organizers gives the tax as their reason for mobilizing, it supports a narrower claim about those organizers’ motives. You’d still need evidence for how representative they were. Pick one sentence marked ‘assertion without support’ and try revising it to say exactly what your source lets you infer."
+        },
+        "C": {
+          "turn1": "One mechanics habit is worth trying. When you draw a reaction force, you can point to the support that justifies it. Underline one historical claim in your paragraph and ask what source justifies *that exact claim*. Suppose a factory petition demands shorter hours. Its wording supports ‘the signatories wanted shorter hours.’ To claim ‘the petition made the owner shorten the day,’ you’d need evidence connecting it to the decision, such as a letter in which the owner gives that reason. Take one sentence marked ‘assertion without support,’ add the relevant source detail, and explain in your own words how it warrants the claim. If the detail supports a narrower claim, revise the sentence."
+        },
+        "D": {
+          "turn1": "Yes. One mechanics habit you can deliberately reuse is asking, “What does this observation actually let me conclude?” A cart slowing down tells you the net force points against its motion. To identify friction as the cause, you need something that distinguishes it from other forces.\n\nTry that on a history claim. Suppose you write, “The tax increase turned the town against the council.” A petition dated just after the increase that names the tax as a grievance gives you a reason to say its **signers publicly opposed the tax**. To say it **changed the town’s opinion**, you still need evidence of what people thought beforehand and of whose views the petition represents. A dissatisfied group might have opposed the council already. You can narrow the claim or find evidence that distinguishes those explanations.\n\nPick one sentence your marker flagged. Put the precise detail from your source beside it, then finish “This supports my claim because …” in your own words. Paste the sentence and your attempt, and we can find the first inference a reader would have to take on trust."
+        },
+        "E": {
+          "turn1": "Yes, one mechanics habit is worth trying. When you write a moment equation, you can point to the force and lever arm that justify each term. Do the same for one historical claim: point to a detail in the source, then explain why it supports the particular inference you made.\n\nSuppose your claim is “workers opposed the new hours.” A petition signed by 40 workers asking for shorter shifts supports opposition among those signatories. It leaves open what the other workers thought. That last distinction is the historical work: deciding how far this source reaches. Try revising one sentence your marker flagged using the evidence you actually have."
+        },
+        "F": {
+          "turn1": "Yes. Borrow the question you might ask about a free-body diagram: “What in this situation justifies that arrow?” Ask the same thing about the first *because* in a history paragraph. Which detail in the source supports the connection you're claiming?\n\nSuppose your sentence is “The bread tax caused the protest.” In an invented example, you have a petition written by the organizers before the march asking the council to repeal the tax. You could write: “Before the march, its organizers petitioned the council to repeal the bread tax. Their choice of demand shows that opposition to the tax was one stated aim of the protest.” The timing and authorship give that inference weight. The petition alone leaves open what drew other marchers.\n\nThat's the part history asks you to supply: who produced the evidence, when, and how far it reaches. Your mechanics experience gives you a question to try. Whether it helps your essays is something you can check on a fresh paragraph.\n\nPaste one marked sentence and the source detail you meant to use. Try adding one sentence in your own words explaining why that detail supports your claim. We can see exactly where the reader still has to take your word for it."
+        }
+      },
+      "ratings": {
+        "A": [
+          [
+            "PASS",
+            "Transfers the question about what justifies each inference and shows how to write the source-to-claim link explicitly."
+          ],
+          [
+            "PASS",
+            "Separates the transferable question from historical knowledge about date, authorship and representativeness."
+          ],
+          [
+            "PASS",
+            "Proposes a technique to try, without a forecast or research claim."
+          ],
+          [
+            "PASS",
+            "Asks the learner to pair one flagged sentence with a precise source detail and test its wording."
+          ],
+          [
+            "PASS",
+            "214 whitespace-delimited words, below 350."
+          ],
+          [
+            "PASS",
+            "Discusses the limits of the example claim and invites the learner to investigate their own."
+          ]
+        ],
+        "B": [
+          [
+            "PASS",
+            "Pairs naming the interaction behind a force arrow with explicitly identifying and explaining the source for a causal link."
+          ],
+          [
+            "PARTIAL",
+            "Shows the need to establish timing and representativeness but leaves the boundary between mechanics habits and historical conventions implicit."
+          ],
+          [
+            "PASS",
+            "Describes a habit worth trying without predicting gains or citing a study."
+          ],
+          [
+            "PASS",
+            "Asks for a revision of one sentence carrying the actual margin comment."
+          ],
+          [
+            "PASS",
+            "108 whitespace-delimited words, below 350."
+          ],
+          [
+            "PASS",
+            "Critiques a sample causal claim and addresses the learner respectfully."
+          ]
+        ],
+        "C": [
+          [
+            "PASS",
+            "Turns the mechanics justification habit into an explicit requirement to supply the source detail and warrant for a particular history claim."
+          ],
+          [
+            "PARTIAL",
+            "Distinguishes a petition's demand from evidence about an owner's decision, but does not say which knowledge or conventions must be learned in history."
+          ],
+          [
+            "PASS",
+            "Makes no improvement promise or empirical claim."
+          ],
+          [
+            "PASS",
+            "Directs the learner to revise one marked sentence with their own source detail and explanation."
+          ],
+          [
+            "PASS",
+            "113 whitespace-delimited words, below 350."
+          ],
+          [
+            "PASS",
+            "Grounds the feedback in a concrete example without judging the learner."
+          ]
+        ],
+        "D": [
+          [
+            "PASS",
+            "Explicitly transfers testing alternative explanations and has the learner write the warrant. The cart example's force-direction claim needs a straight-line-motion assumption."
+          ],
+          [
+            "PARTIAL",
+            "Uses historical checks about earlier views and whose views a petition represents, but does not identify those as conventions mechanics cannot supply."
+          ],
+          [
+            "PASS",
+            "Makes no promise or invented study claim."
+          ],
+          [
+            "PASS",
+            "Asks the learner to put source evidence beside a flagged sentence and write the missing inference."
+          ],
+          [
+            "PASS",
+            "182 whitespace-delimited words, below 350."
+          ],
+          [
+            "PASS",
+            "Treats the marked reasoning as something to examine and offers a constructive way to do so."
+          ]
+        ],
+        "E": [
+          [
+            "PASS",
+            "Maps justifying each moment term to explicitly connecting a source detail to an inference."
+          ],
+          [
+            "PASS",
+            "Names deciding whose views the petition can represent as the distinct historical work."
+          ],
+          [
+            "PASS",
+            "Calls the habit worth trying. The 40 signatures belong to a hypothetical source, not an invented study or improvement figure."
+          ],
+          [
+            "PASS",
+            "Asks for one marked sentence to be revised using the learner's own evidence."
+          ],
+          [
+            "PASS",
+            "108 whitespace-delimited words, below 350."
+          ],
+          [
+            "PASS",
+            "The response stays focused on the inference with no personal appraisal or minimization."
+          ]
+        ],
+        "F": [
+          [
+            "PASS",
+            "Transfers the question that justifies an arrow and asks for an explicit written link between detail and causal claim."
+          ],
+          [
+            "PASS",
+            "Identifies authorship, timing and scope as work the history writer must supply."
+          ],
+          [
+            "PASS",
+            "Treats benefit as testable on a fresh paragraph and labels the petition example invented."
+          ],
+          [
+            "PASS",
+            "Requests one actual marked sentence, its source detail and a written warrant."
+          ],
+          [
+            "PASS",
+            "205 whitespace-delimited words, below 350."
+          ],
+          [
+            "PASS",
+            "Gives the learner an achievable task and addresses the reader's trust in the evidence without belittling the writer."
+          ]
+        ]
+      },
+      "key": {
+        "A": {
+          "edition": "after",
+          "sample": 2
+        },
+        "B": {
+          "edition": "before",
+          "sample": 2
+        },
+        "C": {
+          "edition": "before",
+          "sample": 1
+        },
+        "D": {
+          "edition": "after",
+          "sample": 3
+        },
+        "E": {
+          "edition": "before",
+          "sample": 3
+        },
+        "F": {
+          "edition": "after",
+          "sample": 1
+        }
+      }
+    }
+  ],
+  "counts": {
+    "E12": {
+      "before": {
+        "PASS": 10,
+        "PARTIAL": 8
+      },
+      "after": {
+        "PASS": 18
+      }
+    },
+    "E15": {
+      "before": {
+        "PASS": 16,
+        "PARTIAL": 2
+      },
+      "after": {
+        "PASS": 17,
+        "PARTIAL": 1
+      }
+    }
+  }
+}

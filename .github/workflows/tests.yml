@@ -3,6 +3,7 @@ name: Tests
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -25,6 +26,12 @@ jobs:
           sudo apt-get install -y ffmpeg
       - name: Run tests
         run: python -B -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Check the Manim starter model
+        run: python -B assets/manim/lesson_beats.py --check
+      - name: Check grading evidence
+        run: |
+          python -B tests/behaviour/results/2026-11-10/pre-fix/check_results.py
+          python -B tests/behaviour/results/2026-11-10/final/check_results.py
       - name: Validate starter records
         shell: bash
         run: |
@@ -35,3 +42,24 @@ jobs:
               exit 1
             fi
           done
+
+  scene-preview:
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Install preview dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libcairo2-dev libpango1.0-dev pkg-config
+          python -m pip install "manim==0.22.1"
+      - name: Check scene objects and render the starter
+        run: |
+          python -B assets/manim/check_scene.py
+          python -m manim render -ql --fps 15 --disable_caching --media_dir /tmp/ppp-preview assets/manim/lesson_beats.py SameSamples
+          video=$(find /tmp/ppp-preview -name SameSamples.mp4 -print -quit)
+          test -n "$video"
+          python scripts/ppp_tools.py media-info "$video" --require-video

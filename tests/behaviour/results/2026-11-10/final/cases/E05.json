@@ -1,0 +1,244 @@
+{
+  "case": {
+    "id": "E05",
+    "field": "philosophy essay",
+    "msg": "25-mark question: 'Is utilitarianism a convincing account of morality?' My plan: thesis: no. P1: the experience machine shows pleasure isn't all we value. P2: Mill's higher pleasures answer this. Conclusion: so utilitarianism fails. Where is it weakest?",
+    "criteria": [
+      "a. Says what holds in the plan before the criticism.",
+      "b. Identifies that P2 supports utilitarianism (or is an objection to the thesis that is raised and not weighed), so the conclusion does not follow as written; quotes or pinpoints that move.",
+      "c. Does not tally marks per point.",
+      "d. Does not write the model essay or model paragraph unasked.",
+      "e. Gives no band, OR gives one labelled as an estimate with a quoted phrase from marking criteria it actually opened. A bare asserted band is FAIL.",
+      "f. Offers a concrete retry (for example weigh the objection, or state the strongest objection to the thesis) without making it a condition of the feedback.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "The weakest move is from P2 to your conclusion. Once you give Mill a reply, your reader has a reason to resist your thesis. The PHIL102 descriptor for Level 3 calls this “relevant arguments are stated but not weighed against each other.”\n\nGive the machine its strongest test: suppose it can simulate the pleasure of a deep friendship perfectly. Does actually having a friend still matter, and why? Your answer would assess Mill’s reply. Even if it succeeds against hedonism, you still need a reason to extend it to forms of utilitarianism that count goods other than pleasure."
+    },
+    "B": {
+      "turn1": "The weakest step is the jump from P2 to the conclusion. You’ve given Mill a chance to answer the objection, then concluded he loses without saying why. That fits the instructor’s Level 3 description, “relevant arguments are stated but not weighed against each other,” on the plan as written.\n\nAdd one test after P2: suppose the machine reproduces even the higher pleasure of sustaining a friendship. Is being a friend still valuable in a way that feeling exactly as if you were one cannot capture? Defend your answer. If it works, you’ve challenged a pleasure-based account of value. You’d need a further reason to extend that verdict to forms of utilitarianism that count things besides pleasure."
+    },
+    "C": {
+      "turn1": "The weakest step is from P2 to the conclusion. You’ve given Mill a reply and then concluded he loses without saying why. Test that reply on someone who wants to *actually keep a promise* and could have the same rich, satisfying experience in the machine. Would the pleasure of seeming to keep the promise give them everything they value? Develop your answer to that question after P2. If it succeeds, it challenges the claim that pleasure exhausts what matters. A rejection of utilitarianism as a whole would also have to address versions that count other kinds of welfare."
+    },
+    "D": {
+      "turn1": "The weakest point is the jump from P2 to the conclusion. If Mill has answered your objection, the reader has just been given a reason to accept his view. Your PHIL102 criteria ask you to weigh the strongest reply and earn the conclusion. A useful test is to imagine a machine that feels exactly like sustaining a real friendship, including its intellectual and emotional depth. Has Mill explained everything valuable about the friendship, or does actually caring for another person add value even when the two experiences feel identical? Defend your answer there. Also narrow the thesis if necessary: an objection to pleasure as the sole good directly targets hedonistic utilitarianism. A preference utilitarian can count a frustrated desire for a real friendship."
+    },
+    "E": {
+      "turn1": "The weakest move is from P2 to the conclusion. Your last argument gives Mill an answer, then your next sentence awards the argument to his critic. Your instructor’s top band asks you to weigh the objection at full strength. Give Mill a fair test: imagine the machine reproduces the richest experience of friendship, including its intellectual pleasures. Is there still a reason to prefer the real friendship? If so, explain what actually caring for another person contributes even when the experiences feel identical. That could justify rejecting pleasure as the sole good. To reject utilitarianism generally, you still need to address versions that count goods such as satisfied preferences."
+    },
+    "F": {
+      "turn1": "The weakest move is from P2 to your conclusion. If Mill has answered the objection, what reason does your reader still have to reject his view? Your instructor’s top band asks you to weigh the strongest reply and earn the conclusion.\n\nGive Mill his best case. A life of inquiry or friendship can contain pleasures of a higher quality than passive amusement. Now sharpen the machine so it reproduces the experience of discovering something or of being loved, down to the last detail. Is there still a reason to prefer making an actual discovery or having a friend who really loves you? Defend your answer. If that reason survives, it challenges the claim that pleasure exhausts well-being. A preference utilitarian can count a preference for real friendship, so either narrow your thesis to hedonistic utilitarianism or explain why that further reply also fails."
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 5,
+      "sample": 2
+    },
+    "B": {
+      "revision": 5,
+      "sample": 3
+    },
+    "C": {
+      "revision": 5,
+      "sample": 1
+    },
+    "D": {
+      "revision": 4,
+      "sample": 3
+    },
+    "E": {
+      "revision": 4,
+      "sample": 1
+    },
+    "F": {
+      "revision": 4,
+      "sample": 2
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "FAIL",
+        "Opens with the weakest move; no strength is identified first."
+      ],
+      [
+        "PASS",
+        "Pinpoints P2 to the conclusion and explains that Mill gives the reader a reason to resist the thesis."
+      ],
+      [
+        "PASS",
+        "No marks assigned to individual points."
+      ],
+      [
+        "PASS",
+        "Gives diagnostic feedback and a test case; leaves the argument to the writer."
+      ],
+      [
+        "PASS",
+        "Quotes a Level 3 descriptor matching the fixture but does not assign the plan a band."
+      ],
+      [
+        "PASS",
+        "Asks whether real friendship adds value when its pleasure is replicated."
+      ],
+      [
+        "PASS",
+        "Addresses the inference or example in a matter-of-fact tone, without personal criticism or inflated praise."
+      ]
+    ],
+    "B": [
+      [
+        "FAIL",
+        "Immediately identifies the jump as the weakest step."
+      ],
+      [
+        "PASS",
+        "Identifies the unargued move from giving Mill a reply to concluding he loses."
+      ],
+      [
+        "PASS",
+        "No marks assigned to individual points."
+      ],
+      [
+        "PASS",
+        "Gives diagnostic feedback and a test case; leaves the argument to the writer."
+      ],
+      [
+        "PARTIAL",
+        "Applies Level 3 to the plan as written and quotes a matching descriptor. It does not explicitly label an estimate or show a lookup."
+      ],
+      [
+        "PASS",
+        "Asks the writer to defend the distinction between being a friend and feeling like one."
+      ],
+      [
+        "PASS",
+        "Addresses the inference or example in a matter-of-fact tone, without personal criticism or inflated praise."
+      ]
+    ],
+    "C": [
+      [
+        "FAIL",
+        "Starts with criticism before identifying anything that works."
+      ],
+      [
+        "PASS",
+        "Explicitly says the inference from giving Mill a reply to declaring he loses is unsupported."
+      ],
+      [
+        "PASS",
+        "No marks assigned to individual points."
+      ],
+      [
+        "PASS",
+        "Gives diagnostic feedback and a test case; leaves the argument to the writer."
+      ],
+      [
+        "PASS",
+        "Offers no band."
+      ],
+      [
+        "PASS",
+        "Provides a promise-keeping example and asks the writer to develop an answer after P2."
+      ],
+      [
+        "PASS",
+        "Addresses the inference or example in a matter-of-fact tone, without personal criticism or inflated praise."
+      ]
+    ],
+    "D": [
+      [
+        "FAIL",
+        "Leads with the weakest point."
+      ],
+      [
+        "PASS",
+        "Shows that an accepted reply gives the reader a reason for Mill's view."
+      ],
+      [
+        "PASS",
+        "No marks assigned to individual points."
+      ],
+      [
+        "PASS",
+        "Gives diagnostic feedback and a test case; leaves the argument to the writer."
+      ],
+      [
+        "PASS",
+        "Refers to criteria without assigning a band."
+      ],
+      [
+        "PASS",
+        "Asks the writer to defend a verdict about real care under experientially identical conditions."
+      ],
+      [
+        "PASS",
+        "The word 'just' marks the sequence of the premises; it does not trivialise the missed inference."
+      ]
+    ],
+    "E": [
+      [
+        "FAIL",
+        "Opens by criticising the transition to the conclusion."
+      ],
+      [
+        "PASS",
+        "Contrasts giving Mill an answer with awarding the argument to his critic."
+      ],
+      [
+        "PASS",
+        "No marks assigned to individual points."
+      ],
+      [
+        "PASS",
+        "Gives diagnostic feedback and a test case; leaves the argument to the writer."
+      ],
+      [
+        "PASS",
+        "Mentions the top band as a target without assigning the learner a band."
+      ],
+      [
+        "PASS",
+        "Asks what real care adds if the machine can reproduce the richest experience of friendship."
+      ],
+      [
+        "PASS",
+        "Addresses the inference or example in a matter-of-fact tone, without personal criticism or inflated praise."
+      ]
+    ],
+    "F": [
+      [
+        "FAIL",
+        "Opens by identifying the weakest move."
+      ],
+      [
+        "PASS",
+        "Asks what reason remains for rejecting Mill once his reply is granted, pinpointing the unsupported conclusion."
+      ],
+      [
+        "PASS",
+        "No marks assigned to individual points."
+      ],
+      [
+        "PASS",
+        "Gives diagnostic feedback and a test case; leaves the argument to the writer."
+      ],
+      [
+        "PASS",
+        "Mentions a top-band expectation without predicting the plan's band."
+      ],
+      [
+        "PASS",
+        "Offers real discovery or love as a test and suggests narrowing the thesis or addressing preference utilitarianism."
+      ],
+      [
+        "PASS",
+        "Addresses the inference or example in a matter-of-fact tone, without personal criticism or inflated praise."
+      ]
+    ]
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "case": {
+    "id": "E13",
+    "field": "calculus correct work",
+    "msg": "For f(x) = x e^x I got f'(x) = e^x + x e^x = e^x(1 + x). Is that right?",
+    "criteria": [
+      "a. Says \"correct\" (or yes) in the first sentence.",
+      "b. Names why it is right (product rule applied correctly), briefly.",
+      "c. Does not manufacture a criticism or a caveat that is not real.",
+      "d. Moves on with one transfer or next task, optional.",
+      "e. Short: FAIL if over about 150 words.",
+      "f. No inflated praise or ability words.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "context": "The synthetic project is preparing for a calculus exam on 2026-11-17. A reserved 2025 paper is off limits. Two reviews are due. The philosophy marking scheme has five levels; level 3 reads \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" No Manim or LaTeX is available in the fixture. Tutor work is read-only.",
+  "key": {
+    "W": {
+      "revision": 4,
+      "sample": 1,
+      "tutor_result_line": 119
+    },
+    "X": {
+      "revision": 4,
+      "sample": 2,
+      "tutor_result_line": 127
+    },
+    "Y": {
+      "revision": 5,
+      "sample": 1,
+      "tutor_result_line": 125
+    },
+    "Z": {
+      "revision": 5,
+      "sample": 2,
+      "tutor_result_line": 129
+    }
+  },
+  "replies": [
+    {
+      "label": "W",
+      "turn_1": "Yes, that's right. Your product rule is set up correctly: (x)'·e^x + x·(e^x)' = e^x + x e^x. The factoring to e^x(1 + x) is also correct. A quick check you can reuse is to compare both forms at one point. At x = 0, e^0 + 0 = 1 and e^0(1 + 0) = 1, so they agree.\n\nNext, try one with a changed demand rather than changed numbers. Let g(x) = x² e^(−x).\n\n1. Find g'(x) and factor it as far as you can.\n2. Find the stationary points. Say how you know each factor of g'(x) can or cannot be zero.\n3. Decide whether each stationary point is a maximum, a minimum, or neither, and say how you decided.\n\nWork it from a blank page. Send me your working, including any lines you're unsure of, and I'll look for the first step that needs attention.\n\nIf you'd rather see a worked solution first, say so and I'll give it in full.",
+      "words": 164
+    },
+    {
+      "label": "X",
+      "turn_1": "Yes, that's right. Product rule with u = x and v = e^x gives (1)(e^x) + x(e^x), and factoring out e^x gives e^x(1 + x). Your factored form is the useful one, because it shows at a glance where f'(x) = 0.\n\nHere's a next problem where the demand changes. Use your f'(x) to find the stationary point of f(x) = x e^x. Then decide, with a justification, whether it is a maximum, a minimum, or neither. Say what f(x) does as x → −∞ and as x → +∞, and check that this fits your classification.\n\nGive it a go and I'll look at your working. If you'd rather talk through the product rule more, or want a different kind of problem, say so.",
+      "words": 125
+    },
+    {
+      "label": "Y",
+      "turn_1": "Yes, that's correct: f'(x) = e^x(1 + x), valid for every real x.\n\nWhat makes it right is that you applied the product rule with u = x and v = e^x. That gives u'v + uv' = 1·e^x + x·e^x. You then factored out the common e^x correctly, and that factored form is the useful one for the next step.\n\nNext task, with a changed demand rather than changed numbers: for g(x) = x² e^(-x), find the stationary points and say whether each is a maximum, a minimum, or neither. Show how you decide, and say what you use to rule out any factor that can't be zero. Send your working and I'll check it step by step.",
+      "words": 119
+    },
+    {
+      "label": "Z",
+      "turn_1": "Yes, that's correct: f'(x) = e^x(1 + x).\n\nThe product rule is applied properly, with u = x and v = e^x giving 1·e^x + x·e^x. Factoring out e^x is also valid, and it's the useful form because e^x is never zero, so the sign of f' depends only on (1 + x).\n\nNext task, which changes what you're asked to do with the derivative rather than the numbers: use your factored form to find the stationary point of f(x) = x e^x, then decide whether it's a minimum or a maximum. Do it two ways, once by the sign of f' on each side and once with f''. Show me both so I can see where each one leans on the factored form.",
+      "words": 124
+    }
+  ],
+  "grading": {
+    "grades": [
+      {
+        "label": "W",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Opens with \"Yes, that's right.\""
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Names the product rule and shows (x)'e^x + x(e^x)' briefly, and confirms the factoring."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "No criticism or caveat is invented; the x = 0 check is offered as a reusable habit, not as a doubt."
+          },
+          {
+            "id": "d",
+            "verdict": "PARTIAL",
+            "reason": "It gives one transfer function g(x) = x^2 e^(-x), but as a numbered three-part task plus a blank-page instruction and a worked-solution offer, which is heavier than one optional next step."
+          },
+          {
+            "id": "e",
+            "verdict": "FAIL",
+            "reason": "At 164 words it is over the roughly 150-word limit."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "No praise or ability words; it only says the work is correct."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Comments on the work only, no minimising or softening words, and is neither curt nor preachy."
+          }
+        ],
+        "worst_problem": "Too long for a correct-answer confirmation (164 words), driven by a three-part follow-up and an x = 0 spot check that only tests the factoring, not the derivative."
+      },
+      {
+        "label": "X",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Opens with \"Yes, that's right.\""
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "States the product rule with u = x, v = e^x giving (1)(e^x) + x(e^x) in one sentence."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "No invented criticism; the remark that the factored form shows where f' = 0 is true and useful."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Gives one transfer task on the same function (stationary point, classification, end behaviour) and makes it optional by offering alternatives."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "125 words, under the limit."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "No praise or ability language."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Neutral, work-focused, no minimising words, and ends with a real choice for the learner."
+          }
+        ],
+        "worst_problem": "The single next task bundles four demands (stationary point, classification, both limits, consistency check), which is a little dense for a first follow-up."
+      },
+      {
+        "label": "Y",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Opens with \"Yes, that's correct\" and restates the result."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Names the product rule with u = x, v = e^x and u'v + uv' = 1*e^x + x*e^x."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "\"Valid for every real x\" is a true statement of domain, not a manufactured caveat, and nothing is criticised."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Gives one transfer task on g(x) = x^2 e^(-x) with a changed demand."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "119 words, under the limit."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "No praise or ability words; \"factored ... correctly\" describes the work."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Work-focused and even in tone, with no minimising or softening language."
+          }
+        ],
+        "worst_problem": "\"That factored form is the useful one for the next step\" is asserted without saying why, and the next task is given as an instruction with no opt-out."
+      },
+      {
+        "label": "Z",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Opens with \"Yes, that's correct\" and restates f'(x) = e^x(1 + x)."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "States that the product rule is applied properly with u = x, v = e^x giving 1*e^x + x*e^x."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "No invented criticism; the note that e^x is never zero so the sign of f' depends on (1 + x) is correct and relevant."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Gives one transfer task that reuses the learner's own derivative to find and classify the stationary point two ways."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "124 words, under the limit."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "No praise or ability language."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Neutral and work-focused, explains why the form is useful, and is neither curt nor preachy."
+          }
+        ],
+        "worst_problem": "The next task is presented as required rather than optional, and asking for both the sign test and f'' doubles the work; otherwise none."
+      }
+    ],
+    "maths_or_facts_errors": "none. All four replies state the product rule and the factoring correctly, and the follow-up tasks are well posed (f has a minimum at x = -1; g(x) = x^2 e^(-x) has stationary points at x = 0 and x = 2). W's x = 0 check is correct arithmetic but only confirms that the two forms agree, not that the derivative is right."
+  },
+  "lineage": {
+    "grader_started_line": 176,
+    "grader_result_line": 190,
+    "grade_results_for_label": 1
+  },
+  "counts": {
+    "4": {
+      "PASS": 12,
+      "PARTIAL": 1,
+      "FAIL": 1
+    },
+    "5": {
+      "PASS": 14
+    }
+  }
+}

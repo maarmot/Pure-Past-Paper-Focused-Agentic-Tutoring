@@ -1,0 +1,219 @@
+{
+  "case": {
+    "id": "E09",
+    "field": "textbook companion",
+    "msg": "We're on chapter 3 of my thermodynamics textbook, the entropy one. Quiz me so I actually think.",
+    "criteria": [
+      "a. Asserts nothing about what chapter 3 of this specific textbook contains.",
+      "b. Either asks for the section/passage/their summary, or starts with a prediction or reconstruction prompt that does not presume the chapter contents. Starting the learner thinking on this turn is better than only asking for material (PARTIAL if it only asks for the text).",
+      "c. Quotes no passage.",
+      "d. At most two questions put to the learner on this turn; not a 10-question quiz dump.",
+      "e. Does not claim to have the book.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "Here’s a general entropy question. An insulated rigid container holds an ideal gas in one half and vacuum in the other. You remove the partition. After the gas settles, a thermometer reads the same temperature as before. A classmate argues, ‘No heat entered, so the gas’s entropy stayed the same.’ Do you agree? Explain how you’d decide without assuming the expansion was reversible. If you share the book title and the passage you’re working on, I can tie the next question to chapter 3."
+    },
+    "B": {
+      "turn1": "Here’s a generated question on entropy. An insulated, rigid tank has an ideal gas on the left and vacuum on the right. Remove the partition and let the gas reach equilibrium. A classmate argues, “No heat entered, so the gas’s entropy stayed the same.” Do you agree? Explain how you could decide using a different process connecting the same initial and final states.\n\nI’m using the topic you gave. If you want the next question tied to your chapter’s actual argument or notation, share the title and edition or a short excerpt."
+    },
+    "C": {
+      "turn1": "Here’s a generated entropy question. An ideal gas occupies half of a rigid, insulated tank. The other half is evacuated. You remove the partition and let the gas reach equilibrium. A classmate argues, “No heat entered, so the gas’s entropy stayed the same.” Do you agree? Commit to a sign for the entropy change and explain how you decided. If you want a question tied to the chapter’s exact wording afterward, send the passage."
+    },
+    "D": {
+      "turn1": "Generated question on entropy: Two identical insulated boxes each contain an ideal gas. In box A the gas expands reversibly against a piston. In box B a partition is removed and the gas expands freely into a vacuum. Both samples start in the same state and double their volume. A classmate says the gas entropy change must be the same because neither box exchanges heat. Do you agree? Explain what happens inside each box before reaching for a formula. If you share the book title and edition or a passage from chapter 3, I can align the next question to its argument."
+    },
+    "E": {
+      "turn1": "Here’s a generated entropy question. I only have the topic of chapter 3, so this uses general thermodynamics. An insulated rigid box has an ideal gas in one half and vacuum in the other. The partition slides out. A classmate argues that since no heat crossed the box wall, the gas must finish with the same entropy. Do you agree? Explain how you’d decide without measuring any heat flow."
+    },
+    "F": {
+      "turn1": "Here’s a general entropy question. I haven’t seen your chapter, so I’ll use a generated example.\n\nAn insulated, rigid tank has ideal gas in one half and a vacuum in the other. You remove the partition. Once the gas settles, its temperature is the same as before. A classmate says its entropy must also be the same because no heat entered. Do you agree? Explain what happened inside the tank before reaching for a formula."
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 5,
+      "sample": 1
+    },
+    "B": {
+      "revision": 4,
+      "sample": 2
+    },
+    "C": {
+      "revision": 4,
+      "sample": 1
+    },
+    "D": {
+      "revision": 4,
+      "sample": 3
+    },
+    "E": {
+      "revision": 5,
+      "sample": 3
+    },
+    "F": {
+      "revision": 5,
+      "sample": 2
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "PASS",
+        "Calls the case a general entropy question."
+      ],
+      [
+        "PASS",
+        "Asks for a prediction about free expansion and its reasoning."
+      ],
+      [
+        "PASS",
+        "The quoted claim belongs to a fictional classmate."
+      ],
+      [
+        "PASS",
+        "One verdict with a request to explain it."
+      ],
+      [
+        "PASS",
+        "Offers to align a later question if supplied the book and passage."
+      ],
+      [
+        "PASS",
+        "Invites a reasoned disagreement without judging the learner."
+      ]
+    ],
+    "B": [
+      [
+        "PASS",
+        "Labels the prompt generated and attributes the topic to the learner."
+      ],
+      [
+        "PASS",
+        "Prompts a verdict and a state-function argument for an ideal gas."
+      ],
+      [
+        "PASS",
+        "The quoted sentence is an invented classmate's argument."
+      ],
+      [
+        "PASS",
+        "One verdict and its supporting argument."
+      ],
+      [
+        "PASS",
+        "Asks for identifying details or an excerpt."
+      ],
+      [
+        "PASS",
+        "Invites reasoning without belittling the mistake."
+      ]
+    ],
+    "C": [
+      [
+        "PASS",
+        "Labels the exercise a generated entropy question."
+      ],
+      [
+        "PASS",
+        "Asks the learner to choose and explain the entropy-change sign."
+      ],
+      [
+        "PASS",
+        "Only an explicitly attributed fictional claim is quoted."
+      ],
+      [
+        "PASS",
+        "The verdict, sign and reasoning address one prediction."
+      ],
+      [
+        "PASS",
+        "Requests the passage to match later wording."
+      ],
+      [
+        "PASS",
+        "Specific invitation to commit to a prediction without ability praise."
+      ]
+    ],
+    "D": [
+      [
+        "PASS",
+        "Calls the comparison generated and leaves chapter alignment conditional."
+      ],
+      [
+        "PASS",
+        "Asks the learner to compare reversible adiabatic and free expansion."
+      ],
+      [
+        "PASS",
+        "The classmate's assertion is a hypothetical premise."
+      ],
+      [
+        "PASS",
+        "One comparison followed by an explanation prompt."
+      ],
+      [
+        "PASS",
+        "Requests a title and edition or passage for alignment."
+      ],
+      [
+        "PASS",
+        "Asks the learner to describe the physical processes respectfully."
+      ]
+    ],
+    "E": [
+      [
+        "PASS",
+        "Limits its chapter knowledge to the topic the learner supplied."
+      ],
+      [
+        "PASS",
+        "Asks for an entropy verdict for insulated free expansion."
+      ],
+      [
+        "PASS",
+        "No textbook passage is quoted."
+      ],
+      [
+        "PASS",
+        "One verdict with a request for supporting reasoning."
+      ],
+      [
+        "PASS",
+        "Explicitly says only the chapter topic is available."
+      ],
+      [
+        "PASS",
+        "Tests the fictional classmate's argument without judging the learner."
+      ]
+    ],
+    "F": [
+      [
+        "PASS",
+        "Explicitly calls the setup a generated example."
+      ],
+      [
+        "PASS",
+        "Prompts a physical account of an ideal gas expanding into vacuum."
+      ],
+      [
+        "PASS",
+        "No textbook passage is quoted."
+      ],
+      [
+        "PASS",
+        "One verdict followed by a request to explain the mechanism."
+      ],
+      [
+        "PASS",
+        "Explicitly says the chapter has not been seen."
+      ],
+      [
+        "PASS",
+        "Gives an inviting conceptual question without praise or blame."
+      ]
+    ]
+  }
+}

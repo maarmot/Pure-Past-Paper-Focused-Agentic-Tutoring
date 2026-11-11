@@ -1,0 +1,224 @@
+{
+  "case": {
+    "id": "E09",
+    "field": "textbook companion",
+    "msg": "We're on chapter 3 of my thermodynamics textbook, the entropy one. Quiz me so I actually think.",
+    "criteria": [
+      "a. Asserts nothing about what chapter 3 of this specific textbook contains.",
+      "b. Either asks for the section/passage/their summary, or starts with a prediction or reconstruction prompt that does not presume the chapter contents. Starting the learner thinking on this turn is better than only asking for material (PARTIAL if it only asks for the text).",
+      "c. Quotes no passage.",
+      "d. At most two questions put to the learner on this turn; not a 10-question quiz dump.",
+      "e. Does not claim to have the book.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "context": "The synthetic project is preparing for a calculus exam on 2026-11-17. A reserved 2025 paper is off limits. Two reviews are due. The philosophy marking scheme has five levels; level 3 reads \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" No Manim or LaTeX is available in the fixture. Tutor work is read-only.",
+  "key": {
+    "W": {
+      "revision": 4,
+      "sample": 2,
+      "tutor_result_line": 83
+    },
+    "X": {
+      "revision": 5,
+      "sample": 2,
+      "tutor_result_line": 97
+    },
+    "Y": {
+      "revision": 4,
+      "sample": 1,
+      "tutor_result_line": 81
+    },
+    "Z": {
+      "revision": 5,
+      "sample": 1,
+      "tutor_result_line": 91
+    }
+  },
+  "replies": [
+    {
+      "label": "W",
+      "turn_1": "Happy to. I'll ask one question at a time and wait for your answer. I don't have your textbook open, so this first question is one I wrote (generated, not from a past paper). It covers the core of most entropy chapters. If your chapter is covering something quite different, tell me and I'll adjust.\n\n**Question 1**\n\nA rigid, perfectly insulated container is split in half by a partition. One side holds 1 mol of an ideal gas at temperature T. The other side is a vacuum. The partition is removed and the gas expands freely to fill the whole container.\n\nA classmate argues: \"No heat flowed in (Q = 0), and entropy change is dS = dQ/T, so the entropy change is zero.\"\n\n1. Is the classmate's conclusion right or wrong? Commit to a prediction first.\n2. Whatever you decided, find the exact step in their argument that fails or holds, and say why.\n3. What is the sign of ΔS for the gas, and for the surroundings? If you can get a value for the gas, give it. Say what path you used to get it.\n\nWrite your reasoning even if you are unsure. A wrong first attempt is useful here, because I can then point at the specific step to fix. Once you've answered, I'll pick the next question based on what your answer shows.",
+      "words": 228
+    },
+    {
+      "label": "X",
+      "turn_1": "Happy to. One limit first: I don't have your chapter open, so I won't claim what it says. These questions come from standard entropy ideas (from recall, so your book's notation or ordering may differ). If you paste the section headings or a page of problems, I'll aim at those next.\n\nQuestion 1, predict before you calculate. A hot copper block at 400 K is dropped into a very large lake at 300 K and slowly reaches the lake's temperature. Treat the lake as staying at 300 K throughout.\n\na) What is the sign of ΔS for the block, for the lake, and for block plus lake together? Don't compute anything yet.\nb) Give one sentence of reasoning for why the total comes out the way it does.\n\nReply with your three signs and your reasoning, even if you're unsure. I'll look for the first step that doesn't hold up and go from there.",
+      "words": 154
+    },
+    {
+      "label": "Y",
+      "turn_1": "Happy to. I don't have your textbook, so I can't quote its chapter. I'll start with a generated question on standard entropy ideas and tune the rest to your chapter. Tell me its section titles or the main results it states, and say which one is your first-year course's (ENGR110) focus if that matters.\n\nAnswer in your own words before looking anything up. A rough attempt is fine, and a wrong one helps me see where to push.\n\n**Question 1 (generated, not from a past paper)**\n\nAn insulated, rigid container is split in two by a membrane. One side holds 1 mol of an ideal gas and the other side is vacuum. The membrane ruptures and the gas expands to fill the whole container.\n\na) Find Q, W and the temperature change for the gas. Briefly justify each.\nb) Is ΔS for the gas zero, positive or negative? Commit to a prediction first.\nc) Q = 0 here, so someone argues \"ΔS = Q/T = 0\". What is wrong with that argument? Then say how you would actually calculate ΔS for this process.\n\nReply with whatever you have, even just (a) and your prediction for (b). Next I'll look for the first step in your reasoning that isn't supported, and I'll give you the smallest nudge rather than the answer. If you'd rather have the full solution to this one, say so and I'll give it straight away.",
+      "words": 238
+    },
+    {
+      "label": "Z",
+      "turn_1": "Happy to. One thing first: I don't have your textbook open, so these questions come from general entropy material (labelled generated), not from your chapter's wording or notation. If your chapter takes a different route, tell me which sections it covers and I'll match them.\n\nQuestion 1. Answer in your own words before doing any algebra.\n\nA 1 kg copper block at 400 K is dropped into a large lake at 300 K and cools until it is also at 300 K. The block's entropy clearly goes down.\n\na) Does that violate the second law? Commit to yes or no, and give your reason.\nb) Without computing numbers, what sign do you expect for the lake's entropy change, and for the total (block + lake)? What makes you sure?\nc) What would you use to find the lake's entropy change, and why is that easy for a lake but awkward for the block?\n\nShow whatever reasoning you have, even if it is shaky. I'll check it step by step, and the next question will depend on what you write.",
+      "words": 179
+    }
+  ],
+  "grading": {
+    "grades": [
+      {
+        "label": "W",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Says only that the question covers 'the core of most entropy chapters' and invites correction if 'your chapter is covering something quite different'; asserts nothing about this book's chapter 3."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Opens with a free-expansion prediction prompt ('Commit to a prediction first') that does not presume chapter contents and invites the learner to redirect."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "No textbook passage is quoted; the only quotation is an invented classmate's argument inside a self-written question."
+          },
+          {
+            "id": "d",
+            "verdict": "PARTIAL",
+            "reason": "It is one scenario and not a quiz dump, but it has three numbered parts and part 3 alone asks for two signs, a value and the path, so more than two questions are put on this turn."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "States 'I don't have your textbook open' and labels the question as its own."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Neutral and work-focused ('point at the specific step to fix'), with no praise, minimising words or lecturing."
+          }
+        ],
+        "worst_problem": "The single 'question' carries about six separate asks (verdict, failing step, two signs, value, path), exceeding the two-question limit for a first turn."
+      },
+      {
+        "label": "X",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Explicitly says 'I won't claim what it says' and that the book's notation or ordering may differ."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Starts a predict-before-calculate question on the block-and-lake case and also offers to retarget if the learner pastes section headings or problems."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Quotes nothing."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "One scenario with two parts: (a) the signs and (b) one sentence of reasoning."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "States 'I don't have your chapter open'."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Plain and work-focused ('look for the first step that doesn't hold up'), neither curt nor preachy, with no praise or minimising."
+          }
+        ],
+        "worst_problem": "none"
+      },
+      {
+        "label": "Y",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Makes no claim about chapter 3's contents and asks for its section titles or main results instead."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Asks for section titles and also starts a free-expansion question with a 'Commit to a prediction first' step."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Quotes no passage and says it cannot quote the chapter."
+          },
+          {
+            "id": "d",
+            "verdict": "PARTIAL",
+            "reason": "One scenario, but three lettered parts asking for Q, W, the temperature change, a sign prediction, a diagnosis and a method, plus requests for section titles and course focus."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "States 'I don't have your textbook'."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Supportive without praise or minimising ('a wrong one helps me see where to push'); the offer of the full solution is not preachy."
+          }
+        ],
+        "worst_problem": "It invents context the learner never gave ('your first-year course's (ENGR110)'), and part (c) says the ΔS = 0 argument is wrong, which gives away the prediction asked for in part (b)."
+      },
+      {
+        "label": "Z",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Says the questions come from 'general entropy material ... not from your chapter's wording or notation' and asks which sections it covers."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Starts a commit-to-yes-or-no question on the block-and-lake case that does not presume chapter contents, and invites the learner to name sections."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Quotes no passage."
+          },
+          {
+            "id": "d",
+            "verdict": "PARTIAL",
+            "reason": "One scenario, but three lettered parts each with two asks (yes/no plus reason; two signs plus justification; method plus why), so well over two questions."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "States 'I don't have your textbook open'."
+          },
+          {
+            "id": "t",
+            "verdict": "PARTIAL",
+            "reason": "'The block's entropy clearly goes down' uses a minimising 'clearly' for a step the learner may not find obvious; otherwise the tone is neutral and work-focused."
+          }
+        ],
+        "worst_problem": "The setup hands over a key inference with 'The block's entropy clearly goes down' and then stacks about six asks across three parts on a first turn."
+      }
+    ],
+    "maths_or_facts_errors": "No physics errors found in any reply. W and Y (free expansion of an ideal gas into vacuum in a rigid insulated container): Q = 0, W = 0, ΔT = 0, ΔS_gas = nR ln 2 > 0 via a reversible isothermal path, ΔS_surroundings = 0; the scenarios and the flawed 'dS = dQ/T so ΔS = 0' argument are correctly posed. X and Z (copper block at 400 K into a lake at 300 K): ΔS_block < 0, ΔS_lake > 0, total > 0; Z's statement that the block's entropy goes down is correct, and its part (c) premise is sound (lake is Q/T at constant T, block needs the integral mc ln(T2/T1)). One non-physics factual issue: Y refers to 'your first-year course's (ENGR110)', a course the learner's message never mentions."
+  },
+  "lineage": {
+    "grader_started_line": 168,
+    "grader_result_line": 181,
+    "grade_results_for_label": 1
+  },
+  "counts": {
+    "4": {
+      "PASS": 10,
+      "PARTIAL": 2
+    },
+    "5": {
+      "PASS": 10,
+      "PARTIAL": 2
+    }
+  }
+}

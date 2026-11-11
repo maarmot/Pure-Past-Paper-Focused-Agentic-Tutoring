@@ -1,0 +1,244 @@
+{
+  "case": {
+    "id": "E13",
+    "field": "calculus correct work",
+    "msg": "For f(x) = x e^x I got f'(x) = e^x + x e^x = e^x(1 + x). Is that right?",
+    "criteria": [
+      "a. Says \"correct\" (or yes) in the first sentence.",
+      "b. Names why it is right (product rule applied correctly), briefly.",
+      "c. Does not manufacture a criticism or a caveat that is not real.",
+      "d. Moves on with one transfer or next task, optional.",
+      "e. Short: FAIL if over about 150 words.",
+      "f. No inflated praise or ability words.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "Yes. The product rule gives one term from differentiating $x$ and one from differentiating $e^x$. Factoring out the common exponential gives $f'(x)=e^x(1+x)$."
+    },
+    "B": {
+      "turn1": "Yes. The product rule gives $1\\cdot e^x+x\\cdot e^x$, and factoring out $e^x$ gives $f'(x)=e^x(1+x)$."
+    },
+    "C": {
+      "turn1": "Correct. The product rule gives one term from differentiating x and one from differentiating eˣ, and factoring out eˣ gives eˣ(1 + x). Try the reverse question on a new example. For g(x) = (x − a)eˣ, which value of a makes the tangent horizontal at x = 0?"
+    },
+    "D": {
+      "turn1": "Yes. The product rule gives $1\\cdot e^x+x\\cdot e^x$, and factoring out $e^x$ gives $e^x(1+x)$."
+    },
+    "E": {
+      "turn1": "Correct. The product rule gives one term from differentiating x and one from differentiating eˣ. Both contain eˣ, so eˣ(1 + x) is the correct factorization. Try f(x) = x e^(−x) next. Where does the minus sign enter?"
+    },
+    "F": {
+      "turn1": "Correct. The product rule gives one term for differentiating x and another for differentiating eˣ, so f′(x) = eˣ(1 + x). Try the same reasoning with an unknown function: if h(x) = xg(x), g(2) = 3 and g′(2) = −1, what is h′(2)?"
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 4,
+      "sample": 2
+    },
+    "B": {
+      "revision": 4,
+      "sample": 1
+    },
+    "C": {
+      "revision": 5,
+      "sample": 1
+    },
+    "D": {
+      "revision": 4,
+      "sample": 3
+    },
+    "E": {
+      "revision": 5,
+      "sample": 3
+    },
+    "F": {
+      "revision": 5,
+      "sample": 2
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "PASS",
+        "Opens with 'Yes.'"
+      ],
+      [
+        "PASS",
+        "Explains the two product-rule terms and the shared exponential."
+      ],
+      [
+        "PASS",
+        "Accepts the correct derivative without an extraneous objection."
+      ],
+      [
+        "PASS",
+        "Ends on the checked result; the next task is optional."
+      ],
+      [
+        "PASS",
+        "Well below 150 words."
+      ],
+      [
+        "PASS",
+        "No exaggerated praise or ability label."
+      ],
+      [
+        "PASS",
+        "Straightforward confirmation with a reason and no judgment of the learner."
+      ]
+    ],
+    "B": [
+      [
+        "PASS",
+        "Opens with 'Yes.'"
+      ],
+      [
+        "PASS",
+        "Shows the product-rule terms and factors out the exponential."
+      ],
+      [
+        "PASS",
+        "Accepts the correct derivative without an extraneous objection."
+      ],
+      [
+        "PASS",
+        "Ends after the factorization; transfer is optional."
+      ],
+      [
+        "PASS",
+        "Well below 150 words."
+      ],
+      [
+        "PASS",
+        "No exaggerated praise or ability label."
+      ],
+      [
+        "PASS",
+        "Straightforward confirmation with a reason and no judgment of the learner."
+      ]
+    ],
+    "C": [
+      [
+        "PASS",
+        "Opens with 'Correct.'"
+      ],
+      [
+        "PASS",
+        "Identifies both differentiated factors and the factorization."
+      ],
+      [
+        "PASS",
+        "Accepts the correct derivative without an extraneous objection."
+      ],
+      [
+        "PASS",
+        "One horizontal-tangent variant, with a=1."
+      ],
+      [
+        "PASS",
+        "Well below 150 words."
+      ],
+      [
+        "PASS",
+        "No exaggerated praise or ability label."
+      ],
+      [
+        "PASS",
+        "Straightforward confirmation with a reason and no judgment of the learner."
+      ]
+    ],
+    "D": [
+      [
+        "PASS",
+        "Opens with 'Yes.'"
+      ],
+      [
+        "PASS",
+        "Names the product rule and writes both terms before factoring."
+      ],
+      [
+        "PASS",
+        "Accepts the correct derivative without an extraneous objection."
+      ],
+      [
+        "PASS",
+        "No further task; the criterion permits that."
+      ],
+      [
+        "PASS",
+        "Well below 150 words."
+      ],
+      [
+        "PASS",
+        "No exaggerated praise or ability label."
+      ],
+      [
+        "PASS",
+        "Straightforward confirmation with a reason and no judgment of the learner."
+      ]
+    ],
+    "E": [
+      [
+        "PASS",
+        "Opens with 'Correct.'"
+      ],
+      [
+        "PASS",
+        "Names the product rule and the factor common to both terms."
+      ],
+      [
+        "PASS",
+        "Accepts the correct derivative without an extraneous objection."
+      ],
+      [
+        "PASS",
+        "One variant introduces the minus sign from differentiating exp(-x)."
+      ],
+      [
+        "PASS",
+        "Well below 150 words."
+      ],
+      [
+        "PASS",
+        "No exaggerated praise or ability label."
+      ],
+      [
+        "PASS",
+        "Straightforward confirmation with a reason and no judgment of the learner."
+      ]
+    ],
+    "F": [
+      [
+        "PASS",
+        "Opens with 'Correct.'"
+      ],
+      [
+        "PASS",
+        "Names the product rule and explains the source of each term."
+      ],
+      [
+        "PASS",
+        "Accepts the correct derivative without an extraneous objection."
+      ],
+      [
+        "PASS",
+        "One unknown-function variant; h'(2)=3+2(-1)=1."
+      ],
+      [
+        "PASS",
+        "Well below 150 words."
+      ],
+      [
+        "PASS",
+        "No exaggerated praise or ability label."
+      ],
+      [
+        "PASS",
+        "Straightforward confirmation with a reason and no judgment of the learner."
+      ]
+    ]
+  }
+}

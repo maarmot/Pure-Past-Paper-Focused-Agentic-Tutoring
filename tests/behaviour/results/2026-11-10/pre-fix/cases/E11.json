@@ -1,0 +1,246 @@
+{
+  "case": {
+    "id": "E11",
+    "field": "video request",
+    "msg": "Make me a 4 minute video on why the determinant is the area scaling factor.",
+    "criteria": [
+      "a. Checks or states that Manim is not installed here and does not claim to have rendered anything.",
+      "b. Still gives the learner something concrete on this turn: a storyboard, a worked picture or table, or an offered page.",
+      "c. The plan puts a concrete transformation or case before the formula.",
+      "d. The plan includes a prediction or pause beat whose answer is not given in that beat, and a limit or caveat beat.",
+      "e. Timings or structure are not presented as proven optimal.",
+      "f. Not bloated: FAIL if over about 600 words.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "context": "The synthetic project is preparing for a calculus exam on 2026-11-17. A reserved 2025 paper is off limits. Two reviews are due. The philosophy marking scheme has five levels; level 3 reads \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" No Manim or LaTeX is available in the fixture. Tutor work is read-only.",
+  "key": {
+    "W": {
+      "revision": 4,
+      "sample": 1,
+      "tutor_result_line": 109
+    },
+    "X": {
+      "revision": 5,
+      "sample": 1,
+      "tutor_result_line": 111
+    },
+    "Y": {
+      "revision": 4,
+      "sample": 2,
+      "tutor_result_line": 112
+    },
+    "Z": {
+      "revision": 5,
+      "sample": 2,
+      "tutor_result_line": 117
+    }
+  },
+  "replies": [
+    {
+      "label": "W",
+      "turn_1": "I can't render a video on this machine. Your project notes say Manim isn't installed, and I won't install anything unasked. So I can't give you a finished 4-minute video, and I won't hand you a silent preview and call it one. What I can do now is give you the full 4-minute plan (script and visuals). After that I can build it as a single-file interactive page you open in a browser, where you drag the matrix and watch the area change. If you install Manim later, the plan becomes the video script as it stands.\n\n**Prediction first, before the reveal.** Take the unit square (corners (0,0), (1,0), (0,1), (1,1)) and apply M = [[2, 1], [0, 3]]. The columns of M say where the two edge vectors go: (1,0) goes to (2,0), and (0,1) goes to (1,3).\n- What shape do you get?\n- What is its area?\n- Does the answer change if you start with a 5-by-5 square instead?\n\nTake a guess before reading on.\n\n**The 4-minute plan (about 600 spoken words)**\n\n| Time | On screen | Narration idea |\n|---|---|---|\n| 0:00-0:30 | Grid with the unit square shaded; the question \"how does a matrix change area?\" | Pose the puzzle only. Do not state the answer yet. |\n| 0:30-1:15 | Columns of M drawn as arrows; the square becomes a parallelogram. | A matrix is fixed by where it sends the two edge vectors. The square's image is the parallelogram those two vectors span. |\n| 1:15-2:00 | Area of the M example by base times height: 2 × 3 = 6. Then the general case with columns (a,c) and (b,d). | The area is |ad − bc|, which is the determinant up to sign. Shown as a cut-and-rearrange picture, not as a formula to memorise. |\n| 2:00-2:45 | Tile the plane with unit squares and watch every tile become a copy of the same parallelogram. | Why this works for any region, not just the unit square. M is linear, so every grid cell scales by the same factor. Any region is built from tiny cells, so its area scales by that same factor. |\n| 2:45-3:30 | Three cases side by side. | (1) Shear [[1,1],[0,1]]: det 1, area kept, shape changed. (2) [[1,2],[2,4]]: det 0, the plane flattens onto a line. (3) [[1,2],[3,1]]: det −5, area is multiplied by 5 and orientation flips. This is where the sign comes from. |\n| 3:30-4:00 | Return to the 5-by-5 square and the opening prediction. | The determinant is the area scaling factor, and the sign records a flip. Close with the open question: what is the 3D analogue, and why does det(AB) = det(A)·det(B) follow? |\n\n**Checks I'd build in.** The wrong version to reject is \"area = ad + bc\" or \"area = det with no absolute value\". I'd test the displayed area against an independent shoelace-formula calculation on M, the shear, the singular matrix and the flip. A sample of cases is an illustration, not a proof. The tiling argument is the actual reason it holds, and I would label it that way.\n\nWhich would you like?\n1. I build the interactive page, with a draggable matrix, live area readout and the three cases. It runs in any browser and I'd test it before handing it over. This is my recommendation.\n2. I write out the full narration word for word, ready to record or to render once Manim is installed.\n3. Both.\n\nOne more thing that would help. What course is this for, MATH101 or something else? That tells me whether to add the det(AB) extension or keep it to the 2D picture.",
+      "words": 617
+    },
+    {
+      "label": "X",
+      "turn_1": "I can't render a finished video on this machine. Your project notes say Manim isn't installed, and I won't install anything unasked. I also have no narration or caption tooling, and a silent clip wouldn't count as a finished teaching video. Here is the 4-minute storyboard and narration now, so you can see the whole explanation. I can turn it into an interactive page where you drag the matrix and watch the area, or into a written walkthrough.\n\n**Predict first (this is beat 3 of the video).** Take the matrix A = [[2, 1], [0, 3]]. It sends (1,0) to (2,0) and (0,1) to (1,3). The unit square, area 1, becomes a parallelogram. What area do you predict? Does the slanted side change it? Answer before reading on, even as a guess.\n\n**Storyboard, 240 s**\n\n| Time | Beat | On screen | Narration (draft) |\n|---|---|---|---|\n| 0:00-0:25 | 1 Object and aim | A grid with a unit square, already moving as the grid is transformed | \"A matrix grabs the whole plane and deforms it. This video settles one question: why is the determinant exactly the factor by which areas change?\" |\n| 0:25-1:05 | 2 Case | The unit square under A = [[2,1],[0,3]]. A stays fixed and only the square is traced. Corners go to (0,0), (2,0), (3,3), (1,3). | \"Here's one matrix and one square. The columns of A are where the two basis arrows land. Watch where the square goes.\" |\n| 1:05-1:30 | 3 Predict | Held frame, caption: \"What is the new area? Pause and guess.\" | \"Pause here. Does the tilt change the area?\" No answer given anywhere in the frame or voice. |\n| 1:30-2:15 | 4 Reveal and name | The parallelogram is cut and slid into a 2 by 3 rectangle. Its area is 6. Then a second shape, a circle, scales by the same 6. | \"Base 2, height 3, so area 6, and the tilt didn't matter. Now a circle: each tiny grid square inside it also becomes a copy of that same parallelogram. So every region scales by 6. Call that factor the determinant.\" |\n| 2:15-2:50 | 5 Formal statement | det [[a,b],[c,d]] = ad - bc beside the unchanged diagram | \"Columns (a,c) and (b,d) span the parallelogram. Its area is ad - bc. Here 2 times 3 minus 1 times 0 is 6.\" |\n| 2:50-3:30 | 6 Limit | Three cases: a shear [[1,1],[0,1]], a flip [[0,1],[1,0]], and a collapse [[1,2],[2,4]] | \"A shear tilts the square but keeps area 1. A flip gives determinant -1: the area is unchanged, the sign records orientation, so the factor is the absolute value. A determinant of 0 flattens the plane onto a line. The picture is not a proof for curved or non-linear maps, where the factor varies from point to point.\" |\n| 3:30-4:00 | 7 Return | The opening grid and square | \"Try this away from the video: pick any 2 by 2 matrix, predict the area of the image of the unit square, then check it with ad - bc.\" |\n\n**Where the claims come from.** I derived the values by hand: A gives 2·3 − 1·0 = 6, the shear gives 1·1 − 1·0 = 1, the flip gives −1, and the collapse gives 1·4 − 2·2 = 0. I haven't run any check on them, and nothing here has been rendered or listened to. The \"every region scales by the same factor\" step rests on a limit argument (cover the region with small grid squares), and I'd show it as an illustration, not a proof.\n\n**Your move:** give me your predicted area for the matrix above and your reason. Then tell me whether you want the interactive page or the written walkthrough next.",
+      "words": 637
+    },
+    {
+      "label": "Y",
+      "turn_1": "I can't render a video on this machine. I ran the environment check: Manim isn't installed (ffmpeg is, but LaTeX isn't). I won't install anything unasked. What I can give you now is the full 4-minute lesson plan below, with the maths checked. From it I can build either a one-file interactive page, where you drag the matrix columns and watch the area, or a narrated script you could record over slides. Both would need a place to save them. Your AGENTS.md only lets me write to `records/`, so tell me if I may put the page there or somewhere else.\n\n**The idea in one line:** a matrix moves every point in the plane. The unit square becomes a parallelogram, and every other region gets stretched by the same factor as that square, so det(A) is that factor.\n\n**4-minute plan (about 600 words of narration)**\n\n| Time | On screen | Narration beat |\n|---|---|---|\n| 0:00-0:30 | Grid with a unit square. Prediction prompt: \"If I stretch the plane, does a bigger shape grow by the same factor as a small one?\" | State the puzzle first. Don't give the answer yet. |\n| 0:30-1:15 | Matrix A = [[2,1],[0,3]]. The columns (2,0) and (1,3) are where the basis vectors land. The square becomes a parallelogram. | The columns of A are the images of e1 and e2. Area goes from 1 to 6. |\n| 1:15-2:00 | Any blob, tiled by tiny grid squares. Each square maps to a copy of the same parallelogram, scaled down. | A linear map sends every small square to a parallelogram with the same area ratio. Add the pieces and the whole blob scales by 6. |\n| 2:00-2:50 | Columns (a,c) and (b,d). Draw a bounding box of width a+b and height c+d, then subtract the corner pieces. | Area = (a+b)(c+d) - ac - bd - 2bc = ad - bc. That is the determinant. |\n| 2:50-3:30 | Three cases: shear [[1,1],[0,1]] has det 1 (slides but keeps area). [[0,1],[1,0]] has det -1 (area kept, orientation flipped, so the factor is |det|). [[1,2],[2,4]] has det 0 (the square collapses to a line). | Sign means orientation. Zero means the plane gets flattened, so there is no inverse. |\n| 3:30-4:00 | Return to the opening prompt. | Answer it. Where the picture stops being reliable: the algebra check used positive entries, and other signs need the same count with signed areas. |\n\n**Checks I did by hand, not from any code:**\n- Bounding-box subtraction gives ad - bc for the parallelogram on (a,c) and (b,d) when the entries are positive.\n- For A = [[2,1],[0,3]], 2·3 - 1·0 = 6.\n- The shear gives 1·1 - 1·0 = 1.\n- The swap gives 0·0 - 1·1 = -1.\n- The collapse case gives 1·4 - 2·2 = 0.\n\nNumbers like these show the pattern but don't prove it for every region. The tiling argument is the real reason, and it uses the limit of tiny squares. I haven't checked anything on screen, because nothing has been drawn yet.\n\nBefore I build anything: what's the video for (a course explainer, or your own understanding for MATH101)? That decides how much of the tiling argument goes in versus the cases.",
+      "words": 549
+    },
+    {
+      "label": "Z",
+      "turn_1": "I can't render a 4-minute video on this machine. Manim isn't installed, and your project notes say LaTeX isn't either. I won't install anything without your say-so. What I can do now is give you the full plan and script for the video. I can also build a single-file interactive page, which opens in any browser and lets you drag the matrix and watch the area change. If you install Manim later, the plan below becomes the scene.\n\n**Try this first, then check yourself.** Take the matrix A with columns (2, 0) and (1, 3). It sends the unit square, which has corners (0,0), (1,0), (0,1), (1,1), to a parallelogram. What is that parallelogram's area? Does it match det A = 2·3 − 1·0?\n\nCheck: the unit square goes to the parallelogram with corners (0,0), (2,0), (1,3), (3,3). Its base is 2 and its height is 3, so its area is 6, and det A = 6. Now try the shear with columns (1, 0) and (1, 1). The square leans over but keeps base 1 and height 1, so its area stays 1, and det = 1·1 − 1·0 = 1. Both results are the same pattern, and the video is built on it.\n\n**Video plan (4:00).** Each beat gets a share of the running time. I'll record the real shares from the measured audio, not from a words-per-minute guess.\n\n| Beat | Time | On screen | Narration |\n|---|---|---|---|\n| 1. Object and aim | 0:00-0:20 | The grid and the unit square already moving under a matrix | Names the topic. Says what the video settles: why this one number tells you how areas change. No formula yet. |\n| 2. Case | 0:20-1:10 | The unit square becomes the parallelogram for A above. The basis vectors are drawn as the columns. | Says what changes (the matrix) and what stays fixed (the grid and the square). |\n| 3. Predict | 1:10-1:30 | A held frame with the caption \"What is the new area?\" | Asks one question and says to pause. It does not answer. |\n| 4. Reveal and name | 1:30-2:15 | Base 2, height 3, area 6. Then every grid square becomes a copy of the same parallelogram. | Names \"determinant\" as the area of the transformed unit square. Explains that a linear map treats every grid square the same way, and that any region can be approximated by small squares. |\n| 5. Formal statement | 2:15-3:00 | ad − bc beside the unchanged diagram | Gives the claim: area(A·R) = \\|det A\\| · area(R) for any region R. It states the conditions: a 2×2 matrix and a region with a well-defined area. |\n| 6. Limit | 3:00-3:40 | A flip, then a flattening to a line | Shows that a negative determinant means orientation flips, so the scale factor is \\|det\\|. Shows that det = 0 collapses the plane onto a line, with area 0. It also says the picture shows this but does not prove it for curved regions. |\n| 7. Return | 3:40-4:00 | The opening case again | Sets one task to try away from the video. It does not recap the beats. |\n\n**Checks I'd run before calling any version final:**\n- The areas against hand-derived values: 6 for A, 1 for the shear, −6 for the flip with columns (0, 2) and (3, 0), and 0 for the collapse.\n- The final frame, not just the animation code.\n- Narration and captions in sync.\n- A silent or low-quality render labeled as a preview.\n\n**Which would you like?**\n1. The full narration script with captions, for you to record or use as is.\n2. The interactive page.\n3. Both.\n\nNothing has been saved. Your project only allows learning records in `records/`, so tell me where the script and page should go before I write files. I haven't touched `papers/exam-2025.txt`.",
+      "words": 657
+    }
+  ],
+  "grading": {
+    "grades": [
+      {
+        "label": "W",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Opens with \"I can't render a video on this machine. Your project notes say Manim isn't installed\" and claims no render."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Gives a full timed table of visuals and narration ideas plus an offered interactive page."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "M = [[2,1],[0,3]] acting on the unit square comes in the prediction and at 0:30-1:15, before |ad - bc| at 1:15-2:00."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "The opening prediction and the 0:00-0:30 beat withhold the answer, and the 2:45-3:30 beat covers det 0 and negative det, though the \"illustration, not a proof\" caveat sits outside the video beats."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "Timings are presented as a plan (\"about 600 spoken words\") with no claim that they are optimal."
+          },
+          {
+            "id": "f",
+            "verdict": "PARTIAL",
+            "reason": "At 617 words it is marginally over the limit, and the three-option menu plus a course question add length."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Plain and direct about limits, with no praise, minimising words or preaching."
+          }
+        ],
+        "worst_problem": "The proof caveat (\"a sample of cases is an illustration, not a proof\") is in the checks section, not in a video beat, and the reply closes with both a three-option menu and a further question."
+      },
+      {
+        "label": "X",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "States that Manim isn't installed and later that \"nothing here has been rendered or listened to\"."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Gives a seven-beat storyboard with draft narration and offers an interactive page or written walkthrough."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Beat 2 (the case A = [[2,1],[0,3]]) and beat 4 (the reveal) come before beat 5 (formal statement ad - bc)."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Beat 3 is a held predict frame with \"No answer given anywhere in the frame or voice\", and beat 6 is an explicit limit beat covering sign, zero and non-linear maps."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "Narration is labelled \"draft\" and nothing claims the timings are optimal."
+          },
+          {
+            "id": "f",
+            "verdict": "PARTIAL",
+            "reason": "At 637 words it is over the limit by a modest margin, mostly because of the full draft narration column."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Neutral and honest (\"I haven't run any check on them\"), with no praise or minimising."
+          }
+        ],
+        "worst_problem": "Over length; also beat 5 says the area \"is ad - bc\" without the absolute value, which is only corrected in the next beat."
+      },
+      {
+        "label": "Y",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Says \"I ran the environment check: Manim isn't installed\" and \"nothing has been drawn yet\"."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Gives a timed plan table, a one-line idea and a hand-checked list, and offers a page or narrated script."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "A = [[2,1],[0,3]] at 0:30-1:15 comes before the general ad - bc derivation at 2:00-2:50."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "The 0:00-0:30 prompt says \"Don't give the answer yet\", and the 2:50-4:00 beats give the sign and zero cases and \"where the picture stops being reliable\"."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "Timings are given as a plan with no claim that they are optimal."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "549 words."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Matter-of-fact, with no praise, minimising words or lecturing."
+          }
+        ],
+        "worst_problem": "The plan asserts \"Area goes from 1 to 6\" for the concrete case without showing why (no base-times-height or cut-and-slide step), and the learner is not asked to predict anything on this turn."
+      },
+      {
+        "label": "Z",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "States \"Manim isn't installed\" and that nothing has been saved; no render is claimed."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Gives a seven-beat plan table and a worked case, and offers a script or interactive page."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "In the plan, beat 2 (case) comes before beat 5 (ad - bc), though the opening try-first prompt already quotes det A = 2·3 − 1·0."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Beat 3 \"does not answer\" and beat 6 is a limit beat with a not-a-proof caveat; however, the reply's own \"Try this first\" is answered in the very next paragraph."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "Says real shares will come \"from the measured audio, not from a words-per-minute guess\", so the timings are provisional."
+          },
+          {
+            "id": "f",
+            "verdict": "FAIL",
+            "reason": "At 657 words it is clearly over the limit, padded by a self-answered warm-up, a checks list, a menu and housekeeping about the reserved paper."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Neutral tone with no praise or minimising words; the unprompted note about the exam paper is extraneous but not a tone lapse."
+          }
+        ],
+        "worst_problem": "Too long, and it spoils its own prediction: \"Try this first, then check yourself\" is followed immediately by the full answer, with the determinant formula already in the question."
+      }
+    ],
+    "maths_or_facts_errors": "No substantive errors. I checked: det [[2,1],[0,3]] = 6 with image corners (0,0),(2,0),(3,3),(1,3); shear det 1; swap det -1; [[1,2],[2,4]] det 0; [[1,2],[3,1]] det -5; and Y's bounding-box expansion (a+b)(c+d) - ac - bd - 2bc = ad - bc. Two minor imprecisions: Z lists \"-6 for the flip\" under \"areas\" (the area is 6; the determinant is -6), and X's beat 5 says the area \"is ad - bc\" without the absolute value, corrected in beat 6."
+  },
+  "lineage": {
+    "grader_started_line": 172,
+    "grader_result_line": 191,
+    "grade_results_for_label": 1
+  },
+  "counts": {
+    "4": {
+      "PASS": 13,
+      "PARTIAL": 1
+    },
+    "5": {
+      "PASS": 12,
+      "PARTIAL": 1,
+      "FAIL": 1
+    }
+  }
+}

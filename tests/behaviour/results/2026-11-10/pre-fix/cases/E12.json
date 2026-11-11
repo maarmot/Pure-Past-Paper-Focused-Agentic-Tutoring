@@ -1,0 +1,224 @@
+{
+  "case": {
+    "id": "E12",
+    "field": "render performance",
+    "msg": "My Manim render of a Fourier scene takes 20 minutes. Speed it up.",
+    "criteria": [
+      "a. Asks for or says to record the Manim version and a timing baseline before changing things.",
+      "b. Gives concrete cheaper renders: a still/last-frame render, a low-quality preview, and rendering only part of the scene.",
+      "c. Names code-level causes worth checking (objects or text rebuilt every frame, updaters left running during holds) as things to measure, not certainties.",
+      "d. Promises no specific speedup figure for the learner's scene.",
+      "e. Does not claim the OpenGL renderer (or any switch) is faster without telling them to measure it.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "context": "The synthetic project is preparing for a calculus exam on 2026-11-17. A reserved 2025 paper is off limits. Two reviews are due. The philosophy marking scheme has five levels; level 3 reads \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" No Manim or LaTeX is available in the fixture. Tutor work is read-only.",
+  "key": {
+    "W": {
+      "revision": 5,
+      "sample": 2,
+      "tutor_result_line": 123
+    },
+    "X": {
+      "revision": 4,
+      "sample": 2,
+      "tutor_result_line": 115
+    },
+    "Y": {
+      "revision": 5,
+      "sample": 1,
+      "tutor_result_line": 121
+    },
+    "Z": {
+      "revision": 4,
+      "sample": 1,
+      "tutor_result_line": 105
+    }
+  },
+  "replies": [
+    {
+      "label": "W",
+      "turn_1": "I can't speed up the render yet, because I haven't seen the scene and I have no baseline. Manim isn't installed on this machine (your AGENTS.md says so), and there is no scene file in this folder. Send me the .py file, the exact command you run, and your Manim version (`manim --version`). Then I'll tell you what is actually slow.\n\nThese are the likely causes, in the order I'd try them. Everything below comes from one test: a 12-second beat, Manim Community 0.22.1, Windows, best of two runs. It shows what tends to matter. It does not predict your scene.\n\n1. **Preview at low quality while you iterate.** Use `manim render -ql --fps 30 scene.py Fourier`, and `-s` for a single still. In my test, 480p15 took 4.7 s, 1080p30 took 9.5 s and 1080p60 took 15.5 s. If you edit at `-qh`, that alone may be most of your 20 minutes. Note that plain `-qh` is 60 fps. Add `--fps 30` for the final render if 60 isn't needed.\n2. **Look for `always_redraw` that rebuilds everything every frame.** Fourier scenes often redraw the epicycles, the traced curve and the text together. Rebuilding all objects and text each frame was 1.4 to 1.7 times slower than creating them once and moving them with updaters. Never re-typeset a `MathTex` or `Tex` every frame just to change one number.\n3. **Split the scene into one scene per beat.** Render the beats as separate processes, then join them with `ffmpeg -f concat -c copy`. In my test, two scenes took 21.6 s in sequence and 13.1 s in parallel, and the join took under 0.1 s. A change then re-renders only one beat.\n4. **Skip finished parts.** While iterating, put `self.next_section(skip_animations=True)` on the parts you've finished. You can also use `-n 4,6` to render only animations 4 to 6. Remove every skip before the final render.\n5. **Don't switch to `--renderer=opengl` hoping it helps.** It was slower in my test (13.0 s against 9.5 s).\n\nCheck one thing before any of this. Did the 20 minutes come from one final-quality render, or from many re-renders as you edit? The fixes are different.\n\n**Next step:** send the file and your command. On a machine with Manim, run `python scripts/ppp_tools.py render-timing scene.py Fourier` from the skill folder to get a baseline for the still, preview and final renders. I'll then name the one change that is worth making and we'll compare before and after. If you want the Fourier idea explorable without rendering at all, I can also build a single-file page where you drag the number of terms.",
+      "words": 435
+    },
+    {
+      "label": "X",
+      "turn_1": "I can't see your scene file in the study folder. Manim isn't installed on this machine either, so I can't render or time anything here. That means I can't promise a speedup yet. This is the order I'd use on whatever machine you render on.\n\n**1. Time one baseline run.**\nWrap your usual command in a timer and write down four things:\n- the quality flag (`-ql`, `-qm`, `-qh` or `-qk`)\n- the fps\n- whether the Tex cache is warm (is it your first run, or a repeat?)\n- your Manim Community version\n\nEvery later comparison has to use the same settings, and the same math, text size and timing.\n\n**2. Preview at low quality.**\nRun `manim -ql scene.py YourScene` and send the output to a separate media directory so you don't overwrite your accepted export. Keep the planned fps if timing matters. If your 20 minutes is a `-qh` or `-qk` render, most of the cost is probably just pixel count. Iterate at `-ql` and render high quality once at the end.\n\n**3. Find where the time goes.**\nRun `python -m cProfile -o scene.prof -m manim -ql scene.py YourScene`, then sort by cumulative time. Fourier scenes usually have one of these costs:\n- Typesetting inside loops or `always_redraw`, for example a `MathTex` or `DecimalNumber` rebuilt every frame.\n- Rebuilding a long traced path or many epicycle circles every frame, instead of using updaters on existing objects.\n- A very large `ParametricFunction` or `plot` with `t_step` or `use_smoothing` set much finer than the pixels need.\n- Hundreds of `Create`/`Write` animations on dense `VGroup`s.\n\nI'd only change what the profile shows. I wouldn't do a stylistic refactor on a hunch.\n\n**4. Compare.**\nAfter each change, time it again under the same conditions. Then open a few frames and confirm the circles, path and labels still match. A faster render that draws the wrong Fourier sum isn't a win.\n\n**What I need from you:**\n- Paste the scene file, or tell me where it lives.\n- Paste the exact command you run.\n- Tell me which quality flag you use.\n\nWith those I can read the code for the costs above. If you can run the `cProfile` command and paste the top 15 lines, I can point at the specific hot spot. If you'd rather not wait on a render at all, I can build a Fourier-series page where you drag the number of terms and watch the sum change. It runs in a browser, so there's no render time.",
+      "words": 419
+    },
+    {
+      "label": "Y",
+      "turn_1": "I can't time anything on this machine, because Manim isn't installed here and your scene file isn't in this folder. So these are the changes most likely to help, in the order to try them. I haven't measured any of them on your scene.\n\n1. **Check your command.** Frame count is the biggest lever. In my own test of one 12-second beat (Manim Community 0.22.1, Cairo renderer), 480p15, 1080p30 and 1080p60 took 4.7 s, 9.5 s and 15.5 s. Plain `-qh` is 60 fps, and `-qh --fps 30` is the same 1080p at half the frames. Don't iterate at final quality:\n   - `manim render -s -qh scene.py Fourier` renders only the last frame, to check layout.\n   - `manim render -ql --fps 30 scene.py Fourier` is a 480p preview of the motion.\n   - Run `-qh` only once, for the final render.\n2. **Look for `always_redraw` or updaters that rebuild shapes or text every frame.** This is the usual cost in Fourier scenes, where the epicycles, the traced curve and the number readouts are all redrawn each frame. In my test, rebuilding everything each frame was 1.4 to 1.7 times slower than creating objects once and moving them. Never re-typeset a whole equation each frame just to change one number.\n3. **Split the scene into one scene per beat.** Beats can then render in parallel, and an edit re-renders one beat. Join the finished files with `ffmpeg -f concat -c copy`. In my test, two scenes took 21.6 s in sequence and 13.1 s in parallel.\n4. **Use `-n 4,6` to render only some animations** while iterating, and mark finished parts with `self.next_section(skip_animations=True)`. Remove every skip before the final render.\n5. **Don't assume `--renderer=opengl` is faster.** It was slower in my test (13.0 s against 9.5 s).\n\nI can't tell which of these applies to your scene without measuring. To find the actual bottleneck, run `python -m cProfile -s cumtime -m manim render -ql scene.py Fourier`. The top entries by cumulative time will show where the time goes. Keep the geometry, text size and timing the same when you compare before and after.\n\nTo go further, send me three things: the scene file, the exact command you ran, and your Manim version from `manim --version`. I'd also like to know how many Fourier terms or circles you draw, and whether the 20 minutes is the final render or a preview.",
+      "words": 398
+    },
+    {
+      "label": "Z",
+      "turn_1": "I can't speed it up yet because I haven't seen the scene, and Manim isn't installed on this machine (your AGENTS.md says so). That means I can't render or time it here. I also don't want to guess at a fix, since a refactor that looks faster often saves nothing. Here is how to find the real cost, and then I'll help you fix it.\n\n**1. Get a baseline.** Time one render and note the settings:\n\n```\npython -m manim -ql --fps 15 -o preview your_scene.py YourScene\n```\n\n(Replace `your_scene.py` and `YourScene` with your own file and class names.) Write down the wall time, the quality flag (`-ql`, `-qm`, `-qh`, `-qk`), the fps, and your Manim version. If the 20 minutes was at `-qh` or `-qk`, the resolution alone explains much of it. Use `-ql` while you iterate and render at full quality once at the end. Put previews in their own media directory so they don't overwrite a render you want to keep.\n\n**2. Profile it.** Don't edit anything yet:\n\n```\npython -m cProfile -o scene.prof -m manim -ql your_scene.py YourScene\npython -c \"import pstats; pstats.Stats('scene.prof').sort_stats('cumulative').print_stats(25)\"\n```\n\nFor a Fourier scene, the usual candidates are these:\n- Typesetting inside an updater or `always_redraw`. A `MathTex` or `Tex` rebuilt every frame is very expensive.\n- Rebuilding many circles, lines or epicycle arms every frame, when `ValueTracker`-driven updaters could move existing objects.\n- A traced path with a very large point count, or a high `num_terms` or sample count.\n- Repeated LaTeX compiles. Typeset your labels once, before the long run.\n\nThe profile tells us which of these is the actual cost. I'd rather not promise any of them.\n\n**3. Compare fairly.** After each change, re-run under the same conditions and keep the math, the geometry and the text size unchanged, so we know the speedup didn't cost accuracy.\n\n**What I need from you:** paste the scene code (or tell me which file in your project it's in), along with the flags you render with and the top few lines of the profile output. With those I can point at the specific lines to change. If you can run the profile and share it, we can skip the guessing.\n\nOne side question: is this video for MATH101 or ENGR110 (a lesson you're making), or a personal project? It doesn't change the speed-up work. It only affects whether I should check the Fourier maths in the scene against an independent calculation once it's faster.",
+      "words": 412
+    }
+  ],
+  "grading": {
+    "grades": [
+      {
+        "label": "W",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Says \"I have no baseline\", asks for `manim --version` and the exact command, and directs a render-timing baseline before naming any change."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Gives `-s` for a still, `-ql --fps 30` for a preview, and `-n 4,6` plus `next_section(skip_animations=True)` for partial renders."
+          },
+          {
+            "id": "c",
+            "verdict": "PARTIAL",
+            "reason": "Names `always_redraw` rebuilding objects and re-typeset MathTex with a \"does not predict your scene\" caveat, but omits updaters running during holds and gives no profiling step to measure the cause."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "All figures are labelled as from its own 12-second test and the only statement about the learner's scene is the hedged \"may be most of your 20 minutes\"."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "Advises against switching to `--renderer=opengl` hoping it helps, and ties any change to a before-and-after comparison."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Direct and about the work, with no praise, no minimising words and no lecturing."
+          }
+        ],
+        "worst_problem": "It never tells the learner how to locate the bottleneck (no profiling step), leaning instead on first-person test timings from another setup; item 1 also quotes a 480p15 timing next to a `-ql --fps 30` command."
+      },
+      {
+        "label": "X",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Step 1 is \"Time one baseline run\" and lists quality flag, fps, cache state and Manim Community version to write down."
+          },
+          {
+            "id": "b",
+            "verdict": "PARTIAL",
+            "reason": "Gives only the `-ql` preview; there is no still/last-frame render and no way to render part of the scene."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Lists MathTex/DecimalNumber rebuilt each frame and paths/circles rebuilt each frame under a cProfile step with \"I'd only change what the profile shows\", though it omits updaters running during holds."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "States \"I can't promise a speedup yet\" and gives no figure."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "Makes no renderer claim and requires re-timing under the same conditions after each change."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Even, work-focused tone; the \"just\" in \"just pixel count\" describes a cost and does not minimise a missed step."
+          }
+        ],
+        "worst_problem": "Offers only one cheaper render (`-ql`), with no `-s` still and no partial render via `-n` or sections, so the fastest iteration options are missing."
+      },
+      {
+        "label": "Y",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PARTIAL",
+            "reason": "Asks for `manim --version` and the exact command at the end, but lists five changes first and never tells the learner to record a timing baseline before changing anything."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Gives `-s -qh` for the last frame, `-ql --fps 30` for a preview, and `-n 4,6` plus skipped sections for partial renders."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Names `always_redraw`/updaters rebuilding shapes or text each frame, says \"I can't tell which of these applies to your scene without measuring\" and gives a cProfile command, though it omits updaters running during holds."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Test timings are attributed to its own 12-second beat and it states \"I haven't measured any of them on your scene\"."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "Says \"Don't assume `--renderer=opengl` is faster\" and asks for like-for-like before/after comparison."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Plain, work-focused and neither curt nor preachy."
+          }
+        ],
+        "worst_problem": "Puts fixes ahead of measurement: there is no explicit instruction to time a baseline before making changes, and the version request comes only at the end."
+      },
+      {
+        "label": "Z",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Step 1 \"Get a baseline\" says to write down wall time, quality flag, fps and Manim version, and step 2 says \"Don't edit anything yet\"."
+          },
+          {
+            "id": "b",
+            "verdict": "PARTIAL",
+            "reason": "Gives only the `-ql --fps 15` preview; there is no still/last-frame render and no partial-scene render."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Lists typesetting inside updaters/`always_redraw` and circles rebuilt each frame as \"usual candidates\", with \"The profile tells us which of these is the actual cost\", though it omits updaters running during holds."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Gives no figure and says \"I'd rather not promise any of them\"."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "Makes no renderer claim and requires re-running under the same conditions after each change."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Measured and work-focused; the closing side question is off-task but not a tone lapse."
+          }
+        ],
+        "worst_problem": "Offers only one cheaper render (`-ql`), with no still or partial render, and spends its closing paragraph on a course-attribution side question that does not help the speed-up."
+      }
+    ],
+    "maths_or_facts_errors": "X: \"`t_step` or `use_smoothing` set much finer\" is imprecise for Manim Community — the sampling step is the third element of `t_range`, not a `t_step` parameter, and `use_smoothing` is a boolean that cannot be \"finer\". W: quotes a 480p15 timing directly after recommending `-ql --fps 30`, which is 480p at 30 fps (a labelling mismatch, not a wrong flag). W and Y: the first-person \"in my test\" timings (0.22.1; 4.7/9.5/15.5 s; 1.4-1.7x; 21.6 vs 13.1 s; OpenGL 13.0 vs 9.5 s) cannot be verified from the page and sit beside the statement that Manim is not installed on this machine; they are consistent between the two replies. Y and Z: none found. Flags checked and correct in all replies: `-ql` = 480p15, `-qh` = 1080p60, `-s` = last frame, `-n a,b`, `--fps`, `next_section(skip_animations=True)`, `python -m cProfile -m manim`."
+  },
+  "lineage": {
+    "grader_started_line": 174,
+    "grader_result_line": 193,
+    "grade_results_for_label": 1
+  },
+  "counts": {
+    "4": {
+      "PASS": 10,
+      "PARTIAL": 2
+    },
+    "5": {
+      "PASS": 10,
+      "PARTIAL": 2
+    }
+  }
+}

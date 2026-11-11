@@ -1,0 +1,219 @@
+{
+  "case": {
+    "id": "E12",
+    "field": "render performance",
+    "msg": "My Manim render of a Fourier scene takes 20 minutes. Speed it up.",
+    "criteria": [
+      "a. Asks for or says to record the Manim version and a timing baseline before changing things.",
+      "b. Gives concrete cheaper renders: a still/last-frame render, a low-quality preview, and rendering only part of the scene.",
+      "c. Names code-level causes worth checking (objects or text rebuilt every frame, updaters left running during holds) as things to measure, not certainties.",
+      "d. Promises no specific speedup figure for the learner's scene.",
+      "e. Does not claim the OpenGL renderer (or any switch) is faster without telling them to measure it.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "Which command produced the 20-minute render, and can you share the Fourier scene’s update loop and your Manim version? The same symptom can come from rebuilding geometry, computing coefficients, typesetting, or encoding. I can’t time this scene here without its source and runtime.\n\nOn the render machine, time one representative segment at the original resolution, frame rate, renderer, and a recorded cache state. For Manim Community, profile that same invocation with Python’s `cProfile` and sort by cumulative time. If it shows coefficients being recomputed every frame for a fixed signal, compute them once before animation. Only their phases need to advance. If object construction dominates, keep the arrows and update their endpoints instead of rebuilding the whole group each frame.\n\nRetest the same segment under the same settings and cache conditions. Check the reconstructed tip at the start, midway, and at the end, plus the displayed trace, caption timing if present, and frame count. The difference in elapsed time is the speedup you can report. A low-resolution preview may save iteration time, but measure the final-quality render separately."
+    },
+    "B": {
+      "turn1": "Which render command are you running, and can you share the part of the scene that rebuilds the Fourier curve and epicycles? Twenty minutes gives us a baseline, but it doesn’t tell us where the time goes. Manim is unavailable here, so I can’t time your scene locally.\n\nOn your render machine, time a representative moving section with `-n` and use `-ql` for iteration. In the scene, check whether every frame recomputes Fourier coefficients for the same source curve. If so, compute them once and update only the phases and geometry. If the coefficients are already cached, profile the frame updates before changing the algorithm. Compare the same section before and after with identical resolution, fps, renderer and cache state. Check the epicycle tips and reconstructed curve at the same frames as well as the elapsed time."
+    },
+    "C": {
+      "turn1": "Can you paste the scene’s updater or `always_redraw` block, the render command, and your Manim version? I’d start with the part of the Fourier scene that repeats every frame. The 20 minutes you measured is a baseline, but it doesn’t yet tell us whether time goes into rebuilding epicycles, recomputing coefficients, typesetting, or encoding. This environment has no Manim installation, so I can’t time the scene here.\n\nOn the machine that renders it, profile a representative slow section. For Manim Community, one example is `python -m cProfile -o fourier.prof -m manim -ql --disable_caching fourier.py FourierScene`, then `python -m pstats fourier.prof` and `sort cumulative` followed by `stats 20`. Substitute your scene and file. If the hot function recalculates fixed Fourier coefficients, compute them once before animation. If it rebuilds every arrow each frame, keep the arrows and update their endpoints. Time the original and changed versions using the same renderer, frame rate, resolution, animation range and cache state. Compare tip positions at matched frames, final trace and duration before calling it a speedup."
+    },
+    "D": {
+      "turn1": "I’d first time the slowest Fourier animation at your usual settings. The reported 20 minutes is for the whole render, and I don’t yet know which part costs it. If you use Manim Community, run `python -m manim -ql -n 3,3 scene.py FourierScene` for a fast preview, replacing `3` with the animation index you’re editing. This machine lacks Manim, so I haven’t measured a speedup.\n\nOne thing to look for in the scene: are you recomputing Fourier coefficients from the same path on every frame? If so, compute them once and have the updater change the existing arrows’ endpoints as time advances. Time the same segment before and after at identical resolution, frame rate, renderer and cache state. Compare the arrow tips and traced curve at matching times. Paste the part that computes coefficients, the updater, and your render command so we can target the actual bottleneck."
+    },
+    "E": {
+      "turn1": "Which part accounts for the 20 minutes? Send the scene’s `construct` method and updaters, your exact render command, and the output of `manim --version`. Those details distinguish time spent calculating coefficients, rebuilding curves each frame, and encoding frames.\n\nFor a quick Manim Community edit cycle, preview only the slow animation with `manim render -ql -n N,N scene.py SceneName`, replacing `N` with its animation number. For the actual speed comparison, time that same section before and after at identical resolution, frame rate, renderer and cache state. If the coefficients describe a fixed signal and are recomputed in an updater, calculate them once before the animation. Compare the old and new Fourier curve at the same times and harmonic counts. I can’t run the render here, so the speedup is still unmeasured."
+    },
+    "F": {
+      "turn1": "Send the Fourier scene’s `construct` method and updater code, the exact render command, and your Manim edition. The 20-minute total gives us a baseline but doesn’t locate the cost. For a typical epicycle scene I’d first check whether it recomputes fixed Fourier coefficients on every frame or rebuilds the entire trace and arrow chain as each angle changes. If the coefficients depend only on the source curve, compute them once. If rebuilding arrows dominates, create them once and update their endpoints. For Manim Community, profile a representative segment with `python -m cProfile -s cumulative -m manim` followed by your usual render arguments. Time the same segment before and after at identical resolution, frame rate, and cache state. Compare the tip position, traced curve, and duration at matching frames. Manim is unavailable here, so there’s no measured speedup yet."
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 4,
+      "sample": 2
+    },
+    "B": {
+      "revision": 5,
+      "sample": 3
+    },
+    "C": {
+      "revision": 4,
+      "sample": 3
+    },
+    "D": {
+      "revision": 5,
+      "sample": 2
+    },
+    "E": {
+      "revision": 5,
+      "sample": 1
+    },
+    "F": {
+      "revision": 4,
+      "sample": 1
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "PASS",
+        "Asks for the version and a timing baseline at recorded settings and cache state."
+      ],
+      [
+        "PARTIAL",
+        "Mentions a low-resolution preview and timing a representative segment but gives no last-frame render."
+      ],
+      [
+        "PARTIAL",
+        "Proposes measuring object construction and fixed-coefficient recomputation but omits updaters active during holds."
+      ],
+      [
+        "PASS",
+        "Derives speedup only from elapsed-time differences."
+      ],
+      [
+        "PASS",
+        "Keeps settings fixed and makes no unconditional renderer-speed claim."
+      ],
+      [
+        "PASS",
+        "Requests diagnostic evidence and avoids blaming the learner."
+      ]
+    ],
+    "B": [
+      [
+        "PARTIAL",
+        "Recognizes the baseline and requests the render command but does not request the version."
+      ],
+      [
+        "PARTIAL",
+        "Gives -n and -ql for range and quality but omits a still or last-frame render."
+      ],
+      [
+        "PARTIAL",
+        "Flags rebuilding curve geometry and profiling coefficient updates but omits idle updaters."
+      ],
+      [
+        "PASS",
+        "Requests a matched comparison without predicting a number."
+      ],
+      [
+        "PASS",
+        "Holds renderer constant and makes no claim that switching is faster."
+      ],
+      [
+        "PASS",
+        "Matter-of-fact about what the current timing establishes."
+      ]
+    ],
+    "C": [
+      [
+        "PASS",
+        "Asks for Manim version and uses the measured 20 minutes as the original baseline."
+      ],
+      [
+        "PARTIAL",
+        "Shows -ql and calls for a representative section, but the sample command is full-scene and no still is given."
+      ],
+      [
+        "PARTIAL",
+        "Profiles per-frame arrow reconstruction and coefficients but omits updaters during holds."
+      ],
+      [
+        "PASS",
+        "Requires measured matched timings and gives no promised improvement."
+      ],
+      [
+        "PASS",
+        "Calls for comparing at the same renderer and quality settings."
+      ],
+      [
+        "PASS",
+        "Requests code and makes hypotheses conditional on profiling."
+      ]
+    ],
+    "D": [
+      [
+        "PARTIAL",
+        "Requests a timing at usual settings but never asks for a Manim version."
+      ],
+      [
+        "PARTIAL",
+        "Gives a low-quality single-animation render with -ql -n 3,3 but no still render."
+      ],
+      [
+        "PARTIAL",
+        "Suggests checking repeated coefficients and reusing arrows but skips updaters during holds."
+      ],
+      [
+        "PASS",
+        "Explicitly says it has not measured any speedup."
+      ],
+      [
+        "PASS",
+        "Requires fixed renderer and settings for the timing comparison."
+      ],
+      [
+        "PASS",
+        "Targets code and asks for measurements without criticizing the learner."
+      ]
+    ],
+    "E": [
+      [
+        "PASS",
+        "Requests manim --version and requires a same-section before-and-after timing."
+      ],
+      [
+        "PARTIAL",
+        "Gives a low-quality single-animation command but no still or last-frame render."
+      ],
+      [
+        "PARTIAL",
+        "Treats per-frame reconstruction and coefficient updates as candidates but omits updaters during holds."
+      ],
+      [
+        "PASS",
+        "Says the speedup remains unmeasured."
+      ],
+      [
+        "PASS",
+        "Requires comparisons with identical renderer and cache settings."
+      ],
+      [
+        "PASS",
+        "Directly asks for actionable code and version evidence without blame."
+      ]
+    ],
+    "F": [
+      [
+        "PARTIAL",
+        "Uses 20 minutes as baseline but asks for the edition rather than its version."
+      ],
+      [
+        "FAIL",
+        "Offers profiler invocation using usual render arguments without a concrete cheaper render mode or selection."
+      ],
+      [
+        "PARTIAL",
+        "Asks whether the trace and arrows rebuild every frame but omits updaters left active during holds."
+      ],
+      [
+        "PASS",
+        "States that no speedup has been measured."
+      ],
+      [
+        "PASS",
+        "Treats speed as a matched timing question and makes no unconditional renderer claim."
+      ],
+      [
+        "PASS",
+        "Gives conditional advice focused on the code and measurements."
+      ]
+    ]
+  }
+}

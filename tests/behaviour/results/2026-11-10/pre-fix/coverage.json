@@ -1,0 +1,182 @@
+{
+  "cohort": "Pre-fix original workflow, latest complete grade for each scenario. Separate fresh grading required for four incomplete scenarios.",
+  "completed": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "E08",
+    "E09",
+    "E10",
+    "E11",
+    "E12",
+    "E13",
+    "E15"
+  ],
+  "ungraded_in_original": [
+    "E14",
+    "T1",
+    "T2",
+    "T3"
+  ],
+  "original_second_turn_completions": 0,
+  "samples_per_revision_per_graded_scenario": 2,
+  "totals": {
+    "4": {
+      "PASS": 146,
+      "PARTIAL": 32,
+      "FAIL": 2
+    },
+    "5": {
+      "PASS": 159,
+      "PARTIAL": 17,
+      "FAIL": 4
+    }
+  },
+  "per_scenario": {
+    "E01": {
+      "4": {
+        "PASS": 12,
+        "PARTIAL": 1,
+        "FAIL": 1
+      },
+      "5": {
+        "PASS": 12,
+        "PARTIAL": 2
+      }
+    },
+    "E02": {
+      "4": {
+        "PARTIAL": 5,
+        "PASS": 9
+      },
+      "5": {
+        "PASS": 12,
+        "PARTIAL": 2
+      }
+    },
+    "E03": {
+      "4": {
+        "PASS": 12
+      },
+      "5": {
+        "PASS": 10,
+        "PARTIAL": 2
+      }
+    },
+    "E04": {
+      "4": {
+        "PASS": 10,
+        "PARTIAL": 2
+      },
+      "5": {
+        "PASS": 10,
+        "FAIL": 1,
+        "PARTIAL": 1
+      }
+    },
+    "E05": {
+      "4": {
+        "PARTIAL": 5,
+        "PASS": 9
+      },
+      "5": {
+        "PASS": 14
+      }
+    },
+    "E06": {
+      "4": {
+        "PARTIAL": 1,
+        "PASS": 11
+      },
+      "5": {
+        "PASS": 11,
+        "PARTIAL": 1
+      }
+    },
+    "E07": {
+      "4": {
+        "PASS": 11,
+        "PARTIAL": 3
+      },
+      "5": {
+        "PASS": 11,
+        "FAIL": 2,
+        "PARTIAL": 1
+      }
+    },
+    "E08": {
+      "4": {
+        "PASS": 10,
+        "PARTIAL": 2
+      },
+      "5": {
+        "PASS": 11,
+        "PARTIAL": 1
+      }
+    },
+    "E09": {
+      "4": {
+        "PASS": 10,
+        "PARTIAL": 2
+      },
+      "5": {
+        "PASS": 10,
+        "PARTIAL": 2
+      }
+    },
+    "E10": {
+      "4": {
+        "PARTIAL": 3,
+        "PASS": 9
+      },
+      "5": {
+        "PASS": 10,
+        "PARTIAL": 2
+      }
+    },
+    "E11": {
+      "4": {
+        "PASS": 13,
+        "PARTIAL": 1
+      },
+      "5": {
+        "PASS": 12,
+        "PARTIAL": 1,
+        "FAIL": 1
+      }
+    },
+    "E12": {
+      "4": {
+        "PASS": 10,
+        "PARTIAL": 2
+      },
+      "5": {
+        "PASS": 10,
+        "PARTIAL": 2
+      }
+    },
+    "E13": {
+      "4": {
+        "PASS": 12,
+        "PARTIAL": 1,
+        "FAIL": 1
+      },
+      "5": {
+        "PASS": 14
+      }
+    },
+    "E15": {
+      "4": {
+        "PARTIAL": 4,
+        "PASS": 8
+      },
+      "5": {
+        "PASS": 12
+      }
+    }
+  }
+}

@@ -2,6 +2,74 @@
 
 Read this when revising the skill or when someone asks what a recommendation rests on. Ordinary tutoring does not need it. It records history and sources; it is not a set of instructions, and none of the files or runtimes it names are promised to exist in the active workspace.
 
+## Revision 5, 2026-11-10
+
+Revision 5 added a feedback wording standard and difficulty signals to tutoring, the loop's form in engineering and essay subjects, good-faith argument and source companions, delegation by job, a beat order and measured render workflow for short videos, and record fields for argument and essay work.
+
+Every rule added in revision 5 is a design choice. The reading below informed the choices; it does not establish them, and none of it tested this skill.
+
+### What was read, and how
+
+The table below records the original draft's literature intake. The release review also checked Study 1's goal-choice and postfailure results in Mueller and Dweck's original paper. Among 123 fifth graders, 67% of those praised for intelligence chose a performance goal, compared with 8% of those praised for effort. The percentages describe a choice on this task. Advising a tutor to identify a sound step in a college student's work is a separate design decision. [Mueller and Dweck, 1998, pp. 36–37](https://www.columbia.edu/cu/psychology/courses/3615/Readings/Mueller_Dweck.pdf)
+
+Kalyuga, Chandler, and Sweller report three experiments in which the relative usefulness of integrated explanatory text changed as learners became more experienced. The publisher's abstract was available for this release check. The difficulty signals in the skill are practical choices with no measured thresholds. [Levels of Expertise and Instructional Design](https://journals.sagepub.com/doi/10.1518/001872098779480587)
+
+| Topic | Sources looked for | What was actually read | Used for |
+|---|---|---|---|
+| Feedback | Hattie and Timperley 2007; Kluger and DeNisi 1996; Shute 2008; Yeager and others 2014; Mueller and Dweck 1998 | A secondary summary of the first; abstract snippets of the second; nothing readable of the rest | Criticise the step, not the person; name the correct move when praising. The feedback examples and choice to prioritize consequential errors are authored guidance |
+| Level of challenge | Bjork on desirable difficulties; Wood, Bruner and Ross 1976; Kalyuga on expertise reversal; Kapur on productive failure; Koedinger and Aleven 2007; Wilson and others 2019 | Encyclopedia pages and snippets | Changing support on observed performance, one thing at a time. The signal table has no measured thresholds. The "85% rule" was not adopted: as summarised, it comes from simulated learners on classification tasks, not people solving problems |
+| Transfer between fields | Barnett and Ceci 2002; Gick and Holyoak 1980, 1983; Chi, Feltovich and Glaser 1981; Perkins and Salomon | Snippets and one encyclopedia page | The cautious wording in [across fields](fields.md): what is "worth prompting", and that a named bridge is not evidence. No claim about how much transfers |
+| Essay marking | AQA A-level Philosophy and History specification pages | The assessment-objective pages were read; the level-descriptor wording and a mark scheme PDF were not readable | Best-fit marking against criteria, and the rule that a band needs the criteria open. One exam board is not all marking |
+| Argument | Socratic method, principle of charity, Toulmin, argument mapping, Adler and Van Doren; Chi and others on self-explanation; Dunlosky and others 2013; work on fluency after watching explanations; work on agreement-seeking in language models | Encyclopedia pages for the first five; snippets for the rest | The argument loop and the source table are this skill's design. "Refuting a claim does not prove its opposite" follows a criticism reported on the Socratic method page |
+
+### The public repository
+
+[maarmot/Pure-Past-Paper-Focused-Agentic-Tutoring](https://github.com/maarmot/Pure-Past-Paper-Focused-Agentic-Tutoring) was read on 2026-11-10 at commit `f4e8c31`. It is this skill's published revision 4 with wording made more cautious in places, a README, and a test workflow. Revision 5 was written on top of that commit, not on the local draft it replaced.
+
+### Caption timings of eight videos
+
+The [caption recount](measurements/caption-recount.json) records the counts, cue times and input hashes. The [render trial data](measurements/bench-trials.json) records each retained timing condition and its individual runs.
+
+English VTT captions and video metadata were retained for eight 3Blue1Brown videos. In the release audit, an independent parser reproduced all eight cue counts, word counts, metadata durations, and first timestamps containing a question mark. The rate divides caption words by the full video duration, including silences. The two passage columns are approximate navigation points from the earlier reader's coding of examples, formulas, and definitions.
+
+| Video | Length | Caption words | Words/min | First cue with `?` | Case passage | Formula or definition passage |
+|---|---:|---:|---:|---:|---:|---:|
+| [Essence of calculus](https://www.youtube.com/watch?v=WUvTyaaNkzM) | 17:04 | 2,906 | 170.3 | 1:22 | 1:35 (circle area) | 3:32 |
+| [Paradox of the derivative](https://www.youtube.com/watch?v=9vKqVkMQHKk) | 16:50 | 2,917 | 173.3 | 2:59 | 1:07 | 5:22 |
+| [Fourier series](https://www.youtube.com/watch?v=r6sGWTCMz2k) | 24:47 | 4,426 | 178.6 | 5:03 | 0:05 | 6:46 |
+| [Neural network](https://www.youtube.com/watch?v=aircAruvnKk) | 18:40 | 3,357 | 179.8 | 2:48 | 0:04 | 3:25 |
+| [Vectors, chapter 1](https://www.youtube.com/watch?v=fNk_zzaMoSs) | 9:51 | 1,800 | 182.7 | 4:04 | 0:55 | 0:30 |
+| [Central limit theorem](https://www.youtube.com/watch?v=zeJD6dqJ5lo) | 31:14 | 6,253 | 200.2 | 5:39 | 0:00 | 15:57 |
+| [Differential equations](https://www.youtube.com/watch?v=p_di4Zn4wz4) | 27:16 | 4,548 | 166.8 | 3:27 | 2:13 | 3:15 |
+| [Bayes theorem](https://www.youtube.com/watch?v=HZGCoVF3YvM) | 15:11 | 2,650 | 174.5 | 1:24 | 1:04 | 7:15 |
+
+The eight topic terms first appeared in cues beginning between 3.369 and 74.202 seconds. The earliest cue containing a question mark began at 82.032 seconds. A question can start in an earlier cue and acquire its punctuation later. Seven selected case passages precede the selected formula or definition passage. In Vectors the description of an arrow comes first. The earlier reader classified endings as callbacks, invitations, or forward references. The selection and coding reflect that reader's judgement.
+
+Use these observations to consider a sequence for a new explanation. The prediction beat and boundary case in [Manim and media](manim.md) come from the tutoring design. Screen transitions, useful holds, and learning outcomes need separate evidence.
+
+### Render measurements
+
+The earlier Windows benchmark used Python 3.12.13, Manim Community 0.22.1, and a 12-second scene. The table gives the retained wall times in seconds from process start to exit. The in-place version updates existing objects, caches repeated text labels to one decimal place, and stops updates during a hold. The rebuild version reconstructs marks and text each frame, displays two decimal places, and keeps updating during the hold. The comparison includes all of these differences.
+
+| Setting | In-place trials (s) | Rebuild trials (s) |
+|---|---|---|
+| Cairo, 854 × 480, 15 fps, cache off | 4.92, 4.73 | 8.08, 7.93 |
+| Cairo, 1920 × 1080, 30 fps, cache off | 9.82, 9.48 | 14.22, 13.74 |
+| Cairo, 1920 × 1080, 60 fps, cache off | 15.46 | 24.58 |
+| Cairo, 1080p30, cache enabled, cold | 9.56 | 14.36 |
+| Cairo, 1080p30, cache enabled, two warm runs | 7.42, 7.35 | 11.81, 12.25 |
+| OpenGL, 1080p30, cache off | 13.85, 12.98 | 17.26 |
+
+For the in-place scene at 1080p30, a six-second section (`-n 2,2`) took 7.42 and 7.43 seconds. Rendering a final still took 2.45 and 2.43 seconds. The four benchmark reports support these trials. The separate startup, parallel-process, stream-copy, and encode-size comparisons lack corresponding trial records in those reports.
+
+Use the trial values only for this workload. Keep parameters and visual precision matched when testing the effect of an individual change.
+
+An earlier preview held the opening objects at 0.2 seconds, when the two candidates coincide. The opening hold now uses 0.17 seconds, where the dot and square have distinct positions. The release audit also found ten old sample pairs during the final question about a new 12 photos/s camera. The closing shot now restores the two original motion markers and names the changed camera. Moving the extra square onto the extra dot in a scratch copy still passed the pure model check. The real scene-object check rejected the fault at the reveal.
+
+### What was not done
+
+No narrated video was produced; the starter scene is a silent preview. No learner used any of this. The behaviour comparison in `tests/behaviour` measures a model's replies, not anyone's learning.
+
 ## Revision 4, 2026-11-09
 
 Revision 4 fixed reproduced validator defects, added the interactive route and study habits, and gathered the history below into this one file. Its changes were compared against revision 3 on scripted learner scenarios; that comparison shows how the instructions steer a model, not whether a person learns more.

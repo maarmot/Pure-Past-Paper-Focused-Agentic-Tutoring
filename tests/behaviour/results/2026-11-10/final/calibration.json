@@ -1,0 +1,304 @@
+{
+  "cases": [
+    {
+      "id": "E04",
+      "ratings": {
+        "A": [
+          [
+            "PASS",
+            "Identifies lo = mid writing 0 back when mid equals lo."
+          ],
+          [
+            "PASS",
+            "Traces lo=0, hi=1, mid=0 and the repeated interval."
+          ],
+          [
+            "PASS",
+            "Explains why mid can be discarded on the too-small branch."
+          ],
+          [
+            "FAIL",
+            "The exact-match postcondition is an algorithm step. No independent test or reference comparison is suggested."
+          ],
+          [
+            "FAIL",
+            "The first two sentences request a trace and give the midpoint. The third gives the diagnosis."
+          ],
+          [
+            "PASS",
+            "Explains the update without personal judgment."
+          ]
+        ],
+        "B": [
+          [
+            "PASS",
+            "Names the unchanged interval from lo = mid."
+          ],
+          [
+            "PASS",
+            "Shows (0,1) produces mid=0 on the given input."
+          ],
+          [
+            "PASS",
+            "Explains why index 0 is ruled out and why the opposite branch retains mid."
+          ],
+          [
+            "PASS",
+            "Gives an absent-target test on [1,3,3], expected index 1 and false membership."
+          ],
+          [
+            "PASS",
+            "The opening sentence diagnoses the stalled update."
+          ],
+          [
+            "PASS",
+            "Uses matter-of-fact language about the branch and test."
+          ]
+        ],
+        "C": [
+          [
+            "PASS",
+            "Shows lo = mid writing the original lower bound back."
+          ],
+          [
+            "PASS",
+            "Traces the stalled interval and then the repaired [1,1]."
+          ],
+          [
+            "PASS",
+            "Explains why the smaller element can be dropped."
+          ],
+          [
+            "FAIL",
+            "Replaying the given example and adding an exact-match guard provide no independent test."
+          ],
+          [
+            "PASS",
+            "The first sentence identifies the stuck interval and the second identifies the update."
+          ],
+          [
+            "PASS",
+            "Explains the loop and its postcondition respectfully."
+          ]
+        ],
+        "D": [
+          [
+            "PASS",
+            "Identifies lo = mid as the nonshrinking update."
+          ],
+          [
+            "PASS",
+            "Traces mid=0 from the original bounds and compares a[0] with 3."
+          ],
+          [
+            "PASS",
+            "Explains why index 0 can be discarded and mid retained on the other branch."
+          ],
+          [
+            "PASS",
+            "Gives duplicate and absent-target tests with expected index and membership distinction."
+          ],
+          [
+            "PASS",
+            "The first sentence diagnoses the unchanged interval."
+          ],
+          [
+            "PASS",
+            "Focuses on what the comparison establishes, without praise or blame."
+          ]
+        ],
+        "E": [
+          [
+            "PASS",
+            "Names lo = mid and shows index 0 incorrectly remains."
+          ],
+          [
+            "PASS",
+            "Uses the original bounds, resulting midpoint, comparison and retained index."
+          ],
+          [
+            "PASS",
+            "Distinguishes the ruled-out index from a possible first match."
+          ],
+          [
+            "PASS",
+            "Adds [1,3,3,7] with target 3 and expected first-match index 1."
+          ],
+          [
+            "PASS",
+            "The first sentence diagnoses the unchanged interval."
+          ],
+          [
+            "PASS",
+            "Explains the comparison in neutral terms."
+          ]
+        ],
+        "F": [
+          [
+            "PASS",
+            "Names lo = mid and shows the same comparison recurs."
+          ],
+          [
+            "PASS",
+            "Traces both bounds, midpoint, comparison and next lower bound on [1,3]."
+          ],
+          [
+            "PASS",
+            "Explains why discarding mid preserves a possible answer."
+          ],
+          [
+            "FAIL",
+            "The guard handles missing and empty cases in code, but no independent test of the repair is proposed."
+          ],
+          [
+            "PASS",
+            "The opening sentence states that lo = mid stalls."
+          ],
+          [
+            "PASS",
+            "Uses direct language about the update and supports the correction."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "T5",
+      "ratings": {
+        "A": [
+          [
+            "PASS",
+            "Frames the thermostat as general and requests the missing excerpt."
+          ],
+          [
+            "PASS",
+            "Magnitude rises from 1/10 to 1/2. Each parity subsequence halves in magnitude, establishing convergence."
+          ],
+          [
+            "PASS",
+            "Calculated magnitudes for updates 0-4 are 1, 1/10, 1/2, 1/20, 1/4, matching the signed table."
+          ],
+          [
+            "PASS",
+            "Says the quoted every-update decrease needs an extra condition."
+          ],
+          [
+            "PASS",
+            "Asks for a prediction and evaluates the statement without judging the learner."
+          ]
+        ],
+        "B": [
+          [
+            "PASS",
+            "Requests an excerpt and labels the preliminary question as general."
+          ],
+          [
+            "PASS",
+            "Magnitude grows from 0 to 1/4. The recurrence gives e[k+4]=-e[k]/4 for arbitrary initial data."
+          ],
+          [
+            "PASS",
+            "Updating from (1,1) gives magnitudes 1, 1, 1/2, 0, 1/4, 1/4 through k=5."
+          ],
+          [
+            "PASS",
+            "Identifies the quoted requirement as stronger than asymptotic stability."
+          ],
+          [
+            "PASS",
+            "Uses the previous error to explain the temporary growth respectfully."
+          ]
+        ],
+        "C": [
+          [
+            "PASS",
+            "Offers a hypothetical thermostat and asks which sentence prompted the question."
+          ],
+          [
+            "PASS",
+            "Magnitude increases from 0 at k=2 to 1/4 at k=3. The four-step multiplier -1/4 ensures decay."
+          ],
+          [
+            "PASS",
+            "Starting at k=-1 with (1,1), updates k=0-4 yield magnitudes 1, 1/2, 0, 1/4, 1/4."
+          ],
+          [
+            "PASS",
+            "Relates one-step growth and four-step decay to the quoted statement."
+          ],
+          [
+            "PASS",
+            "Invites a prediction and corrects the reasoning without personal criticism."
+          ]
+        ],
+        "D": [
+          [
+            "PASS",
+            "Requests the text and identifies the opening controller as a general example."
+          ],
+          [
+            "PASS",
+            "Magnitude grows from 1 to 6/5. The repeated characteristic root 3/5 ensures all solutions converge."
+          ],
+          [
+            "PASS",
+            "The initial pair yields k=0-3 magnitudes 1, 6/5, 27/25, 108/125, matching the decimals."
+          ],
+          [
+            "PASS",
+            "Contrasts the quoted property with asymptotic stability and gives a contraction satisfying it."
+          ],
+          [
+            "PASS",
+            "Uses numerical and general arguments in measured language."
+          ]
+        ],
+        "E": [
+          [
+            "PASS",
+            "Labels the gain example as general theory and asks for a source excerpt."
+          ],
+          [
+            "PASS",
+            "Magnitude grows from 1/10 to 1/4. Each parity subsequence decays with magnitude factor 1/4."
+          ],
+          [
+            "PASS",
+            "Recomputation gives magnitudes 1, 1/10, 1/4, 1/40, 1/16 through k=4."
+          ],
+          [
+            "PASS",
+            "Says the quoted claim fails in general but could hold for a specified rule."
+          ],
+          [
+            "PASS",
+            "Explains the scope of the counterexample respectfully."
+          ]
+        ],
+        "F": [
+          [
+            "PASS",
+            "Asks for the passage and gives a separate hypothetical thermostat."
+          ],
+          [
+            "PASS",
+            "Magnitude rises from 1 to 3/2. After the stored state vanishes, all trajectories halve at every remaining step."
+          ],
+          [
+            "PASS",
+            "The two-state update gives magnitudes 1, 3/2, 3/4, 3/8 through k=3."
+          ],
+          [
+            "PASS",
+            "Explains that the quoted every-step decrease exceeds what asymptotic stability guarantees."
+          ],
+          [
+            "PASS",
+            "Gives a concrete mechanism and corrects the reasoning without blame."
+          ]
+        ]
+      }
+    }
+  ],
+  "exact_agreements": 66,
+  "ratings_compared": 66
+}

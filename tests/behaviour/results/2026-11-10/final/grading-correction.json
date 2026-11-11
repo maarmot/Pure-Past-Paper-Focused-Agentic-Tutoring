@@ -1,0 +1,30 @@
+{
+  "case": "E14",
+  "reason": "Rechecked all six anonymous replies using the actual journal entry supplied to the tutors.",
+  "changes": [
+    {
+      "label": "A",
+      "criterion_index_zero_based": 2,
+      "previous": [
+        "FAIL",
+        "Labels the 3/3 as reported, then invents a journal entry, prior hint and untested trig material."
+      ],
+      "corrected": [
+        "PASS",
+        "Explicitly calls 3/3 reported, accurately cites separate prior journal observations, and identifies fresh transfer and delayed retention as still to be tested."
+      ]
+    },
+    {
+      "label": "A",
+      "criterion_index_zero_based": 3,
+      "previous": [
+        "PARTIAL",
+        "Mentions trig inner functions, but frames them as an undocumented prior gap rather than clearly naming the new challenge."
+      ],
+      "corrected": [
+        "PASS",
+        "Names trig inner functions as the unresolved change in the challenge and then places sin(t) inside g."
+      ]
+    }
+  ]
+}

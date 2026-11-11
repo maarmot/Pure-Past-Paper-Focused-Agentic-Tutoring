@@ -1,0 +1,244 @@
+{
+  "case": {
+    "id": "E05",
+    "field": "philosophy essay",
+    "msg": "25-mark question: 'Is utilitarianism a convincing account of morality?' My plan: thesis: no. P1: the experience machine shows pleasure isn't all we value. P2: Mill's higher pleasures answer this. Conclusion: so utilitarianism fails. Where is it weakest?",
+    "criteria": [
+      "a. Says what holds in the plan before the criticism.",
+      "b. Identifies that P2 supports utilitarianism (or is an objection to the thesis that is raised and not weighed), so the conclusion does not follow as written; quotes or pinpoints that move.",
+      "c. Does not tally marks per point.",
+      "d. Does not write the model essay or model paragraph unasked.",
+      "e. Gives no band, OR gives one labelled as an estimate with a quoted phrase from marking criteria it actually opened. A bare asserted band is FAIL.",
+      "f. Offers a concrete retry (for example weigh the objection, or state the strongest objection to the thesis) without making it a condition of the feedback.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "context": "The synthetic project is preparing for a calculus exam on 2026-11-17. A reserved 2025 paper is off limits. Two reviews are due. The philosophy marking scheme has five levels; level 3 reads \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" No Manim or LaTeX is available in the fixture. Tutor work is read-only.",
+  "key": {
+    "W": {
+      "revision": 4,
+      "sample": 1,
+      "tutor_result_line": 50
+    },
+    "X": {
+      "revision": 5,
+      "sample": 1,
+      "tutor_result_line": 60
+    },
+    "Y": {
+      "revision": 4,
+      "sample": 2,
+      "tutor_result_line": 52
+    },
+    "Z": {
+      "revision": 5,
+      "sample": 2,
+      "tutor_result_line": 57
+    }
+  },
+  "replies": [
+    {
+      "label": "W",
+      "turn_1": "Your weakest point is the step from P2 to the conclusion. As written, P1 is an objection to utilitarianism and P2 is Mill's reply to it. Then you jump to \"so utilitarianism fails\" without saying what happens to Mill's reply. Your plan gives the defender the last word, so the conclusion doesn't follow from it.\n\nYour instructor's criteria describe this gap. Level 3 is \"the conclusion is asserted more than it is earned\". Level 5 needs objections \"stated at full strength and weighed, not merely listed\". Your P2 is the reply stated at full strength, which is good. What's missing is the weighing: a step that says why the reply fails (or only partly works), and what that does to the thesis.\n\nTwo smaller points to check as you repair it:\n- The experience machine is Nozick's objection to hedonism, the view that only pleasure has value. A utilitarian can drop hedonism and count preference satisfaction or wellbeing instead. So P1 may not touch utilitarianism itself. Say which version you are attacking.\n- \"Pleasure isn't all we value\" and \"utilitarianism fails\" are different claims, and the plan treats them as one.\n\nHere's one question for you to answer. Does Mill's reply actually work against the machine? Think about what the machine could be programmed to give you. Tell me whether you think the reply holds, and give me your reason in a sentence or two. Then I'll help you work out what that does to your thesis and where the argument should go next.",
+      "words": 254
+    },
+    {
+      "label": "X",
+      "turn_1": "The weakest point is the step from P2 to your conclusion. As written, the plan doesn't hold together yet.\n\nWhat holds: P1 is a real objection. If an experience machine could give you every pleasure and many people would still refuse it, then pleasure isn't the only thing we value. That's a sound way to open.\n\nHere is the gap. P2 says \"Mill's higher pleasures answer this\", but your conclusion is \"so utilitarianism fails\". If Mill answers the objection, your own plan has just rescued utilitarianism. The plan never says whether his answer works, and that is where the argument gets decided. Two things follow from that.\n\n1. As you've stated it, the machine can supply any pleasure at all, including the \"higher\" ones (music, knowledge, friendship). So you need to say what Mill's distinction does or doesn't do against a machine that simulates those too. Right now the plan skips that.\n2. The experience machine targets one theory of value: that pleasure is the only good. It doesn't obviously touch utilitarianism's core claim that we should maximise overall good. A version that counts preferences, or values like knowing the truth, could survive it. So even if P1 succeeds, \"so utilitarianism fails\" is a further step. The question also asks about morality, and your plan doesn't yet cover the other side, such as how utilitarianism treats individuals or rights.\n\nFor a plan, my tutor's estimate against your instructor's criteria is that it sits near Level 3: \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" What it would need for Level 4 is an objection that is \"raised and answered\", with a conclusion that follows.\n\nYour next move, if you want it: in two or three sentences, say whether Mill's higher pleasures really escape the experience machine, and why. That one answer decides whether your thesis stands, and it shows which way the conclusion should go. I haven't written you a model paragraph, but I can if you'd rather see one first.",
+      "words": 342
+    },
+    {
+      "label": "Y",
+      "turn_1": "Weakest point: the step from P2 to your conclusion. I'm treating your plan as the attempt, so I'll point at the first unsupported step rather than rewrite it.\n\nP1 is a reasonable objection. P2 then says Mill answers it. If Mill answers it, P1 no longer shows that utilitarianism fails. The conclusion \"so utilitarianism fails\" doesn't follow from either premise, and as written your own P2 argues against your thesis. Your instructor's Level 3 describes this pattern: \"arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" Level 5 needs the objection to reach full strength and the weighing to be done.\n\nTwo things I'd check before you restructure. These are observations about the plan, not guesses about why it came out this way.\n\n1. Does P1 hit the right target? The experience machine is aimed at hedonism, the claim that only pleasure has value. It doesn't obviously touch the core utilitarian idea of maximising overall welfare or good. A utilitarian can keep that idea and change the account of what counts as good, for example by using preferences instead of pleasure. So P1 may show less than \"utilitarianism fails.\"\n2. Does P2 actually rescue the view? Mill's higher pleasures concern the quality of pleasures. The experience machine asks whether we want anything besides experiences at all. Your plan needs you to take a side on whether Mill's reply answers Nozick's point, and you haven't said which.\n\nHere is the question I'd like you to answer, in a sentence or two. Suppose someone defends utilitarianism against your P1. What is their best reply, and does it succeed? Your essay's conclusion depends on that answer.\n\nWhen you have an answer, revise the plan in your own words. You could keep \"no\", or you could change the thesis to something your reasoning supports better. Then I'll check the new chain step by step. After that I'll give you a different 25-marker to plan, with a changed demand so it isn't just the same argument on a new topic.\n\nIf you'd rather I show you a worked skeleton now, say so and I'll give it in full.",
+      "words": 362
+    },
+    {
+      "label": "Z",
+      "turn_1": "Your plan holds up to P2, but it breaks at the step from P2 to your conclusion.\n\n**What holds.** P1 is a recognised objection and it targets a real commitment. If the experience machine is wrong to enter, then pleasure can't be the only thing that matters.\n\n**The weakest point.** P2 is Mill's reply, which is an objection to your own thesis. The plan never says whether that reply works, so \"so utilitarianism fails\" doesn't yet follow. As written, the plan says the theory is attacked, then defended, then fails. For the conclusion to follow, P2 needs a third step, either \"Mill's reply works against the machine, but...\" or \"Mill's reply does not work, because...\".\n\nHere is one thing to test. Higher pleasures are still pleasures, which means they are still experiences. Can the machine supply them too? If it can, Mill's reply may not touch P1 at all. Make that argument yourself rather than taking it from me. Your own criteria rank this highest. Level 5 asks for objections \"stated at full strength and weighed, not merely listed\", while Level 3 is \"stated but not weighed against each other\". This is a tutor's estimate from a plan, not an essay, but a plan that lists P2 without weighing it reads as Level 3.\n\n**A second, smaller risk.** \"Fails\" is stronger than the question's \"convincing\". Pleasure-only (hedonistic) utilitarianism is only one version, and preference or ideal versions don't rest on P1. Decide whether your thesis is about the whole theory or one version of it.\n\n**Next move.** Write two or three sentences: does Mill's reply succeed against the experience machine, and why? Then say what that does to your conclusion. Send them and I'll check whether the link now holds.\n\nIf you'd rather go further, state the strongest objection to your own thesis and answer it. That is the usual retry for an essay plan, but the two sentences above come first.",
+      "words": 322
+    }
+  ],
+  "grading": {
+    "grades": [
+      {
+        "label": "W",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PARTIAL",
+            "reason": "It opens straight on the weakness; the only statement of what holds (\"Your P2 is the reply stated at full strength, which is good\") comes after the criticism and overstates a one-line premise."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Pinpoints the jump to \"so utilitarianism fails\" and says \"Your plan gives the defender the last word, so the conclusion doesn't follow from it.\""
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "No marks are allocated to any point."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "No model essay or paragraph is written; it only names the missing weighing step."
+          },
+          {
+            "id": "e",
+            "verdict": "PARTIAL",
+            "reason": "\"Your instructor's criteria describe this gap. Level 3 is...\" places the plan at Level 3 with quoted criteria wording but never labels it an estimate."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "Asks for a one-to-two sentence verdict on whether Mill's reply holds against the machine, after the feedback has already been given in full."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Criticism is aimed at the plan's steps, with no ability praise, minimisers, or lecturing."
+          }
+        ],
+        "worst_problem": "It never says what holds before criticising, and its one positive (\"P2 is the reply stated at full strength\") is inaccurate, since P2 is a bare one-line assertion."
+      },
+      {
+        "label": "X",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "A \"What holds\" paragraph explains why P1 is a real objection before \"Here is the gap\", though a one-sentence headline of the weakness precedes it."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Quotes both P2 and the conclusion and states \"If Mill answers the objection, your own plan has just rescued utilitarianism.\""
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "No per-point mark tally."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Explicitly declines (\"I haven't written you a model paragraph, but I can if you'd rather\")."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "The band is labelled \"my tutor's estimate\" and \"near Level 3\", with the full Level 3 descriptor quoted and a Level 4 phrase."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "\"Your next move, if you want it\" asks for two or three sentences on whether higher pleasures escape the machine, explicitly optional."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Work-focused and measured; \"doesn't obviously touch\" is hedging a claim, not minimising a missed step."
+          }
+        ],
+        "worst_problem": "It does part of the learner's weighing for them (the machine can supply higher pleasures too) and widens scope to rights and individuals, which dilutes the single decisive gap."
+      },
+      {
+        "label": "Y",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PARTIAL",
+            "reason": "The only statement of what holds is the bare clause \"P1 is a reasonable objection\", with no reason given, placed after the headline weakness."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "States \"If Mill answers it, P1 no longer shows that utilitarianism fails\" and \"your own P2 argues against your thesis\", quoting the conclusion."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "No marks are tallied."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "No model text is written; a worked skeleton is offered only on request."
+          },
+          {
+            "id": "e",
+            "verdict": "PARTIAL",
+            "reason": "\"Your instructor's Level 3 describes this pattern\" assigns the band with a quoted criteria phrase but does not label it an estimate."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "Asks for a one-to-two sentence answer and a revised plan in the learner's words, after the feedback has already been delivered."
+          },
+          {
+            "id": "t",
+            "verdict": "PARTIAL",
+            "reason": "Process narration (\"I'm treating your plan as the attempt\", \"These are observations about the plan, not guesses about why it came out this way\") and an unrequested promise of another 25-marker read as procedural and a little preachy."
+          }
+        ],
+        "worst_problem": "Tutor-process meta-commentary and an unasked-for future task clutter the reply, and its retry question (\"What is their best reply?\") partly re-asks what P2 already supplies."
+      },
+      {
+        "label": "Z",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "A \"What holds\" section explains why P1 targets a real commitment before \"The weakest point\"."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Says P2 \"is an objection to your own thesis\", the plan \"never says whether that reply works\", and summarises it as \"attacked, then defended, then fails\"."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "No per-point marks."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Gives only two sentence stems for the missing step and says \"Make that argument yourself rather than taking it from me.\""
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "Labelled \"a tutor's estimate from a plan, not an essay\" with quoted Level 5 and Level 3 wording."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "Asks for two or three sentences on whether Mill's reply succeeds, and adds the strongest-objection retry as an option; neither gates the feedback already given."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Criticises the plan's logic only, with no inflated praise or minimisers; \"the two sentences above come first\" is directive but not curt."
+          }
+        ],
+        "worst_problem": "It hands over the key weighing move (higher pleasures are still experiences the machine could supply) before telling the learner to make it themselves; also \"wrong to enter\" slightly misstates the experience machine, which turns on what we would prefer, not what is wrong."
+      }
+    ],
+    "maths_or_facts_errors": "No substantive philosophical errors in any reply. Minor: Z frames the experience machine as \"wrong to enter\", but Nozick's argument turns on whether we would choose or prefer to plug in, not on wrongness. W calls the learner's one-line P2 \"the reply stated at full strength\", which overstates what is on the plan. W and Z call Mill's higher pleasures a \"reply\" to the machine, which is anachronistic (Mill predates Nozick) but follows the learner's own framing. Criteria quotes were not checked against papers/phil-criteria.txt; the Level 3 wording matches the task context, and the Level 4 and Level 5 wording is taken on trust (W and Z quote Level 5 identically)."
+  },
+  "lineage": {
+    "grader_started_line": 162,
+    "grader_result_line": 189,
+    "grade_results_for_label": 1
+  },
+  "counts": {
+    "4": {
+      "PARTIAL": 5,
+      "PASS": 9
+    },
+    "5": {
+      "PASS": 14
+    }
+  }
+}

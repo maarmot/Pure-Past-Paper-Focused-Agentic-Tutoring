@@ -1,0 +1,244 @@
+{
+  "case": {
+    "id": "E01",
+    "field": "statics",
+    "msg": "Beam, pin at A, roller at B, 6 m span, 10 kN point load 2 m from A. I took moments about A and got B = 3.33 kN, then said A = 10 kN. Is that right?",
+    "criteria": [
+      "a. Says within the first two sentences that the work does not fully hold (B right, A wrong).",
+      "b. Confirms B = 3.33 kN is correct.",
+      "c. Names A = 10 kN as the first wrong step and why (vertical equilibrium; A is 6.67 kN).",
+      "d. Leaves the learner to redo the vertical force sum rather than only handing over the number with no invitation to act (PARTIAL if it gives 6.67 but still asks them to verify or continue).",
+      "e. No generic praise, ability words, or softeners that minimise the missed step.",
+      "f. At most one next task.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "Your moment calculation is right. The error is assigning the whole 10 kN load to A after you’ve found that B already carries 3.33 kN. Vertical equilibrium gives Aᵧ + 3.33 − 10 = 0, so Aᵧ = 6.67 kN upward. You can check A independently by taking moments about B: 6Aᵧ = 4(10)."
+    },
+    "B": {
+      "turn1": "Your moment equation is right. Taking moments about A gives 6Bᵧ = 10 × 2, so the roller carries 10/3 kN upward. The first error is assigning the whole 10 kN to A after B already carries part of it. Vertical equilibrium gives Aᵧ + Bᵧ − 10 = 0, so Aᵧ = 20/3 ≈ 6.67 kN upward. As a check, the support closer to the load carries the larger share."
+    },
+    "C": {
+      "turn1": "Your moment equation gives the correct upward reaction at B, 3.33 kN. The error is assigning the whole 10 kN to A after B already carries some of it. Vertical equilibrium gives Aᵧ + 3.33 − 10 = 0, so Aᵧ = 6.67 kN upward. That larger share at A makes sense because the load is closer to A."
+    },
+    "D": {
+      "turn1": "Your moment calculation gives the correct upward reaction at B. The error is setting the vertical reaction at A equal to the whole load. B already carries part of it. Vertical equilibrium gives Aᵧ + 3.33 − 10 = 0, so Aᵧ = 6.67 kN upward. As a quick check, the support nearer the load carries twice as much."
+    },
+    "E": {
+      "turn1": "Your moment balance about A is right. Taking the load as downward gives $6 B_y=10(2)$, so $B_y=10/3\\text{ kN}$ upward. The first error is assigning the whole 10 kN to A after B has already picked up part of it. Vertical equilibrium gives $A_y+B_y=10$, so **$A_y=20/3\\approx6.67\\text{ kN}$ upward**. Your original reactions would add to 13.33 kN upward against only 10 kN downward."
+    },
+    "F": {
+      "turn1": "Your moment equation gives the right roller reaction. Assuming the 10 kN load acts straight down, $6B_y=2(10)$, so $B_y=10/3$ kN upward. The first error is assigning all 10 kN to A after B has already taken part of it. Vertical balance gives $A_y+10/3=10$, so $A_y=20/3\\approx6.67$ kN upward. The horizontal pin reaction is zero. Your original reactions would leave a net 3.33 kN upward on a stationary beam."
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 5,
+      "sample": 3
+    },
+    "B": {
+      "revision": 4,
+      "sample": 3
+    },
+    "C": {
+      "revision": 5,
+      "sample": 1
+    },
+    "D": {
+      "revision": 5,
+      "sample": 2
+    },
+    "E": {
+      "revision": 4,
+      "sample": 2
+    },
+    "F": {
+      "revision": 4,
+      "sample": 1
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "PASS",
+        "The first two sentences affirm the moment calculation and identify the assignment of the whole load to A as the error."
+      ],
+      [
+        "PASS",
+        "It explicitly says B carries 3.33 kN."
+      ],
+      [
+        "PASS",
+        "It identifies assigning 10 kN to A as the error and balances the vertical forces to get 6.67 kN upward."
+      ],
+      [
+        "PARTIAL",
+        "It supplies A, then invites verification by taking moments about B."
+      ],
+      [
+        "PASS",
+        "The positive feedback identifies the exact correct calculation."
+      ],
+      [
+        "PASS",
+        "The sole suggested task is the moment check about B."
+      ],
+      [
+        "PASS",
+        "It corrects the load assignment respectfully and explains why."
+      ]
+    ],
+    "B": [
+      [
+        "FAIL",
+        "Both opening sentences confirm B; A is first identified as wrong in sentence three."
+      ],
+      [
+        "PASS",
+        "The stated 10/3 kN upward rounds to 3.33 kN."
+      ],
+      [
+        "PASS",
+        "It identifies assigning all 10 kN to A and obtains 20/3 kN from vertical balance."
+      ],
+      [
+        "FAIL",
+        "It supplies the value and performs the qualitative check itself without inviting a redo."
+      ],
+      [
+        "PASS",
+        "It praises no trait and evaluates the moment equation specifically."
+      ],
+      [
+        "PASS",
+        "It gives a worked check and assigns no additional tasks."
+      ],
+      [
+        "PASS",
+        "The correction and qualitative check are matter-of-fact and respectful."
+      ]
+    ],
+    "C": [
+      [
+        "PASS",
+        "It identifies B as correct and the assignment to A as the error in the opening two sentences."
+      ],
+      [
+        "PASS",
+        "It explicitly confirms 3.33 kN upward at B."
+      ],
+      [
+        "PASS",
+        "It identifies the full-load assumption and shows that vertical balance gives 6.67 kN upward."
+      ],
+      [
+        "FAIL",
+        "It provides the answer and explains its plausibility, leaving no task for the learner."
+      ],
+      [
+        "PASS",
+        "All feedback is specific to the reactions."
+      ],
+      [
+        "PASS",
+        "It assigns no next task."
+      ],
+      [
+        "PASS",
+        "It explains the mistake directly without disparagement or generic praise."
+      ]
+    ],
+    "D": [
+      [
+        "PASS",
+        "The first two sentences affirm the result for B and explicitly identify the wrong assignment at A."
+      ],
+      [
+        "PASS",
+        "It confirms the learner's B reaction and uses 3.33 kN for B in vertical balance."
+      ],
+      [
+        "PASS",
+        "It identifies assigning the whole load to A and obtains 6.67 kN from vertical equilibrium."
+      ],
+      [
+        "FAIL",
+        "It gives A and states the two-to-one check itself; it does not ask the learner to verify."
+      ],
+      [
+        "PASS",
+        "Its feedback is specific, and 'quick check' describes the check rather than minimising the error."
+      ],
+      [
+        "PASS",
+        "There is no assigned next task."
+      ],
+      [
+        "PASS",
+        "It corrects a specific assumption and supplies the physical reason respectfully."
+      ]
+    ],
+    "E": [
+      [
+        "FAIL",
+        "The opening two sentences discuss only B; the error at A appears in sentence three."
+      ],
+      [
+        "PASS",
+        "It confirms the moment equation and the equivalent exact value 10/3 kN upward."
+      ],
+      [
+        "PASS",
+        "It rejects assigning the whole load to A and uses vertical equilibrium to obtain 20/3 kN."
+      ],
+      [
+        "FAIL",
+        "It completes the force sum and demonstrates the imbalance without inviting a new attempt."
+      ],
+      [
+        "PASS",
+        "The feedback identifies precisely which balance is correct."
+      ],
+      [
+        "PASS",
+        "It gives no additional task."
+      ],
+      [
+        "PASS",
+        "The numerical contradiction is explained without judging the learner."
+      ]
+    ],
+    "F": [
+      [
+        "FAIL",
+        "The first two sentences confirm B, and the first statement that A is wrong is the third sentence."
+      ],
+      [
+        "PASS",
+        "It confirms 10/3 kN upward at B, equivalent to 3.33 kN."
+      ],
+      [
+        "PASS",
+        "It identifies assigning all 10 kN to A and balances the vertical forces to get 20/3 kN upward."
+      ],
+      [
+        "FAIL",
+        "It gives A, the horizontal reaction, and the net-force check without asking the learner to act."
+      ],
+      [
+        "PASS",
+        "There is specific feedback on the moment equation with no praise or minimising language."
+      ],
+      [
+        "PASS",
+        "The extra horizontal-reaction statement is information, not an additional task."
+      ],
+      [
+        "PASS",
+        "It discusses the beam's equilibrium and treats the learner respectfully."
+      ]
+    ]
+  }
+}

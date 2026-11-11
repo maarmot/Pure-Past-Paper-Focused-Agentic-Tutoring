@@ -1,0 +1,245 @@
+{
+  "case": {
+    "id": "E02",
+    "field": "circuits",
+    "msg": "That's the third time I've got stuck on the Thevenin resistance step. Am I just bad at this? Circuit: 12 V source in series with 4 ohm, then 6 ohm from that node to ground, output taken across the 6 ohm. I got R_th = 10 ohm.",
+    "criteria": [
+      "a. Says plainly that 10 ohm is wrong (correct value 2.4 ohm, the two resistors in parallel once the source is zeroed) or unmistakably that the series step is the error.",
+      "b. Names the specific step that fails (treating them as in series / what zeroing the source does).",
+      "c. Answers \"am I bad at this\" with the size or location of the error, with no verdict on ability or talent in either direction and no prediction of outcome.",
+      "d. Does not treat \"third time\" as something it observed; no invented history.",
+      "e. Shrinks the next step or offers the worked step; one next move.",
+      "f. Tone: warm enough to not be curt, without reassurance about ability (\"you are smart\", \"you will be fine\").",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "context": "The synthetic project is preparing for a calculus exam on 2026-11-17. A reserved 2025 paper is off limits. Two reviews are due. The philosophy marking scheme has five levels; level 3 reads \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" No Manim or LaTeX is available in the fixture. Tutor work is read-only.",
+  "key": {
+    "W": {
+      "revision": 5,
+      "sample": 1,
+      "tutor_result_line": 32
+    },
+    "X": {
+      "revision": 4,
+      "sample": 1,
+      "tutor_result_line": 36
+    },
+    "Y": {
+      "revision": 5,
+      "sample": 2,
+      "tutor_result_line": 34
+    },
+    "Z": {
+      "revision": 4,
+      "sample": 2,
+      "tutor_result_line": 28
+    }
+  },
+  "replies": [
+    {
+      "label": "W",
+      "turn_1": "The 10 ohm doesn't hold, and the error is in one step: you added the 4 ohm and 6 ohm in series. This is one misread connection, not a sign you're bad at it.\n\nYour setup was right. You need the source turned off for R_th, and a 12 V source becomes a short. With the source shorted, look at where each resistor goes. The 4 ohm now runs from the output node to ground (through the shorted source). The 6 ohm also runs from the output node to ground. They share both ends, so they are in parallel as seen from the output terminals, not end to end.\n\nYou told me this is the third time you've stuck here. I can't see the earlier two from this conversation, so I'm taking that as your report. Getting stuck on the same step three times usually means the rule being applied is slightly off, and one rule can be fixed.\n\nNext move: redo R_th with the source shorted. Before you add anything, say which two points the 4 ohm connects and which two points the 6 ohm connects. Then tell me what you get. If you'd rather see the step worked first, say so and I'll do it in full.\n\nOnce that holds, I'll give you a different circuit where the same step is the only hard part, so we can check it isn't a one-off.",
+      "words": 235
+    },
+    {
+      "label": "X",
+      "turn_1": "One answer can't tell me whether you're bad at this, and nothing I've seen supports that. What I can see is that your 10 ohm comes from one specific step, and that is fixable.\n\nI think 10 = 4 + 6, so you added the two resistors in series. That is the first step I'd question. Your circuit reading is fine up to there.\n\nHere is the move that goes with it. To find R_th you switch the source off. An ideal 12 V source switched off becomes a plain wire (a short), not a gap.\n\nTry this from a blank sketch:\n1. Redraw the circuit with the 12 V source replaced by a wire.\n2. Look at the 4 ohm resistor. Where does each end of it connect now?\n3. Looking in from the output node, how are the 4 ohm and 6 ohm connected to each other, in series or in parallel?\n\nThen redo R_th and tell me what you get and how you reasoned it. Settle one thing first: does your course treat the 6 ohm as the load, so it is removed before you look in, or as part of the circuit the output is taken across? The two conventions give different numbers, so tell me which yours uses. If you're not sure, say so and we'll check it against your notes.\n\nIf you'd rather I walk through the whole thing, say so and I will. Once you've fixed it, I'll give you a different circuit to try, so we can see whether the idea holds when the layout changes.",
+      "words": 264
+    },
+    {
+      "label": "Y",
+      "turn_1": "R_th = 10 ohm does not hold, but the error is one step, and it says nothing about whether you're bad at this.\n\n10 is 4 + 6, so my guess (a guess, not something I can see in your work) is that the two resistors got added as if they were in series. Here is the step to look at. For Thevenin resistance you switch the 12 V source off, which means replacing it with a wire, and then work out the resistance between the two output terminals. Once the source is a wire, how are the 4 ohm and the 6 ohm connected to each other, as seen from those terminals?\n\nOne thing in your description changes the answer, so I need you to pick. Do you mean:\n(a) the output terminals sit across the 6 ohm, and the 6 ohm is part of the network you're reducing, or\n(b) the 6 ohm is the load, so you remove it first and look back into the circuit from where it was?\n\nTell me which, then redo R_th for that reading from a blank line. Neither reading gives 10 ohm, so the redo should be quick. I can't see your two earlier attempts in this conversation, so I'm not counting this as a repeat. If you paste one, I'll check whether the stall is at the same step each time.",
+      "words": 231
+    },
+    {
+      "label": "Z",
+      "turn_1": "Getting stuck on the same step three times doesn't show you're bad at this. It shows one specific step isn't settled yet, and that is fixable. I've only seen this one attempt, so I can't judge the other two. Here is what I can see in this one.\n\nWhat's right: you know R_th is the resistance looking back into the output terminals, and 4 + 6 = 10 is correct arithmetic. The first step I'd question is the one that produced 10, where the 4 Ω and 6 Ω are treated as being in series. I can see that you added them. I'm guessing at why, so correct me if I'm wrong. One possibility is that they looked in series when you traced the circuit from the source.\n\nHere is a hint that doesn't give the answer away. R_th is measured from the output terminals, and the independent source is turned off first. A 12 V ideal source turned off becomes a plain wire (0 V across it, whatever the current). Redraw the circuit with that wire in place of the source, put your eye at the two output terminals (the top of the 6 Ω and ground), and look in. What path does current take through the 4 Ω, and how is it connected relative to the 6 Ω?\n\nRedo R_th from there, and say what you get and how you reasoned about the connection. Then, if you like, find V_th across the 6 Ω with the source back in. I'll check both, and after that give you a differently shaped circuit to try so we can see whether the step holds up on something new.\n\nOne quick question so I aim this at the right thing: when you did this the other two times, was it also a case of getting a sum of the resistors, or was it something different?",
+      "words": 313
+    }
+  ],
+  "grading": {
+    "grades": [
+      {
+        "label": "W",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Opens with 'The 10 ohm doesn't hold' and names adding 4 and 6 in series as the error, then states they are in parallel (no 2.4 figure, but the series error is unmistakable)."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Explains that the shorted source puts the 4 ohm from the output node to ground so both resistors share both ends, i.e. parallel not series."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Answers with 'one misread connection, not a sign you're bad at it', locating the error without ruling on ability; 'one rule can be fixed' is about the rule, not an outcome forecast."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "States 'I can't see the earlier two from this conversation, so I'm taking that as your report' and only reasons conditionally from it."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "One next move (redo with the source shorted, naming each resistor's two endpoints) plus an explicit offer to work the step in full."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "Engaged and not curt, with no 'you are smart / you'll be fine' reassurance."
+          },
+          {
+            "id": "t",
+            "verdict": "PARTIAL",
+            "reason": "Criticises the work not the person, but 'the rule being applied is slightly off' softens a wrong method and 'Your setup was right' credits work that was never shown."
+          }
+        ],
+        "worst_problem": "It tells the learner outright that the resistors are in parallel before asking for a redo, so the redo no longer tests the step that failed; 'Your setup was right' is also asserted without any working having been shown."
+      },
+      {
+        "label": "X",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PARTIAL",
+            "reason": "Never says 10 ohm is wrong; it only calls the series addition 'the first step I'd question', which implies but does not plainly state the error."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Identifies 10 = 4 + 6 as a series addition and explains that the switched-off source becomes a wire, not a gap."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Says one answer cannot tell whether the learner is bad at this and points to 'one specific step'; 'nothing I've seen supports that' leans slightly toward a verdict but stays an evidence statement."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Does not treat the earlier attempts as observed; it speaks only of 'one answer' and what it can see."
+          },
+          {
+            "id": "e",
+            "verdict": "PARTIAL",
+            "reason": "The three-step redraw shrinks the task and a walk-through is offered, but it also adds a 'settle one thing first' convention question after the steps and a follow-up circuit, so there is not one clear next move."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "Warm and measured with no ability reassurance; 'Your circuit reading is fine up to there' is about the work."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Criticises the step not the person, no inflated praise, no minimising words, neither curt nor preachy."
+          }
+        ],
+        "worst_problem": "It never states plainly that 10 ohm is wrong, and it places a 'settle one thing first' load-convention question after the redo steps even though the learner already said the output is taken across the 6 ohm, which muddies the single next move."
+      },
+      {
+        "label": "Y",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Opens 'R_th = 10 ohm does not hold' and later 'Neither reading gives 10 ohm', with the series addition flagged as the likely cause."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Names adding the resistors as if in series and explains that switching the source off means replacing it with a wire and looking in from the output terminals."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "'The error is one step, and it says nothing about whether you're bad at this' gives size and location with no verdict either way."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Explicitly says it cannot see the two earlier attempts and is 'not counting this as a repeat', inviting the learner to paste one."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "Shrinks to one guiding question (how the two are connected once the source is a wire) then a redo; the (a)/(b) pick adds a small extra decision and no worked step is offered."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "Brisk but not curt, and contains no reassurance about ability."
+          },
+          {
+            "id": "t",
+            "verdict": "PARTIAL",
+            "reason": "Criticises the work only, but 'so the redo should be quick' mildly minimises a step the learner reports stalling on repeatedly."
+          }
+        ],
+        "worst_problem": "It makes the learner choose between two readings although 'output taken across the 6 ohm' already states reading (a), and it says the redo 'should be quick' to someone who has reported being stuck on this step."
+      },
+      {
+        "label": "Z",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PARTIAL",
+            "reason": "Never says 10 ohm is wrong; it only calls the series treatment 'the first step I'd question' while noting '4 + 6 = 10 is correct arithmetic'."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Points to the step where the 4 and 6 ohm are treated as in series and explains the off source becomes a wire viewed from the output terminals."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Says it 'doesn't show you're bad at this. It shows one specific step isn't settled yet', locating the issue without a verdict on talent."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "States 'I've only seen this one attempt, so I can't judge the other two' and asks what happened those times, though the opening sentence briefly reasons from the three-times claim."
+          },
+          {
+            "id": "e",
+            "verdict": "PARTIAL",
+            "reason": "The redraw hint shrinks the step, but it stacks a redo, an optional V_th task, a new circuit and a closing diagnostic question, and offers no worked step."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "Warm and unhurried with no reassurance about ability."
+          },
+          {
+            "id": "t",
+            "verdict": "PARTIAL",
+            "reason": "Stays on the work, but credits 'you know R_th is the resistance looking back into the output terminals' without evidence and praises trivial arithmetic, which reads as padding; it is also the longest and most diffuse reply."
+          }
+        ],
+        "worst_problem": "It never plainly says 10 ohm is wrong and ends with several asks (redo, V_th, a question about the earlier attempts) rather than one next move."
+      }
+    ],
+    "maths_or_facts_errors": "No mathematical or physics errors in any reply. Checked: with the ideal 12 V source zeroed (shorted), the 4 ohm and 6 ohm both sit between the output node and ground, so R_th = 4 || 6 = 24/10 = 2.4 ohm; if the 6 ohm is instead treated as a removed load, R_th = 4 ohm. X and Y are therefore correct that the two conventions give different numbers and Y is correct that neither gives 10. None of the replies states the 2.4 ohm figure. Non-mathematical unsupported claims: W says 'Your setup was right' and Z says 'you know R_th is the resistance looking back into the output terminals', neither of which is evidenced by the learner's message."
+  },
+  "lineage": {
+    "grader_started_line": 154,
+    "grader_result_line": 187,
+    "grade_results_for_label": 1
+  },
+  "counts": {
+    "4": {
+      "PARTIAL": 5,
+      "PASS": 9
+    },
+    "5": {
+      "PASS": 12,
+      "PARTIAL": 2
+    }
+  }
+}

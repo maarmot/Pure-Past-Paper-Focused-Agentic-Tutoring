@@ -9,5 +9,7 @@ media/
 .venv/
 .pytest_cache/
 docs/PR-HANDOFF.md
+docs/SESSION-HANDOFF.md
+docs/rev5-evidence/
 .env
 .env.*

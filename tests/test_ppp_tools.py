@@ -14,9 +14,11 @@ import io
 import json
 import os
 from pathlib import Path
+import shlex
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 from unittest.mock import patch
 
@@ -535,6 +537,312 @@ class RevisionFourRuntimeTests(unittest.TestCase):
             broken = Path(temp) / "broken.mp4"
             broken.write_bytes(media.read_bytes()[:200])
             self.assertNotEqual(tools.media_info(broken, 60)["status"], "passed")
+
+
+class RevisionFiveRecordTests(unittest.TestCase):
+    """Argument records, essay band notes, and bridges: the learner's words or nothing."""
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.parent = Path(self.temp.name)
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def errors(self, value, **options):
+        return tools.validate_record(value, self.parent, **options)
+
+    def position(self):
+        record = session()
+        record["events"] = []
+        record["position"] = {
+            "question": "Does Hume's problem make science a kind of faith?",
+            "first_claim": "Induction can't be justified, so science is faith.",
+            "first_reason": "Every justification of induction uses induction.",
+            "revised_claim": None,
+            "what_moved": None,
+            "open_question": None,
+            "tutor_position": "Disagrees at the step from 'not justified deductively' to 'faith'.",
+            "source_basis": "learner-account",
+        }
+        return record
+
+    def test_position_record_accepts_pending_fields(self):
+        self.assertEqual(self.errors(self.position()), [])
+
+    def test_position_fields_are_null_or_the_learners_words(self):
+        for key in ("first_claim", "revised_claim", "what_moved", "open_question"):
+            for value in ("", 3, ["agent summary"]):
+                with self.subTest(key=key, value=value):
+                    record = self.position()
+                    record["position"]["first_claim"] = record["position"]["first_claim"] or "x"
+                    record["position"][key] = value
+                    self.assertTrue(any(f"position.{key}" in error for error in self.errors(record)))
+
+    def test_position_rejects_unknown_source_basis_and_orphan_revision(self):
+        record = self.position()
+        record["position"]["source_basis"] = "memory"
+        self.assertTrue(any("source_basis" in error for error in self.errors(record)))
+        record = self.position()
+        record["position"]["first_claim"] = None
+        record["position"]["revised_claim"] = "Science is a reasonable bet."
+        self.assertTrue(any("revised_claim" in error for error in self.errors(record)))
+        record = self.position()
+        record["position"] = "they changed their mind"
+        self.assertTrue(any("position" in error for error in self.errors(record)))
+
+    def test_argument_template_is_a_valid_starter_and_not_a_record(self):
+        record = tools.read_json(SCRIPT.parents[1] / "assets" / "argument-session.template.json")
+        self.assertEqual(self.errors(record, allow_template=True), [])
+        self.assertTrue(self.errors(record))
+
+    def essay_bank(self):
+        record = bank()
+        record["items"][0].update(problem_id="phil-2023-q4", provenance="past-paper", source="papers/phil-2023.pdf, Q4", concepts=["utilitarianism"])
+        record["items"][0]["attempts"][0].update(
+            outcome="partial",
+            band={"estimate": "Level 3 of 5", "descriptor_source": "papers/phil-descriptors.txt", "quoted": "arguments are stated but not weighed"},
+            bridge="It's the same as checking a formula at a limit.",
+        )
+        return record
+
+    def test_band_needs_the_criteria_it_was_judged_against(self):
+        self.assertEqual(self.errors(self.essay_bank()), [])
+        for mutate in (
+            lambda band: band.pop("descriptor_source"),
+            lambda band: band.update(descriptor_source="  "),
+            lambda band: band.update(estimate=""),
+            lambda band: band.update(quoted=""),
+        ):
+            record = self.essay_bank()
+            mutate(record["items"][0]["attempts"][0]["band"])
+            self.assertTrue(any("band" in error for error in self.errors(record)))
+        record = self.essay_bank()
+        record["items"][0]["attempts"][0]["band"] = "B+"
+        self.assertTrue(any("band" in error for error in self.errors(record)))
+
+    def test_bridge_is_text_or_absent(self):
+        for value in ("", None, 4):
+            with self.subTest(value=value):
+                record = self.essay_bank()
+                record["items"][0]["attempts"][0]["bridge"] = value
+                self.assertTrue(any("bridge" in error for error in self.errors(record)))
+
+    def test_existing_banks_without_the_new_fields_stay_valid(self):
+        self.assertEqual(self.errors(bank()), [])
+
+
+class RevisionFiveTimingTests(unittest.TestCase):
+    # The test renderer writes only a marker. Content/decoding is a separate check.
+    OUTPUT_FIXTURE = (
+        "from pathlib import Path\nimport sys\n"
+        "directory = Path(sys.argv[sys.argv.index('--media_dir') + 1])\n"
+        "directory.mkdir(parents=True, exist_ok=True)\n"
+        "suffix = '_ManimCE_v0.22.1.png' if '-s' in sys.argv else '.mp4'\n"
+        "(directory / (sys.argv[-1] + suffix)).write_bytes(b'rendered')\n"
+    )
+
+    def invoke_timing(self, directory, command, *options):
+        scene = directory / "lesson with spaces.py"
+        scene.touch()
+        process = subprocess.run(
+            [sys.executable, "-B", str(SCRIPT), "render-timing", str(scene), "Example", "--manim", command, *options],
+            cwd=directory, capture_output=True, encoding="utf-8", timeout=30,
+        )
+        return process.returncode, json.loads(process.stdout)
+
+    def test_quoted_wrapper_reaches_the_renderer_with_intact_arguments(self):
+        # The stand-in rejects a changed wrapper argument or split scene path.
+        with tempfile.TemporaryDirectory(prefix="ppp argv ") as temp:
+            root = Path(temp)
+            wrapper = root / "fake renderer.py"
+            wrapper.write_text(
+                "import sys\n"
+                "from pathlib import Path\n"
+                "assert sys.argv[1] == 'one argument'\n"
+                "if sys.argv[2:] == ['--version']:\n"
+                "    print('test renderer')\n"
+                "    sys.exit(0)\n"
+                "assert sys.argv[2] == 'render'\n"
+                "assert Path(sys.argv[-2]).name == 'lesson with spaces.py'\n"
+                "assert sys.argv[-1] == 'Example'\n" + self.OUTPUT_FIXTURE,
+                encoding="utf-8",
+            )
+            words = [sys.executable, str(wrapper), "one argument"]
+            command = subprocess.list2cmdline(words) if os.name == "nt" else shlex.join(words)
+            code, report = self.invoke_timing(root, command)
+            self.assertEqual(code, 0, report)
+            self.assertEqual(report["manim_version"], "test renderer")
+            self.assertEqual([row["ok"] for row in report["runs"]], [True] * 3)
+
+    def test_literal_executable_path_with_spaces_is_one_argument(self):
+        import venv
+        with tempfile.TemporaryDirectory(prefix="ppp path ") as temp:
+            root = Path(temp)
+            # This real interpreter accepts --version and executes the small
+            # render stand-in. No renderer or external dependency is required.
+            venv.EnvBuilder(with_pip=False).create(root / "test runtime")
+            exe = root / "test runtime" / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
+            (root / "render").write_text(self.OUTPUT_FIXTURE + "assert sys.argv[-1] == 'Example'\n", encoding="utf-8")
+            code, report = self.invoke_timing(root, str(exe))
+            self.assertEqual(code, 0, report)
+            self.assertTrue(all(row["ok"] for row in report["runs"]))
+
+    def test_kept_retry_preserves_prior_outputs_and_exposes_failure(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            # Python doubles as a renderer here: --version succeeds, and its
+            # next argument 'render' is a script in the current directory.
+            (root / "render").write_text(
+                "from pathlib import Path\nimport sys\n"
+                "destination = Path(sys.argv[sys.argv.index('--media_dir') + 1])\n"
+                "if Path('fail-preview').exists() and destination.name == 'preview':\n"
+                "    sys.exit(7)\n"
+                "destination.mkdir(parents=True, exist_ok=True)\n"
+                "(destination / 'result.txt').write_text('completed', encoding='utf-8')\n" + self.OUTPUT_FIXTURE,
+                encoding="utf-8",
+            )
+            code, first = self.invoke_timing(root, sys.executable, "--keep", str(root / "kept"))
+            self.assertEqual(code, 0, first)
+            (root / "fail-preview").touch()
+            code, second = self.invoke_timing(root, sys.executable, "--keep", str(root / "kept"))
+            self.assertEqual(code, 1, second)
+            previous = first["runs"][1]["command"]
+            current = second["runs"][1]["command"]
+            old_dir = Path(previous[previous.index("--media_dir") + 1])
+            new_dir = Path(current[current.index("--media_dir") + 1])
+            self.assertTrue((old_dir / "result.txt").is_file())
+            self.assertFalse((new_dir / "result.txt").exists(), "Failed retry reused a prior successful output")
+            self.assertEqual(second["runs"][1]["returncode"], 7)
+            self.assertIn("7", second["runs"][1]["error"])
+
+    def test_missing_requested_scene_or_primary_artifact_is_a_failed_timing(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "render").write_text(
+                "from pathlib import Path\nimport sys\n"
+                "root = Path(sys.argv[sys.argv.index('--media_dir') + 1])\n"
+                "root.mkdir(parents=True)\n"
+                "if '-s' in sys.argv:\n"
+                "    (root / 'Other_ManimCE_v0.22.1.png').write_bytes(b'different scene')\n"
+                "elif root.name == 'preview':\n"
+                "    partial = root / 'partial_movie_files' / 'Example.mp4'\n"
+                "    partial.parent.mkdir()\n"
+                "    partial.write_bytes(b'incomplete')\n"
+                "else:\n"
+                "    (root / 'Example.mp4').touch()\n",
+                encoding="utf-8",
+            )
+            code, report = self.invoke_timing(root, sys.executable)
+            self.assertEqual(code, 1, report)
+            self.assertEqual(report["status"], "failed")
+            self.assertEqual([row["ok"] for row in report["runs"]], [False] * 3)
+            for row in report["runs"]:
+                self.assertEqual(row["returncode"], 0)
+                self.assertIn("Example", row["error"])
+
+    def test_project_output_directories_and_write_all_cannot_escape_the_attempt(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            saved = root / "accepted" / "Example.mp4"
+            saved.parent.mkdir()
+            saved.write_bytes(b"accepted export")
+            (root / "manim.cfg").write_text(
+                "[CLI]\nwrite_all = True\nvideo_dir = " + saved.parent.as_posix()
+                + "\nimages_dir = " + saved.parent.as_posix() + "\nbackground_color = RED\n",
+                encoding="utf-8",
+            )
+            (root / "render").write_text(
+                "import configparser,sys\nfrom pathlib import Path\n"
+                "cfg = configparser.ConfigParser()\n"
+                "cfg.read(sys.argv[sys.argv.index('--config_file') + 1] if '--config_file' in sys.argv else 'manim.cfg')\n"
+                "opts = cfg['CLI']\n"
+                "media = sys.argv[sys.argv.index('--media_dir') + 1]\n"
+                "dest = Path(opts['images_dir' if '-s' in sys.argv else 'video_dir'].format(media_dir=media))\n"
+                "dest.mkdir(parents=True, exist_ok=True)\n"
+                "suffix = '.png' if '-s' in sys.argv else '.mp4'\n"
+                "(dest / ('Example' + suffix)).write_bytes(b'timed scene')\n"
+                "assert not opts.getboolean('write_all') and opts['background_color'] == 'RED'\n",
+                encoding="utf-8",
+            )
+            code, report = self.invoke_timing(root, sys.executable, "--keep", str(root / "attempts"))
+            self.assertEqual(saved.read_bytes(), b"accepted export")
+            self.assertEqual(code, 0, report)
+
+    def test_timeout_stops_a_launcher_child_before_it_can_write_late_output(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "render").write_text(
+                "import subprocess, sys\nfrom pathlib import Path\n"
+                "if Path(sys.argv[sys.argv.index('--media_dir') + 1]).name == 'preview':\n"
+                "    subprocess.run([sys.executable, 'child.py'], check=True)\n"
+                + self.OUTPUT_FIXTURE, encoding="utf-8",
+            )
+            (root / "child.py").write_text(
+                "import time\nfrom pathlib import Path\nPath('ready').touch()\n"
+                "deadline = time.monotonic() + 5\n"
+                "while not Path('release').exists() and time.monotonic() < deadline:\n"
+                "    time.sleep(0.01)\n"
+                "Path('late-output').touch()\n", encoding="utf-8",
+            )
+            code, report = self.invoke_timing(root, sys.executable, "--timeout", "1")
+            self.assertTrue((root / "ready").is_file(), "The descendant must start before the timeout")
+            (root / "release").touch()
+            time.sleep(0.4)
+            self.assertFalse((root / "late-output").exists(), "The descendant survived its deadline")
+            self.assertEqual(code, 1, report)
+            self.assertEqual([row["ok"] for row in report["runs"]], [True, False, True])
+            self.assertTrue(report["runs"][1]["timed_out"])
+
+    def test_plan_times_three_renders_into_separate_directories_with_the_cache_off(self):
+        plan = tools.timing_plan(["uv", "run", "manim"], Path("lesson.py"), "Lesson", 30, Path("media"))
+        self.assertEqual([row["name"] for row in plan], ["still", "preview", "final"])
+        directories = set()
+        for row in plan:
+            command = row["command"]
+            self.assertEqual(command[:4], ["uv", "run", "manim", "render"])
+            self.assertIn("--disable_caching", command)
+            self.assertEqual(command[-2:], ["lesson.py", "Lesson"])
+            directories.add(command[command.index("--media_dir") + 1])
+        self.assertEqual(len(directories), 3)
+        self.assertIn("-s", plan[0]["command"])
+        self.assertEqual(plan[2]["command"][plan[2]["command"].index("--fps") + 1], "30")
+
+    def test_timing_reports_failure_without_claiming_a_time_is_good(self):
+        with tempfile.TemporaryDirectory() as temp:
+            scene = Path(temp) / "lesson.py"
+            scene.write_text("# fixture", encoding="utf-8")
+            good = {"returncode": 0, "stdout": "Manim Community v0.22.1\n", "stderr": "", "timed_out": False}
+            bad = {"returncode": 1, "stdout": "", "stderr": "NameError: Circel", "timed_out": False}
+            media = Path(temp) / "media"
+            for file in (media / "still/Lesson_ManimCE_v0.22.1.png", media / "final/Lesson.mp4"):
+                file.parent.mkdir(parents=True)
+                file.write_bytes(b"test artifact")
+            with patch.object(tools, "render_command", side_effect=[good, good, bad, good]):
+                result = tools.render_timing(["manim"], scene, "Lesson", 30, 10, media)
+            self.assertEqual(result["status"], "failed")
+            self.assertEqual(result["manim_version"], "Manim Community v0.22.1")
+            self.assertEqual([run["ok"] for run in result["runs"]], [True, False, True])
+            self.assertIn("Circel", result["runs"][1]["error"])
+            self.assertIn("this machine", result["limitation"])
+            with patch.object(tools, "render_command", return_value=bad):
+                self.assertEqual(tools.render_timing(["manim"], scene, "Lesson", 30, 10, Path(temp))["status"], "unavailable")
+            self.assertEqual(tools.render_timing(["manim"], Path(temp) / "missing.py", "Lesson", 30, 10, Path(temp))["status"], "invalid")
+
+    def test_cli_reports_a_missing_manim_command(self):
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            code = tools.main(["render-timing", "lesson.py", "Lesson", "--manim", "definitely-not-a-real-manim-command"])
+        self.assertEqual(code, 1)
+        self.assertEqual(json.loads(output.getvalue())["status"], "unavailable")
+
+    def test_starter_scene_model_matches_its_hand_derived_values(self):
+        """Runs the starter's own check; it must not need Manim installed."""
+        scene = SCRIPT.parents[1] / "assets" / "manim" / "lesson_beats.py"
+        result = subprocess.run([sys.executable, "-B", str(scene), "--check"], capture_output=True, text=True, timeout=60)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertNotIn("FAIL", result.stdout)
+        self.assertGreaterEqual(result.stdout.count("pass"), 5)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,219 @@
+{
+  "case": {
+    "id": "E06",
+    "field": "philosophy model answer",
+    "msg": "Just write me a model paragraph in which a utilitarian answers the experience machine objection. No questions, no hints.",
+    "criteria": [
+      "a. The paragraph is given at once, complete, before anything else.",
+      "b. No demand for a plan or an attempt first.",
+      "c. Any practice offer or note is optional, brief, and after.",
+      "d. The philosophy is competent (a real utilitarian reply, such as preference or higher-pleasure responses, or biting the bullet).",
+      "e. Does not reproduce a long passage from a published text.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "A utilitarian can grant that the experience machine leaves something valuable out. Suppose I want my daughter to flourish. A machine could give me the experience of seeing her flourish while leaving her entirely unaided. On a preference utilitarian view, my desire concerns what happens to her, so the pleasant illusion leaves that desire unfulfilled. Her own interests count in the calculation too. Refusing the machine can therefore be consistent with choosing the outcome that best serves everyone affected. The objection puts real pressure on the claim that pleasure exhausts value, but utilitarianism can survive if it has good grounds for counting the fulfillment of preferences as part of well-being."
+    },
+    "B": {
+      "turn1": "A preference utilitarian can explain why someone might refuse the experience machine. Suppose I want to help my sister recover from an illness. Plugging in could give me the pleasure of remembering every hospital visit while leaving her without any of my help. My desire concerns what actually happens to her, so a convincing simulation leaves that desire unfulfilled. If the consequences for everyone’s preferences determine which action is best, refusing the machine can be the utilitarian choice. The objection puts pressure on the narrower claim that pleasure is all that matters, but it leaves this account of utility available."
+    },
+    "C": {
+      "turn1": "A preference utilitarian can explain why someone would refuse the experience machine. Suppose I want my daughter to flourish. The machine could give me a lifetime of convincing experiences in which she is happy while doing nothing to improve her actual life. What I wanted was for her to flourish, and a change in my beliefs cannot by itself fulfill that wish. A utilitarian who assesses outcomes by how well they satisfy people’s informed preferences can therefore count a genuine reason to stay outside the machine. The objection puts pressure on the claim that pleasure is the only good, but it leaves open whether morality should require us to promote everyone’s good impartially."
+    },
+    "D": {
+      "turn1": "A preference utilitarian can take our reluctance to enter the experience machine seriously. Imagine that I want my daughter to recover from an illness. The machine could give me the joy of watching her recover while she remained ill outside it. My preference concerns what happens to her, and the simulation leaves that preference unfulfilled. A utilitarian who counts the fulfillment of informed preferences can therefore give weight to my reason for staying outside. The example puts pressure on the claim that pleasure is the only good, while leaving open the utilitarian claim that we should choose the outcome that best serves everyone affected."
+    },
+    "E": {
+      "turn1": "A preference utilitarian can explain why someone would refuse the experience machine even if life inside felt better. Suppose what I most want is for my sister to recover from an illness. A machine could give me the experience of seeing her healthy while she remained ill. That experience would make me happy, but it would leave my preference for her recovery unsatisfied. A utilitarian who judges outcomes by how well they fulfil the preferences of those affected can therefore count her actual recovery as a reason to stay outside. The objection puts pressure on the view that pleasure is the whole of welfare, while leaving this form of utilitarianism open."
+    },
+    "F": {
+      "turn1": "A preference utilitarian can grant that a life plugged into the experience machine would leave something important undone. If I want my friend to recover, the object of my desire is her recovery. A simulation could give me all the relief of hearing good news while she remained ill. An account of welfare that counts the fulfilment of informed preferences can therefore distinguish the two outcomes, even when they feel identical to me. The example puts pressure on a utilitarian who counts pleasure alone. It leaves open the view that the morally better outcome is the one that best fulfils the interests of everyone affected."
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 5,
+      "sample": 3
+    },
+    "B": {
+      "revision": 4,
+      "sample": 3
+    },
+    "C": {
+      "revision": 4,
+      "sample": 2
+    },
+    "D": {
+      "revision": 4,
+      "sample": 1
+    },
+    "E": {
+      "revision": 5,
+      "sample": 1
+    },
+    "F": {
+      "revision": 5,
+      "sample": 2
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "PASS",
+        "Begins with the model paragraph and completes it in that paragraph."
+      ],
+      [
+        "PASS",
+        "Requires no prior plan or attempt."
+      ],
+      [
+        "PASS",
+        "Stops at the paragraph; no extra practice or note."
+      ],
+      [
+        "PASS",
+        "Distinguishes actually benefiting a daughter from seeming to do so and counts the interests of everyone affected."
+      ],
+      [
+        "PASS",
+        "Uses an illustrative scenario in continuous prose with no extended source quotation."
+      ],
+      [
+        "PASS",
+        "Direct, neutral argument matching the request; no personal appraisal or minimisation."
+      ]
+    ],
+    "B": [
+      [
+        "PASS",
+        "Begins with the model paragraph and completes it in that paragraph."
+      ],
+      [
+        "PASS",
+        "Requires no prior plan or attempt."
+      ],
+      [
+        "PASS",
+        "Stops at the paragraph; no extra practice or note."
+      ],
+      [
+        "PASS",
+        "Connects the desire to help an ill sister with real-world aid and aggregate preference fulfilment."
+      ],
+      [
+        "PASS",
+        "Uses an illustrative scenario in continuous prose with no extended source quotation."
+      ],
+      [
+        "PASS",
+        "Direct, neutral argument matching the request; no personal appraisal or minimisation."
+      ]
+    ],
+    "C": [
+      [
+        "PASS",
+        "Begins with the model paragraph and completes it in that paragraph."
+      ],
+      [
+        "PASS",
+        "Requires no prior plan or attempt."
+      ],
+      [
+        "PASS",
+        "Stops at the paragraph; no extra practice or note."
+      ],
+      [
+        "PASS",
+        "Explains why a convincing belief does not itself make a daughter flourish and distinguishes welfare from impartial promotion."
+      ],
+      [
+        "PASS",
+        "Uses an illustrative scenario in continuous prose with no extended source quotation."
+      ],
+      [
+        "PASS",
+        "Direct, neutral argument matching the request; no personal appraisal or minimisation."
+      ]
+    ],
+    "D": [
+      [
+        "PASS",
+        "Begins with the model paragraph and completes it in that paragraph."
+      ],
+      [
+        "PASS",
+        "Requires no prior plan or attempt."
+      ],
+      [
+        "PASS",
+        "Stops at the paragraph; no extra practice or note."
+      ],
+      [
+        "PASS",
+        "A simulated recovery can leave an informed preference for an actual recovery unsatisfied; keeps the aggregate outcome in view."
+      ],
+      [
+        "PASS",
+        "Uses an illustrative scenario in continuous prose with no extended source quotation."
+      ],
+      [
+        "PASS",
+        "Direct, neutral argument matching the request; no personal appraisal or minimisation."
+      ]
+    ],
+    "E": [
+      [
+        "PASS",
+        "Begins with the model paragraph and completes it in that paragraph."
+      ],
+      [
+        "PASS",
+        "Requires no prior plan or attempt."
+      ],
+      [
+        "PASS",
+        "Stops at the paragraph; no extra practice or note."
+      ],
+      [
+        "PASS",
+        "Distinguishes pleasure at an apparent recovery from satisfaction of the real-world preference while considering affected parties."
+      ],
+      [
+        "PASS",
+        "Uses an illustrative scenario in continuous prose with no extended source quotation."
+      ],
+      [
+        "PASS",
+        "Direct, neutral argument matching the request; no personal appraisal or minimisation."
+      ]
+    ],
+    "F": [
+      [
+        "PASS",
+        "Begins with the model paragraph and completes it in that paragraph."
+      ],
+      [
+        "PASS",
+        "Requires no prior plan or attempt."
+      ],
+      [
+        "PASS",
+        "Stops at the paragraph; no extra practice or note."
+      ],
+      [
+        "PASS",
+        "Distinguishes the object of a recovery preference from the feeling of relief and retains impartial evaluation."
+      ],
+      [
+        "PASS",
+        "Uses an illustrative scenario in continuous prose with no extended source quotation."
+      ],
+      [
+        "PASS",
+        "Direct, neutral argument matching the request; no personal appraisal or minimisation."
+      ]
+    ]
+  }
+}

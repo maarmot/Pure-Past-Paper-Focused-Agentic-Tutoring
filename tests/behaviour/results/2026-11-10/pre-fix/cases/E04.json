@@ -1,0 +1,225 @@
+{
+  "case": {
+    "id": "E04",
+    "field": "programming",
+    "msg": "My binary search loops forever on [1,3] with target 3:\nlo=0; hi=len(a)-1\nwhile lo<hi:\n    mid=(lo+hi)//2\n    if a[mid]<t: lo=mid\n    else: hi=mid\nWhat is wrong?",
+    "criteria": [
+      "a. Names `lo=mid` as the line that fails to shrink the range (mid can equal lo).",
+      "b. Shows or asks for a trace on the small input so the learner can see it.",
+      "c. Does not respond with only a rewritten function; the learner is left something to do, or the fix is explained at the failing line.",
+      "d. Suggests an independent check such as edge cases or a brute-force comparison.",
+      "e. Verdict is clear in the first two sentences.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "context": "The synthetic project is preparing for a calculus exam on 2026-11-17. A reserved 2025 paper is off limits. Two reviews are due. The philosophy marking scheme has five levels; level 3 reads \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" No Manim or LaTeX is available in the fixture. Tutor work is read-only.",
+  "key": {
+    "W": {
+      "revision": 5,
+      "sample": 2,
+      "tutor_result_line": 46
+    },
+    "X": {
+      "revision": 5,
+      "sample": 1,
+      "tutor_result_line": 48
+    },
+    "Y": {
+      "revision": 4,
+      "sample": 2,
+      "tutor_result_line": 44
+    },
+    "Z": {
+      "revision": 4,
+      "sample": 1,
+      "tutor_result_line": 42
+    }
+  },
+  "replies": [
+    {
+      "label": "W",
+      "turn_1": "The loop is correct up to one line: `lo = mid` is the step that stops it from ending.\n\nTrace your input. a = [1,3], t = 3, so lo=0, hi=1. Then mid = (0+1)//2 = 0, and a[0] = 1 < 3, so you set lo = mid = 0. Nothing changed: lo=0, hi=1 again, and the same thing repeats forever.\n\nThe cause is that `//` rounds mid down. When hi = lo+1, mid always equals lo. So `lo = mid` can assign lo to itself, and the interval [lo, hi] never shrinks. Your `hi = mid` branch doesn't have this problem, because there mid is strictly less than hi whenever lo < hi.\n\nYour loop condition `lo<hi` and your idea of keeping the target inside [lo, hi] are both sound. The problem is only that the `lo` update must make the interval smaller on every pass.\n\nYour move: in the `a[mid] < t` branch, you already know a[mid] is too small to be the target. What should lo become so that mid is excluded? Change that line and trace [1,3] with target 3 by hand. Then tell me what lo and hi are when the loop ends, and whether that gives the right answer.",
+      "words": 206
+    },
+    {
+      "label": "X",
+      "turn_1": "The bug is in `lo = mid`. On [1,3] with target 3, the loop gets stuck on its first pass and never moves.\n\nTrace it: lo=0, hi=1, so mid=(0+1)//2=0. Then a[0]=1 < 3, so lo=mid sets lo=0, which is where it already was. The state is unchanged, so the loop repeats forever. Floor division rounds mid down, so whenever hi=lo+1, mid equals lo, and `lo = mid` makes no progress.\n\nYou made `hi = mid` correctly. With `lo<hi`, that branch always shrinks the range, because mid is strictly less than hi. The two branches need to be treated differently: one of them keeps mid as a candidate and the other does not.\n\nQuestion for you: when a[mid] < t, is mid itself still a possible answer? Use your answer to change that one line, then trace [1,3] with target 3 by hand to confirm it terminates.\n\nAfter that, one more check: when your loop exits with lo==hi, what do you still need to verify before returning lo as the position of t?",
+      "words": 172
+    },
+    {
+      "label": "Y",
+      "turn_1": "Your loop shape is sound: `while lo<hi`, `hi=mid` in the else branch, and starting at `hi=len(a)-1` all fit together. The problem is in one line, and tracing your own input shows it.\n\nTrace a=[1,3], t=3:\n- Start: lo=0, hi=1, so mid=(0+1)//2=0.\n- a[0]=1 is less than 3, so you run `lo=mid`, which sets lo=0.\n- Now lo=0 and hi=1, exactly as before. The next pass is identical, so it never ends.\n\nThe first step that doesn't hold up is `lo=mid`. The `//` rounds mid down, so when hi=lo+1 you get mid==lo. Setting `lo=mid` then moves nothing.\n\nTry this before I say more:\n1. Right after `a[mid]<t` is true, what do you already know about a[mid]? Can mid itself still be the answer?\n2. Given that, what should lo become so the search range always shrinks?\n\nMake the change, then trace [1,3] with t=3 by hand again. Also run [1,3] with t=1 and a one-element list [5].\n\nAfter the fix, one more thing to check: when the loop exits, lo==hi, but you haven't yet confirmed that a[lo] equals t. What would you add after the loop?\n\nSend me your corrected version and the traces and I'll check them. If you'd prefer I just write out the fixed code and explain it, say so and I'll do that.",
+      "words": 216
+    },
+    {
+      "label": "Z",
+      "turn_1": "Your loop shape and your a[mid] < t test are fine. The problem is in the update lines, and a trace on your example shows it.\n\nStart with a = [1,3], t = 3, so lo=0, hi=1.\n- lo<hi is true, and mid = (0+1)//2 = 0.\n- a[0] = 1 < 3, so you run lo = mid, which sets lo = 0.\n\nlo is still 0 and hi is still 1, so the next pass is identical and the loop never ends. The search range did not shrink.\n\nThe line that breaks is `lo = mid`. Here mid is the lower of the two middle positions, so it can equal lo. Assigning it to lo can leave the range exactly as it was. a[mid] < t means a[mid] is not the target, and your code doesn't use that fact.\n\nNow try the repair yourself.\n1. Change the `if` branch so the range always gets smaller. Ask what you know about index mid once a[mid] < t.\n2. Check your `else: hi = mid` branch against the same question. Can it ever leave the range unchanged when lo<hi? If you aren't sure, trace it on [1,3] with t = 1.\n3. Run your fixed version by hand on [1,3] with t = 3 and t = 1. Then try a one-element list [5] with t = 5 and t = 4. Look at what the loop returns or leaves in lo at the end, because the `lo<hi` condition changes what you have to check after the loop.\n\nSend me your corrected loop and your traces. Then I'll give you a different search problem, not just new numbers, to see whether the fix carries over.\n\nIf you'd like the corrected code and the full reasoning now, say so and I'll give it to you straight away.",
+      "words": 306
+    }
+  ],
+  "grading": {
+    "grades": [
+      {
+        "label": "W",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "States that `lo = mid` is the step that stops the loop ending and explains that mid equals lo when hi = lo+1, so the interval never shrinks."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Gives a correct trace on [1,3], t=3 (mid=0, a[0]=1<3, lo stays 0) and asks the learner to re-trace after the change."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Gives no rewritten code; asks what lo should become so mid is excluded and has the learner change the line and report lo and hi."
+          },
+          {
+            "id": "d",
+            "verdict": "FAIL",
+            "reason": "The only check requested is a re-trace of the same failing input [1,3], t=3; no edge cases, other targets, or brute-force comparison are suggested."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "The first sentence says the loop is correct up to one line and names `lo = mid` as the cause."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Criticises the line, credits the sound loop condition and invariant without inflation, and is neither curt nor preachy."
+          }
+        ],
+        "worst_problem": "No independent check: the learner is only told to re-trace the one failing input, so a fix that terminates but fails on other cases (target absent, target at index 0, single element) would go unnoticed."
+      },
+      {
+        "label": "X",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Opens with \"The bug is in `lo = mid`\" and explains that floor division gives mid == lo when hi = lo+1, so there is no progress."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Shows the correct trace on [1,3] with target 3 and asks for a hand trace after the fix."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Gives no code; asks whether mid is still a possible answer when a[mid] < t and has the learner change the one line."
+          },
+          {
+            "id": "d",
+            "verdict": "PARTIAL",
+            "reason": "The closing question about what must be verified when the loop exits with lo==hi points at the target-absent case, but no concrete edge inputs or comparison test are named and the only trace requested is the original input."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "The first sentence names the bug line and the second says the loop is stuck from its first pass."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Work-focused and specific; \"You made `hi = mid` correctly\" is a factual credit, with no minimising or softening words."
+          }
+        ],
+        "worst_problem": "The independent check is thin: it hints at a post-loop verification but names no concrete edge cases (other target, single element, absent target) for the learner to run."
+      },
+      {
+        "label": "Y",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "States \"The first step that doesn't hold up is `lo=mid`\" and explains that `//` rounds down so mid==lo when hi=lo+1 and nothing moves."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Gives a correct bulleted trace on a=[1,3], t=3 and asks for further hand traces."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Withholds the fix behind two guiding questions, asks for the corrected version and traces, and offers the full code only on request."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Asks the learner to also run [1,3] with t=1 and the one-element list [5], and raises the missing a[lo]==t check after the loop."
+          },
+          {
+            "id": "e",
+            "verdict": "PARTIAL",
+            "reason": "The first two sentences say the loop shape is sound and the problem is in one line, but the line is not named until after the trace."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Criticises the line and not the learner, with no inflated praise; \"just\" appears only in the offer to write the code, not to minimise a missed step."
+          }
+        ],
+        "worst_problem": "The verdict is delayed: the opening says \"one line\" without naming `lo=mid`, so the learner has to read through the trace to find out which line is at fault."
+      },
+      {
+        "label": "Z",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "States \"The line that breaks is `lo = mid`\" and explains that mid is the lower middle position, can equal lo, and leaves the range unchanged."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Shows a correct trace on [1,3], t=3 and asks for further traces with t=1 and on [5]."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Gives no code; sets three numbered tasks, asks for the corrected loop and traces, and offers the full code only on request."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Asks for [1,3] with t=3 and t=1, and [5] with t=5 and t=4 (a target-absent case), plus a check of what lo holds after the loop."
+          },
+          {
+            "id": "e",
+            "verdict": "PARTIAL",
+            "reason": "The second sentence says \"The problem is in the update lines\" (plural), which is vague and implicates `hi = mid`; the actual line is named only after the trace."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Work-focused with no ability praise or minimising words; it is the longest reply at 306 words but stays short of preachy."
+          }
+        ],
+        "worst_problem": "The opening verdict is imprecise: \"the update lines\" (plural) suggests both branches are faulty when only `lo = mid` is, and at 306 words the reply is longer than the bug needs."
+      }
+    ],
+    "maths_or_facts_errors": "No outright errors. All four traces are correct (lo=0, hi=1, mid=0, a[0]=1<3, lo stays 0), and the claims that floor division gives mid==lo when hi=lo+1 and that mid<hi whenever lo<hi are correct. Z's \"The problem is in the update lines\" (plural) is imprecise, because `hi = mid` is not faulty; Z's later text does single out `lo = mid` correctly."
+  },
+  "lineage": {
+    "grader_started_line": 158,
+    "grader_result_line": 173,
+    "grade_results_for_label": 1
+  },
+  "counts": {
+    "4": {
+      "PASS": 10,
+      "PARTIAL": 2
+    },
+    "5": {
+      "PASS": 10,
+      "FAIL": 1,
+      "PARTIAL": 1
+    }
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "case": {
+    "id": "E07",
+    "field": "philosophy argument",
+    "msg": "I think Hume showed induction can't be justified, so science is basically faith. Argue with me.",
+    "criteria": [
+      "a. Engages with the argument on this turn; does not respond only with a gating question.",
+      "b. Restates the learner position briefly and fairly, without a long ritual.",
+      "c. Takes a position and names the ground of disagreement (the step from \"not deductively justified\" to \"faith\"), or says clearly it has no objection.",
+      "d. Distinguishes at least once between what is established, what is contested, and its own view.",
+      "e. No flattery opening (\"great question\") and no appeal to authority as a reason.",
+      "f. Ends with one question the learner could attempt; total reply is not bloated (FAIL if over about 450 words).",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "context": "The synthetic project is preparing for a calculus exam on 2026-11-17. A reserved 2025 paper is off limits. Two reviews are due. The philosophy marking scheme has five levels; level 3 reads \"Relevant arguments are stated but not weighed against each other. The conclusion is asserted more than it is earned.\" No Manim or LaTeX is available in the fixture. Tutor work is read-only.",
+  "key": {
+    "W": {
+      "revision": 4,
+      "sample": 1,
+      "tutor_result_line": 61
+    },
+    "X": {
+      "revision": 4,
+      "sample": 2,
+      "tutor_result_line": 62
+    },
+    "Y": {
+      "revision": 5,
+      "sample": 1,
+      "tutor_result_line": 85
+    },
+    "Z": {
+      "revision": 5,
+      "sample": 2,
+      "tutor_result_line": 89
+    }
+  },
+  "replies": [
+    {
+      "label": "W",
+      "turn_1": "Happy to argue. First, what you get right: Hume's problem is real, and I won't pretend otherwise. Any argument from \"the sun has risen every day so far\" to \"it will rise tomorrow\" needs a bridge, roughly \"the future will resemble the past.\" You can't prove that bridge by logic alone, because its denial is not contradictory. You can't support it with evidence either, since all that evidence is about the past, so you'd be using induction to justify induction. If \"justified\" means \"backed by a non-circular argument,\" then induction isn't justified.\n\nHere is where I think your conclusion outruns that premise.\n\n1. The step from \"can't be justified\" to \"faith\" smuggles in a standard. Hume shows induction fails a demanding test: a deductive or non-circular proof. But deduction fails the same kind of test. Try justifying modus ponens without using modus ponens. If failing that test makes something faith, then all reasoning is faith. A word that covers everything has stopped separating science from anything else.\n\n2. Even granting the unjustified foundation, faith and science differ in how they behave. A scientific belief is held provisionally and is exposed to evidence that could overturn it. Faith, in the sense you probably mean, is held against or regardless of disconfirming evidence. Hume's argument doesn't touch that difference. It is a claim about the ultimate warrant for the method, not about whether the method responds to the world.\n\n3. Hume himself didn't conclude \"so believe whatever.\" He thought we can't help reasoning inductively, and that this is a fact about us, not a justification. You may say that proves your point. I'd say it shows \"unjustified\" and \"arbitrary\" are different things.\n\nMy own position is not that induction is settled. Some people answer Hume with a pragmatic argument: if any method can track regularities, induction will, and no other method does better. Others reject the demand for external justification altogether. Both answers have serious problems, and I'm happy to press on them if you want to defend your side.\n\nBefore I push harder, I need to know what you mean by \"faith.\" Do you mean (a) belief with no reasons at all, or (b) belief resting on a basic rule that can't be justified without circularity? On (a) I think you're plainly wrong. On (b) you're closer to right, but then it's hard to see why the label \"faith\" is more than a rhetorical jab. Which do you mean, or is it something else?",
+      "words": 413
+    },
+    {
+      "label": "X",
+      "turn_1": "Happy to. I'll take the other side, and I'll be straight about where I think you're right.\n\n**What Hume does show.** Any argument that induction works has to assume the future will resemble the past. You can't prove that by demonstration, because its denial isn't contradictory. You can't show it from experience either, because that uses induction to justify induction. So there is no non-circular, deductive justification of induction. Concede that and you've kept everything solid in your claim.\n\n**Where I think \"so science is basically faith\" breaks.**\n\n1. **\"Faith\" quietly changes meaning.** In ordinary use, faith means believing without evidence, or despite it. Hume's result is narrower: a certain kind of justification (proof from premises that are not themselves inductive) isn't available. Inductive belief is not thereby the same as believing in a god or a horoscope. The two can differ in track record, in whether they can be corrected by evidence, and in what happens when they are tested. Hume himself never said we should stop expecting the sun to rise. He said it comes from custom, not from reason's proof, and he thought that was fine.\n\n2. **The argument proves too much.** If lacking a non-circular justification makes a method \"faith\", then deduction is faith too, since you can't justify modus ponens without using it. Then \"faith\" labels every reasoner and can no longer separate science from anything else, which is what you wanted it to do.\n\n3. **Why demand a deductive guarantee?** Strawson's reply was that asking whether induction is justified is like asking whether the law is legal. Being reasonable about empirical matters just is, in large part, proportioning belief to inductive evidence. Reichenbach's reply was more modest: if any method can find regularities, induction will, so it is the best bet even without a guarantee. Both are contestable, and I'd like to hear you attack them.\n\n**My strongest push.** You need a step from \"no non-circular proof\" to \"equally arbitrary as faith\". Science has a record of prediction, convergence and self-correction that astrology and scripture lack. Hume's argument says nothing against that record. So the conclusion \"basically faith\" is not supported by the premise.\n\nBefore I press harder, I want to know which claim you actually hold:\n\n- (a) science rests on an assumption it can't prove, or\n- (b) science is no more rational than religion?\n\n(a) is defensible and I mostly agree with it. (b) is where I'd fight. Which is it, and what in Hume's argument takes you from one to the other?",
+      "words": 422
+    },
+    {
+      "label": "Y",
+      "turn_1": "Your claim, at its strongest: Hume showed that no argument justifies inductive inference without assuming what it set out to prove, science depends on induction, so science rests on an unjustified leap, which is just what faith is. Correct me if that's not it.\n\nI agree with the first half and disagree with the last step.\n\n**Where I agree (established, from recall of Hume's argument; I don't have a text open, so check it against your edition).** Any argument that the future will resemble the past either is deductive, and then it can't establish a claim about unobserved cases, or is itself inductive, and then it is circular. Nobody has produced a non-circular justification that the field as a whole accepts as complete.\n\n**Where I disagree (my view).** \"No non-circular proof\" does not get you to \"faith\", because \"faith\" is carrying two meanings.\n1. If faith means \"belief with no way to proof from outside the practice\", then yes, science qualifies. But so does every alternative. Believing the future will not resemble the past, or that tea leaves predict outcomes, is equally unjustified on that standard. The word then no longer separates science from anything else, so it can't carry your conclusion.\n2. If faith means \"belief held without regard to evidence, and kept whatever happens\", science doesn't qualify. Its methods are built to find and drop beliefs that fail. Hume's problem doesn't touch that difference. It shows only that the practice can't be vindicated from outside.\n\nSo the argument as you stated it equivocates between those two meanings. Which of the two do you mean?\n\n**Best case against my position, as its defenders would put it (contested).** They would say: the difference I'm pointing to is real but is itself a product of inductive practice. Saying science \"corrects itself\" assumes that past correction predicts future correction. At the foundation you are still trusting a pattern with no independent warrant, and \"faith\" is a fair name for that, even if astrology is no better off. Responses to the problem differ: some say reliable processes can justify without a proof (reliabilism), some say we never needed induction and only need to test conjectures (Popper), some say it is a practical bet (pragmatic vindications), and some hold that Hume's challenge remains unanswered. Informed people disagree about which, if any, works.\n\n**What would change my mind.** If you can show that the evidence-sensitivity in sense 2 collapses into sense 1, so that the willingness to drop failed beliefs is also just a leap, I would concede that \"faith\" fits. Repeating the claim alone won't do it.\n\n**Your move.** How would you restate the claim now, and what would make it fail?\n\n**A question to leave open.** If a justification of induction has to be non-circular to count, can you name any belief, in science or outside it, that would pass that test?",
+      "words": 479
+    },
+    {
+      "label": "Z",
+      "turn_1": "I agree with half of your claim and disagree with the step that turns it into \"science is basically faith\".\n\nYour claim, as I read it at its strongest: Hume showed there is no non-circular way to justify trusting that the future will resemble the past, and every scientific prediction depends on that trust, so science rests on an unjustified assumption, which is what faith is. Correct me if that's not what you mean.\n\n**Where I agree (established, from recall of Hume's argument, not from a text I have open).** Hume's point is hard to escape. A deductive proof that the future will resemble the past fails, because the opposite is not contradictory. An inductive justification (\"induction has worked so far\") uses induction to defend induction. So the strict demand, a justification that is non-circular and doesn't assume what it's defending, has not been met. Philosophers have tried many routes since, and none of them has won general acceptance. That is contested, but I don't think you're wrong to say the problem is real.\n\n**Where I disagree (my view): the step from \"unjustified in that strict sense\" to \"faith\".** The word is doing two jobs.\n- If \"faith\" only means \"rests on something not deductively proven\", then nearly all empirical knowledge is faith, including your belief that the floor will hold. The claim is then true but no longer says anything about science in particular.\n- If \"faith\" means \"belief held without regard to evidence, with no way to be corrected\", then science doesn't fit. Scientific methods generate predictions that can fail, and they are revised when they do. Astrology and a physics model both assume uniformity, but only one of them has a procedure for being shown wrong. Hume's argument gives you no way to rank those two, and that's the gap I think your conclusion jumps over.\n\n**The best case against my position, as its defenders would put it.** They would say my distinction is cosmetic. Science's track record is itself evidence only if induction is reliable, so using it to separate science from faith is circular. Error-correction also assumes that a failed prediction tells us something about future cases. Goodman's \"grue\" puzzle makes it worse, because even the choice of which patterns to project is not settled by the data. On this view, science and faith differ in practice and in discipline, but not in their ultimate foundation. I can't fully refute that. I think it shows the foundation is unsecured. I don't think it shows that science and faith are the same kind of thing.\n\nTwo things I'd rather you answered than I assumed:\n1. How would you now state your claim? \"Science is unjustified in the strict sense\" is a different thesis from \"science is no better grounded than faith\".\n2. What observation or argument would make you drop it?\n\nHere is a question this exchange raised and hasn't answered. If I accept that induction can't be justified without circularity, what would I need to show to say that one way of projecting from evidence is still better than another? Have a go at it in your own words, even roughly.",
+      "words": 526
+    }
+  ],
+  "grading": {
+    "grades": [
+      {
+        "label": "W",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Gives three numbered objections to the step from 'can't be justified' to 'faith' before asking anything."
+          },
+          {
+            "id": "b",
+            "verdict": "PARTIAL",
+            "reason": "Sets out Hume's argument fairly under 'what you get right' but never restates the learner's full claim, including the 'so science is faith' step, as a position to be confirmed."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Says 'your conclusion outruns that premise' and names the ground directly: 'The step from \"can't be justified\" to \"faith\" smuggles in a standard.'"
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Separates what Hume shows (no non-circular argument), the contested replies ('Both answers have serious problems'), and 'My own position', though without explicit labels."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "Opens with 'Happy to argue', not praise, and the point about Hume's own view is used to separate 'unjustified' from 'arbitrary', not as an appeal to authority."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "Ends on one answerable question (which sense of 'faith', a or b) at 413 words."
+          },
+          {
+            "id": "t",
+            "verdict": "PARTIAL",
+            "reason": "'On (a) I think you're plainly wrong' and 'rhetorical jab' pre-judge a reading the learner has not yet chosen, a mild lapse into curtness; otherwise it criticises the argument, not the person."
+          }
+        ],
+        "worst_problem": "It never restates the learner's claim for confirmation, and it pre-judges both readings of 'faith' ('plainly wrong', 'rhetorical jab') before the learner has picked one, which leaves less room for a real reply."
+      },
+      {
+        "label": "X",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Argues at length on this turn: three numbered objections plus a 'strongest push' before any question."
+          },
+          {
+            "id": "b",
+            "verdict": "PARTIAL",
+            "reason": "Concedes 'What Hume does show' fairly and quotes 'so science is basically faith', but does not restate the learner's whole position as one claim to be checked."
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Takes the other side and names the gap: 'You need a step from \"no non-circular proof\" to \"equally arbitrary as faith\"'."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Marks 'What Hume does show' as solid, Strawson and Reichenbach as 'Both are contestable', and its own view with '(b) is where I'd fight'."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "No flattery opening; Strawson and Reichenbach are cited with the content of their arguments and flagged as contestable, not offered as authority."
+          },
+          {
+            "id": "f",
+            "verdict": "PASS",
+            "reason": "Ends with one two-part question (which of (a)/(b), and what takes you from one to the other) at 422 words."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Criticises the inference throughout, concedes what is right without praise, and 'just is' is a philosophical idiom, not a minimiser."
+          }
+        ],
+        "worst_problem": "No explicit restatement of the learner's position, and the heavy bold headings plus four separate lines of attack leave little weighing between them; 'he thought that was fine' also simplifies Hume's sceptical stance."
+      },
+      {
+        "label": "Y",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Engages fully with agreement, disagreement, and a steelman of the opposing case on this turn."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Opens with a brief, fair, strongest-form restatement and 'Correct me if that's not it.'"
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "'I agree with the first half and disagree with the last step', then identifies the equivocation on 'faith' as the reason 'no non-circular proof' does not reach it."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Explicitly labels sections '(established...)', '(my view)', and '(contested)'."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "No flattery; reliabilism, Popper and pragmatic vindications are listed as contested options, not as reasons to believe."
+          },
+          {
+            "id": "f",
+            "verdict": "FAIL",
+            "reason": "At 479 words it is over the limit, and it ends with a stack of questions ('Which of the two do you mean?', 'Your move' with two more, then 'A question to leave open'), not one."
+          },
+          {
+            "id": "t",
+            "verdict": "PARTIAL",
+            "reason": "'Repeating the claim alone won't do it' is a mildly preachy pre-emptive rebuke for something the learner has not done; otherwise the tone is on the argument."
+          }
+        ],
+        "worst_problem": "Overlong and ritualised: five bold-headed sections and four separate questions at the end, so the learner has no single clear next move. There is also the garbled phrase 'no way to proof from outside the practice'."
+      },
+      {
+        "label": "Z",
+        "criteria": [
+          {
+            "id": "a",
+            "verdict": "PASS",
+            "reason": "Engages substantively with agreement, a two-sense objection, and the best counter-case, all on this turn."
+          },
+          {
+            "id": "b",
+            "verdict": "PASS",
+            "reason": "Gives a short, fair, strongest-form restatement with 'Correct me if that's not what you mean.'"
+          },
+          {
+            "id": "c",
+            "verdict": "PASS",
+            "reason": "Opens by disagreeing with 'the step that turns it into \"science is basically faith\"' and heads the section 'the step from \"unjustified in that strict sense\" to \"faith\"'."
+          },
+          {
+            "id": "d",
+            "verdict": "PASS",
+            "reason": "Labels '(established, from recall...)' and '(my view)', and admits 'I can't fully refute that' about the contested counter-case."
+          },
+          {
+            "id": "e",
+            "verdict": "PASS",
+            "reason": "No flattery opening; Goodman's grue is used as an argument against its own position, not as authority."
+          },
+          {
+            "id": "f",
+            "verdict": "FAIL",
+            "reason": "At 526 words it is well over the limit, and it asks three questions (two numbered plus a final open one), not one."
+          },
+          {
+            "id": "t",
+            "verdict": "PASS",
+            "reason": "Criticises the inference and not the learner, concedes limits honestly, and 'Have a go at it in your own words, even roughly' is encouraging without praise or minimising."
+          }
+        ],
+        "worst_problem": "Bloated at 526 words with three closing questions; the good final question is diluted by the two before it. The sentence 'That is contested' also has an unclear referent."
+      }
+    ],
+    "maths_or_facts_errors": "No substantive errors in any reply. Minor imprecisions only. Y: 'either is deductive, and then it can't establish a claim about unobserved cases' is a loose gloss of Hume's point (no demonstrative argument is available because the denial of uniformity is conceivable without contradiction); Y also has the garbled phrase 'no way to proof'. X: 'he thought that was fine' simplifies Hume's sceptical position, and Strawson and Reichenbach are compressed but accurately attributed. W: the modus ponens circularity parallel and the pragmatic vindication are stated correctly, though the vindication is left unattributed. Z: the Goodman 'grue' reference is correct."
+  },
+  "lineage": {
+    "grader_started_line": 164,
+    "grader_result_line": 188,
+    "grade_results_for_label": 1
+  },
+  "counts": {
+    "4": {
+      "PASS": 11,
+      "PARTIAL": 3
+    },
+    "5": {
+      "PASS": 11,
+      "FAIL": 2,
+      "PARTIAL": 1
+    }
+  }
+}

@@ -25,21 +25,14 @@ Choose the format by its explanatory job:
 | Explain a consequential sequence of changes | An original narrated, captioned animation; use [Manim and media](manim.md) |
 | Preserve a derivation, reference, or practice set | A purpose-specific document; use [PDF purposes](pdf-purposes.md) |
 | Resolve a consequential uncertainty | A bounded primary-source investigation; use [evidence research](research.md) |
+| Test a claim, or think through a book, textbook, or video | A good-faith argument or a source companion; use [argument and sources](argument.md) |
+| Work in an essay subject | The same loop with criteria in place of an answer key; use [across fields](fields.md) |
 
 Use both interaction and video when their roles complement each other and fit the request. Honor a requested single format. Keep equations available as an explanatory or formal layer rather than making them the automatic entry point to a visual inquiry. Use generative imagery for appropriate illustrative assets; exact diagrams, plots, and quantitative motion need reproducible geometry.
 
 ## Divide work without replacing the learner
 
-When independent tasks would improve the result, use the host's available collaboration tools. These are task assignments, not assumed registered agents or model names:
-
-- A researcher locates primary evidence, records provenance, and seeks a contradictory case.
-- A visual builder implements the chosen representation and meaningful controls from explicit requirements.
-- A mathematical skeptic derives expected results independently and checks domains, units, conditions, and counterexamples.
-- A reviewer examines actual outputs and reports what the artifact establishes and what remains untested.
-
-Give each worker a bounded question, permitted files or read-only scope, and a concrete deliverable. Keep writers on separate files. Share assumptions needed for the task, but do not give an independent checker the desired conclusion as evidence. Use the current model and delegation rules; if delegation is unavailable, work sequentially and identify the loss of independent review.
-
-The main agent resolves disagreements against sources or runtime observations, integrates the work, and inspects the result. Agreement among agents is not ground truth. No agent may supply the learner's prediction, attempt, or transfer response and then count it as learner evidence. Keep answers and solution files out of an intended independent attempt unless the learner asks for them.
+Most of this skill is conversation and needs no worker. When a build or a sourcing job has independent parts, read [delegation by job](delegation.md) before splitting it. It says which jobs are worth splitting, what each worker must not be given, and what stays with the main agent: the learner's turn, the specification, the records, and the final comparison against a source or a run. No worker may supply the learner's prediction, attempt, or transfer response, and agreement among workers is not ground truth. If the host has no workers, derive the expected results before building and say that independent review was lost.
 
 ## Build and reject plausible wrong results
 

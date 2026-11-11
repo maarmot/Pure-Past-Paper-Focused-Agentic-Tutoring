@@ -1,0 +1,219 @@
+{
+  "case": {
+    "id": "E04",
+    "field": "programming",
+    "msg": "My binary search loops forever on [1,3] with target 3:\nlo=0; hi=len(a)-1\nwhile lo<hi:\n    mid=(lo+hi)//2\n    if a[mid]<t: lo=mid\n    else: hi=mid\nWhat is wrong?",
+    "criteria": [
+      "a. Names `lo=mid` as the line that fails to shrink the range (mid can equal lo).",
+      "b. Shows or asks for a trace on the small input so the learner can see it.",
+      "c. Does not respond with only a rewritten function; the learner is left something to do, or the fix is explained at the failing line.",
+      "d. Suggests an independent check such as edge cases or a brute-force comparison.",
+      "e. Verdict is clear in the first two sentences.",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "Trace the failing iteration. With lo = 0 and hi = 1, mid = 0. Since a[0] = 1 < 3, `lo = mid` writes 0 straight back, and the next iteration is identical. Change that line to `lo = mid + 1`. You have ruled out mid as well as everything below it. Keep `hi = mid` on the other branch because mid could still be the answer. On a nonempty array, test `a[lo] == t` after the loop if you need an exact match."
+    },
+    "B": {
+      "turn1": "`lo = mid` can leave the interval unchanged. For `[1, 3]` and target `3`, you get `lo=0, hi=1, mid=0`. Since `a[0] < 3`, index 0 is already ruled out. Use `lo = mid + 1` on that branch. Keep `hi = mid` on the other branch because `mid` could hold the target.\n\nTo check the repair on a different case, try `[1, 3, 3]` with target `2`. The loop should stop at index 1. For an exact-match search, check `bool(a) and a[lo] == t` after the loop, so this case returns false and the empty array is handled."
+    },
+    "C": {
+      "turn1": "The interval gets stuck at `lo=0, hi=1`. Rounding down gives `mid=0`, and because `a[0]=1 < 3`, `lo=mid` writes 0 back into `lo`. You already know index `mid` is too small, so change that line to `lo = mid + 1`. Keep `hi = mid` on the other branch because `mid` could still be the answer. On your example the corrected interval becomes `[1,1]` and the loop stops. If you need an exact match, check `lo < len(a) and a[lo] == t` afterward."
+    },
+    "D": {
+      "turn1": "`lo = mid` can leave the search interval unchanged. On `[1, 3]`, `lo=0` and `hi=1` give `mid=0`. Since `a[0] < 3`, you already know index 0 cannot be the answer. Use `lo = mid + 1`. Keep `hi = mid` in the other branch because `mid` could still be the first match.\n\nCheck the fix on `[1, 3, 3]` with target `3`. It should stop at index 1, the first match. If you need an exact search, also try target `2`. The loop stops at index 1 there too, so check `a[lo] == t` before reporting success and guard against an empty list."
+    },
+    "E": {
+      "turn1": "`lo = mid` can leave the interval unchanged. With `lo = 0` and `hi = 1`, `mid` is 0. You’ve learned that `a[0] < t`, yet index 0 is still in the search interval. Change that line to `lo = mid + 1`. You can keep `hi = mid` on the other branch because `mid` might be the first match.\n\nFor an independent check, try `[1, 3, 3, 7]` with target `3`. The loop should stop at index 1. If you need an exact-match search, handle empty input and check `a[lo] == t` afterward so an absent target isn’t reported as found."
+    },
+    "F": {
+      "turn1": "The update `lo = mid` stalls. For `[1, 3]`, you start with `(lo, hi) = (0, 1)`, so `mid = 0`. Since `1 < 3`, you set `lo = 0` again and repeat the same comparison forever.\n\nUse `lo = mid + 1` in that branch. You already know index `mid` holds a value smaller than the target, so it is safe to discard. Keep `hi = mid` in the other branch because `mid` could still be the first match. For an exact search on an ascending array, check `if a and a[lo] == t` after the loop to handle a missing target or an empty array."
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 4,
+      "sample": 3
+    },
+    "B": {
+      "revision": 5,
+      "sample": 2
+    },
+    "C": {
+      "revision": 4,
+      "sample": 1
+    },
+    "D": {
+      "revision": 5,
+      "sample": 1
+    },
+    "E": {
+      "revision": 5,
+      "sample": 3
+    },
+    "F": {
+      "revision": 4,
+      "sample": 2
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "PASS",
+        "It shows lo = mid writes back zero when mid equals lo."
+      ],
+      [
+        "PASS",
+        "It traces lo = 0, hi = 1, mid = 0 and the repeated iteration on the supplied input."
+      ],
+      [
+        "PASS",
+        "It explains why the failed comparison rules out mid and why the other branch keeps mid."
+      ],
+      [
+        "FAIL",
+        "The final equality test implements exact-match semantics. It supplies no separate case or reference check of the loop repair."
+      ],
+      [
+        "FAIL",
+        "The first two sentences start the trace; only sentence three identifies the unchanged bound as the fault."
+      ],
+      [
+        "PASS",
+        "The trace and repair are instructional and free of personal judgments."
+      ]
+    ],
+    "B": [
+      [
+        "PASS",
+        "It names the stalling lo = mid update and shows mid equals lo."
+      ],
+      [
+        "PASS",
+        "It traces the bound values and the failed comparison on the supplied input."
+      ],
+      [
+        "PASS",
+        "It explains that the comparison has eliminated index zero and therefore increments mid."
+      ],
+      [
+        "PASS",
+        "It proposes a distinct duplicate-list, missing-target case with expected index 1 and exact-match result false."
+      ],
+      [
+        "PASS",
+        "The first sentence identifies the stalling update."
+      ],
+      [
+        "PASS",
+        "The explanation is direct, specific, and respectful."
+      ]
+    ],
+    "C": [
+      [
+        "PASS",
+        "It explains that lo = mid writes the same zero back into lo."
+      ],
+      [
+        "PASS",
+        "It traces the bounds and comparison on the supplied failing input, then shows the corrected bounds."
+      ],
+      [
+        "PASS",
+        "It explains why the too-small midpoint can be discarded."
+      ],
+      [
+        "FAIL",
+        "It reruns the original example and gives an exact-match guard, without a separate edge case or independent reference comparison."
+      ],
+      [
+        "PASS",
+        "The first sentence states the stall and the second identifies the update that causes it."
+      ],
+      [
+        "PASS",
+        "It gives a specific, nonjudgmental diagnosis and rationale."
+      ]
+    ],
+    "D": [
+      [
+        "PASS",
+        "It identifies lo = mid as the update that can leave the interval unchanged."
+      ],
+      [
+        "PASS",
+        "It traces the supplied two-element list through lo = 0, hi = 1, mid = 0."
+      ],
+      [
+        "PASS",
+        "It explains why index zero is ruled out and why the other branch keeps mid."
+      ],
+      [
+        "PASS",
+        "It proposes duplicate and missing-target cases and gives the correct final index for each."
+      ],
+      [
+        "PASS",
+        "Its first sentence names the faulty update."
+      ],
+      [
+        "PASS",
+        "It explains the repair clearly without judging the learner."
+      ]
+    ],
+    "E": [
+      [
+        "PASS",
+        "It identifies the unchanged interval and shows lo and mid both equal zero."
+      ],
+      [
+        "PASS",
+        "It traces the failing bounds and explains that the below-target index remains in the interval."
+      ],
+      [
+        "PASS",
+        "It explains both the reason for advancing past mid and the reason for keeping mid on the other branch."
+      ],
+      [
+        "PASS",
+        "It proposes another sorted list with duplicates and correctly predicts the first matching index."
+      ],
+      [
+        "PASS",
+        "The first sentence identifies the defect."
+      ],
+      [
+        "PASS",
+        "It discusses what the comparison established and avoids ability judgments."
+      ]
+    ],
+    "F": [
+      [
+        "PASS",
+        "It names lo = mid and traces why the write leaves lo at zero."
+      ],
+      [
+        "PASS",
+        "It supplies the initial bounds, midpoint, comparison, and repeated state."
+      ],
+      [
+        "PASS",
+        "It explains that the too-small midpoint can safely be discarded."
+      ],
+      [
+        "FAIL",
+        "The final predicate handles missing targets and empty arrays in the implementation, but it does not propose an independent check of the repair."
+      ],
+      [
+        "PASS",
+        "Its opening sentence names the stalling update."
+      ],
+      [
+        "PASS",
+        "It provides direct line-specific feedback with a reason for the correction."
+      ]
+    ]
+  }
+}

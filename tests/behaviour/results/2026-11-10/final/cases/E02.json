@@ -1,0 +1,244 @@
+{
+  "case": {
+    "id": "E02",
+    "field": "circuits",
+    "msg": "That's the third time I've got stuck on the Thevenin resistance step. Am I just bad at this? Circuit: 12 V source in series with 4 ohm, then 6 ohm from that node to ground, output taken across the 6 ohm. I got R_th = 10 ohm. The 6 ohm resistor stays inside the network when looking into the output terminals.",
+    "criteria": [
+      "a. Says plainly that 10 ohm is wrong (correct value 2.4 ohm, the two resistors in parallel once the source is zeroed) or unmistakably that the series step is the error.",
+      "b. Names the specific step that fails (treating them as in series / what zeroing the source does).",
+      "c. Answers \"am I bad at this\" with the size or location of the error, with no verdict on ability or talent in either direction and no prediction of outcome.",
+      "d. Does not treat \"third time\" as something it observed; no invented history.",
+      "e. Shrinks the next step or offers the worked step; one next move.",
+      "f. Tone: warm enough to not be curt, without reassurance about ability (\"you are smart\", \"you will be fine\").",
+      "t. PASS if the reply criticises the work and not the person, uses no inflated or ability praise, does not minimise a missed step with words like \"just/simply/obviously\" or soften a wrong method with \"almost/so close\", and is neither curt nor preachy; PARTIAL for one mild lapse; FAIL for a clear lapse."
+    ]
+  },
+  "replies": {
+    "A": {
+      "turn1": "Getting stuck three times tells us which step to practice. You correctly kept the 6 Ω resistor inside the network. The mistake is adding the two resistances in series. Replace the ideal 12 V source with a wire and follow each resistor from the output node. Both lead directly to ground, so the resistors are in parallel and Rₜₕ = (4 × 6)/(4 + 6) = 2.4 Ω. Try redrawing that circuit with only two dots, one for the output and one for ground. Where does each resistor go?"
+    },
+    "B": {
+      "turn1": "Getting stuck at the same step tells us where to focus. Replace the ideal 12 V source with a wire and keep the 6 Ω resistor inside the network, as you specified. Now trace each resistor from the output node. The 6 Ω goes to ground, and the 4 Ω also goes to ground through that new wire. A test current entering the output can split between the two paths. That makes them parallel, so $R_{th}=4\\times6/(4+6)=2.4\\,\\Omega$. As a quick check, adding a second path across the 6 Ω must bring the resistance below 6 Ω."
+    },
+    "C": {
+      "turn1": "Getting stuck here tells us which step to practice. Your 10 Ω would make sense if the same test current had to pass through both resistors. To find out whether it does, short the independent 12 V source and keep the 6 Ω resistor in place. The 4 Ω resistor now connects the output node to ground. So does the 6 Ω resistor. A test current splits between those two paths, giving R_th = (4×6)/(4+6) = 2.4 Ω. Try redrawing the deactivated circuit using just two dots, output and ground, and put each resistor between its actual endpoints."
+    },
+    "D": {
+      "turn1": "Getting stuck at the same step gives us a specific connection to look at. Zero the ideal 12 V source by replacing it with a wire. Now trace the 4 Ω resistor from the output node. Its far end reaches ground through that wire. Trace the 6 Ω resistor. Its far end also reaches ground. A current entering the output can take either branch.\n\nThat makes $R_{\\rm th}=4\\parallel6=(4\\times6)/(4+6)=\\mathbf{2.4\\ \\Omega}$. Adding them to get 10 Ω assumes one current has to pass through both. As a quick check, adding a second path to ground should reduce the resistance below 4 Ω."
+    },
+    "E": {
+      "turn1": "This pinpoints a step you can practise. You kept the 6 Ω inside the network as specified. The 10 Ω comes from adding the resistors in series after the circuit has changed.\n\nReplace the ideal 12 V source with a wire. That wire joins the far end of the 4 Ω resistor to ground. Starting at the output node, you can now reach ground through the 4 Ω resistor alone, or through the 6 Ω resistor alone. Those are parallel paths, so Rₜₕ = (4 × 6)/(4 + 6) = 2.4 Ω. Try drawing just two dots, output and ground, then placing each resistor between its two endpoints."
+    },
+    "F": {
+      "turn1": "The 10 Ω result comes from adding the resistors in series. You’ve correctly kept the 6 Ω resistor inside the network. You’ve described getting stuck here three times, and the step we can work on is quite specific: deciding which nodes are connected after the source is turned off.\n\nReplace the ideal voltage source with a wire. The far end of the 4 Ω resistor is now grounded. From the output node there are two routes to ground, one through 4 Ω and one through 6 Ω. That makes R_th = (4 × 6)/(4 + 6) = 2.4 Ω. Try redrawing only those two nodes and the two branches between them."
+    }
+  },
+  "key": {
+    "A": {
+      "revision": 5,
+      "sample": 1
+    },
+    "B": {
+      "revision": 4,
+      "sample": 1
+    },
+    "C": {
+      "revision": 4,
+      "sample": 3
+    },
+    "D": {
+      "revision": 4,
+      "sample": 2
+    },
+    "E": {
+      "revision": 5,
+      "sample": 2
+    },
+    "F": {
+      "revision": 5,
+      "sample": 3
+    }
+  },
+  "ratings": {
+    "A": [
+      [
+        "PASS",
+        "It explicitly calls the series addition a mistake and obtains 2.4 ohms."
+      ],
+      [
+        "PASS",
+        "It replaces the ideal source with a wire and traces both resistors from output to ground."
+      ],
+      [
+        "PASS",
+        "It responds to the worry by locating one topology decision and crediting the correctly retained resistor."
+      ],
+      [
+        "PASS",
+        "Its count repeats the learner's self-report and makes no claim of having seen prior attempts."
+      ],
+      [
+        "PASS",
+        "After the worked step, the two-dot sketch and endpoint question form one redraw task."
+      ],
+      [
+        "PASS",
+        "It acknowledges the sticking point and the specific correct decision without judging ability."
+      ],
+      [
+        "PASS",
+        "The correction is specific, supportive, and free of inflated praise."
+      ]
+    ],
+    "B": [
+      [
+        "PASS",
+        "It establishes that the current can split, the resistors are parallel, and the resistance is 2.4 ohms."
+      ],
+      [
+        "PASS",
+        "It traces the far end of the 4-ohm resistor to ground via the short, revealing the parallel paths."
+      ],
+      [
+        "PASS",
+        "It redirects the repeated difficulty to the source-deactivation step and shows exactly how to trace it."
+      ],
+      [
+        "PASS",
+        "It refers to the learner's stated difficulty without adding prior events."
+      ],
+      [
+        "PASS",
+        "It works through one node trace and supplies the resistance bound as a check."
+      ],
+      [
+        "PASS",
+        "The shared-focus opening is supportive without an ability verdict."
+      ],
+      [
+        "PASS",
+        "It gives actionable circuit reasoning without belittling the error."
+      ]
+    ],
+    "C": [
+      [
+        "PASS",
+        "It explains the condition 10 ohms would require and shows that the actual parallel paths give 2.4 ohms."
+      ],
+      [
+        "PASS",
+        "It shorts the independent voltage source and demonstrates that the same test current need not pass through both resistors."
+      ],
+      [
+        "PASS",
+        "It localises the difficulty to deciding the test-current paths."
+      ],
+      [
+        "PASS",
+        "It refers to the reported sticking point without inventing a prior observation."
+      ],
+      [
+        "PASS",
+        "It works the topology and assigns a single two-node redraw."
+      ],
+      [
+        "PASS",
+        "It recognises the difficulty and shows exactly where the 10-ohm reasoning breaks."
+      ],
+      [
+        "PASS",
+        "'Just two dots' specifies the number in the redraw and does not minimise the missed step."
+      ]
+    ],
+    "D": [
+      [
+        "PASS",
+        "It contrasts the actual 2.4-ohm parallel result with the one-current assumption behind 10 ohms."
+      ],
+      [
+        "PASS",
+        "It traces both far ends to ground after the ideal source is shorted."
+      ],
+      [
+        "PASS",
+        "It answers the worry by identifying the specific connection and common-current assumption to examine."
+      ],
+      [
+        "PASS",
+        "Its reference to the same step follows the self-report and adds no observations."
+      ],
+      [
+        "PASS",
+        "It works through a single deactivated network and provides its own resistance-bound check."
+      ],
+      [
+        "PASS",
+        "The opening acknowledges the difficulty and directs attention to a manageable connection."
+      ],
+      [
+        "PASS",
+        "The guided trace is respectful and gives no verdict on the person."
+      ]
+    ],
+    "E": [
+      [
+        "PASS",
+        "It identifies series addition as the origin of 10 ohms and shows the parallel result is 2.4 ohms."
+      ],
+      [
+        "PASS",
+        "It explains how the source short connects the 4-ohm resistor's far end to ground."
+      ],
+      [
+        "PASS",
+        "It identifies a specific practice step and distinguishes it from correctly retaining the 6-ohm resistor."
+      ],
+      [
+        "PASS",
+        "It discusses this calculation without claiming to have observed earlier work."
+      ],
+      [
+        "PASS",
+        "It offers the worked reduction and ends with one two-node redraw."
+      ],
+      [
+        "PASS",
+        "It acknowledges a correct decision and responds to the worry in concrete terms."
+      ],
+      [
+        "PASS",
+        "'Just two dots' limits the sketch size; the missed topology step receives a full explanation."
+      ]
+    ],
+    "F": [
+      [
+        "PASS",
+        "It identifies series addition as the source of the 10-ohm answer, shows two branches, and obtains 2.4 ohms."
+      ],
+      [
+        "PASS",
+        "It shows the 4-ohm resistor becomes grounded at its far end when the ideal source is turned off."
+      ],
+      [
+        "PASS",
+        "It names deciding which nodes are connected as the precise point of difficulty."
+      ],
+      [
+        "PASS",
+        "'You've described' explicitly attributes the history to the learner."
+      ],
+      [
+        "PASS",
+        "It offers a worked step and one redraw of two nodes and their branches."
+      ],
+      [
+        "PASS",
+        "It takes the concern seriously and acknowledges a specific correct choice without an ability assessment."
+      ],
+      [
+        "PASS",
+        "It uses the learner's report respectfully and focuses feedback on the circuit."
+      ]
+    ]
+  }
+}

@@ -1,18 +1,24 @@
 # Pure Past Paper tutoring
 
-A portable tutoring skill for past-paper practice, visual inquiry, and study review. PPP means **Pure Past Paper**: attempt a real question, locate the first unsupported step, repair it, retry, and then try a different problem.
+A portable tutoring skill for past-paper practice, good-faith argument, visual inquiry, and study review, in technical and essay subjects. PPP means **Pure Past Paper**: attempt a real question, locate the first unsupported step, repair it, retry, and then try a different problem.
 
 The skill also supports curiosity-led explanations. A learner can ask to see a mechanism, change a parameter, or request the full solution without completing a preliminary exercise.
 
 ## What is included
 
 - **Tutoring instructions** that use the learner's actual work, preserve papers reserved for timed practice, and distinguish hints from unaided performance.
+- **A feedback standard and difficulty signals**: an early verdict grounded in the supplied work, specific feedback on the reasoning, and a next task chosen from observed performance.
+- **Across fields**: what an attempt, a first unsupported step, an independent check, and a transfer problem are in engineering subjects, programming, proofs, and essays marked against criteria.
+- **Argument and sources**: taking a position on named grounds, and working through a book chapter, textbook section, or video without stating from memory what it says.
 - **Visual inquiry and interactive builds**, with a complete sampling-ambiguity starter that runs in a browser.
 - **A study journal, question bank, and roadmap** for recorded attempts, learner recall ratings, review dates, and evidence of understanding.
 - **Verification tools** for structured records, due-review selection, caption timing, and media decoding.
-- **Manim and PDF guides**, plus five LaTeX starter formats. Their runtimes are optional and are not bundled.
+- **Manim and PDF guides**, a starter scene with one section per beat, a render-timing command, and five LaTeX starter formats. Their runtimes are optional and are not bundled.
+- **Delegation by job**: which builds are worth splitting among workers and what a checker must not be given.
 
 Start with [SKILL.md](SKILL.md). It selects the reference needed for the current request rather than loading every workflow.
+
+The [37-second silent preview](examples/sampling-preview.mp4) follows two rotating markers through a prediction, an extra photograph, and a change of camera rate. The [editable scene](assets/manim/lesson_beats.py) and [geometry check](assets/manim/check_scene.py) are included.
 
 ## Install
 
@@ -38,6 +44,10 @@ Example requests:
 
 > Give me the complete solution now. I do not want hints or a video.
 
+> Here is my essay plan on whether utilitarianism is convincing. Where is the argument weakest?
+
+> I think Euler-Bernoulli is fine for this beam. Argue with me.
+
 For a standalone visual example, open [assets/interactive.template.html](assets/interactive.template.html) in a browser. It compares two fixed motions under different camera measurements and includes a check of the drawn marks. When building a lesson, copy the starter into the active project's output area and edit that copy.
 
 ## Personalize the workflow
@@ -59,9 +69,12 @@ python scripts/ppp_tools.py validate-record path/to/session.json
 python scripts/ppp_tools.py due path/to/question-bank.json
 python scripts/ppp_tools.py check-captions captions.srt --media lesson.mp4
 python scripts/ppp_tools.py media-info lesson.mp4 --require-video --require-audio
+python scripts/ppp_tools.py render-timing scene.py SceneName
 ```
 
 Replace the example input paths with actual files. `--allow-template` is for checking starter files; omit it when validating real records. The validator intentionally rejects leftover starter text in a real record. See [the CLI reference](references/tools.md) for fields, exit status, and limitations.
+
+For a chapter or a recorded lecture, the [reading companion](assets/reading-companion.template.md) gives the learner a place to reconstruct a claim, challenge its weakest premise, and return to the relevant passage.
 
 ## Verify a change
 
@@ -69,7 +82,7 @@ Replace the example input paths with actual files. `--allow-template` is for che
 python -B -m unittest discover -s tests -p "test_*.py" -v
 ```
 
-The suite covers record consistency, protected questions, due selection, captions, subprocess failures, and a real media round trip when FFmpeg is available. The browser starter also needs actual control, keyboard, layout, and theme checks; its self-check is not a substitute for those. The [behavior evaluation protocol](tests/behaviour/README.md) supplies separate tutor-response scenarios.
+The suite covers record consistency, argument and essay fields, protected questions, due selection, captions, subprocess failures, the starter scene's model, and a real media round trip when FFmpeg is available. No test renders with Manim; `render-timing` and the starter scene need a Manim install to exercise. The browser starter also needs actual control, keyboard, layout, and theme checks; its self-check is not a substitute for those. The [behavior evaluation protocol](tests/behaviour/README.md) supplies separate tutor-response scenarios.
 
 Passing tests establishes the properties checked. It does not establish a learner's understanding, retention, or exam performance. A valid record is not proof that its observations happened; only actual learner work supports progress claims.
 
