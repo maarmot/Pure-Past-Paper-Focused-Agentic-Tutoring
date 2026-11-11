@@ -1,0 +1,480 @@
+{
+  "case": {
+    "id": "D3",
+    "area": "transfer",
+    "messages": [
+      "I know how to test assumptions in mechanics. My history sentence is 'The price rise caused the bread riot.' My source is a petition from ten mill owners written after the riot demanding a price cap. A flour shortage happened too. Show how to use my habit here, what historical knowledge it cannot give me, and one short application."
+    ],
+    "expected_facts": [
+      "Post-event mill owners petition not direct evidence of rioters motives; shortage rival; need dated sources by rioters and chronology/scope."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Actual-work demonstration, explicit destination evidence limit, small application; no learning claim."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "Reuse your mechanics habit by treating “the price rise caused the bread riot” as a model whose assumptions need evidence. The unsupported step is moving from a post-riot petition about prices to a claim about what caused the riot.\n\nApply the same three checks you would use on a mechanical model:\n\n- **Check the sequence.** Did prices rise before the riot, and when did the shortage begin? A petition written afterward cannot establish that sequence by itself.\n- **Check what the observation can support.** The petition shows that ten mill owners demanded a price cap after the riot. Their position, interests, and distance from the rioters affect what it can tell you about rioters’ motives. Those interests are something to investigate, not an automatic reason to discard the source.\n- **Test an alternative mechanism.** The shortage might have raised prices and also provoked unrest through difficulty obtaining flour. Alternatively, prices might have been one step in that causal chain. The petition alone cannot distinguish these possibilities.\n\nWhat your mechanics habit cannot supply is the historical content: actual price trends, the local chronology, who joined the riot, their stated grievances, and how representative these ten owners were. You need evidence for those—such as dated price records and independent contemporary accounts of the riot.\n\nA short application: “The mill owners’ post-riot petition establishes their demand for a price cap, but does not establish that rising prices caused the riot; the flour shortage may have contributed directly or through prices.”"
+      ],
+      "actions": {
+        "files_read": [
+          "fixture.json",
+          "development-prompts.json",
+          "skill/SKILL.md",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\development-prompts.json'; Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'; Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "Your assumption-testing habit transfers: **make the causal claim’s hidden premises explicit, then look for evidence that could defeat them.** Your sentence currently claims more than the supplied source establishes.\n\nFor “the price rise caused the bread riot,” test these links:\n\n- **Sequence:** did the price rise precede the riot? A petition written afterward does not establish that sequence by itself.\n- **Mechanism:** what evidence connects the rioters’ actions to prices? Ten mill owners’ later demand does not directly tell you the rioters’ motives.\n- **Alternative explanation:** could the flour shortage have driven the riot, raised prices, or contributed through both routes? It may be part of the same causal chain, so do not assume price and shortage are independent alternatives.\n\nHistory also requires knowledge your mechanics habit cannot supply: the actual chronology, the petition’s provenance and purpose, whose interests the owners represented, and corroborating evidence about prices, supply, and participants. Their position gives you a reason to scrutinize the petition, not a reason to dismiss it automatically.\n\nA short application: **“The petition establishes that ten mill owners demanded a price cap after the riot. Rising prices may have contributed to the riot, but this source alone cannot distinguish their role from that of the flour shortage.”** You have preserved a possible explanation while separating it from what the evidence demonstrates."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research/evaluation/skill/SKILL.md'; Get-Content -LiteralPath 'research/evaluation/fixture.json'; Get-Content -LiteralPath 'research/evaluation/development-prompts.json'",
+          "Get-Content -LiteralPath 'research/evaluation/skill/references/tutoring.md','research/evaluation/skill/references/fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "Reuse this mechanics habit: **identify what must be true for the conclusion to follow, then seek evidence that could show it is false.** Your sentence’s weak link is the move from a later petition by mill owners to a claim about what caused the rioters to act.\n\nTest three assumptions:\n\n- **Sequence:** did prices rise before the riot, and when did the shortage occur? A petition written afterward cannot establish that sequence by itself.\n- **Mechanism:** did the higher price make bread unaffordable to the people who rioted? Seek price and wage evidence and accounts of participants’ demands.\n- **Alternative explanation:** could the flour shortage have prompted unrest directly, raised prices and thereby prompted unrest, or done both? The shortage and price rise need not be competing, mutually exclusive causes.\n\nThe habit cannot supply the historical facts: dates, actual prices, participants’ motives, or how representative these ten owners were. Those require contextual knowledge and corroborating sources. The owners’ interests and the petition’s purpose affect how you assess it; they do not make it automatically false.\n\n**Short application:** “On the source description, ten mill owners demanded a price cap after the riot. This establishes their later demand, but does not establish the rioters’ motives. A price rise remains a possible cause; its timing and its relationship to the flour shortage need corroboration.”"
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/argument.md",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -LiteralPath 'research/evaluation/fixture.json'; Get-Content -LiteralPath 'research/evaluation/development-prompts.json'",
+          "Get-Content -LiteralPath 'research/evaluation/skill/references/fields.md'",
+          "Get-Content -LiteralPath 'research/evaluation/skill/references/argument.md'",
+          "Get-Content -LiteralPath 'research/evaluation/skill/references/tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "Reuse your habit of **making the assumptions behind a model explicit, then checking what could break the inference**. Here, the unsupported step is moving from a post-riot demand for a price cap to a claim about what caused the riot.\n\nTest that step as you would a mechanics assumption:\n\n- **Chronology:** did prices rise before the riot? The petition's date alone does not establish that. Pre-riot price records could help.\n- **Source and scope:** the petition directly supports what these ten mill owners demanded afterward. Establishing the rioters' motives requires further evidence; you cannot assume the owners represented them. Investigate the owners' interests without assuming that an interested source must be false.\n- **Alternative explanation:** the flour shortage could have raised prices and contributed to unrest. Prices might also have transmitted the shortage's effects. Evidence must distinguish these possibilities; shortage and prices need not be competing explanations.\n\nThat reasoning habit cannot supply the historical knowledge: the actual sequence of events, the petition's provenance, local food and trading conditions, or how representative its authors were. Those require contextual research and comparison with other evidence, such as supply records and accounts from participants.\n\n**Short application:** “After the riot, ten mill owners petitioned for a price cap. This establishes their stated demand, but leaves open how higher prices and the flour shortage contributed to the unrest.”"
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\development-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'; Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "Your causal sentence goes beyond the evidence described. Reuse your mechanics habit by treating **‘the price rise caused the riot’ as a model whose assumptions need testing**.\n\n| Mechanics move | Historical application |\n|---|---|\n| Check the sequence required by the model | Establish that prices rose before the riot, and when the shortage occurred. |\n| Check whether a measurement represents the system | Ask whom ten mill owners represent. Their later petition is evidence of their demand for a cap; it does not directly establish the rioters’ motives. |\n| Test another explanation | The shortage might have contributed directly to unrest, contributed through higher prices, or acted alongside other causes. Seek evidence that distinguishes these possibilities. |\n\nThe petition’s timing and purpose matter: it was written after the riot to obtain a policy change. That gives you a reason to examine its claims carefully, not to dismiss it as false. From your description, we know it demanded a price cap; we do not know whether it explicitly blamed prices for the riot.\n\nThe habit cannot supply the missing historical knowledge: the price series and chronology, the local setting, the petition’s actual wording, the authors’ interests, or evidence from participants. Those require historical sources and contextual research.\n\n**Short application:** ‘The mill owners’ post-riot demand for a price cap makes prices relevant to investigate, but does not establish that the price rise caused the riot. The flour shortage offers another causal route; contemporary price records and accounts of the rioters’ grievances would help assess their relative roles.’"
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content 'research/evaluation/skill/SKILL.md'; Get-Content 'research/evaluation/fixture.json'; Get-Content 'research/evaluation/development-prompts.json'",
+          "Get-Content -LiteralPath 'research/evaluation/skill/references/fields.md'",
+          "Get-Content -LiteralPath 'research/evaluation/skill/references/argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "Carry over one move: **test the causal claim against a competing explanation.** Here, ask whether the evidence distinguishes anger about prices from distress about flour being unavailable. They may also be connected: a shortage could raise prices, so these need not be rival causes in an either-or sense.\n\nYour petition establishes that ten mill owners demanded a price cap after the riot. By itself, it does not establish that prices rose before the riot or that prices motivated the rioters. Its authors and purpose matter: owners may have reasons to frame events in a particular way, and they do not automatically represent the crowd. That makes the petition something to investigate, not something to discard as false.\n\nA decisive next check would pair **dated price and flour-supply records from before the riot** with a contemporaneous account of the crowd’s demands. Price rises before unrest, together with price complaints from participants, would support your explanation; evidence of unavailable flour despite stable prices would challenge it. Neither pattern alone settles every causal question.\n\nYour mechanics habit supplies the question, but cannot supply the historical dates, the petition’s context, or knowledge of whose experiences it represents. Those require historical evidence.\n\nShort application: revise your sentence into two sentences—one stating exactly what the petition supports, and one naming the evidence still needed to connect the price rise to the riot."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'; Get-Content -Raw 'research/evaluation/fixture.json'; Get-Content -Raw 'research/evaluation/development-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/fields.md'; Get-Content -Raw 'research/evaluation/skill/references/argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "G": {
+      "turns": [
+        "Carry over one move: **test the causal explanation against a competing explanation.** In mechanics, you ask whether the observations could arise under a different force model. Here, ask whether the riot could be explained by the flour shortage, with the price rise as another consequence or as an intermediate step. Those possibilities can overlap; the shortage and price rise need not be independent causes.\n\nYour petition establishes that **ten mill owners demanded a price cap after the riot**. It may help you investigate how they represented the problem, but it does not by itself establish that prices rose before the riot or that prices motivated the rioters. Its authors, timing, and purpose matter: a petition demanding a policy change presents an interested argument, and ten owners do not represent the crowd automatically. That makes it evidence to interpret, not evidence to discard.\n\nThe mechanics habit cannot supply the historical chronology, the petitioners’ circumstances, or the rioters’ motives. Those need historical evidence. A decisive next check would be **dated price and flour-supply records from before the riot, compared with contemporary accounts from participants**: do they establish the sequence, and what grievances do participants actually identify?\n\nA cautious application is: ‘The mill owners’ later petition shows their demand for a price cap, but does not yet distinguish whether prices, shortage, or their interaction drove the riot.’ Your short practice: name **one finding in those earlier records that would weaken the original price-rise explanation**."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'; Get-Content -Raw 'research/evaluation/fixture.json'; Get-Content -Raw 'research/evaluation/development-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/fields.md'; Get-Content -Raw 'research/evaluation/skill/references/argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "H": {
+      "turns": [
+        "Carry over one move from mechanics: **test the assumption that makes your conclusion follow by comparing a rival explanation.** Your sentence assumes the price rise helped produce the riot, rather than merely accompanying another cause. The flour shortage is a rival explanation—and could also have caused the price rise, so the two explanations may be linked.\n\nApply that check to your source: the petition directly supports the claim that ten mill owners demanded a price cap after the riot. Their interests and its later date matter. It does not by itself establish what motivated the rioters or that rising prices preceded the unrest. The petition may be useful evidence, but those further claims need support.\n\nYour mechanics habit cannot supply historical chronology, the authors’ purposes, or whether ten owners represent the wider population. To distinguish the explanations, seek dated price and flour-supply records from before the riot, alongside contemporary accounts from participants. For example, evidence that shortages began first and unrest occurred even where prices stayed stable would weaken a price-only explanation; evidence that would strengthen your claim also needs checking.\n\nShort application: rewrite your sentence in two parts—one claim the petition directly supports, followed by one cautious causal hypothesis. Then name the single additional dated source that would most help you test that hypothesis."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/development-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "I": {
+      "turns": [
+        "Use your mechanics habit of **testing a claim against a competing explanation**. Here the question is whether the evidence distinguishes “higher prices provoked the riot” from “lack of flour provoked the riot.” The shortage might also have raised prices, so these mechanisms could be linked.\n\nApply it to the petition: ten mill owners demanded a price cap **after** the riot. That establishes what those petitioners advocated afterwards. It does not establish that prices rose before the riot or that prices motivated the rioters. Their position and purpose matter, but an interested source is not automatically false.\n\nA decisive check would use market price and flour-stock records dated before and around the riot, alongside contemporary evidence of the rioters' demands. A comparison with a nearby place experiencing a similar shortage but a different price change could help, if other relevant conditions are comparable. None of that evidence has been supplied here.\n\nYour mechanics habit cannot supply the historical chronology, the petitioners' circumstances, or whether ten mill owners represented other groups. Those require historical evidence.\n\nA defensible short application is: “The petition shows that these mill owners advocated a price cap after the riot; it does not by itself establish the riot's cause.”\n\nNow try one sentence naming a dated record you would seek and what finding would weaken the price-rise explanation."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw -LiteralPath 'research/evaluation/skill/SKILL.md', 'research/evaluation/fixture.json', 'research/evaluation/development-prompts.json'",
+          "Get-Content -Raw -LiteralPath 'research/evaluation/skill/references/fields.md', 'research/evaluation/skill/references/argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "J": {
+      "turns": [
+        "Carry over one move: **test a causal assumption against a competing explanation.** In mechanics, you ask whether the observations could also arise if an assumed force were different. Here, ask whether this petition could exist even if higher prices were not the main cause of the riot.\n\nIt could. Ten mill owners asking for a price cap after the riot shows that those petitioners presented price control as desirable afterwards. It does not by itself establish that prices rose before the riot, why rioters acted, or whether the owners represented them. Their interests and the petition’s purpose matter; that makes the source something to examine, not automatically something to discard.\n\nThe flour shortage gives you a rival or connected explanation: scarcity might have contributed directly to unrest, raised prices, or both. To distinguish these possibilities, seek dated price and supply evidence from before the riot, alongside contemporary evidence of participants’ grievances. A comparison with a place experiencing similar shortages but different prices could also help, if the other relevant conditions are comparable.\n\nYour mechanics habit cannot supply the historical chronology, the owners’ interests, local market arrangements, or the rioters’ motives. Those need historical knowledge and source evidence.\n\n**Short application:** replace “caused” with a claim this petition actually supports, then name one dated piece of evidence that would help distinguish a price grievance from a scarcity grievance."
+      ],
+      "actions": {
+        "files_read": [
+          "fixture.json",
+          "development-prompts.json",
+          "skill/SKILL.md",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research/evaluation/fixture.json'; Get-Content -LiteralPath 'research/evaluation/development-prompts.json'; Get-Content -LiteralPath 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -LiteralPath 'research/evaluation/skill/references/fields.md'"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Accurately restricts the post-riot petition to the owners' demand, identifies chronology and motive gaps, and treats shortage and prices as potentially connected causes."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Applies the learner's assumption-testing habit to the actual sentence, states what it cannot supply and gives a short revised claim."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies checking price and shortage chronology and obtaining dated price records and independent contemporary accounts to test causation."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Shows the requested application directly without requiring an attempt or asserting that transfer has been learned."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Demonstrates the method on the supplied petition, explicitly names missing historical knowledge and ends with a concise evidence-limited application."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly distinguishes the owners' later demand from rioters' motives and earlier price chronology, while allowing shortage and price to be linked rather than mutually exclusive."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly covers the transferable habit, its historical knowledge limits and a short application of the revised claim."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Gives specific checks of sequence, evidence connecting participants to price grievances and the shortage-price causal alternatives."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested demonstration without demanding a prior attempt or claiming learner mastery."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Applies assumption testing to the actual causal sentence, names destination-specific evidence limits and gives a short cautious causal statement."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly scopes the petition to its later demand and identifies chronology, affordability, participant demands and connected shortage mechanisms as matters needing evidence."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Uses the learner's mechanics habit on the actual sentence and supplies both its limits and a short rewritten application."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies checking price and shortage timing and seeking price/wage evidence plus accounts of participant demands."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Answers directly with a bounded example and no invented learner response or learning claim."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Demonstrates the actual-work inference, states that dates, motives and representativeness require historical evidence, and supplies a concise application."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly limits the petition to what ten owners demanded afterward, separates this from rioter motives and treats shortage and prices as potentially linked."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly shows mechanics-style assumption testing, names historical knowledge it cannot provide and offers a short applied sentence."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifically proposes pre-riot price records, supply records and participant accounts to check chronology and causal explanations."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested demonstration without a compulsory learner attempt or unsupported mastery claim."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Works on the supplied sentence and petition, states the destination evidence limit and ends with a short cautiously scoped application."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly distinguishes a demand for a cap from a causal claim, explicitly notes that the petition's actual wording is unavailable, and allows shortage to act through prices."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers all requested components through concrete mechanics-to-history checks, historical limits and a short application."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies obtaining contemporary price records and accounts of rioters' grievances to assess chronology and the relative causal roles."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Supplies the application directly without forcing practice or inventing learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Demonstrates assumption testing on the actual petition, identifies missing wording/context/participant evidence and gives a small evidence-limited causal application."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly states that the petition does not establish earlier price rises or rioter motives, and presents stable-price shortage evidence as a hypothetical challenge rather than an observed fact."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Demonstrates the transferred habit on the actual petition, states what historical knowledge it cannot supply and proposes a short sentence-revision application."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Gives a concrete check pairing dated pre-riot price and supply records with contemporary crowd demands, including expected supporting and challenging findings."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested substantive analysis before the short revision prompt, without making the answer conditional on an attempt or claiming learning."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Applies the method to the supplied source, explicitly states the historical-evidence limit and gives a small application targeted to supported claims and missing causal evidence."
+      }
+    },
+    "G": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly distinguishes owners' post-riot advocacy from earlier prices and crowd motives, and permits shortage and price to be connected causes."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Shows the transferred mechanics move, names historical knowledge it cannot supply and provides a concise cautious application."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies dated pre-riot price/supply records and participant accounts, plus a single finding that would weaken the original claim."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives the requested explanation and example before a small practice invitation; it makes no claim that the learner has mastered transfer."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Demonstrates actual-work analysis, explicitly names chronology/context/motive limits and provides a short causal statement constrained by the petition."
+      }
+    },
+    "H": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly identifies the petition's limited support and the linked shortage-price alternatives; its stable-price unrest comparison is explicitly an example of possible evidence."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Applies the habit to the actual causal sentence, names missing historical knowledge and supplies a short two-part rewrite application."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies dated price/supply records and contemporary participant accounts, and explains a finding that would weaken a price-only account."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the analysis directly before a bounded application prompt, with no compulsory pre-answer attempt or invented learning outcome."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Works through the actual petition, states the destination-specific chronology/purpose/representation limits and gives a small application separating supported claim and hypothesis."
+      }
+    },
+    "I": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly scopes the petition to later advocacy, avoids dismissing interested sources and labels the nearby-place comparison as conditional on comparable conditions."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly shows the assumption-testing transfer, its knowledge limits and a short supported replacement claim."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Gives specific dated price/stock and participant-demand evidence and asks what result would weaken the price explanation."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Supplies the requested demonstration and application before a short practice invitation, without claiming mastery."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Demonstrates analysis on the actual petition, explicitly identifies missing chronology/context/representation evidence and gives a concise evidence-limited sentence."
+      }
+    },
+    "J": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly explains that the petition could exist without prices being the main riot cause, limits its evidential scope and treats shortage and prices as potentially linked."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Shows the mechanics habit on the supplied sentence, states its historical knowledge limit and gives a short replace-and-test application."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifically proposes dated pre-riot price/supply evidence and contemporary participant grievances, with any place comparison conditional on comparable circumstances."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested substantive demonstration directly and leaves only a small application prompt, without inventing a learner response or mastery claim."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Applies a counterexplanation test to the actual source, states what historical knowledge must come from evidence and gives a small application replacing overclaimed causation."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "baseline",
+      "sample": 5
+    },
+    "B": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "C": {
+      "version": "baseline",
+      "sample": 3
+    },
+    "D": {
+      "version": "baseline",
+      "sample": 1
+    },
+    "E": {
+      "version": "baseline",
+      "sample": 4
+    },
+    "F": {
+      "version": "candidate",
+      "sample": 2
+    },
+    "G": {
+      "version": "candidate",
+      "sample": 1
+    },
+    "H": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "I": {
+      "version": "candidate",
+      "sample": 5
+    },
+    "J": {
+      "version": "candidate",
+      "sample": 4
+    }
+  }
+}

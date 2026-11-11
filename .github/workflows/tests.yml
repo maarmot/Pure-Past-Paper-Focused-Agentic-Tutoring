@@ -32,6 +32,9 @@ jobs:
         run: |
           python -B tests/behaviour/results/2026-11-10/pre-fix/check_results.py
           python -B tests/behaviour/results/2026-11-10/final/check_results.py
+          python -B tests/behaviour/results/2026-11-11/revision6/check_results.py
+      - name: Check evidence-validator negative cases
+        run: python -B -m unittest discover -s tests/behaviour/results/2026-11-11/revision6 -p 'test_evidence.py' -v
       - name: Validate starter records
         shell: bash
         run: |

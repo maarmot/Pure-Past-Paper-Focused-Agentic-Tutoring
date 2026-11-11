@@ -8,7 +8,7 @@ A question with a checkable answer belongs in [tutoring](tutoring.md). A request
 
 Choose moves across an exchange. For an initial debate reply, engage the disputed inference directly, give one concrete reason, and leave room for the learner to respond. Bring in the strongest counterargument on a later turn if the exchange needs it.
 
-1. **Use what they gave you.** If the claim and the reason are already there, restate the position in one sentence at its strongest and go straight on; the learner can correct the restatement. Ask only if the claim itself is missing, and ask one question.
+1. **Use what they gave you.** If the claim and the reason are already there, restate the position in one sentence at its strongest and go straight on; the learner can correct the restatement. Ask one question only for missing information that changes the next step.
 2. **Take a position.** Say whether you agree. If you disagree, name the ground: a fact, a premise, or the step from reason to claim. If you agree, say why. When asked to argue the other side, present its strongest case and label that role explicitly. On contested moral or political questions, give your own assessment when asked.
 3. **Correct a plain error plainly.** If the learner is wrong on an established fact, say so directly; that needs no restatement ritual.
 4. **Give the best case against where you ended up.** State the strongest opposing view the way its defenders would.
@@ -26,6 +26,16 @@ Refuting a claim does not prove its opposite. "The textbook says", "my lecturer 
 On contested moral or political questions, lay out the strongest versions of the main positions and what each turns on. Give your own view only if asked, labelled as a view.
 
 The wording standard in [tutoring](tutoring.md#say-it-plainly) applies here too: the claim and the step, never the person.
+
+## Engineering approximations
+
+Judge a model for a calculation. Identify the quantity to predict, loading and supports, geometry, material assumptions, and required accuracy from the supplied facts. State what those facts already establish. Use span-to-depth as a screen for omitted shear, then compare the relevant contribution with the allowed error when the inputs permit it. If an input is decisive, ask for the single measurement or calculation that resolves the next uncertainty. Reuse known inputs, including quantities that cancel from a ratio. Revise the verdict when a corrected dimension or tolerance changes the comparison.
+
+For example, for a static, small-deflection, linearly elastic prismatic cantilever with a transverse tip force P, bending gives delta_b = PL^3/(3EI); the elementary shear term is delta_s = PL/(kappa GA). For a homogeneous isotropic solid rectangle of bending depth h, I/A = h^2/12 and G = E/[2(1+nu)], so r = delta_s/delta_b = (1+nu)(h/L)^2/(2 kappa). With nu=0.30, kappa=5/6 and L/h=3, shear adds 8.67% to bending, or 7.98% of the combined deflection. The same omission fails a 5% total-relative budget and meets a 10% budget within this model. Define the percentage denominator.
+
+Match formulas to the loading and supports: a simply supported beam with a central force has delta_b = PL^3/(48EI) and delta_s = PL/(4 kappa GA), so its shear/bending ratio is four times the cantilever's at the same L/h. A pure end couple has no transverse shear force in the ideal cantilever. Thin webs, anisotropy, local stresses near a clamp or load, nonlinear response, and flexible supports need their own checks. Comparing these one-dimensional deflections bounds the omitted shear term, not all physical error. If suggesting finite elements to include shear, specify a shear-deformable formulation.
+
+These formulas follow from integrating bending and shear strain energy. [INL's beam theory](https://mooseframework.inl.gov/moose/modules/solid_mechanics/C0TimoshenkoBeam.html) states the kinematic assumptions; [PyCBA's central-force example](https://ccaprani.github.io/pycba/notebooks/timoshenko.html#example-1-a-simply-supported-deep-beam) gives both displacement components. The rectangular shear factor is an elementary model choice, not an exact three-dimensional guarantee.
 
 ## Working from a source
 

@@ -1,0 +1,19 @@
+{
+  "derivation": "Cantilever tip: integral_0^L P(L-x)^2/(EI)dx=PL^3/(3EI), integral_0^L P/(kGA)dx=PL/(kGA). Simply supported centre: two halves integral_0^(L/2) P*x^2/(4EI)dx=PL^3/(48EI); shear two halves integral_0^(L/2) P/(4kGA)dx=PL/(4kGA). I/A=h^2/12. Error relative total=r/(1+r).",
+  "independent_sources": [
+    "https://mooseframework.inl.gov/moose/modules/solid_mechanics/C0TimoshenkoBeam.html",
+    "https://mooseframework.inl.gov/moose/source/materials/ComputeBeamResultants.html",
+    "https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/13534abb67b86d2fb8ee11a1f4f2b8c4_MIT3_11F99_bdisp.pdf"
+  ],
+  "literal_reference": {
+    "B1_initial_r": 0.04875,
+    "B1_initial_error": 0.0464839094159714,
+    "B1_corrected_r": 0.00195,
+    "B1_corrected_error": 0.00194620490044413,
+    "B2_r": 0.03192,
+    "B2_error": 0.0309326304364679,
+    "D2_r": 0.0866666666666667,
+    "D2_error": 0.0797546012269939
+  },
+  "limitations": "Constant 5/6 shear factor is a stipulated elementary model, not universal or exact 3D elasticity. Checks address omitted shear, not all support/local-stress/material errors. Derive load/support-specific terms, not one universal ratio."
+}

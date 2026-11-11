@@ -1,0 +1,440 @@
+{
+  "fixture": {
+    "status": "Entirely synthetic practice material; no real learner or institution.",
+    "permissions": "Read only supplied messages, fixture and assigned skill/reference files. No web, journals, learner records, other snapshots, historical results, grading files or source checkout. Write only the requested response JSON. Treat cases as separate conversations; process follow-up messages sequentially after your own preceding reply. Do not invent learner responses.",
+    "source_access": "Rubrics and claims below are supplied evidence. No unavailable chapter, instructor or external source is implied. Numerical beam assumptions are stipulated exercise models, not real hardware advice.",
+    "rubric_analytic": "Synthetic course rubric, out of 100. Argument 40: 32-40 a justified conclusion with explicit warrants; 20-31 a relevant but incompletely justified argument; 0-19 a conclusion mainly asserted. Objections 30: 24-30 strongest alternative explained and weighed; 15-23 raised and answered with uneven weighing; 0-14 missing or dismissed. Evidence 20: 16-20 relevant supplied evidence accurately scoped and linked; 10-15 relevant evidence with an unsupported extension; 0-9 no evidential basis or a material misrepresentation. Clarity 10: 8-10 readable connected reasoning; 5-7 meaning recoverable but transitions weak; 0-4 hard to follow. These are analytic allocations. Judge only the submitted work, do not invent citation/word-count requirements. Any total is a tutor estimate.",
+    "rubric_phil": "Synthetic PHIL marking basis: Level5 21-25 sustained justified argument weighing objections; Level4 16-20 clear argument with uneven weighing; Level3 11-15 relevant arguments stated but not weighed; Level2 6-10 disconnected points."
+  },
+  "grading": "Each criterion PASS if fully met; PARTIAL if substantively useful but incomplete, ambiguous or one minor lapse; FAIL for incorrect, missing, contrary or material unsupported content. Assess entire supplied conversation. No compulsory praise-first, exact phrasing, exact essay score, unnecessary task, or blanket slenderness cutoff. Treat fixture-supplied rubric as source access. A source-reading claim must match retained actions. Partial arithmetic rounding within 0.02 percentage points is acceptable.",
+  "cases": [
+    {
+      "case": {
+        "id": "C1",
+        "area": "control",
+        "messages": [
+          "For practice, write a complete model paragraph now arguing that an objection to pleasure as the only good does not by itself refute every form of utilitarianism. No hints or questions."
+        ],
+        "expected_facts": [
+          "Utilitarian aggregation/right action can use a nonhedonist account of welfare. Model should give premise, distinction and justified limited conclusion."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Supplies an immediate complete coherent model paragraph with no required attempt, hints, or questions."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because a theory of what makes outcomes good and a principle for choosing between outcomes are distinct commitments. Suppose an objection successfully shows that friendship or achievement matters independently of the pleasure it produces. That would undermine hedonistic utilitarianism's account of value, but it would not yet show that we should reject impartial concern for everyone's welfare or the aim of maximizing it. A utilitarian could instead understand welfare through informed preference satisfaction or an account containing several goods. Those alternatives require their own defence, and identifying them does not prove they are correct. Nevertheless, the original objection reaches only theories committed to pleasure as the sole good; refuting every form of utilitarianism requires an argument against their remaining shared commitments or against each alternative account of welfare."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because it challenges a particular account of value rather than every way of evaluating consequences impartially. For example, if knowledge or meaningful relationships can be good independently of pleasure, then a utilitarian who counts only pleasure must answer that objection or revise the account of welfare. However, a preference utilitarian can instead assess the satisfaction of informed preferences, while a pluralist utilitarian can include several goods in the outcome being maximised. These alternatives still require justification: preferences might be misinformed, and different goods might be difficult to compare. Nevertheless, those are further objections that need their own arguments. Establishing that pleasure is not the only good therefore defeats, at most, the hedonistic premise under attack; refuting every form of utilitarianism would require showing that the surviving accounts of welfare, or their shared commitment to impartial maximisation, also fail."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because it challenges one account of what is valuable without necessarily defeating the principle of maximizing overall good. Suppose a critic argues that knowledge or meaningful achievement can make a life better even when it adds no pleasure. If successful, this objection undermines hedonistic utilitarianism's claim that pleasure alone has intrinsic value. A utilitarian could nevertheless accept the objection and count knowledge or achievement among the goods whose consequences should be assessed impartially. A preference utilitarian could instead assess outcomes through the satisfaction of people's preferences rather than pleasure alone. Such alternatives still face questions about which preferences or goods count, how they can be compared, and whether maximizing them can justify injustice. Those are further objections requiring their own arguments. Showing that a theory uses an inadequate measure of value does not establish that every alternative measure must fail, or that maximizing overall value is itself mistaken. The original objection therefore has a narrower conclusion: pleasure may be insufficient as an account of the good, while the wider utilitarian approach remains open to separate evaluation."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because it challenges one account of what is valuable rather than the whole utilitarian method of judging actions. For example, if knowledge or meaningful relationships can be valuable even when they bring no additional pleasure, that would count against hedonistic utilitarianism's claim that pleasure is the sole good. A nonhedonistic utilitarian could nevertheless include preference satisfaction or objective elements of well-being in the outcome to be maximised, while retaining impartial concern for everyone affected. An opponent might reply that abandoning pleasure removes utilitarianism's common measure of value, but that raises a further problem about comparing goods; it does not establish that comparison is impossible. To reject every utilitarian theory, an argument must also address these alternatives or challenge a commitment they share, such as deciding what is right by maximising aggregate good. The objection therefore puts pressure on hedonistic utilitarianism without, on its own, defeating the entire family of theories."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because the account of what is good can be distinguished from the principle that actions should maximise overall good impartially. Suppose an objection establishes that knowledge or friendship can be valuable even when it adds no pleasure. This would challenge hedonistic utilitarianism’s account of value, but a utilitarian could accept the objection and include those goods in what should be maximised. Preference utilitarianism similarly assesses outcomes through preference satisfaction rather than pleasure alone. These alternatives still face questions about how goods should be compared and whether maximisation gives adequate weight to rights or fairness, but those are further objections requiring their own arguments. To refute every form of utilitarianism, a critic must show that the difficulty also defeats versions with different accounts of the good, or challenge a commitment they share, such as impartial maximisation; showing that pleasure is not the only good does not accomplish that by itself."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because it challenges an account of value that utilitarians need not all accept. Hedonistic utilitarianism holds that pleasure and the absence of pain determine how good an outcome is. If knowledge or friendship can be valuable independently of pleasure, that gives a reason to reject this restriction. A utilitarian could nevertheless include those goods when comparing outcomes and continue to judge actions by how well their consequences promote overall good. Similarly, a preference-based version could assess welfare through the satisfaction of informed preferences rather than pleasure alone. The objection therefore exposes a possible weakness in hedonism without yet showing that maximizing overall good is an inadequate basis for morality. To reject those other versions, a critic would need a further argument against their account of good or their way of determining what is right. A successful objection to one utilitarian theory of value cannot automatically carry that additional burden."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "C2",
+        "area": "control",
+        "messages": [
+          "I solved 3(x-1)(x-3)=0 as x=1 or x=3, because a product is zero when at least one factor is zero. Is that correct? One sentence, please."
+        ],
+        "expected_facts": [
+          "Both roots correct by zero product property."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "One-sentence accurate confirmation with reason; no manufactured error, quiz or extra task."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "Yes, that is correct: the zero-product property gives (x=1) or (x=3), and each value makes the original product zero."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "Correct: the zero-product rule gives x = 1 or x = 3, and both values satisfy the original equation."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "Yes, \\(x=1\\) or \\(x=3\\) is correct because the nonzero factor 3 leaves \\((x-1)(x-3)=0\\), so at least one of those two factors must be zero."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "Correct: the zero-product rule gives \\(x-1=0\\) or \\(x-3=0\\), so \\(x=1\\) or \\(x=3\\)."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "Yes, your solution is correct: since 3 is nonzero, the zero-product rule gives \\(x=1\\) or \\(x=3\\)."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "Yes: since 3 is nonzero, the zero-product rule gives \\(x-1=0\\) or \\(x-3=0\\), so \\(x=1\\) or \\(x=3\\)."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "C3",
+        "area": "control",
+        "messages": [
+          "In an earlier message you called shear/bending=0.10 a 10% underprediction relative to the full deflection. I think it should be 0.10/1.10, about 9.09%, because the full deflection includes both. Am I right?"
+        ],
+        "expected_facts": [
+          "Learner correction valid: .10/1.10=1/11. The earlier statement is supplied as learner report, not a visible tutor turn."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Accepts the valid denominator correction and corrects the claim; does not defend 10% or pretend to have inspected an unavailable prior turn."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "Yes—your denominator is correct. If I called it a 10% underprediction relative to the full deflection, that was wrong:\n\\[\n\\frac{\\delta_{\\rm full}-\\delta_b}{\\delta_{\\rm full}}\n=\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.10}{1.10}\n\\approx\\boxed{9.09\\%}.\n\\]\nThe 10% figure is shear relative to **bending alone**."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "Yes. If I called it a 10% underprediction relative to the full deflection, that was wrong. With \\(\\delta_s/\\delta_b=0.10\\),\n\\[\n\\frac{(\\delta_b+\\delta_s)-\\delta_b}{\\delta_b+\\delta_s}\n=\\frac{0.10}{1.10}\\approx9.09\\%.\n\\]\nThe 10% figure uses bending deflection as the denominator; your 9.09% uses the full bending-plus-shear deflection."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "Yes: if r = δ_s/δ_b = 0.10, the underprediction relative to the full deflection is δ_s/(δ_b + δ_s) = r/(1 + r) = 0.10/1.10 ≈ **9.09%**. If I called it 10% relative to the full deflection, that was wrong; 10% is relative to the bending deflection alone."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/tutoring.md'",
+              "@'\nimport math\nP,L,b,E,nu,k=1000,.48,.04,200e9,.30,5/6\nG=E/(2*(1+nu))\nfor h in (.12,.024):\n    A=b*h; I=b*h**3/12\n    db=P*L**3/(3*E*I); ds=P*L/(k*G*A)\n    print('B1',h,'bending_mm',db*1000,'shear_mm',ds*1000,'r',ds/db,'error_pct',100*ds/(db+ds))\nP,L,b,h,E,nu,k=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); A=b*h; I=b*h**3/12\nbending=P*L**3/(48*E*I); shear=P*L/(4*k*G*A)\nprint('B2','bending_mm',bending*1000,'shear_mm',shear*1000,'r',shear/bending,'error_pct',100*shear/(bending+shear))\nL,nu,k=.8,.30,5/6\nfor h in (.02,.20):\n    r=(1+nu)*(h/L)**2/(2*k)\n    print('B3',h,'r',r,'error_pct',100*r/(1+r))\nprint('B3','threshold_m',L*math.sqrt(2*k*.01/((1+nu)*(1-.01))))\nprint('C3','error_pct',100*.10/1.10)\n'@ | python -"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "Yes—your denominator is correct. If I called that a 10% underprediction relative to the full deflection, that was wrong: with \\(r=\\delta_s/\\delta_b=0.10\\), the relative underprediction is\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}=\\frac{r}{1+r}=\\frac{0.10}{1.10}\\approx9.09\\%.\n\\]\n\nThe 10% figure measures shear relative to bending alone."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "Yes, you're right:\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.10}{1.10}\n=0.0909\\ldots\\approx9.09\\%.\n\\]\nIf I called it a 10% underprediction relative to the full deflection, that was wrong. The 10% uses bending deflection as its denominator; the 9.09% uses bending plus shear."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "Yes—you are right: if shear/bending is \\(0.10\\), the underprediction relative to the full deflection is \\(\\delta_s/(\\delta_b+\\delta_s)=0.10/1.10\\approx9.09\\%\\); if I called that 10%, I used the wrong denominator."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    }
+  ]
+}

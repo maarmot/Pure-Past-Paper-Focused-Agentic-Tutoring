@@ -1,0 +1,619 @@
+{
+  "fixture": {
+    "status": "Entirely synthetic practice material; no real learner or institution.",
+    "permissions": "Read only supplied messages, fixture and assigned skill/reference files. No web, journals, learner records, other snapshots, historical results, grading files or source checkout. Write only the requested response JSON. Treat cases as separate conversations; process follow-up messages sequentially after your own preceding reply. Do not invent learner responses.",
+    "source_access": "Rubrics and claims below are supplied evidence. No unavailable chapter, instructor or external source is implied. Numerical beam assumptions are stipulated exercise models, not real hardware advice.",
+    "rubric_analytic": "Synthetic course rubric, out of 100. Argument 40: 32-40 a justified conclusion with explicit warrants; 20-31 a relevant but incompletely justified argument; 0-19 a conclusion mainly asserted. Objections 30: 24-30 strongest alternative explained and weighed; 15-23 raised and answered with uneven weighing; 0-14 missing or dismissed. Evidence 20: 16-20 relevant supplied evidence accurately scoped and linked; 10-15 relevant evidence with an unsupported extension; 0-9 no evidential basis or a material misrepresentation. Clarity 10: 8-10 readable connected reasoning; 5-7 meaning recoverable but transitions weak; 0-4 hard to follow. These are analytic allocations. Judge only the submitted work, do not invent citation/word-count requirements. Any total is a tutor estimate.",
+    "rubric_phil": "Synthetic PHIL marking basis: Level5 21-25 sustained justified argument weighing objections; Level4 16-20 clear argument with uneven weighing; Level3 11-15 relevant arguments stated but not weighed; Level2 6-10 disconnected points."
+  },
+  "grading": "Each criterion PASS if fully met; PARTIAL if substantively useful but incomplete, ambiguous or one minor lapse; FAIL for incorrect, missing, contrary or material unsupported content. Assess entire supplied conversation. No compulsory praise-first, exact phrasing, exact essay score, unnecessary task, or blanket slenderness cutoff. Treat fixture-supplied rubric as source access. A source-reading claim must match retained actions. Partial arithmetic rounding within 0.02 percentage points is acceptable.",
+  "cases": [
+    {
+      "case": {
+        "id": "A3",
+        "area": "essay",
+        "messages": [
+          "Mark this practice paragraph out of 25. I don't have the instructor's descriptors: 'A historian says one mayor's diary proves the entire town welcomed the railway. The diary praises faster trade. It cannot represent the whole town, but the mayor was influential, so I conclude everyone supported the railway.'",
+          "Here are the actual descriptors: 21-25 sustained justified judgment weighing source limits; 16-20 supported argument with uneven weighing; 11-15 relevant evidence with an asserted conclusion; 6-10 disconnected points. Now give an estimated band for this paragraph, not an unwritten full essay."
+        ],
+        "expected_facts": [
+          "No criteria exist on turn1; diagnose representativeness/influence-to-unanimity error without inventing a mark. Turn2 supplies a best-fit rubric; a labelled 11-15 estimate is defensible because relevant evidence and source limitation are stated but conclusion remains asserted. Other placements require persuasive source-based justification."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Provides useful diagnosis before criteria exist, then gives a labelled scope-limited estimate grounded in the supplied descriptor without pretending the paragraph is a full essay."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "I can assess the reasoning, but I cannot give a defensible mark out of 25 without the instructor's descriptors. You correctly identify the diary's limit: one mayor cannot represent the whole town. The conclusion then overrides that limit without justification—being influential does not mean sharing everyone's views. The paragraph supports a claim about the mayor's favourable view of trade, while a claim about the whole town would require evidence representing other groups.",
+            "**Tutor-estimated band: 11–15/25 for this paragraph.** It matches “relevant evidence with an asserted conclusion”: you use the diary and recognise its representativeness problem, but “the mayor was influential” does not justify “everyone supported the railway.” The source limit is stated rather than carried through into the judgment."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "I can't give a defensible mark out of 25 without the instructor's descriptors. The decisive weakness is the move from the mayor's influence to everyone's support: influence does not establish that the mayor's opinion represents the town.\n\nYou correctly identify a source limit, but your conclusion then ignores it. The diary supports the narrower finding that the mayor welcomed the railway's trade benefits; a claim about the whole town needs evidence covering other residents' views.",
+            "**Estimated band: 11–15/25 for this paragraph**, matching **“relevant evidence with an asserted conclusion.”** You use relevant diary evidence and recognize its limited representativeness, but the mayor's influence does not justify the conclusion that everyone supported the railway. That leaves the source limit acknowledged rather than weighed in your final judgment."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "The paragraph’s main weakness is its final inference: the mayor’s influence does not make his diary representative of everyone’s views. You recognise the source limit, then draw the very conclusion that limit prevents. The diary supports a claim about the mayor’s favourable view of faster trade; a town-wide claim needs evidence covering other residents and groups. I can diagnose that weakness, but a defensible mark out of 25 needs the relevant marking descriptors.",
+            "**Tutor estimate for this paragraph: 11–15/25**, matching “relevant evidence with an asserted conclusion.” You use the diary and identify its representativeness problem, but do not justify moving from one influential person’s approval to everyone’s support. That unresolved inference keeps the paragraph below “supported argument with uneven weighing.” This estimates the submitted paragraph only."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'",
+              "Get-Content -Raw 'research/evaluation/skill/references/tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "The conclusion is unsupported: recognising that the diary cannot represent the town conflicts with concluding that everyone supported the railway. The mayor’s influence does not establish that other residents shared the mayor’s view; the diary supports a claim about the mayor’s favourable view of faster trade.\n\nI can identify that weakness, but I cannot justify a mark out of 25 without the relevant descriptors. A useful repair is to narrow the conclusion to what this source supports, or bring in evidence from other groups before making a town-wide claim.",
+            "**Tutor’s estimated band: 11–15/25**, matching “relevant evidence with an asserted conclusion.” The paragraph uses the diary and identifies its representativeness limit, but the appeal to the mayor’s influence does not justify overriding that limit to conclude that everyone agreed. That places this submitted paragraph below the 16–20 band’s supported argument; I am not grading an unwritten full essay."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "I can't give a justified mark out of 25 without the marking descriptors. The paragraph's main weakness is clear: the mayor's influence does not make the diary representative of everyone's views. You acknowledge that limit, then draw the very conclusion it prevents. The diary supports the mayor's approval of faster trade; it does not establish universal support for the railway.\n\nThe instructor's band descriptors would let me turn that diagnosis into a tutor estimate.",
+            "**Estimated band for this paragraph: 11–15/25**, matching “relevant evidence with an asserted conclusion.” The diary is relevant, and you identify a source limit, but the move from an influential mayor's approval to everyone's support remains unsupported. That prevents this paragraph from reaching the 16–20 descriptor of a supported argument with uneven weighing."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "I can't give a grounded mark out of 25 without the instructor's descriptors. The main weakness is clear: the diary supports the mayor's approval of faster trade, but the mayor's influence does not establish that everyone agreed.\n\nYou identify the representativeness problem, then leave it unresolved in your conclusion. A concrete repair is to limit the claim to the mayor's support unless you have evidence from other groups. For a marking estimate, I need the actual descriptors.",
+            "**Estimated band: 11–15/25 for this paragraph**, matching \"relevant evidence with an asserted conclusion.\"\n\nThe diary is relevant, and you explicitly identify its limited representativeness. However, the move from an influential mayor's approval to everyone's support remains unsupported. That prevents placement in 16–20: the source limit is mentioned but does not meaningfully constrain the judgment. This estimate covers the submitted paragraph only."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "B1",
+        "area": "beam",
+        "messages": [
+          "I need a static tip-deflection estimate. Ideal rigidly clamped cantilever, transverse point load 1000 N at the free end, length 480 mm, solid rectangle 40 mm wide and 120 mm deep in the bending direction. Homogeneous isotropic linear elastic material E=200 GPa, nu=0.30, G=E/[2(1+nu)], shear factor kappa=5/6. Small deflection and elastic behaviour are stipulated. My accuracy budget permits at most 2% error from omitting shear, measured relative to bending-plus-shear deflection. Is Euler-Bernoulli adequate for that budget? Please decide and show a compact check.",
+          "I copied the bending depth incorrectly: it is 24 mm, not 120 mm. All other stipulated assumptions and the 2% budget stay the same. Does your decision change?"
+        ],
+        "expected_facts": [
+          "At h=.12,L=.48, r=delta_s/delta_b=.04875, omission/total=.0464839094: fails 2%. At h=.024 r=.00195, omission/total=.0019462049: meets 2%. This is only a shear-omission model budget, not a physical accuracy guarantee."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Uses cantilever-tip formulas and correct error denominator, gives fail then pass when depth changes, and confines adequacy to the stipulated model/budget."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "**No: Euler–Bernoulli exceeds the 2% shear-omission budget for h = 120 mm.** Within the stipulated model, the cantilever tip components are\n\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nWith G = 76.923 GPa, these give δ_b = 0.03200 mm and δ_s = 0.001560 mm. Thus\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.04875,\n\\qquad\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}=4.648\\%>2\\%.\n\\]\n\nUse bending plus shear for this estimate: δ_total = 0.03356 mm. The percentage uses the combined deflection as its denominator, as requested.",
+            "**Yes: with the corrected depth of 24 mm, Euler–Bernoulli meets the 2% shear-omission budget.** Reusing the same cantilever ratio,\n\n\\[\nr=\\frac{1.30}{2(5/6)}\\left(\\frac{0.024}{0.480}\\right)^2\n=0.001950,\n\\qquad\n\\frac{r}{1+r}=0.1946\\%<2\\%.\n\\]\n\nThe corrected deflections are δ_b = 4.000 mm and δ_s = 0.007800 mm, giving δ_total = 4.007800 mm. The larger bending deflection follows from I being proportional to h³; all stipulated assumptions remain in force."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/argument.md'",
+              "@'\nimport math\nP,L,b,E,nu,k=1000,.48,.04,200e9,.30,5/6\nG=E/(2*(1+nu))\nfor h in (.12,.024):\n    A=b*h; I=b*h**3/12\n    db=P*L**3/(3*E*I); ds=P*L/(k*G*A)\n    print('B1',h,'bending_mm',db*1000,'shear_mm',ds*1000,'r',ds/db,'error_pct',100*ds/(db+ds))\nP,L,b,h,E,nu,k=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); A=b*h; I=b*h**3/12\nbending=P*L**3/(48*E*I); shear=P*L/(4*k*G*A)\nprint('B2','bending_mm',bending*1000,'shear_mm',shear*1000,'r',shear/bending,'error_pct',100*shear/(bending+shear))\nL,nu,k=.8,.30,5/6\nfor h in (.02,.20):\n    r=(1+nu)*(h/L)**2/(2*k)\n    print('B3',h,'r',r,'error_pct',100*r/(1+r))\nprint('B3','threshold_m',L*math.sqrt(2*k*.01/((1+nu)*(1-.01))))\nprint('C3','error_pct',100*.10/1.10)\n'@ | python -"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "**No: Euler–Bernoulli exceeds your 2% shear-omission budget.** For the stipulated cantilever model,\n\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nWith \\(h=0.120\\,\\mathrm m\\), these give\n\n\\[\n\\delta_b=0.03200\\,\\mathrm{mm},\\qquad\n\\delta_s=0.001560\\,\\mathrm{mm}.\n\\]\n\nThe omitted fraction of the full deflection is\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.001560}{0.033560}\n=\\boxed{4.648\\%}>2\\%.\n\\]\n\nUse bending plus shear for this budget; its tip-deflection estimate is \\(0.03356\\,\\mathrm{mm}\\).",
+            "**Yes—the decision changes: Euler–Bernoulli meets the 2% budget with a 24 mm bending depth.** Recomputing with \\(h=0.024\\,\\mathrm m\\),\n\n\\[\nI=4.608\\times10^{-8}\\,\\mathrm{m^4},\\quad A=9.60\\times10^{-4}\\,\\mathrm{m^2},\n\\]\n\n\\[\n\\delta_b=4.000\\,\\mathrm{mm},\\qquad\n\\delta_s=0.007800\\,\\mathrm{mm}.\n\\]\n\nThus\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.007800}{4.007800}\n=\\boxed{0.1946\\%}<2\\%.\n\\]\n\nReducing the depth increases bending deflection much faster than shear deflection: bending varies as \\(h^{-3}\\), while shear varies as \\(h^{-1}\\)."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "@'\nimport math\n\ndef cantilever(P,L,b,h,E,nu,kappa=5/6):\n    G=E/(2*(1+nu)); A=b*h; I=b*h**3/12\n    bend=P*L**3/(3*E*I); shear=P*L/(kappa*G*A)\n    return {'I':I,'A':A,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)}\nprint('B1 first', cantilever(1000,.48,.04,.12,200e9,.30))\nprint('B1 followup', cantilever(1000,.48,.04,.024,200e9,.30))\nP,L,b,h,E,nu,kappa=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); I=b*h**3/12; A=b*h\nbend=P*L**3/(48*E*I); shear=P*L/(4*kappa*G*A)\nprint('B2', {'I':I,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)})\nL,nu,kappa,budget=.8,.30,5/6,.01\nfactor=2*(1+nu)/(4*kappa)\nthreshold=L*math.sqrt(budget/((1-budget)*factor))\nprint('B3', {'factor':factor,'h_threshold_m':threshold,'min_error_pct':100*factor*(.02/L)**2/(1+factor*(.02/L)**2),'max_error_pct':100*factor*(.2/L)**2/(1+factor*(.2/L)**2)})\n'@ | python -"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "**No: Euler–Bernoulli exceeds your 2% shear-omission budget.** For the stipulated cantilever model,\n\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nWith \\(L=0.480\\,\\mathrm m\\), \\(h=0.120\\,\\mathrm m\\) and \\(G=76.923\\,\\mathrm{GPa}\\), the shear-to-bending ratio is\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78(0.25)^2=0.04875.\n\\]\n\nThe error relative to **bending plus shear** is therefore\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac r{1+r}=4.648\\%>2\\%.\n\\]\n\nNumerically, \\(\\delta_b=0.03200\\,\\mathrm{mm}\\), \\(\\delta_s=0.001560\\,\\mathrm{mm}\\), and the combined estimate is \\(0.03356\\,\\mathrm{mm}\\). Include shear to meet this budget.",
+            "**Yes—the decision changes: Euler–Bernoulli meets the 2% shear-omission budget with \\(h=24\\,\\mathrm{mm}\\).** Updating the same check,\n\n\\[\nr=0.78\\left(\\frac{0.024}{0.480}\\right)^2=0.00195,\n\\qquad\n\\frac r{1+r}=0.1946\\%<2\\%.\n\\]\n\nThe deflections are now \\(\\delta_b=4.000\\,\\mathrm{mm}\\) and \\(\\delta_s=0.007800\\,\\mathrm{mm}\\), giving \\(4.0078\\,\\mathrm{mm}\\) combined. Reducing depth increases bending deflection more rapidly than shear deflection, so shear becomes a smaller fraction of the total."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "**No: Euler–Bernoulli fails the 2% shear-omission budget for the stated 120 mm depth.**\n\nFor a cantilever with a transverse tip load,\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA}.\n\\]\nWith \\(A=bh\\), \\(I=bh^3/12\\), and \\(G=E/[2(1+\\nu)]\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{1.30}{2(5/6)}\\left(\\frac{0.120}{0.480}\\right)^2\n=0.04875.\n\\]\nYour required denominator is the combined deflection:\n\\[\n\\text{omission error}=\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}\n=4.648\\%>2\\%.\n\\]\nNumerically, \\(\\delta_b=0.0320\\) mm and \\(\\delta_s=0.00156\\) mm, giving \\(0.03356\\) mm combined. Include shear to meet this budget under the stipulated beam model.",
+            "**Yes—the decision changes: Euler–Bernoulli meets the 2% budget with \\(h=24\\) mm.**\n\nThe corrected depth gives\n\\[\nr=\\frac{1.30}{2(5/6)}\n\\left(\\frac{0.024}{0.480}\\right)^2\n=0.00195,\n\\qquad\n\\frac{r}{1+r}=0.1946\\%<2\\%.\n\\]\nThe deflections are now \\(\\delta_b=4.000\\) mm and \\(\\delta_s=0.00780\\) mm, for \\(4.00780\\) mm combined. The depth is one fifth of the original value, so the shear-to-bending ratio falls by a factor of 25. This verdict concerns the specified shear-omission budget under your unchanged assumptions."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3",
+              "$kappa = 5.0/6.0; foreach ($case in @(@{id='B1_initial';P=1000.0;L=.48;b=.04;h=.12;E=200e9;nu=.30;support='cantilever'},@{id='B1_corrected';P=1000.0;L=.48;b=.04;h=.024;E=200e9;nu=.30;support='cantilever'},@{id='B2';P=2000.0;L=1.2;b=.04;h=.12;E=70e9;nu=.33;support='central'})) { $area=$case.b*$case.h; $inertia=$case.b*[Math]::Pow($case.h,3)/12; $shearModulus=$case.E/(2*(1+$case.nu)); if ($case.support -eq 'cantilever') { $bending=$case.P*[Math]::Pow($case.L,3)/(3*$case.E*$inertia); $shear=$case.P*$case.L/($kappa*$shearModulus*$area) } else { $bending=$case.P*[Math]::Pow($case.L,3)/(48*$case.E*$inertia); $shear=$case.P*$case.L/(4*$kappa*$shearModulus*$area) }; [PSCustomObject]@{id=$case.id;bending_mm=1000*$bending;shear_mm=1000*$shear;ratio=$shear/$bending;error_percent=100*$shear/($bending+$shear)} | ConvertTo-Json -Compress }; [PSCustomObject]@{id='B3';h_limit_m=.8*[Math]::Sqrt((2*$kappa/(1+.30))*(.01/.99));min_error_percent=100*(.78*[Math]::Pow(.02/.8,2))/(1+.78*[Math]::Pow(.02/.8,2));max_error_percent=100*(.78*[Math]::Pow(.20/.8,2))/(1+.78*[Math]::Pow(.20/.8,2))} | ConvertTo-Json -Compress"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "**No. Euler–Bernoulli exceeds your 2% shear-omission budget for the stated 120 mm depth.**\n\nFor this tip-loaded cantilever,\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nI=\\frac{bh^3}{12},\\quad A=bh.\n\\]\nUsing the supplied isotropic relation for \\(G\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{1.30}{2(5/6)}\\left(\\frac{120}{480}\\right)^2\n=0.04875.\n\\]\nThe error relative to bending **plus** shear is\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}\n=0.04648\\approx\\boxed{4.65\\%}>2\\%.\n\\]\nNumerically, \\(\\delta_b=0.03200\\) mm and \\(\\delta_s=0.00156\\) mm, giving \\(0.03356\\) mm combined. Include shear to meet this budget under the stipulated model.",
+            "**Yes—the decision changes: Euler–Bernoulli now meets the 2% shear-omission budget.** With \\(h=24\\) mm,\n\\[\nr=\\frac{1.30}{2(5/6)}\\left(\\frac{24}{480}\\right)^2\n=0.00195,\n\\qquad\n\\frac{r}{1+r}\\times100\\%=\\boxed{0.1946\\%}<2\\%.\n\\]\nThe corrected deflections are \\(\\delta_b=4.0000\\) mm and \\(\\delta_s=0.0078\\) mm, so the combined estimate is \\(4.0078\\) mm. The shallower section bends much more, while shear becomes a smaller fraction of the total."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\argument.md'",
+              "python -c \"P=1000; L=.480; b=.040; E=200e9; nu=.30; G=E/(2*(1+nu)); k=5/6; [(print({'h_m':h,'bending_mm':P*L**3/(3*E*(b*h**3/12))*1000,'shear_mm':P*L/(k*G*b*h)*1000,'r':(1+nu)*(h/L)**2/(2*k),'error_pct':100*((1+nu)*(h/L)**2/(2*k))/(1+(1+nu)*(h/L)**2/(2*k))})) for h in [.120,.024]]\""
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "**No. Omitting shear gives a 4.65% underestimate relative to bending-plus-shear deflection, exceeding your 2% budget.**\n\nFor the stipulated cantilever and tip load,\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\nWith \\(L=0.480\\,\\mathrm m\\), \\(b=0.040\\,\\mathrm m\\), \\(h=0.120\\,\\mathrm m\\), and \\(G=76.923\\,\\mathrm{GPa}\\),\n\\[\n\\delta_b=0.03200\\,\\mathrm{mm},\\qquad\n\\delta_s=0.001560\\,\\mathrm{mm}.\n\\]\nTherefore the specified omission error is\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.001560}{0.033560}\n=0.046484\\approx4.65\\%.\n\\]\nInclude shear for this budget; the bending-plus-shear estimate is \\(0.03356\\,\\mathrm{mm}\\).",
+            "**Yes—the decision changes: Euler–Bernoulli meets the 2% shear-omission budget with the corrected 24 mm depth.**\n\nUsing \\(h=0.024\\,\\mathrm m\\),\n\\[\nA=0.000960\\,\\mathrm{m^2},\\qquad I=4.608\\times10^{-8}\\,\\mathrm{m^4},\n\\]\nwhich gives\n\\[\n\\delta_b=4.0000\\,\\mathrm{mm},\\qquad\n\\delta_s=0.007800\\,\\mathrm{mm}.\n\\]\nThus\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.0078}{4.0078}\n\\approx0.0019462=0.1946\\%<2\\%.\n\\]\nReducing the depth increases bending deflection much faster than shear deflection: their ratio scales as \\(h^2/L^2\\). This decision concerns the stipulated shear-omission budget."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+              "python -c \"P=1000; L=.480; b=.040; E=200e9; nu=.30; G=E/(2*(1+nu)); k=5/6; [(print({'h_m':h,'I_m4':b*h**3/12,'bending_mm':1e3*P*L**3/(3*E*(b*h**3/12)),'shear_mm':1e3*P*L/(k*G*b*h),'shear_to_bending':(P*L/(k*G*b*h))/(P*L**3/(3*E*(b*h**3/12))),'error_percent':100*(P*L/(k*G*b*h))/(P*L**3/(3*E*(b*h**3/12))+P*L/(k*G*b*h))})) for h in [.120,.024]]\""
+            ],
+            "files_written": []
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "X1",
+        "area": "transfer",
+        "messages": [
+          "Mechanics habit I know: test an assumption by comparing predictions. Help me use it on this actual history claim: 'The new toll caused the merchants to protest in June.' My evidence is a merchants' petition dated June 2 demanding repeal of the toll introduced in May. A guild election dispute also began in May. Show me one move on my claim, name what history requires, and give me one short thing to try.",
+          "I found a letter by the petition organizers dated April 20 planning the June protest over the guild election, before the toll existed. Does that overturn the original claim?"
+        ],
+        "expected_facts": [
+          "Petition supports toll as a stated grievance, not exclusive or initiating cause. Election dispute is rival explanation. History needs source date/authorship/context/representativeness and discriminating chronology. April letter weakens toll-as-origin claim but does not exclude later toll contribution or all merchant motives."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Demonstrates testing rival explanations on the supplied claim; explicitly names historical evidence the mechanics habit cannot supply, proposes one brief application, updates inference from the dated letter without claiming learner transfer."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "Use **comparison of rival predictions** on the causal step. If the toll prompted the protest, you would expect evidence linking the decision to mobilise to the toll introduced in May. If the guild election dispute prompted it, you would expect evidence linking the organisers’ plans to that dispute, potentially independently of the toll.\n\nThe June 2 petition establishes that its authors publicly demanded repeal; it supports the toll being a grievance. It does not establish what first prompted the protest or how widely that motive was shared. A dated organisers’ letter or meeting minute explaining when and why they decided to protest could help distinguish the explanations.\n\nHistory requires checking the source’s date, authorship, purpose and representativeness; comparing predictions cannot supply those facts. Try one short sentence: describe a dated finding that would favour the election explanation over the toll explanation.",
+            "It overturns the explanation that the toll initiated plans for that June protest, provided the letter is authentic, correctly dated and concerns the same protest. Planning on April 20 precedes the toll’s introduction in May.\n\nIt does not establish that the toll made no later contribution: it could have changed the protest’s demands, participation or intensity. The supported account is that organisers planned the protest over the election before the toll existed, and their June 2 petition subsequently made repeal a demand. Whether the toll helped turn the plan into the actual June protest remains open."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "Use your mechanics move to **compare rival explanations by their different predictions**. The June 2 petition establishes that the organizers publicly demanded repeal; it does not by itself establish what initiated the protest.\n\nCompare these possibilities: if the toll initiated the protest, the organizers' planning should connect mobilization to the toll introduced in May. If the guild election dispute initiated it, planning might already be under way for that reason, with the toll becoming an additional grievance. Both possibilities can fit a June petition demanding repeal.\n\nHistory requires dated, attributable sources interpreted for their purpose and audience: an organizer's private planning letter could reveal something that a public petition does not, though neither automatically represents every merchant.\n\nTry one short check: find the earliest dated evidence of the organizers' protest plans and say which explanation its timing and stated reason support.",
+            "It overturns the claim that the toll **originated the protest plan**, provided the letter concerns the same June protest: planning on April 20 cannot have been caused by a toll introduced in May. It does **not** establish that the toll made no contribution to the eventual protest.\n\nThe evidence now supports this distinction: organizers had already planned the protest over the election dispute, and the June 2 petition later made toll repeal a public demand. The toll could still have changed participation, urgency or demands; evidence of how plans changed after its introduction would test that narrower causal role."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "Use your mechanics move by asking what the rival explanations predict. If the toll prompted the June protest, you would look for organizing that arose after its introduction; if the guild dispute prompted it, planning might already exist before the toll. The June 2 petition makes the toll a stated grievance, but it does not isolate it as the cause.\n\nHistory requires checking the dates, authorship and purpose of the sources, and whose views they represent: a petition is evidence of what its authors demanded, with a purpose to persuade.\n\nTry one short sentence: **What would reliable evidence that the organizers planned the same June protest before May do to the toll explanation?**",
+            "It undermines the original claim as a complete explanation and, if the letter is reliable and concerns the same protest, overturns the idea that the toll initiated the plan: the organizers were already planning it over the election on April 20.\n\nIt does not establish that the toll had no later effect. The June petition shows it became a stated grievance, but further evidence would be needed to show whether it changed participation, demands or the decision to proceed. The supported account is that election-related planning preceded the toll; the toll’s later contribution remains unresolved."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "Use your mechanics move to compare two explanations of the same protest: **the toll triggered it**, or **the guild election dispute prompted it and the toll became a grievance**.\n\nYour June 2 petition shows that its authors publicly demanded repeal after the toll began. Both explanations can accommodate that. A discriminating check would be to look for organizers' correspondence from before the toll: a plan for the same June protest over the election would count against the toll being its original trigger.\n\nHistory requires checking chronology and the sources' provenance, authorship and purpose. A petition's public demand need not reveal every organizer's motive or represent every merchant.\n\nTry one sentence using your evidence: “The petition supports ___, but does not by itself establish ___.”",
+            "It overturns the toll as the original trigger for the organizers' plan, **if the letter is authentic and concerns the same June protest**: they were already planning it over the election on April 20, before the toll existed.\n\nIt does not establish that the toll had no later effect. The toll could have changed the protest's demands, participation or intensity. The evidence now supports distinguishing the election-related origin of the plan from the anti-toll demand documented in the June 2 petition."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\argument.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "Your comparison move transfers: ask what evidence would distinguish **the toll as the trigger** from **the guild election dispute as the trigger**. The June 2 petition establishes that merchants publicly demanded the toll's repeal; it does not by itself establish what started the protest. Dated evidence that organizers had already planned the protest before the toll existed would challenge the toll-trigger explanation.\n\nHistory requires you to check the source's date, authorship, audience and purpose, and whose motives it can represent. A public petition may express a grievance without recording the full history of organizing.\n\nTry one sentence: **“If the election dispute started the protest, I would look for ___, and its date would matter because ___.”**",
+            "The April 20 letter rules out the toll as the original trigger for the organizers' already planned protest, assuming its date and interpretation are reliable. It supports the election dispute as an earlier cause. It does **not** establish that the toll had no later effect on participation, demands or the decision to carry the protest through: the June 2 petition still shows that repeal became a public demand. So abandon an exclusive toll-origin claim, while leaving a possible later contribution open."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "Use **rival explanations to test the causal inference**. Your petition shows that merchants publicly demanded repeal of the toll on June 2. It does not yet distinguish \"the toll initiated the protest\" from \"the guild election dispute initiated it, and the organizers later added opposition to the toll.\"\n\nA distinguishing observation would be the timing of the first protest plans: plans made before the toll existed would count against the toll being the original trigger. History requires dated sources with their authorship, purpose, and relationship to the event checked; comparing predictions cannot supply those facts. An organizers' letter or meeting record about the first plans would be useful.\n\nTry one sentence: what would a pre-May letter planning the June protest over the election do to your original claim?",
+            "It overturns the strong reading that the toll **initiated** this protest: the April 20 letter places plans for the same June protest before the toll existed.\n\nIt does not establish that the toll had no later influence on the protest's demands or support. On the supplied evidence, the narrower conclusion is that the protest was already planned around the guild election, and opposition to the toll became part of its later demands. Check that the letter concerns the same protest before relying on that chronology."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "C3",
+        "area": "control",
+        "messages": [
+          "In an earlier message you called shear/bending=0.10 a 10% underprediction relative to the full deflection. I think it should be 0.10/1.10, about 9.09%, because the full deflection includes both. Am I right?"
+        ],
+        "expected_facts": [
+          "Learner correction valid: .10/1.10=1/11. The earlier statement is supplied as learner report, not a visible tutor turn."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Accepts the valid denominator correction and corrects the claim; does not defend 10% or pretend to have inspected an unavailable prior turn."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "Yes—your denominator is correct. If I called it a 10% underprediction relative to the full deflection, that was wrong:\n\\[\n\\frac{\\delta_{\\rm full}-\\delta_b}{\\delta_{\\rm full}}\n=\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.10}{1.10}\n\\approx\\boxed{9.09\\%}.\n\\]\nThe 10% figure is shear relative to **bending alone**."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "Yes. If I called it a 10% underprediction relative to the full deflection, that was wrong. With \\(\\delta_s/\\delta_b=0.10\\),\n\\[\n\\frac{(\\delta_b+\\delta_s)-\\delta_b}{\\delta_b+\\delta_s}\n=\\frac{0.10}{1.10}\\approx9.09\\%.\n\\]\nThe 10% figure uses bending deflection as the denominator; your 9.09% uses the full bending-plus-shear deflection."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "Yes: if r = δ_s/δ_b = 0.10, the underprediction relative to the full deflection is δ_s/(δ_b + δ_s) = r/(1 + r) = 0.10/1.10 ≈ **9.09%**. If I called it 10% relative to the full deflection, that was wrong; 10% is relative to the bending deflection alone."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/tutoring.md'",
+              "@'\nimport math\nP,L,b,E,nu,k=1000,.48,.04,200e9,.30,5/6\nG=E/(2*(1+nu))\nfor h in (.12,.024):\n    A=b*h; I=b*h**3/12\n    db=P*L**3/(3*E*I); ds=P*L/(k*G*A)\n    print('B1',h,'bending_mm',db*1000,'shear_mm',ds*1000,'r',ds/db,'error_pct',100*ds/(db+ds))\nP,L,b,h,E,nu,k=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); A=b*h; I=b*h**3/12\nbending=P*L**3/(48*E*I); shear=P*L/(4*k*G*A)\nprint('B2','bending_mm',bending*1000,'shear_mm',shear*1000,'r',shear/bending,'error_pct',100*shear/(bending+shear))\nL,nu,k=.8,.30,5/6\nfor h in (.02,.20):\n    r=(1+nu)*(h/L)**2/(2*k)\n    print('B3',h,'r',r,'error_pct',100*r/(1+r))\nprint('B3','threshold_m',L*math.sqrt(2*k*.01/((1+nu)*(1-.01))))\nprint('C3','error_pct',100*.10/1.10)\n'@ | python -"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "Yes—your denominator is correct. If I called that a 10% underprediction relative to the full deflection, that was wrong: with \\(r=\\delta_s/\\delta_b=0.10\\), the relative underprediction is\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}=\\frac{r}{1+r}=\\frac{0.10}{1.10}\\approx9.09\\%.\n\\]\n\nThe 10% figure measures shear relative to bending alone."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "Yes, you're right:\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.10}{1.10}\n=0.0909\\ldots\\approx9.09\\%.\n\\]\nIf I called it a 10% underprediction relative to the full deflection, that was wrong. The 10% uses bending deflection as its denominator; the 9.09% uses bending plus shear."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "Yes—you are right: if shear/bending is \\(0.10\\), the underprediction relative to the full deflection is \\(\\delta_s/(\\delta_b+\\delta_s)=0.10/1.10\\approx9.09\\%\\); if I called that 10%, I used the wrong denominator."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    }
+  ]
+}

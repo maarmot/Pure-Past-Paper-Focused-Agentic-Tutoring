@@ -1,0 +1,320 @@
+{
+  "case": {
+    "id": "A1",
+    "area": "essay",
+    "messages": [
+      "Where is my plan weakest? No mark or rewrite. Thesis: determinism rules out moral responsibility. P1: every choice has prior causes. P2: responsibility requires acting for your own reasons. Objection: a person's reasons can themselves be causes, so caused actions might still be responsible. Conclusion: therefore nobody is responsible. I haven't answered that objection.",
+      "I changed the conclusion to 'prior causes alone don't establish that nobody is responsible; I need to show why acting for reasons is insufficient.' Is that the right repair? Keep it brief."
+    ],
+    "expected_facts": [
+      "The missing incompatibility premise/answer to the stated compatibilist objection blocks the original conclusion. The revised conclusion correctly narrows what follows, without settling free will."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Pinpoints the inferential gap first, offers one concrete repair without a grade, and briefly confirms the logically sound narrowing on turn 2."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "Your weakest point is the jump from caused choices to nobody being responsible. The objection shows how P1 and P2 could both hold: a choice could have prior causes and still express the person's own reasons. You have identified the challenge, but your conclusion bypasses it.\n\nYour next move is to defend why a person's reasons being caused would prevent the kind of agency responsibility requires.",
+        "Yes. That repairs the unsupported conclusion and identifies the missing argument. You still need to defend why acting for one's own reasons is insufficient under determinism; identifying that task does not yet settle it."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\argument.md' -Raw"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "Your weakest point is the unanswered objection: P1 and P2 allow the possibility that a person acts responsibly through reasons that have prior causes. Your conclusion therefore does not follow yet.\n\nFor one concrete repair, explain why acting for causally formed reasons lacks some further kind of control that responsibility requires, and defend why that further control is necessary.",
+        "Yes. Your revision removes the unsupported conclusion and identifies the missing argument: why acting for one's reasons is insufficient for responsibility. That repairs the scope of your conclusion; the original thesis still needs that argument."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "Your weakest point is the step from “every choice has prior causes” to “nobody is responsible.” You have identified the relevant objection: acting for your own reasons could itself be a causal process, so P1 and P2 do not yet conflict. Your next step is to justify why a reason's having prior causes prevents it from counting as the person's own reason; without that link, the conclusion does not follow.",
+        "Yes—that repairs the unsupported inference and identifies the missing argument. It does not yet prove that determinism rules out responsibility; you still need to explain why acting for reasons would be insufficient."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+          "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "Your weakest point is the jump from choices having prior causes to nobody being responsible. P2 does not explain why caused reasons cannot be your own, and your unanswered objection exposes that gap. Repair it by identifying the kind of control responsibility requires and defending why determinism excludes it, even when someone acts for their own reasons.",
+        "Yes: it correctly recognises that your premises do not establish the original conclusion. To complete the repair, explain what control responsibility requires and why acting for your own reasons would be insufficient under determinism."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/fields.md'",
+          "Get-Content -Raw 'research/evaluation/skill/references/tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "Your weakest point is the inference from caused choices to no responsibility. Your own objection shows why: a choice could have prior causes and still express the person's own reasons, so P1 and P2 do not establish your conclusion.\n\nThe repair is to defend one additional premise explaining why acting for your own reasons is insufficient when those reasons have prior causes. Until you answer that objection, the conclusion remains unsupported.",
+        "Yes. That repairs the overclaim and identifies the missing argument. It does not yet establish your original thesis; that still requires defending why caused reasons cannot ground responsibility."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+          "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+          "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "The weakest point is the inference from “every choice has prior causes” to “nobody is responsible.” Your objection exposes the gap: acting for your own reasons might itself be a caused process, so P1 does not yet rule out P2’s condition for responsibility. Your next step is to identify and defend the extra requirement for responsibility that determinism supposedly prevents.",
+        "Yes—that repairs the unsupported inference and identifies what you still need to establish. It does not yet defend the original thesis; you now need a reason why acting for your own reasons cannot be sufficient when those reasons have prior causes."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly observes that prior causes and acting for one's own reasons can coexist; neither turn treats the narrowed conclusion as proof of incompatibilism."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Identifies the weakest inference without marking or rewriting, then directly confirms the revised conclusion and its remaining limit."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies the needed argument: why causally formed reasons would prevent the agency required for responsibility."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Both replies are brief, supply the requested diagnosis and confirmation, and invent no learner attempt or performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Begins with the jump from caused choices to no responsibility, gives one repair, assigns no grade, and confirms that turn 2 narrows rather than establishes the thesis."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly treats P1 and P2 as compatible with responsible action and explains that the revision repairs scope while leaving the original thesis unproved."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers the plan's weakness first and updates to a direct confirmation of the learner's narrowed conclusion."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Gives a concrete repair: identify the further control responsibility requires, explain why causally formed reasons lack it, and defend its necessity."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Keeps the response compact and gives neither a mark nor a full rewritten plan."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Pinpoints the unanswered compatibilist objection before proposing one control-based repair, then briefly confirms the logically valid narrowing."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly identifies that caused choices do not conflict with acting for one's own reasons; challenging ownership of caused reasons is a possible missing incompatibility argument, not asserted as established."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly locates the weakest step, then confirms the changed conclusion while distinguishing it from a proof of the original thesis."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Identifies a specific possible bridge to defend: why having prior causes would prevent a reason from counting as the person's own."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested brief feedback and confirmation without a mark, unsolicited rewrite, or fabricated learner work."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Leads with the inferential gap, proposes one ownership-based repair, and confirms on turn 2 that only the unsupported inference has been repaired."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly identifies the missing link between caused reasons and responsibility and treats the revision as recognition that the original premises are insufficient."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers the requested weakest point directly, then briefly affirms the narrower conclusion and what would still support the original thesis."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies identifying the control responsibility requires and defending why determinism excludes it even when action follows one's own reasons."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Both turns are concise and contain no grade, full rewrite, compulsory attempt, or invented performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Starts with the unsupported jump, supplies one control-based repair without grading, and confirms that turn 2 correctly limits what the premises establish."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly explains that prior causes can coexist with expression of one's own reasons and that the revision does not establish the original incompatibilist thesis."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Identifies the requested weakness, then directly answers the brief repair-check with an appropriately qualified yes."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies defending an additional premise explaining why acting for one's own causally formed reasons is insufficient for responsibility."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Keeps to brief plan feedback and confirmation without a mark or rewritten essay."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "First identifies the caused-choice-to-no-responsibility gap, gives one premise-based repair, and confirms the sound narrowing on turn 2."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly distinguishes a caused process from failure of the reasons condition and says the revised conclusion identifies rather than proves the missing argument."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers the weakest-point request and then confirms the learner's revised claim at the requested brief level."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies identifying and defending the additional responsibility requirement determinism allegedly prevents."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides concise requested assistance with no grade, full rewrite, or invented learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Leads with the inferential gap and compatibilist possibility, offers one additional-requirement repair, and briefly confirms the valid narrowing."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "B": {
+      "version": "candidate",
+      "sample": 2
+    },
+    "C": {
+      "version": "baseline",
+      "sample": 1
+    },
+    "D": {
+      "version": "candidate",
+      "sample": 1
+    },
+    "E": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "F": {
+      "version": "baseline",
+      "sample": 3
+    }
+  }
+}

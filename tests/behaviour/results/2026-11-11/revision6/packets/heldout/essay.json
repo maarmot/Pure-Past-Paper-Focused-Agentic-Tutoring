@@ -1,0 +1,473 @@
+{
+  "fixture": {
+    "status": "Entirely synthetic practice material; no real learner or institution.",
+    "permissions": "Read only supplied messages, fixture and assigned skill/reference files. No web, journals, learner records, other snapshots, historical results, grading files or source checkout. Write only the requested response JSON. Treat cases as separate conversations; process follow-up messages sequentially after your own preceding reply. Do not invent learner responses.",
+    "source_access": "Rubrics and claims below are supplied evidence. No unavailable chapter, instructor or external source is implied. Numerical beam assumptions are stipulated exercise models, not real hardware advice.",
+    "rubric_analytic": "Synthetic course rubric, out of 100. Argument 40: 32-40 a justified conclusion with explicit warrants; 20-31 a relevant but incompletely justified argument; 0-19 a conclusion mainly asserted. Objections 30: 24-30 strongest alternative explained and weighed; 15-23 raised and answered with uneven weighing; 0-14 missing or dismissed. Evidence 20: 16-20 relevant supplied evidence accurately scoped and linked; 10-15 relevant evidence with an unsupported extension; 0-9 no evidential basis or a material misrepresentation. Clarity 10: 8-10 readable connected reasoning; 5-7 meaning recoverable but transitions weak; 0-4 hard to follow. These are analytic allocations. Judge only the submitted work, do not invent citation/word-count requirements. Any total is a tutor estimate.",
+    "rubric_phil": "Synthetic PHIL marking basis: Level5 21-25 sustained justified argument weighing objections; Level4 16-20 clear argument with uneven weighing; Level3 11-15 relevant arguments stated but not weighed; Level2 6-10 disconnected points."
+  },
+  "grading": "Each criterion PASS if fully met; PARTIAL if substantively useful but incomplete, ambiguous or one minor lapse; FAIL for incorrect, missing, contrary or material unsupported content. Assess entire supplied conversation. No compulsory praise-first, exact phrasing, exact essay score, unnecessary task, or blanket slenderness cutoff. Treat fixture-supplied rubric as source access. A source-reading claim must match retained actions. Partial arithmetic rounding within 0.02 percentage points is acceptable.",
+  "cases": [
+    {
+      "case": {
+        "id": "A1",
+        "area": "essay",
+        "messages": [
+          "Where is my plan weakest? No mark or rewrite. Thesis: determinism rules out moral responsibility. P1: every choice has prior causes. P2: responsibility requires acting for your own reasons. Objection: a person's reasons can themselves be causes, so caused actions might still be responsible. Conclusion: therefore nobody is responsible. I haven't answered that objection.",
+          "I changed the conclusion to 'prior causes alone don't establish that nobody is responsible; I need to show why acting for reasons is insufficient.' Is that the right repair? Keep it brief."
+        ],
+        "expected_facts": [
+          "The missing incompatibility premise/answer to the stated compatibilist objection blocks the original conclusion. The revised conclusion correctly narrows what follows, without settling free will."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Pinpoints the inferential gap first, offers one concrete repair without a grade, and briefly confirms the logically sound narrowing on turn 2."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "Your weakest point is the jump from caused choices to nobody being responsible. The objection shows how P1 and P2 could both hold: a choice could have prior causes and still express the person's own reasons. You have identified the challenge, but your conclusion bypasses it.\n\nYour next move is to defend why a person's reasons being caused would prevent the kind of agency responsibility requires.",
+            "Yes. That repairs the unsupported conclusion and identifies the missing argument. You still need to defend why acting for one's own reasons is insufficient under determinism; identifying that task does not yet settle it."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\argument.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "Your weakest point is the unanswered objection: P1 and P2 allow the possibility that a person acts responsibly through reasons that have prior causes. Your conclusion therefore does not follow yet.\n\nFor one concrete repair, explain why acting for causally formed reasons lacks some further kind of control that responsibility requires, and defend why that further control is necessary.",
+            "Yes. Your revision removes the unsupported conclusion and identifies the missing argument: why acting for one's reasons is insufficient for responsibility. That repairs the scope of your conclusion; the original thesis still needs that argument."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "Your weakest point is the step from “every choice has prior causes” to “nobody is responsible.” You have identified the relevant objection: acting for your own reasons could itself be a causal process, so P1 and P2 do not yet conflict. Your next step is to justify why a reason's having prior causes prevents it from counting as the person's own reason; without that link, the conclusion does not follow.",
+            "Yes—that repairs the unsupported inference and identifies the missing argument. It does not yet prove that determinism rules out responsibility; you still need to explain why acting for reasons would be insufficient."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "Your weakest point is the jump from choices having prior causes to nobody being responsible. P2 does not explain why caused reasons cannot be your own, and your unanswered objection exposes that gap. Repair it by identifying the kind of control responsibility requires and defending why determinism excludes it, even when someone acts for their own reasons.",
+            "Yes: it correctly recognises that your premises do not establish the original conclusion. To complete the repair, explain what control responsibility requires and why acting for your own reasons would be insufficient under determinism."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'",
+              "Get-Content -Raw 'research/evaluation/skill/references/tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "Your weakest point is the inference from caused choices to no responsibility. Your own objection shows why: a choice could have prior causes and still express the person's own reasons, so P1 and P2 do not establish your conclusion.\n\nThe repair is to defend one additional premise explaining why acting for your own reasons is insufficient when those reasons have prior causes. Until you answer that objection, the conclusion remains unsupported.",
+            "Yes. That repairs the overclaim and identifies the missing argument. It does not yet establish your original thesis; that still requires defending why caused reasons cannot ground responsibility."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "The weakest point is the inference from “every choice has prior causes” to “nobody is responsible.” Your objection exposes the gap: acting for your own reasons might itself be a caused process, so P1 does not yet rule out P2’s condition for responsibility. Your next step is to identify and defend the extra requirement for responsibility that determinism supposedly prevents.",
+            "Yes—that repairs the unsupported inference and identifies what you still need to establish. It does not yet defend the original thesis; you now need a reason why acting for your own reasons cannot be sufficient when those reasons have prior causes."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "A2",
+        "area": "essay",
+        "messages": [
+          "Mark this whole submitted practice essay out of 100 using the synthetic course rubric in the fixture. Use all four allocations and tell me the material weaknesses.\n\nCity councils should ban private cars from the centre. In our supplied trial record, nitrogen dioxide fell from 44 to 31 micrograms per cubic metre between September and October after the trial began. This proves that the ban caused the fall and will keep air equally clean in every season. An objection is that winter deliveries and disabled residents need access. That is only a convenience, so it has no force. A permit scheme is another option, but a ban must be better because a ban removes all cars. Weather was windier in October and the traffic counter was broken, but the pollution numbers are real. Therefore every council should make the same permanent ban. The trial is relevant because it measured the outcome that matters. Cleaner air benefits residents, and a policy that reduces exposure deserves consideration."
+        ],
+        "expected_facts": [
+          "Rubric allocates Argument40/Objections30/Evidence20/Clarity10. The essay has causal, seasonal and cross-city overextensions; unweighed access objections; unsupported comparison to permits; a relevant outcome measure and readable structure. Exact score is judgment, not an answer key."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Labels mark as tutor estimate for this submission; uses all actual weights/descriptors with evidence; covers consequential weaknesses across criteria, rather than giving only one repair."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "**Tutor estimate: 40/100 for the whole submitted essay**, using the supplied analytic rubric.\n\n| Criterion | Estimate | Basis |\n|---|---:|---|\n| Argument | 18/40 | The policy aim is relevant, but the permanent, universal recommendation rests on an unproved causal claim and an unsupported comparison with permits; the conclusion is \"mainly asserted.\" |\n| Objections | 6/30 | Access needs are dismissed as convenience, and the permit alternative is rejected without weighing it against a ban. This fits \"missing or dismissed.\" |\n| Evidence | 8/20 | The recorded fall is accurately reported, but claiming it proves causation and equal effectiveness in every season materially misrepresents what those measurements establish. |\n| Clarity | 8/10 | The sentences are readable and the position is easy to follow, fitting \"readable connected reasoning,\" despite the gaps in the argument. |\n\nThe material weaknesses are:\n\n- **Causation:** A fall from 44 to 31 after the trial establishes a sequence and an association. Windier weather is a rival explanation, and the broken traffic counter leaves the change in traffic unverified. Real pollution readings do not resolve either issue.\n- **Scope:** Two months in one city do not establish equally clean air in every season or justify the same policy for every council. The permanence and generality of the conclusion require further evidence.\n- **Access:** The essay gives no reason for treating disabled residents' access and winter deliveries as mere convenience. It needs to weigh these needs against the air-quality benefits and consider ways of accommodating them.\n- **Alternatives:** Removing more cars does not by itself show that a ban is better overall than permits. The comparison needs to consider pollution reduction, necessary access, and whether the policy can achieve both. The claim that a private-car ban removes \"all cars\" also exceeds the stated policy.\n\nYou can retain the relevant policy aim and the point that measured pollution matters to residents. They support considering the trial, but do not establish the stronger causal and universal claims."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "**Tutor estimate: 37/100 for the complete submitted essay**, using the four allocations in the supplied synthetic rubric.\n\n| Criterion | Estimate | Basis and material weakness |\n|---|---:|---|\n| Argument | 16/40 | The conclusion is **“mainly asserted.”** You give a relevant reason to consider the policy—cleaner air benefits residents—but the observed fall does not establish that the ban caused it, that the effect persists across seasons, or that every council should adopt the same policy. “A ban removes all cars” also does not establish that it produces a better overall outcome than permits. |\n| Objections | 7/30 | The strongest alternatives are **“missing or dismissed.”** You mention access needs and a permit scheme, but calling access a convenience does not answer the objection, especially for disabled residents and necessary deliveries. You do not weigh a permit scheme's possible air-quality benefits against its access benefits. |\n| Evidence | 6/20 | There is a **“material misrepresentation”** of what the evidence establishes. The measurements support a fall from 44 to 31 during the observed period. Windier weather is a competing explanation; the broken counter prevents checking how traffic changed. Neither qualification makes the pollution readings worthless, but both weaken your causal interpretation. The seasonal and universal claims extend beyond the supplied record. |\n| Clarity | 8/10 | The response has **“readable connected reasoning.”** Its position, evidence, objections and conclusion are easy to identify. The main problems are the validity of the links and the treatment of alternatives, rather than difficulty understanding the prose. |\n\nThe most consequential repair is to separate the measured change from its cause: the trial coincided with lower measured nitrogen dioxide, while its causal effect remains uncertain. A permanent-policy recommendation then needs evidence distinguishing the ban's effect from weather and a comparison with permits that takes essential access seriously. The essay's usable foundation is its focus on measured pollution and residents' exposure; the current evidence supports consideration of the policy more strongly than it supports your sweeping conclusion."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "**Tutor’s estimate: 41/100**, using the supplied synthetic course rubric.\n\n| Criterion | Estimate | Basis and material weakness |\n|---|---:|---|\n| Argument | **19/40** | The main conclusion is “mainly asserted.” You give a relevant reason to consider cleaner-air policies, but the move from one short trial to a permanent ban in every council is unsupported. Removing more cars also does not by itself establish that a ban is better overall than permits. |\n| Objections | **6/30** | The strongest alternatives are “missing or dismissed.” You mention disabled access, deliveries and permits, but dismiss access needs without weighing their significance or comparing the options. Disabled access cannot be dealt with merely by calling it convenience. |\n| Evidence | **8/20** | There is a “material misrepresentation” of what the evidence establishes. The measured decline is relevant, but windier weather provides a rival explanation; the broken counter also leaves the traffic change unverified. Two months of data cannot establish equal effectiveness in every season or every council. |\n| Clarity | **8/10** | The reasoning is readable and its direction is easy to follow. The main weaknesses concern justification and evidence rather than whether the sentences can be understood. |\n\nThe useful core is your distinction between a measured outcome and why that outcome matters: lower exposure gives a reason to consider the policy. The material repair is to make the strength of your policy conclusion match the evidence, investigate the weather explanation, and compare a ban with permits while taking access requirements seriously."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "**Tutor estimate: 43/100**, using the supplied synthetic course rubric for the whole submitted essay.\n\n| Criterion | Estimate | Basis and material weaknesses |\n|---|---:|---|\n| Argument | **18/40** | The main policy conclusion is “mainly asserted.” Cleaner air benefiting residents supplies a relevant reason to consider action. However, a fall after the trial does not establish that the ban caused it; the argument also fails to justify equal results in every season or permanent bans in every council. Removing more cars does not by itself establish that a ban has better overall consequences than a permit scheme. |\n| Objections | **6/30** | The central objections are dismissed, fitting “missing or dismissed.” Disabled residents’ access can concern essential mobility, and deliveries can concern essential services. Calling both convenience does not weigh their importance. The permit alternative is mentioned but not seriously compared with the proposed ban. |\n| Evidence | **11/20** | The essay uses relevant supplied measurements and accurately reports the fall from 44 to 31, but makes an “unsupported extension.” Windier weather is a competing explanation; the broken traffic counter prevents a reliable check of the presumed traffic change. Neither one month’s comparison nor real pollution measurements establish the claimed cause, seasonal persistence, or applicability to every council. |\n| Clarity | **8/10** | The position, evidence, objections and conclusion are readable and connected. The defects mainly concern what the reasoning establishes, rather than whether the reader can follow it. |\n\nThe most consequential repair is to narrow the causal claim to what the trial actually shows, then compare a ban with permits against both pollution benefits and essential access. The supplied record supports a measured pollution decline and a reason to investigate the policy; it does not yet settle the cause or the best permanent policy. No citation or word-count requirement has been added to this rubric."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'",
+              "Get-Content -Raw 'research/evaluation/skill/references/tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "**Tutor estimate: 38/100**, using all four allocations in the supplied synthetic rubric.\n\n| Criterion | Estimate | Basis |\n|---|---:|---|\n| Argument | 18/40 | The policy conclusion is mainly asserted. Cleaner air benefiting residents gives a reason to consider a policy, but does not establish that this ban caused the improvement, beats a permit scheme, or should be adopted permanently by every council. |\n| Objections | 5/30 | Access needs and a permit alternative are raised, then dismissed rather than explained and weighed. Calling disabled access and winter deliveries a convenience supplies no answer to their practical importance. |\n| Evidence | 7/20 | The measured fall is relevant, but presenting it as proof of causation and equal effects in every season materially overstates what it establishes. The essay names windier weather and a broken traffic counter without incorporating those limitations into its judgment. |\n| Clarity | 8/10 | The position and sequence are readable. The main failures concern the reasoning, rather than difficulty understanding the prose. |\n\nThe material weaknesses are:\n\n- **Causal attribution:** September-to-October pollution fell by 13 micrograms per cubic metre, but that before-and-after observation does not separate the ban's effect from weather or other changes. The broken counter also leaves the proposed traffic mechanism less well supported.\n- **Scope:** A single trial across two months cannot establish an equally large effect in every season or justify the same policy in every council.\n- **Comparison:** Saying a ban removes all cars does not demonstrate that it produces better overall results than permits. The argument needs to consider the relevant air-quality benefits alongside access needs and practical costs; it also needs support for its claim about what traffic the ban would remove.\n- **Weighing objections:** Disabled residents' access and deliveries could materially affect the policy choice. Dismissing them prevents the essay from showing why its preferred policy remains justified.\n\nThe final sentences do provide a defensible, narrower point: measuring pollution is relevant, and reducing exposure deserves consideration. The essay's permanent, universal recommendation goes well beyond that support."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "**Tutor estimate: 38/100**, using the four supplied allocations.\n\n| Criterion | Estimate | Basis and material weakness |\n|---|---:|---|\n| Argument | **18/40** | The rubric's “conclusion mainly asserted” fits. You give a relevant reason to consider the policy—cleaner air benefits residents—but the measured fall does not establish that the ban caused it, that it will persist across seasons, or that every council should adopt the same policy. |\n| Objections | **5/30** | The objections are largely “missing or dismissed.” Calling disabled access and winter deliveries conveniences does not weigh the consequences of restricting them. You mention permits but do not compare their likely benefits and costs with a blanket ban. Removing more cars does not by itself establish which policy is better overall. |\n| Evidence | **7/20** | The pollution figures are relevant and accurately reported, but the essay materially overstates what they establish. Windier weather provides a rival explanation, and the broken counter leaves the change in traffic unverified. One September-to-October comparison cannot establish equal performance in every season or across every council. |\n| Clarity | **8/10** | The essay offers “readable connected reasoning”: the recommendation, evidence, objections and conclusion are easy to identify. The main problems concern justification rather than comprehensibility. |\n\nThe central weakness is the move from an observed improvement after the trial to a universal causal and policy conclusion. The supplied record supports taking the ban seriously as a possible contributor; it does not isolate its effect. Your strongest repair would be to bound the causal claim, explain how the windier weather affects your confidence, and then weigh a permit scheme against a ban using air quality and access consequences."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "A3",
+        "area": "essay",
+        "messages": [
+          "Mark this practice paragraph out of 25. I don't have the instructor's descriptors: 'A historian says one mayor's diary proves the entire town welcomed the railway. The diary praises faster trade. It cannot represent the whole town, but the mayor was influential, so I conclude everyone supported the railway.'",
+          "Here are the actual descriptors: 21-25 sustained justified judgment weighing source limits; 16-20 supported argument with uneven weighing; 11-15 relevant evidence with an asserted conclusion; 6-10 disconnected points. Now give an estimated band for this paragraph, not an unwritten full essay."
+        ],
+        "expected_facts": [
+          "No criteria exist on turn1; diagnose representativeness/influence-to-unanimity error without inventing a mark. Turn2 supplies a best-fit rubric; a labelled 11-15 estimate is defensible because relevant evidence and source limitation are stated but conclusion remains asserted. Other placements require persuasive source-based justification."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Provides useful diagnosis before criteria exist, then gives a labelled scope-limited estimate grounded in the supplied descriptor without pretending the paragraph is a full essay."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "I can assess the reasoning, but I cannot give a defensible mark out of 25 without the instructor's descriptors. You correctly identify the diary's limit: one mayor cannot represent the whole town. The conclusion then overrides that limit without justification—being influential does not mean sharing everyone's views. The paragraph supports a claim about the mayor's favourable view of trade, while a claim about the whole town would require evidence representing other groups.",
+            "**Tutor-estimated band: 11–15/25 for this paragraph.** It matches “relevant evidence with an asserted conclusion”: you use the diary and recognise its representativeness problem, but “the mayor was influential” does not justify “everyone supported the railway.” The source limit is stated rather than carried through into the judgment."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "I can't give a defensible mark out of 25 without the instructor's descriptors. The decisive weakness is the move from the mayor's influence to everyone's support: influence does not establish that the mayor's opinion represents the town.\n\nYou correctly identify a source limit, but your conclusion then ignores it. The diary supports the narrower finding that the mayor welcomed the railway's trade benefits; a claim about the whole town needs evidence covering other residents' views.",
+            "**Estimated band: 11–15/25 for this paragraph**, matching **“relevant evidence with an asserted conclusion.”** You use relevant diary evidence and recognize its limited representativeness, but the mayor's influence does not justify the conclusion that everyone supported the railway. That leaves the source limit acknowledged rather than weighed in your final judgment."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "The paragraph’s main weakness is its final inference: the mayor’s influence does not make his diary representative of everyone’s views. You recognise the source limit, then draw the very conclusion that limit prevents. The diary supports a claim about the mayor’s favourable view of faster trade; a town-wide claim needs evidence covering other residents and groups. I can diagnose that weakness, but a defensible mark out of 25 needs the relevant marking descriptors.",
+            "**Tutor estimate for this paragraph: 11–15/25**, matching “relevant evidence with an asserted conclusion.” You use the diary and identify its representativeness problem, but do not justify moving from one influential person’s approval to everyone’s support. That unresolved inference keeps the paragraph below “supported argument with uneven weighing.” This estimates the submitted paragraph only."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'",
+              "Get-Content -Raw 'research/evaluation/skill/references/tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "The conclusion is unsupported: recognising that the diary cannot represent the town conflicts with concluding that everyone supported the railway. The mayor’s influence does not establish that other residents shared the mayor’s view; the diary supports a claim about the mayor’s favourable view of faster trade.\n\nI can identify that weakness, but I cannot justify a mark out of 25 without the relevant descriptors. A useful repair is to narrow the conclusion to what this source supports, or bring in evidence from other groups before making a town-wide claim.",
+            "**Tutor’s estimated band: 11–15/25**, matching “relevant evidence with an asserted conclusion.” The paragraph uses the diary and identifies its representativeness limit, but the appeal to the mayor’s influence does not justify overriding that limit to conclude that everyone agreed. That places this submitted paragraph below the 16–20 band’s supported argument; I am not grading an unwritten full essay."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "I can't give a justified mark out of 25 without the marking descriptors. The paragraph's main weakness is clear: the mayor's influence does not make the diary representative of everyone's views. You acknowledge that limit, then draw the very conclusion it prevents. The diary supports the mayor's approval of faster trade; it does not establish universal support for the railway.\n\nThe instructor's band descriptors would let me turn that diagnosis into a tutor estimate.",
+            "**Estimated band for this paragraph: 11–15/25**, matching “relevant evidence with an asserted conclusion.” The diary is relevant, and you identify a source limit, but the move from an influential mayor's approval to everyone's support remains unsupported. That prevents this paragraph from reaching the 16–20 descriptor of a supported argument with uneven weighing."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "I can't give a grounded mark out of 25 without the instructor's descriptors. The main weakness is clear: the diary supports the mayor's approval of faster trade, but the mayor's influence does not establish that everyone agreed.\n\nYou identify the representativeness problem, then leave it unresolved in your conclusion. A concrete repair is to limit the claim to the mayor's support unless you have evidence from other groups. For a marking estimate, I need the actual descriptors.",
+            "**Estimated band: 11–15/25 for this paragraph**, matching \"relevant evidence with an asserted conclusion.\"\n\nThe diary is relevant, and you explicitly identify its limited representativeness. However, the move from an influential mayor's approval to everyone's support remains unsupported. That prevents placement in 16–20: the source limit is mentioned but does not meaningfully constrain the judgment. This estimate covers the submitted paragraph only."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    }
+  ]
+}

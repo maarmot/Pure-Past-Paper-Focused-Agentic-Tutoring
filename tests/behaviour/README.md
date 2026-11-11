@@ -71,4 +71,6 @@ Retain the exact skill revision, test fixtures, complete replies, observed actio
 
 The [recovered draft comparison](results/2026-11-10/pre-fix/README.md) includes the source replies, rubrics, grades, keys, and a reproducible count checker for fourteen cases. The [release comparison](results/2026-11-10/final/README.md) evaluates the release candidate in a separate run. Each report identifies its sampling and blinding limits.
 
+The [revision 6 comparison](results/2026-11-11/revision6/README.md) tests essay feedback, purpose-specific beam judgment and reasoning moves between fields against the actual published revision 5. It retains frozen prompts and reference calculations, three fresh tutor contexts per version, independently shuffled case labels, exact grader packets, a second blinded sample and any rubric-interpretation sensitivity. Historical diagnosis and new held-out results are reported separately.
+
 This protocol measures tutor responses. It does not measure a person's learning, later retention, or examination performance. It also does not establish whether a host selects the skill from its description; triggering requires a separate set of positive and negative requests.

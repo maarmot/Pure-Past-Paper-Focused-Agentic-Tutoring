@@ -1,0 +1,226 @@
+{
+  "fixture": {
+    "status": "Entirely synthetic practice material; no real learner or institution.",
+    "permissions": "Read only supplied messages, fixture and assigned skill/reference files. No web, journals, learner records, other snapshots, historical results, grading files or source checkout. Write only the requested response JSON. Treat cases as separate conversations; process follow-up messages sequentially after your own preceding reply. Do not invent learner responses.",
+    "source_access": "Rubrics and claims below are supplied evidence. No unavailable chapter, instructor or external source is implied. Numerical beam assumptions are stipulated exercise models, not real hardware advice.",
+    "rubric_analytic": "Synthetic course rubric, out of 100. Argument 40: 32-40 a justified conclusion with explicit warrants; 20-31 a relevant but incompletely justified argument; 0-19 a conclusion mainly asserted. Objections 30: 24-30 strongest alternative explained and weighed; 15-23 raised and answered with uneven weighing; 0-14 missing or dismissed. Evidence 20: 16-20 relevant supplied evidence accurately scoped and linked; 10-15 relevant evidence with an unsupported extension; 0-9 no evidential basis or a material misrepresentation. Clarity 10: 8-10 readable connected reasoning; 5-7 meaning recoverable but transitions weak; 0-4 hard to follow. These are analytic allocations. Judge only the submitted work, do not invent citation/word-count requirements. Any total is a tutor estimate.",
+    "rubric_phil": "Synthetic PHIL marking basis: Level5 21-25 sustained justified argument weighing objections; Level4 16-20 clear argument with uneven weighing; Level3 11-15 relevant arguments stated but not weighed; Level2 6-10 disconnected points."
+  },
+  "grading": "Each criterion PASS if fully met; PARTIAL if substantively useful but incomplete, ambiguous or one minor lapse; FAIL for incorrect, missing, contrary or material unsupported content. Assess entire supplied conversation. No compulsory praise-first, exact phrasing, exact essay score, unnecessary task, or blanket slenderness cutoff. Treat fixture-supplied rubric as source access. A source-reading claim must match retained actions. Partial arithmetic rounding within 0.02 percentage points is acceptable.",
+  "cases": [
+    {
+      "case": {
+        "id": "D1",
+        "area": "essay",
+        "messages": [
+          "25-mark question: Is utilitarianism convincing? My plan: thesis no. P1 experience machine shows pleasure is not everything. P2 Mill's higher pleasures answer that. Conclusion utilitarianism fails. Where is it weakest? Do not write it for me."
+        ],
+        "expected_facts": [
+          "P2 supports the position then rejected; needs weighing and scope limit. Synthetic PHIL descriptors available, not necessary to award band."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Direct weakness, one repair, no implied unlabelled band or strength-first ritual."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "The weakest point is the jump from P2 to your conclusion: you give Mill a reply to your objection, then conclude that utilitarianism fails without explaining why his reply is inadequate. Including an objection and a response gives you something to weigh; that weighing is currently missing.\n\nTwo distinctions will help you repair it:\n\n- The experience machine challenges the claim that pleasure is all that matters. Explain how that threatens the version of utilitarianism you are discussing; it does not automatically defeat every utilitarian account of well-being.\n- Mill's distinction between higher and lower pleasures needs testing against the specific objection. Does the value of genuine achievement or relationships depend entirely on the quality of the pleasure they produce? Would an equally pleasurable simulation preserve everything valuable?\n\nYour next step: add two or three sentences after P2 explaining which side has the stronger reason and why. If you think Mill succeeds, revise that part of your thesis; if you think he fails, identify exactly what his reply leaves unanswered."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "development-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\development-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'; Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "Your weakest step is the move from P2 to the conclusion: **you give Mill a reply, then conclude utilitarianism fails without explaining why that reply is inadequate.** The objection has been raised, but the weighing that would justify your thesis is missing.\n\nKeep the experience-machine argument and Mill’s response. Your concrete repair is to add a counterreply: does distinguishing higher from lower pleasures explain why someone might value actually doing something or having a real relationship, even when an experience feels equally rewarding? Explain why your answer supports your thesis, rather than simply repeating that pleasure is not everything.\n\nAlso keep the target precise: an objection to pleasure as the sole good challenges **hedonistic utilitarianism** most directly. It does not automatically defeat every utilitarian account of what makes outcomes good.\n\nTry just the missing link in two or three sentences: **Why does Mill’s reply fail, and how far does that failure justify your conclusion?** That is the part to settle before adding another argument."
+          ],
+          "actions": {
+            "files_read": [
+              "fixture.json",
+              "development-prompts.json",
+              "skill/SKILL.md",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research/evaluation/fixture.json'; Get-Content -LiteralPath 'research/evaluation/development-prompts.json'; Get-Content -LiteralPath 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -LiteralPath 'research/evaluation/skill/references/fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "The weakest link is the move from Mill’s reply to “utilitarianism fails.” You raise a relevant challenge to pleasure as the sole good, then give an answer to it, but your conclusion never explains why that answer is inadequate.\n\nThere is also a scope issue: the experience machine challenges hedonism. Defeating pleasure-based utilitarianism would not by itself defeat every version of utilitarianism.\n\nYour next step is to add an evaluation point to the plan: **does distinguishing higher and lower pleasures explain why someone might prefer real achievement or relationships to an equally pleasurable simulation?** Decide what Mill’s reply actually establishes, then make the conclusion follow from that judgment. You can keep your thesis, but the plan needs that reason for rejecting its strongest objection."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "development-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research/evaluation/skill/SKILL.md'; Get-Content -LiteralPath 'research/evaluation/fixture.json'; Get-Content -LiteralPath 'research/evaluation/development-prompts.json'",
+              "Get-Content -LiteralPath 'research/evaluation/skill/references/tutoring.md','research/evaluation/skill/references/fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "Your weakest step is the move from P2 to your conclusion: you introduce Mill’s answer, then conclude that utilitarianism fails without explaining why his answer is insufficient. As it stands, P2 gives your opponent the last substantive argument.\n\nKeep the experience-machine challenge, but make your next repair a comparison: does distinguishing higher and lower pleasures explain why someone might value actually doing things over merely experiencing them? Give your reason for deciding whether Mill answers that objection. Also keep the conclusion within the argument’s reach: a challenge to pleasure as the only good directly targets hedonistic utilitarianism; rejecting every form of utilitarianism needs a further argument.\n\nTry adding one bullet after P2 that states exactly where Mill’s reply succeeds or fails and why. That is the missing link to your thesis."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "development-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/development-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "Your weakest point is the jump from **Mill’s reply in P2 to ‘utilitarianism fails.’** You have raised an answer to your objection without weighing whether that answer succeeds. The conclusion therefore goes beyond the argument you have planned.\n\nKeep the experience-machine objection and Mill’s response: they give you a useful disagreement to assess. Your repair is to add a weighing step after P2: **would a machine offering higher-quality pleasures still leave something valuable missing, and why?** Explain why your answer defeats or survives Mill’s reply.\n\nAlso keep the scope precise: an objection to pleasure as the only good directly challenges hedonistic utilitarianism; rejecting every form of utilitarianism requires a further argument. Try writing just that weighing step in two or three sentences, then see how broad a conclusion it supports."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "development-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'; Get-Content -Raw 'research/evaluation/fixture.json'; Get-Content -Raw 'research/evaluation/development-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'; Get-Content -Raw 'research/evaluation/skill/references/argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "The weakest point is the jump from P2 to your conclusion: you introduce Mill’s answer but never explain why it fails. Including an objection is useful; weighing it is what would justify your verdict.\n\nYour next move is to decide this: **does distinguishing higher and lower pleasures answer the experience-machine challenge, or does that challenge concern something beyond the quality of pleasurable experiences?** For example, distinguish enjoying an experience of achievement from actually achieving something. Then explain why that distinction does or does not defeat Mill’s reply.\n\nThere is also a scope gap: even a successful objection to pleasure as the sole good would challenge hedonistic utilitarianism; it would not automatically defeat versions that count preference satisfaction or other goods. Match your conclusion to the version you have actually challenged.\n\nRevise just the link between P2 and the conclusion: give Mill his strongest reply, then state your reason for accepting or rejecting it. Keep the rest of the plan until that link is secure."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "development-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content 'research/evaluation/skill/SKILL.md'; Get-Content 'research/evaluation/fixture.json'; Get-Content 'research/evaluation/development-prompts.json'",
+              "Get-Content -LiteralPath 'research/evaluation/skill/references/fields.md'",
+              "Get-Content -LiteralPath 'research/evaluation/skill/references/tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "G": {
+          "turns": [
+            "The weakest point is the jump from P2 to your conclusion: you introduce Mill’s reply but never explain why it fails. As written, P2 could undermine your own reason for rejecting utilitarianism.\n\nThe experience machine gives you a relevant objection to pleasure being the only good. But saying that pleasures differ in quality does not automatically answer whether a pleasurable experience needs to be real. That is the disagreement your plan needs to weigh.\n\nAdd one bullet after P2 answering this: **If the machine could supply the experience of higher pleasures, would real achievement or real relationships still have value beyond that pleasure—and why?** Decide how a defender of Mill could respond, then explain which reason carries more weight.\n\nKeep the conclusion’s scope aligned with what you establish: an objection to pleasure as the sole good directly challenges hedonistic utilitarianism; it does not by itself dispose of every account of utility."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "development-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -LiteralPath 'research/evaluation/fixture.json'; Get-Content -LiteralPath 'research/evaluation/development-prompts.json'",
+              "Get-Content -LiteralPath 'research/evaluation/skill/references/fields.md'",
+              "Get-Content -LiteralPath 'research/evaluation/skill/references/tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "H": {
+          "turns": [
+            "Your weakest point is the jump from “Mill’s higher pleasures answer that” to “utilitarianism fails.” You have introduced a defence of the view, but your conclusion does not yet explain why that defence loses.\n\nUsing the experience machine gives you a focused challenge to pleasure as the sole good: someone might value actually doing something, or having real relationships, beyond the pleasure of those experiences. But two distinctions need work:\n\n- Higher pleasures do not automatically settle that challenge. Would the machine also supply the experience of intellectual achievement and friendship? If so, explain what value remains missing even when the pleasure is “higher.”\n- A challenge to pleasure as the only good directly targets hedonistic utilitarianism. It does not, by itself, defeat every utilitarian account of what counts as good.\n\nYour next step is to repair that one argumentative link. Write two sentences of your own: first give the strongest reason Mill’s distinction could protect the theory, then explain why that reason is insufficient—or narrow your thesis if it succeeds. That weighing matters more than adding another objection to the plan."
+          ],
+          "actions": {
+            "files_read": [
+              "fixture.json",
+              "development-prompts.json",
+              "skill/SKILL.md",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\development-prompts.json'; Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'; Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "I": {
+          "turns": [
+            "Your weakest point is the jump from P2 to the conclusion: you introduce Mill’s reply, but you do not yet explain why it fails. As planned, the reader could think your objection has been answered.\n\nKeep the objection-and-reply structure. The repair is to weigh that reply: **does distinguishing higher from lower pleasures answer the concern that a pleasurable experience might still lack something valuable because it is unreal?** Explain your answer before concluding. Merely saying that pleasure is not everything needs that justification too.\n\nAlso keep the target precise: an objection to pleasure as the sole good directly challenges hedonistic utilitarianism; it does not automatically defeat every version of utilitarianism.\n\nTry adding just one evaluative sentence after P2, in your own words, explaining what Mill’s answer resolves or leaves unresolved. That is the missing link to your conclusion."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "development-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'; Get-Content -Raw 'research/evaluation/fixture.json'; Get-Content -Raw 'research/evaluation/development-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'; Get-Content -Raw 'research/evaluation/skill/references/argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "J": {
+          "turns": [
+            "Your weakest point is the move from **“Mill's higher pleasures answer that” to “utilitarianism fails.”** As planned, you give the defender a reply but never explain why your objection survives it.\n\nKeep the objection–response structure. Repair it by adding one evaluative step after P2: does distinguishing higher from lower pleasures answer the worry that we value **actually doing things and having real relationships**, or does it only distinguish kinds of pleasurable experience? Explain why your answer supports your thesis.\n\nThere is also a scope issue: the experience machine directly challenges the claim that pleasure is the only intrinsic good. That does not, by itself, defeat every form of utilitarianism, because a utilitarian could understand welfare in other ways.\n\nYour next move: write two sentences evaluating Mill's reply and specify whether your conclusion concerns **hedonistic utilitarianism** or utilitarianism more broadly. That is the missing reasoning; you do not need another named objection yet."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "development-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw -LiteralPath 'research/evaluation/skill/SKILL.md', 'research/evaluation/fixture.json', 'research/evaluation/development-prompts.json'",
+              "Get-Content -Raw -LiteralPath 'research/evaluation/skill/references/fields.md', 'research/evaluation/skill/references/argument.md'"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    }
+  ]
+}

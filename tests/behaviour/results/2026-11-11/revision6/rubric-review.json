@@ -1,0 +1,163 @@
+{
+  "interpretation": "Apply the frozen wording to the learner's request for an example using the supplied sentence. A small worked application on that sentence satisfies 'offers one small application'; the phrase does not clearly specify a separate learner exercise. This reading preserves the distinction between a demonstrated method and demonstrated learner transfer. 'Leaves transfer untested' requires that the reply not infer independent learner ability from its own explanation; it does not explicitly require the words 'untested'. A brief invitation to apply the method is also acceptable when it does not withhold the requested answer. The frozen next_action criterion expressly permits a completed direct answer without a new task, so absence of an exercise is not itself a next_action defect. All six replies demonstrate the requested causal challenge, state historical evidence requirements, and make no unsupported claim of learner mastery.",
+  "ambiguity": "Material but localized ambiguity: 'offers one small application' can reasonably mean either a small worked use of the method or a separate application for the learner to attempt. It does not clearly require the latter. The primary grades use the worked-application reading because the learner explicitly requests an example and next_action permits completion without a new task. A stricter, exercise-specific reading changes only A and B's area_requirement from PASS to PARTIAL: both demonstrate an application but neither invites an independent learner response. This alternative does not justify lowering their next_action scores. No separate explicit disclaimer of untested transfer is required by the frozen text.",
+  "grades": {
+    "X3": {
+      "A": {
+        "correctness": {
+          "rating": "PASS",
+          "reason": "Correctly treats the zero-harbour-contribution scenario as a hypothetical counterexample to sole causation, not an observation or proof of the embargo's actual effect; the revised claim stays within the stipulated ledger and same-year events."
+        },
+        "responsiveness": {
+          "rating": "PASS",
+          "reason": "Directly carries the limiting-case habit into the quoted harbour claim and provides the requested concrete example and sentence-level repair."
+        },
+        "next_action": {
+          "rating": "PASS",
+          "reason": "The causal inference and repair are fully explained for this direct-answer request. The frozen criterion does not require a further task; the reply also identifies dates, provenance and embargo-effect evidence to check."
+        },
+        "help_level": {
+          "rating": "PASS",
+          "reason": "Gives the requested explanation without demanding an initial attempt. A single illustrative revision is proportionate to the requested example, and no learner performance is invented."
+        },
+        "area_requirement": {
+          "rating": "PASS",
+          "reason": "Uses a hypothetical doubling with zero harbour contribution, explicitly names historical dates, provenance and evidence about embargo effects, and offers a small worked application in the revised sentence. It does not claim the learner can transfer the habit independently."
+        }
+      },
+      "B": {
+        "correctness": {
+          "rating": "PASS",
+          "reason": "Correctly distinguishes an imagined harbour-with-continuing-embargo case from evidence, identifies the embargo's end as a rival cause, and limits the ledger to an outcome that cannot separate causes."
+        },
+        "responsiveness": {
+          "rating": "PASS",
+          "reason": "Targets the actual word 'alone', applies the idea to this sentence, and supplies a concrete qualified replacement as requested."
+        },
+        "next_action": {
+          "rating": "PASS",
+          "reason": "Completes the direct answer and identifies a useful discriminating check: embargo restrictions and whether export growth occurred in goods freed by repeal. No new learner exercise is required under this criterion."
+        },
+        "help_level": {
+          "rating": "PASS",
+          "reason": "Provides the requested example immediately, with a short illustrative repair and evidence explanation; it neither imposes an attempt first nor attributes unobserved learner success."
+        },
+        "area_requirement": {
+          "rating": "PASS",
+          "reason": "Demonstrates a counterfactual challenge on the harbour claim, explicitly requires historical support about restrictions and goods affected by repeal, and works through a small application in the repaired sentence. Transfer remains untested because no independent learner performance is asserted."
+        }
+      },
+      "C": {
+        "correctness": {
+          "rating": "PASS",
+          "reason": "Correctly marks the embargo explanation as an unobserved rival, treats a comparison port as potentially helpful subject to relevance and comparable records, and does not treat the limiting-case analogy as causal proof."
+        },
+        "responsiveness": {
+          "rating": "PASS",
+          "reason": "Applies the mechanism directly to the supplied sentence and gives a worked revision before inviting a brief follow-up application."
+        },
+        "next_action": {
+          "rating": "PASS",
+          "reason": "The one-result prompt is specific and useful: identify a comparison-port finding that would weaken sole harbour causation. It follows a completed explanation rather than replacing it."
+        },
+        "help_level": {
+          "rating": "PASS",
+          "reason": "Answers before asking for a learner attempt, keeps the application short, and makes no invented claim about the learner's ability."
+        },
+        "area_requirement": {
+          "rating": "PASS",
+          "reason": "Shows the embargo-without-new-harbour rival, explicitly requires a relevant comparison, checked dates and comparable export records, supplies a worked sentence and a small learner application, and leaves that application unanswered."
+        }
+      },
+      "D": {
+        "correctness": {
+          "rating": "PASS",
+          "reason": "Correctly uses a hypothetical sufficient embargo effect to undermine identification of a sole harbour cause, explicitly denies that this proves actual embargo causation, and qualifies the comparison-port method with matching conditions and counting conventions."
+        },
+        "responsiveness": {
+          "rating": "PASS",
+          "reason": "Provides the requested example using the harbour sentence and the embargo rival. A polished rewritten sentence was not required, and the demonstration answers the request before the prompt."
+        },
+        "next_action": {
+          "rating": "PASS",
+          "reason": "The one-sentence explanation prompt directly checks why temporal ordering and doubling leave the harbour's contribution unresolved; the dated, comparable-ledger check is also concrete."
+        },
+        "help_level": {
+          "rating": "PASS",
+          "reason": "Gives a substantive example without requiring an unaided attempt first. The short invitation adds a manageable application and makes no performance claim."
+        },
+        "area_requirement": {
+          "rating": "PASS",
+          "reason": "Applies the zero-added-harbour-capacity counter-case to this sentence, explicitly requires dated records, a comparable port, consistent export counts and matching conditions, and offers one short learner explanation. No independent transfer is claimed."
+        }
+      },
+      "E": {
+        "correctness": {
+          "rating": "PASS",
+          "reason": "Correctly distinguishes the two imagined counterfactuals from historical findings and limits the revised claim to the observed doubling and unresolved contributions. Its proposed correspondence and comparison-port evidence is conditional, not invented evidence."
+        },
+        "responsiveness": {
+          "rating": "PASS",
+          "reason": "Directly uses the learner's sentence, demonstrates the rival explanation, and provides a concrete cautious revision."
+        },
+        "next_action": {
+          "rating": "PASS",
+          "reason": "Asks for one source finding favoring the embargo explanation, a specific and useful check tied to the proposed historical evidence."
+        },
+        "help_level": {
+          "rating": "PASS",
+          "reason": "Provides the requested worked example before a small application, explicitly distinguishes demonstration from learner performance, and does not impose a full rewrite."
+        },
+        "area_requirement": {
+          "rating": "PASS",
+          "reason": "Shows both counterfactual directions, explicitly calls for historical correspondence, comparison-port export records and justification of comparability, and offers one small learner application while explicitly retaining untested transfer status."
+        }
+      },
+      "F": {
+        "correctness": {
+          "rating": "PASS",
+          "reason": "Correctly treats an embargo-driven doubling with no harbour contribution as a possible explanation consistent with the ledger, denies that it proves the embargo caused the increase, and proposes records capable of distinguishing mechanisms."
+        },
+        "responsiveness": {
+          "rating": "PASS",
+          "reason": "Answers with a concrete counterfactual using the exact causal sentence and explains what the annual ledger can and cannot establish."
+        },
+        "next_action": {
+          "rating": "PASS",
+          "reason": "The one-sentence prompt asks for a precise repair that preserves the ledger's observation and causal uncertainty; it follows an already supplied example."
+        },
+        "help_level": {
+          "rating": "PASS",
+          "reason": "Gives the requested demonstration without an initial-attempt gate and accurately states that the learner's own application remains untested."
+        },
+        "area_requirement": {
+          "rating": "PASS",
+          "reason": "Demonstrates the no-harbour-effect rival, explicitly requires reliable dates, commodity or market records and evidence of the harbour's mechanism, and offers a short learner application with an explicit untested-transfer statement."
+        }
+      }
+    }
+  },
+  "alternatives": {
+    "separate_learner_exercise_required": {
+      "interpretation": "If 'offers one small application' is defined in advance to mean a distinct task for the learner to attempt, A and B incompletely satisfy the compound area requirement. C through F do offer such tasks. This is a possible stricter interpretation, not an unambiguous demand in the frozen wording.",
+      "grades": {
+        "X3": {
+          "A": {
+            "area_requirement": {
+              "rating": "PARTIAL",
+              "reason": "Under the exercise-specific interpretation, the hypothetical example and worked sentence repair do not constitute an invitation for the learner to attempt an application. The rival, historical evidence requirements and untested-transfer status are otherwise satisfied."
+            }
+          },
+          "B": {
+            "area_requirement": {
+              "rating": "PARTIAL",
+              "reason": "Under the exercise-specific interpretation, the worked repair and suggested historical evidence check do not explicitly invite a learner response or independent application. The other elements of the compound area requirement are satisfied."
+            }
+          }
+        }
+      },
+      "unchanged": "All other ratings are identical to the primary profile, including A and B's next_action PASS. A completed direct answer requires no further task under that criterion. C, D, E and F retain area_requirement PASS because each includes a short, specific learner application."
+    }
+  },
+  "case_id": "X3"
+}

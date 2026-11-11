@@ -1,0 +1,306 @@
+{
+  "case": {
+    "id": "B2",
+    "area": "beam",
+    "messages": [
+      "For a simply supported beam I need midspan static deflection under one central transverse force of 2000 N. L=1.2 m; solid rectangle b=40 mm, bending depth h=120 mm. E=70 GPa, nu=.33, G=E/[2(1+nu)], kappa=5/6. Supports ideal; material isotropic and linearly elastic; small deflection stipulated. Allowed shear-omission error is 4% of bending-plus-shear deflection. Can I use Euler-Bernoulli? Give the check, not a generic span/depth cutoff."
+    ],
+    "expected_facts": [
+      "Central-load simply supported delta_b=PL^3/(48EI), delta_s=PL/(4kappaGA). r=.03192; total-relative omission=.0309326304, so meets 4% shear budget. Cantilever ratio would be wrong by factor4."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Uses the actual support/load configuration and 3.09% total-relative omission to accept this 4% budget; does not certify all model error."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "**Yes: Euler–Bernoulli meets your 4% shear-omission budget.** For a simply supported beam with a central point load,\n\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA}.\n\\]\n\nUsing \\(I=bh^3/12=5.76\\times10^{-6}\\,\\mathrm{m^4}\\), \\(A=0.0048\\,\\mathrm{m^2}\\) and \\(G=26.316\\,\\mathrm{GPa}\\),\n\n\\[\n\\delta_b=0.178571\\,\\mathrm{mm},\\qquad\n\\delta_s=0.005700\\,\\mathrm{mm}.\n\\]\n\nTherefore the error relative to bending plus shear is\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.005700}{0.184271}\n=\\boxed{3.093\\%}<4\\%.\n\\]\n\nThe Euler–Bernoulli estimate is \\(0.1786\\,\\mathrm{mm}\\); the bending-plus-shear estimate is \\(0.1843\\,\\mathrm{mm}\\)."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "@'\nimport math\n\ndef cantilever(P,L,b,h,E,nu,kappa=5/6):\n    G=E/(2*(1+nu)); A=b*h; I=b*h**3/12\n    bend=P*L**3/(3*E*I); shear=P*L/(kappa*G*A)\n    return {'I':I,'A':A,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)}\nprint('B1 first', cantilever(1000,.48,.04,.12,200e9,.30))\nprint('B1 followup', cantilever(1000,.48,.04,.024,200e9,.30))\nP,L,b,h,E,nu,kappa=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); I=b*h**3/12; A=b*h\nbend=P*L**3/(48*E*I); shear=P*L/(4*kappa*G*A)\nprint('B2', {'I':I,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)})\nL,nu,kappa,budget=.8,.30,5/6,.01\nfactor=2*(1+nu)/(4*kappa)\nthreshold=L*math.sqrt(budget/((1-budget)*factor))\nprint('B3', {'factor':factor,'h_threshold_m':threshold,'min_error_pct':100*factor*(.02/L)**2/(1+factor*(.02/L)**2),'max_error_pct':100*factor*(.2/L)**2/(1+factor*(.2/L)**2)})\n'@ | python -"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "**Yes: Euler–Bernoulli meets the 4% shear-omission budget.**\n\nFor this simply supported beam with one central force,\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA}.\n\\]\nUsing \\(I/A=h^2/12\\) and the supplied \\(G\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{2(1+\\nu)}{\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{2(1.33)}{5/6}\\left(\\frac{0.120}{1.2}\\right)^2\n=0.03192.\n\\]\nTherefore the error relative to bending plus shear is\n\\[\n\\frac{r}{1+r}=0.0309326=3.093\\%<4\\%.\n\\]\nAs a numerical check, \\(\\delta_b=0.178571\\) mm and \\(\\delta_s=0.005700\\) mm, giving \\(0.184271\\) mm combined. The omission passes the requested budget within the stipulated model."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3",
+          "$kappa = 5.0/6.0; foreach ($case in @(@{id='B1_initial';P=1000.0;L=.48;b=.04;h=.12;E=200e9;nu=.30;support='cantilever'},@{id='B1_corrected';P=1000.0;L=.48;b=.04;h=.024;E=200e9;nu=.30;support='cantilever'},@{id='B2';P=2000.0;L=1.2;b=.04;h=.12;E=70e9;nu=.33;support='central'})) { $area=$case.b*$case.h; $inertia=$case.b*[Math]::Pow($case.h,3)/12; $shearModulus=$case.E/(2*(1+$case.nu)); if ($case.support -eq 'cantilever') { $bending=$case.P*[Math]::Pow($case.L,3)/(3*$case.E*$inertia); $shear=$case.P*$case.L/($kappa*$shearModulus*$area) } else { $bending=$case.P*[Math]::Pow($case.L,3)/(48*$case.E*$inertia); $shear=$case.P*$case.L/(4*$kappa*$shearModulus*$area) }; [PSCustomObject]@{id=$case.id;bending_mm=1000*$bending;shear_mm=1000*$shear;ratio=$shear/$bending;error_percent=100*$shear/($bending+$shear)} | ConvertTo-Json -Compress }; [PSCustomObject]@{id='B3';h_limit_m=.8*[Math]::Sqrt((2*$kappa/(1+.30))*(.01/.99));min_error_percent=100*(.78*[Math]::Pow(.02/.8,2))/(1+.78*[Math]::Pow(.02/.8,2));max_error_percent=100*(.78*[Math]::Pow(.20/.8,2))/(1+.78*[Math]::Pow(.20/.8,2))} | ConvertTo-Json -Compress"
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "**Yes. Euler–Bernoulli meets the 4% budget: omitting shear underpredicts the combined midspan deflection by about 3.09%.**\n\nFor a simply supported beam with one central force,\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA}.\n\\]\nWith \\(I/A=h^2/12\\) and the supplied \\(G\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{2(1+\\nu)}{\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{2(1.33)}{5/6}\\left(\\frac{0.12}{1.2}\\right)^2\n=0.03192.\n\\]\nThus the total-relative omission error is\n\\[\n\\frac{r}{1+r}\\times100\\%\n=\\boxed{3.093\\%}<4\\%.\n\\]\nNumerically, \\(\\delta_b=0.17857\\) mm and \\(\\delta_s=0.00570\\) mm, giving \\(0.18427\\) mm combined. This verdict concerns the specified shear omission within the stipulated beam model."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+          "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+          "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\argument.md'",
+          "python -c \"P=2000; L=1.2; b=.040; h=.120; E=70e9; nu=.33; G=E/(2*(1+nu)); k=5/6; db=P*L**3/(48*E*(b*h**3/12)); ds=P*L/(4*k*G*b*h); print({'bending_mm':db*1000,'shear_mm':ds*1000,'r':ds/db,'error_pct':100*ds/(db+ds)})\""
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "**Yes: Euler–Bernoulli meets your 4% shear-omission budget.** For a simply supported beam with a central point load,\n\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nHere \\(G=26.316\\,\\mathrm{GPa}\\), and\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{12EI}{\\kappa GA L^2}\n=\\frac{2(1+\\nu)}{\\kappa}\\left(\\frac hL\\right)^2\n=3.192(0.10)^2=0.03192.\n\\]\n\nThus the omission error relative to bending plus shear is\n\n\\[\n\\frac r{1+r}=3.093\\%<4\\%.\n\\]\n\nNumerically, \\(\\delta_b=0.17857\\,\\mathrm{mm}\\), \\(\\delta_s=0.005700\\,\\mathrm{mm}\\), and their sum is \\(0.18427\\,\\mathrm{mm}\\). This decision addresses the specified shear-omission budget under your stipulated assumptions."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+          "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "**Yes. The shear-omission error is about 3.09%, below your 4% budget.**\n\nFor a simply supported beam with one central point load, the midspan contributions are\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA}.\n\\]\nThe shear expression follows from shear force magnitude \\(P/2\\) over each half-span. With \\(A=bh\\), \\(I=bh^3/12\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{12EI}{\\kappa GA L^2}\n=\\frac{2(1+\\nu)}{\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{2(1.33)}{5/6}(0.10)^2\n=0.03192.\n\\]\nYour error denominator includes both contributions, so\n\\[\n\\varepsilon=\\frac r{1+r}\n=\\frac{0.03192}{1.03192}\n\\approx3.093\\%.\n\\]\nNumerically, \\(\\delta_b=0.178571\\,\\mathrm{mm}\\), \\(\\delta_s=0.005700\\,\\mathrm{mm}\\), and their sum is \\(0.184271\\,\\mathrm{mm}\\). Euler–Bernoulli is adequate for the specified shear-omission allowance under the stated assumptions."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+          "python -c \"P=2000; L=1.2; b=.04; h=.12; E=70e9; nu=.33; G=E/(2*(1+nu)); k=5/6; A=b*h; I=b*h**3/12; db=P*L**3/(48*E*I); ds=P*L/(4*k*G*A); print({'G_Pa':G,'I_m4':I,'bending_mm':db*1000,'shear_mm':ds*1000,'total_mm':1000*(db+ds),'shear_to_bending':ds/db,'error_percent':100*ds/(db+ds)})\""
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "**Yes: Euler–Bernoulli meets the 4% shear-omission budget under the stipulated assumptions.** For a simply supported beam with a central point force,\n\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nTherefore\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{12EI}{\\kappa GAL^2}\n=\\frac{2(1+\\nu)}{\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{2(1.33)}{5/6}(0.10)^2\n=0.03192.\n\\]\n\nThe error relative to bending plus shear is\n\n\\[\n\\frac{r}{1+r}=3.093\\%<4\\%.\n\\]\n\nFor scale, δ_b = 0.17857 mm, δ_s = 0.00570 mm and δ_total = 0.18427 mm. This passes the specified omission budget; the formulas use your actual supports and loading."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/argument.md'",
+          "@'\nimport math\nP,L,b,E,nu,k=1000,.48,.04,200e9,.30,5/6\nG=E/(2*(1+nu))\nfor h in (.12,.024):\n    A=b*h; I=b*h**3/12\n    db=P*L**3/(3*E*I); ds=P*L/(k*G*A)\n    print('B1',h,'bending_mm',db*1000,'shear_mm',ds*1000,'r',ds/db,'error_pct',100*ds/(db+ds))\nP,L,b,h,E,nu,k=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); A=b*h; I=b*h**3/12\nbending=P*L**3/(48*E*I); shear=P*L/(4*k*G*A)\nprint('B2','bending_mm',bending*1000,'shear_mm',shear*1000,'r',shear/bending,'error_pct',100*shear/(bending+shear))\nL,nu,k=.8,.30,5/6\nfor h in (.02,.20):\n    r=(1+nu)*(h/L)**2/(2*k)\n    print('B3',h,'r',r,'error_pct',100*r/(1+r))\nprint('B3','threshold_m',L*math.sqrt(2*k*.01/((1+nu)*(1-.01))))\nprint('C3','error_pct',100*.10/1.10)\n'@ | python -"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The simply supported central-load coefficients 48 and 4, G=26.316 GPa, I=5.76e-6 m^4, component deflections and 3.093% error all agree with independent calculation."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly says EB meets the 4% shear-omission budget and supplies the requested numerical check for the specified supports and load."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The requested decision is complete and includes both the EB and combined estimates, so no extra measurement or follow-up task is needed."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives the requested check and useful deflection scale without imposing an attempt or using an unrelated generic cutoff."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses PL^3/(48EI) and PL/(4 kappa GA), divides shear by combined deflection, and accepts the expressly stated shear-omission budget rather than claiming an all-error guarantee."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The actual central-load formulas give r=0.03192 and total-relative error 3.093%; its component and combined deflections match independent calculation."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly answers yes to the actual 4% budget question and derives the support-specific ratio rather than using a generic span/depth rule."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Provides a complete budget comparison plus numerical check, with no missing input requiring another task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "The concise derivation and numerical check fit the request; there is no compulsory learner attempt or invented assessment."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses the central-force simply supported coefficients, correct r/(1+r) denominator and 3.093% passing result, explicitly within the stipulated model."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The support/load formulas, r=0.03192, 3.093% combined-relative omission and deflection values are correct under the fixture."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers yes immediately and explains the 3.09% underestimate with the requested configuration-specific check."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The requested decision and its calculation are complete; the response appropriately does not add unnecessary measurements or exercises."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives direct help at the requested compact level, with formulas and numeric scale and no imposed learner attempt."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses coefficients 48 and 4 for the simply supported central force, tests 3.093% against 4% using combined deflection, and explicitly scopes the verdict to shear omission within the stipulated model."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The derivation 12EI/(kappa GA L^2)=3.192(h/L)^2 and its 3.093% total-relative error are correct; numerical component deflections also match."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly accepts the requested 4% shear budget and shows the actual simply supported central-load calculation."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The answer completes the requested calculation and gives a combined deflection; no extra task is needed for this fully specified case."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides a compact derivation and numeric check without a generic cutoff, compulsory attempt, or unasked expansion."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses the correct support/loading coefficients and combined-deflection denominator, obtains the required 3.093% passing result, and limits the decision to the specified shear-omission budget under stipulated assumptions."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The central-force formulas, P/2 half-span shear explanation, ratio 0.03192, error 3.093%, and absolute deflections are correct."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly says the 3.09% shear omission meets the 4% budget and supplies the requested support-specific derivation."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Fully resolves the stated decision with numerical evidence and appropriate scope, without asking for inputs already fixed by the fixture."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "The short shear-force explanation and calculation answer the requested check at an appropriate level, without requiring a learner attempt."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses the actual simply supported central-load coefficients and r/(1+r), accepts the 4% shear allowance at 3.093%, and expressly confines adequacy to that allowance under the stated assumptions."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The central-load formulas correctly yield r=0.03192, total-relative omission 3.093%, and component estimates 0.17857 and 0.00570 mm."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Gives an immediate yes and the requested calculation using the actual support and loading conditions."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The request is completely answered with the budget check and deflection estimates, so no new action is required."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives the requested compact technical check without substituting a generic cutoff or imposing unnecessary learner work."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses PL^3/(48EI), PL/(4 kappa GA), and combined-relative omission, accepts 3.093% under 4%, and frames the result as the specified omission budget under stipulated assumptions."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "baseline",
+      "sample": 3
+    },
+    "B": {
+      "version": "candidate",
+      "sample": 2
+    },
+    "C": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "D": {
+      "version": "baseline",
+      "sample": 1
+    },
+    "E": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "F": {
+      "version": "candidate",
+      "sample": 1
+    }
+  }
+}

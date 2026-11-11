@@ -1,0 +1,299 @@
+{
+  "case": {
+    "id": "C2",
+    "area": "control",
+    "messages": [
+      "I solved 3(x-1)(x-3)=0 as x=1 or x=3, because a product is zero when at least one factor is zero. Is that correct? One sentence, please."
+    ],
+    "expected_facts": [
+      "Both roots correct by zero product property."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "One-sentence accurate confirmation with reason; no manufactured error, quiz or extra task."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "Yes, that is correct: the zero-product property gives (x=1) or (x=3), and each value makes the original product zero."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "Correct: the zero-product rule gives x = 1 or x = 3, and both values satisfy the original equation."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "Yes, \\(x=1\\) or \\(x=3\\) is correct because the nonzero factor 3 leaves \\((x-1)(x-3)=0\\), so at least one of those two factors must be zero."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+          "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+          "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "Correct: the zero-product rule gives \\(x-1=0\\) or \\(x-3=0\\), so \\(x=1\\) or \\(x=3\\)."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "Yes, your solution is correct: since 3 is nonzero, the zero-product rule gives \\(x=1\\) or \\(x=3\\)."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "Yes: since 3 is nonzero, the zero-product rule gives \\(x-1=0\\) or \\(x-3=0\\), so \\(x=1\\) or \\(x=3\\)."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+          "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly confirms roots 1 and 3 using the zero-product property and notes that both satisfy the original product."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It directly answers the correctness question in one sentence."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The confirmation is complete, so no repair or additional task is necessary."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It respects the one-sentence limit and adds no quiz or invented error."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It gives one accurate sentence with a reason and no manufactured problem or extra task."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The zero-product rule and both stated roots are correct, as is the claim that they satisfy the equation."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It directly confirms the solution in a single sentence."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The supplied work is correct and the confirmation completes the request without needing a new task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It gives only the requested one-sentence confirmation and does not invent learner mistakes."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "The single sentence accurately confirms the roots with the zero-product reason and no extra exercise."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly uses the fact that 3 is nonzero to reduce the product and infer x=1 or x=3."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It answers the learner's correctness question directly and stays within one sentence."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The confirmation already explains the relevant rule, so no next task or repair is needed."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It preserves the requested brevity and does not demand another attempt or introduce a false error."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It gives one accurate sentence with the nonzero-factor and zero-product reason, without a quiz or added task."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The factor equations x-1=0 or x-3=0 correctly yield the two roots by the zero-product rule."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It directly confirms the result in one sentence."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The solution requires no repair and the direct confirmation needs no follow-on task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It respects the one-sentence request and does not invent a misconception."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It supplies a single accurate confirmation with the factor-equation reason and no quiz or extra task."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly notes that the constant factor is nonzero and confirms both roots by the zero-product rule."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It answers immediately in the requested single sentence."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The completed accurate confirmation needs no additional check or task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It follows the brief confirmation request without requiring an attempt or expanding into an unasked lesson."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It gives one accurate sentence with a reason and neither manufactures an error nor assigns extra work."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Removing nonzero 3 and setting the two variable factors to zero correctly gives x=1 or x=3."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It directly confirms correctness in one sentence."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "No repair is needed after this completed direct confirmation."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It observes the one-sentence limit and adds no learner task or invented error."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It gives a single reasoned accurate confirmation without a quiz or extra task."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "candidate",
+      "sample": 2
+    },
+    "B": {
+      "version": "candidate",
+      "sample": 1
+    },
+    "C": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "D": {
+      "version": "baseline",
+      "sample": 3
+    },
+    "E": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "F": {
+      "version": "baseline",
+      "sample": 1
+    }
+  }
+}

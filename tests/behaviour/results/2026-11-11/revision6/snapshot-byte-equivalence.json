@@ -1,0 +1,22 @@
+{
+  "purpose": "Preserve original sampling manifest and explain unused reference-data line-ending representations. No instruction or learner reply was changed.",
+  "files": [
+    {
+      "path": "references/measurements/bench-trials.json",
+      "sampled_sha256": "9b989fc4fadcafd9461b96ae168aa87b47aeabdf3afa742af08061c43b524485",
+      "published_LF_sha256": "93d845c71bdf890cf209641dd8621c01fe5898ea5865b44547b15d05528142cc",
+      "reconstruct_sampled_bytes": "Replace every LF byte with CRLF in the unchanged published blob.",
+      "content_comparison": "Equal after CRLF-to-LF conversion.",
+      "tutor_read_this_file": false
+    },
+    {
+      "path": "references/measurements/caption-recount.json",
+      "sampled_sha256": "f380dae15133127fff302e18470cd237a7616ce53a4189acdb8a553f6432e586",
+      "published_LF_sha256": "185bb967012a49288c78aa1a36fd9f19805e8320b0bbf6b6b25a245589b9db31",
+      "reconstruct_sampled_bytes": "Replace every LF byte with CRLF in the unchanged published blob.",
+      "content_comparison": "Equal after CRLF-to-LF conversion.",
+      "tutor_read_this_file": false
+    }
+  ],
+  "all_tutor_read_instruction_files": "All actual tutor-read SKILL.md and reference Markdown files match staged publication hashes."
+}

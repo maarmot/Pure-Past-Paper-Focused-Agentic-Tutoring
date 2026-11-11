@@ -2,6 +2,14 @@
 
 Read this when revising the skill or when someone asks what a recommendation rests on. Ordinary tutoring does not need it. It records history and sources; it is not a set of instructions, and none of the files or runtimes it names are promised to exist in the active workspace.
 
+## Revision 6, 2026-11-11
+
+Revision 6 clarifies targeted essay diagnosis versus full marking, the scope and basis of estimated marks, engineering approximation decisions for a stated quantity and tolerance, and a reasoning move demonstrated across fields in either direction. Historical E05's strength-first criterion conflicts with its learner's requested weakest-point feedback. Its additional partial concerns an implied grade. E08's extra partial leaves the next action implicit. Published revision 5 already includes the later E15 wording, which is the baseline for this release.
+
+The [revision 6 comparison](../tests/behaviour/results/2026-11-11/revision6/README.md) retains synthetic prompts, exact replies shown to graders, criteria, keys, partials, disagreements and reproducible counts. Five development contexts per version precede three fresh comparison contexts per version. These are instruction design choices and tutor-response observations, not evidence about a human learner's transfer or retention.
+
+The beam reference was independently derived from bending and shear strain energy. [INL's MOOSE theory](https://mooseframework.inl.gov/moose/modules/solid_mechanics/C0TimoshenkoBeam.html) supports the kinematic distinction, and [PyCBA's author documentation](https://ccaprani.github.io/pycba/notebooks/timoshenko.html#example-1-a-simply-supported-deep-beam) gives the central-force displacement components. [Roylance's MIT notes](https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/13534abb67b86d2fb8ee11a1f4f2b8c4_MIT3_11F99_bdisp.pdf), pages 6-7, derive the shear-energy factor and component deflections; the final printed ratio is inconsistent with those components. The reference uses the components and independent integration, not that ratio. The constant rectangular shear factor is an elementary model assumption.
+
 ## Revision 5, 2026-11-10
 
 Revision 5 added a feedback wording standard and difficulty signals to tutoring, the loop's form in engineering and essay subjects, good-faith argument and source companions, delegation by job, a beat order and measured render workflow for short videos, and record fields for argument and essay work.

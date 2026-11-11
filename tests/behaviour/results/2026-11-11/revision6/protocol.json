@@ -1,0 +1,21 @@
+{
+  "baseline_commit": "f9b02a07ec97d99477a9e110667879f97a0f1db4",
+  "candidate": "Frozen after development, before held-out sampling.",
+  "sampling": "Five fresh development contexts per instruction variant. Then three separately sampled fresh tutor contexts per version on held-out cases. Same inherited session model, tools and fixture. One context answers a batch of distinct conversations. No model override, seed or temperature control is available; report this limit.",
+  "grading": "Each criterion PASS if fully met; PARTIAL if substantively useful but incomplete, ambiguous or one minor lapse; FAIL for incorrect, missing, contrary or material unsupported content. Assess entire supplied conversation. No compulsory praise-first, exact phrasing, exact essay score, unnecessary task, or blanket slenderness cutoff. Treat fixture-supplied rubric as source access. A source-reading claim must match retained actions. Partial arithmetic rounding within 0.02 percentage points is acceptable.",
+  "randomization": "SystemRandom independent shuffle of six replies per held-out case into A-F. Freeze full exact grader packets and a separate private key. Do not reveal key or snapshots until all grades are complete.",
+  "second_grader_cases": [
+    "A3",
+    "B1",
+    "X1",
+    "C3"
+  ],
+  "improvement_rule": "For each area, stronger if PASS>=baseline and FAIL<=baseline with at least one strict difference, and correctness/help-level failures do not increase. Equal profile unchanged; conflicting differences mixed; Pareto deterioration weaker. Report counts and individual failures; controls separately. Do not infer human learning or population reliability.",
+  "holdout_rule": "No instruction edits after looking at held-out replies. Any justified follow-up edit needs fresh cases and a separately labelled result.",
+  "frozen_inputs": [
+    "heldout.json",
+    "development.json",
+    "fixture.json",
+    "beam_reference.json"
+  ]
+}

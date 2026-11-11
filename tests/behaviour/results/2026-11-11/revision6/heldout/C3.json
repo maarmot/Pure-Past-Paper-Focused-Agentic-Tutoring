@@ -1,0 +1,436 @@
+{
+  "case": {
+    "id": "C3",
+    "area": "control",
+    "messages": [
+      "In an earlier message you called shear/bending=0.10 a 10% underprediction relative to the full deflection. I think it should be 0.10/1.10, about 9.09%, because the full deflection includes both. Am I right?"
+    ],
+    "expected_facts": [
+      "Learner correction valid: .10/1.10=1/11. The earlier statement is supplied as learner report, not a visible tutor turn."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Accepts the valid denominator correction and corrects the claim; does not defend 10% or pretend to have inspected an unavailable prior turn."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "Yes—your denominator is correct. If I called it a 10% underprediction relative to the full deflection, that was wrong:\n\\[\n\\frac{\\delta_{\\rm full}-\\delta_b}{\\delta_{\\rm full}}\n=\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.10}{1.10}\n\\approx\\boxed{9.09\\%}.\n\\]\nThe 10% figure is shear relative to **bending alone**."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+          "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+          "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "Yes. If I called it a 10% underprediction relative to the full deflection, that was wrong. With \\(\\delta_s/\\delta_b=0.10\\),\n\\[\n\\frac{(\\delta_b+\\delta_s)-\\delta_b}{\\delta_b+\\delta_s}\n=\\frac{0.10}{1.10}\\approx9.09\\%.\n\\]\nThe 10% figure uses bending deflection as the denominator; your 9.09% uses the full bending-plus-shear deflection."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "Yes: if r = δ_s/δ_b = 0.10, the underprediction relative to the full deflection is δ_s/(δ_b + δ_s) = r/(1 + r) = 0.10/1.10 ≈ **9.09%**. If I called it 10% relative to the full deflection, that was wrong; 10% is relative to the bending deflection alone."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/tutoring.md'",
+          "@'\nimport math\nP,L,b,E,nu,k=1000,.48,.04,200e9,.30,5/6\nG=E/(2*(1+nu))\nfor h in (.12,.024):\n    A=b*h; I=b*h**3/12\n    db=P*L**3/(3*E*I); ds=P*L/(k*G*A)\n    print('B1',h,'bending_mm',db*1000,'shear_mm',ds*1000,'r',ds/db,'error_pct',100*ds/(db+ds))\nP,L,b,h,E,nu,k=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); A=b*h; I=b*h**3/12\nbending=P*L**3/(48*E*I); shear=P*L/(4*k*G*A)\nprint('B2','bending_mm',bending*1000,'shear_mm',shear*1000,'r',shear/bending,'error_pct',100*shear/(bending+shear))\nL,nu,k=.8,.30,5/6\nfor h in (.02,.20):\n    r=(1+nu)*(h/L)**2/(2*k)\n    print('B3',h,'r',r,'error_pct',100*r/(1+r))\nprint('B3','threshold_m',L*math.sqrt(2*k*.01/((1+nu)*(1-.01))))\nprint('C3','error_pct',100*.10/1.10)\n'@ | python -"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "Yes—your denominator is correct. If I called that a 10% underprediction relative to the full deflection, that was wrong: with \\(r=\\delta_s/\\delta_b=0.10\\), the relative underprediction is\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}=\\frac{r}{1+r}=\\frac{0.10}{1.10}\\approx9.09\\%.\n\\]\n\nThe 10% figure measures shear relative to bending alone."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+          "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "Yes, you're right:\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.10}{1.10}\n=0.0909\\ldots\\approx9.09\\%.\n\\]\nIf I called it a 10% underprediction relative to the full deflection, that was wrong. The 10% uses bending deflection as its denominator; the 9.09% uses bending plus shear."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "Yes—you are right: if shear/bending is \\(0.10\\), the underprediction relative to the full deflection is \\(\\delta_s/(\\delta_b+\\delta_s)=0.10/1.10\\approx9.09\\%\\); if I called that 10%, I used the wrong denominator."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The full-deflection denominator is correctly bending plus shear, giving 0.10/1.10 approximately 9.09%; 10% is correctly assigned to bending alone."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It directly accepts the proposed correction and identifies exactly which denominator caused the reported discrepancy."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The corrected formula and denominator explanation fully resolve the question, requiring no additional learner task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It gives the requested correction without demanding an attempt and uses 'If I called it' rather than claiming to have inspected the unavailable turn."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It accepts the valid correction, replaces the erroneous full-relative percentage and conditionally addresses the learner's report of the earlier statement."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The bending-plus-shear formula correctly gives 9.09% underprediction relative to full deflection and distinguishes the bending-only 10% denominator."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It clearly says yes and corrects the reported 10%-of-full statement."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The formula and denominator distinction complete the correction; no further task is necessary."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It answers with a short explanation and treats the earlier statement conditionally rather than claiming access to an unseen turn."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It accepts the learner's valid denominator correction and explicitly states that calling it 10% of full deflection would have been wrong."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The r/(1+r) formula is correct for r=0.10 and yields 9.09%; the explanation correctly reserves 10% for the bending-only reference."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It directly confirms the learner's arithmetic and corrects the reported percentage claim."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The corrected general expression and numeric result resolve the question without a needless application task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It answers proportionately and conditionally acknowledges the alleged earlier statement without claiming it was inspected."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It accepts the correction, supplies the correct full-relative expression and does not defend 10% or pretend to see the prior turn."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly derives shear/(bending+shear)=r/(1+r)=0.10/1.10, approximately 9.09%, and identifies the 10% reference."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It directly agrees with the learner's denominator and replaces the reported erroneous full-relative claim."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The displayed corrected expression and denominator distinction complete the requested check."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It supplies the answer without an imposed attempt and uses a conditional acknowledgement of the unavailable earlier message."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It accepts the valid correction, explains the two denominators and does not claim to have inspected the missing prior turn."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly calculates 0.0909... approximately 9.09% with total deflection in the denominator and distinguishes the bending-only 10%."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It says the learner is right and directly corrects the reported earlier percentage statement."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The calculation and explanation fully answer the direct question, so no new task is needed."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It gives the correction directly and conditions its acknowledgement of the previous statement rather than inventing access to it."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It accepts the learner's valid correction, corrects the claim and avoids both defending 10% and pretending to inspect an unavailable message."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly computes full-relative underprediction as shear/(bending+shear)=0.10/1.10 approximately 9.09%."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It directly affirms the learner and explains that a prior 10% statement would use the wrong denominator."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The corrected one-sentence formula resolves the question and needs no extra task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It gives a concise direct answer without an imposed attempt or invented prior-turn observation."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It accepts the valid correction and conditionally acknowledges the reported earlier error rather than defending 10% or claiming unavailable evidence."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "B": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "C": {
+      "version": "candidate",
+      "sample": 1
+    },
+    "D": {
+      "version": "baseline",
+      "sample": 1
+    },
+    "E": {
+      "version": "candidate",
+      "sample": 2
+    },
+    "F": {
+      "version": "baseline",
+      "sample": 3
+    }
+  },
+  "second_ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly computes omitted shear divided by full deflection as 0.10/1.10, approximately 9.09%, and distinguishes the 10% shear-to-bending ratio."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Immediately confirms the learner's correction and replaces the reported erroneous full-deflection percentage with the correct expression and result."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The confirmation and corrected denominator fully resolve this brief request; no additional task, measurement or learner exercise is needed."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides a short confirmation with one equation and denominator distinction, without withholding the answer or adding an unrelated lesson."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Accepts the valid correction, labels the reported 10%-of-full statement wrong conditionally, and does not claim to have inspected the unavailable earlier turn."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The expression for full minus bending divided by full is correct and evaluates to 0.10/1.10, about 9.09%; the distinction between bending-only and full denominators is accurate."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly says yes, acknowledges the reported error conditionally, and supplies the corrected percentage and denominator explanation."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Completes the learner's brief confirmation request with the corrected calculation; adding an exercise or further check would be unnecessary."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Keeps the response to the requested confirmation and compact mathematical explanation, with no compulsory attempt or unrequested expansion."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Accepts 9.09% and rejects the reported 10%-relative-to-full claim without defending it or pretending the earlier response is visible."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly defines r as shear/bending, converts to r/(1+r), obtains 9.09%, and explains that 10% refers to bending alone."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers yes immediately and explicitly corrects the reported denominator mistake in the same short response."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The formula and confirmation completely answer the question; no new learner task or measurement is required."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides a concise answer at the requested confirmation level without making the learner rederive the result first or adding an unasked tutorial."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Accepts the valid correction and conditionally acknowledges the earlier error rather than claiming to have inspected an unavailable prior turn."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly uses shear/(bending+shear)=r/(1+r) and computes 0.10/1.10 as approximately 9.09%; identifies the 10% denominator as bending alone."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly confirms that the learner's denominator is correct and corrects the reported earlier full-deflection statement."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The concise correction fully settles the stated request, so no additional exercise or external check is needed."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives one compact derivation and denominator explanation without requiring an attempt, inventing learner performance or adding an unrelated task."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Accepts the valid correction and uses an if statement for the reported earlier error, avoiding any claim that the unavailable prior turn was inspected."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly calculates 0.10/1.10=0.0909... and hence approximately 9.09%, distinguishing the bending denominator from bending plus shear."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Immediately confirms the learner is right, provides the corrected calculation and conditionally acknowledges the reported incorrect 10% statement."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The corrected equation and explanation complete this brief confirmation request; no further task is needed."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Responds at a short confirmation level with useful supporting mathematics and no compulsory practice or unrequested rewrite."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Accepts the valid denominator correction without defending 10%, and conditionally addresses the reported earlier mistake without claiming access to the prior turn."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly states that a 0.10 shear/bending ratio gives a full-deflection underprediction of 0.10/1.10, approximately 9.09%."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly says the learner is right and identifies the wrong denominator as the explanation of the reported 10% claim."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "This direct confirmation and corrected expression fully answer the question; the task does not require a new exercise or measurement."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Uses a single concise sentence with the needed formula, matching the brief confirmation request and imposing no preliminary attempt."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Accepts the correction and conditionally acknowledges using the wrong denominator if the reported 10% claim was made; does not claim to have viewed the unavailable earlier message."
+      }
+    }
+  }
+}

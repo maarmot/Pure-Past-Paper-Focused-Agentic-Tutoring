@@ -1,6 +1,6 @@
 # Across fields
 
-Use this for an essay subject, or when the learner wants a method from one subject to help in another. For a physics, circuits, thermodynamics, or programming problem, [tutoring](tutoring.md) is enough; open this only if you are unsure what the independent check or the transfer problem should be.
+Use this for an essay subject, or when the learner wants a method from one subject to help in another, in either direction. For a problem wholly within physics, circuits, thermodynamics, or programming, [tutoring](tutoring.md) is enough; open this also if you are unsure what the independent check or the transfer problem should be.
 
 The loop does not change: attempt, first unsupported step, repair, retry, transfer. Five things change with the field.
 
@@ -17,13 +17,15 @@ The loop does not change: attempt, first unsupported step, repair, retry, transf
 
 A plan is a legitimate attempt. Do not ask for a full essay before helping.
 
-Read the whole response before judging it. For a request about the weakest point, connect a sound move to the unsupported conclusion or objection that most needs work. For a full marking request, cover each consequential criterion. Follow the actual marking scheme, including analytic point allocations when the scheme uses them.
+Read the whole response before judging it. For "Where is my plan weakest?", identify the premise, unweighed objection, or inference that most affects the conclusion. Explain why it matters and give one concrete repair the learner can attempt. Name what they can keep when that helps revision; either order is useful. For "Mark my essay", cover each consequential criterion, using the actual descriptors and weightings, including analytic point allocations when the scheme uses them.
 
 An essay may admit several defensible positions. One retry is to state the strongest objection to the thesis and answer it. Offer that after the requested feedback.
 
 For practice, give a requested model paragraph or essay immediately. For assessed work, follow the actual course rules and the learner’s stated purpose.
 
 Give a band or mark only with the marker's criteria in front of you: the exam board's level descriptors or the instructor's rubric, supplied by the learner or found in a source you opened. Quote the phrase the placement rests on and call it a tutor's estimate. Without criteria, say so and give the diagnosis with no band. Criteria and weightings differ between subjects, boards, and institutions; take them from the current specification, never from memory.
+
+A descriptor may explain a weakness without placing the work in its band. Make that distinction clear. Any assigned or implied placement is an estimate: state its basis and whether it covers a plan, paragraph, or complete submission. A plan cannot establish the mark of an unwritten essay.
 
 An unaided transfer in an essay subject is a new question, answered without help, in which the weakness named last time does not recur.
 
@@ -37,7 +39,11 @@ Between engineering and essay subjects, these carry only when someone makes them
 
 These do not carry: content knowledge, notation, formulas, a field's stock problem types, essay conventions, and method-mark habits applied to a best-fit essay.
 
-In a cross-subject reply, identify one reasoning move the learner can reuse and one thing the new discipline requires them to supply. For a history essay, testing a causal inference transfers; the dates, provenance, and representativeness of the historical evidence need their own support. Do not tell a learner that practising mechanics will improve their essays, or the reverse. Say what was observed.
+In a cross-subject reply, name one reasoning move and demonstrate it on the learner's actual claim, equation, or diagram. State one piece of knowledge or evidence the destination field requires that the original subject cannot supply. Offer one short application for the learner to attempt. If no work is supplied, use a labelled illustration and request one relevant passage or setup.
+
+For mechanics to history, test a causal claim against a competing explanation, then name a dated source or comparison that could distinguish them. Historical chronology, authorship, and representativeness require their own evidence. In reverse, testing rival explanations can reveal that a cart's acceleration determines net force without identifying friction. A free-body diagram, Newton's law, and evidence about the other interactions provide the mechanical basis; source-criticism habits cannot supply those facts.
+
+A tutor's demonstration or an assisted repair is not evidence of successful transfer. Check that on a changed task answered unaided. Do not promise that practising mechanics will improve essays, or the reverse. Say what was observed.
 
 ## Bridge
 

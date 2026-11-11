@@ -1,0 +1,447 @@
+{
+  "case": {
+    "id": "B1",
+    "area": "beam",
+    "messages": [
+      "I need a static tip-deflection estimate. Ideal rigidly clamped cantilever, transverse point load 1000 N at the free end, length 480 mm, solid rectangle 40 mm wide and 120 mm deep in the bending direction. Homogeneous isotropic linear elastic material E=200 GPa, nu=0.30, G=E/[2(1+nu)], shear factor kappa=5/6. Small deflection and elastic behaviour are stipulated. My accuracy budget permits at most 2% error from omitting shear, measured relative to bending-plus-shear deflection. Is Euler-Bernoulli adequate for that budget? Please decide and show a compact check.",
+      "I copied the bending depth incorrectly: it is 24 mm, not 120 mm. All other stipulated assumptions and the 2% budget stay the same. Does your decision change?"
+    ],
+    "expected_facts": [
+      "At h=.12,L=.48, r=delta_s/delta_b=.04875, omission/total=.0464839094: fails 2%. At h=.024 r=.00195, omission/total=.0019462049: meets 2%. This is only a shear-omission model budget, not a physical accuracy guarantee."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Uses cantilever-tip formulas and correct error denominator, gives fail then pass when depth changes, and confines adequacy to the stipulated model/budget."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "**No: Euler–Bernoulli exceeds the 2% shear-omission budget for h = 120 mm.** Within the stipulated model, the cantilever tip components are\n\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nWith G = 76.923 GPa, these give δ_b = 0.03200 mm and δ_s = 0.001560 mm. Thus\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.04875,\n\\qquad\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}=4.648\\%>2\\%.\n\\]\n\nUse bending plus shear for this estimate: δ_total = 0.03356 mm. The percentage uses the combined deflection as its denominator, as requested.",
+        "**Yes: with the corrected depth of 24 mm, Euler–Bernoulli meets the 2% shear-omission budget.** Reusing the same cantilever ratio,\n\n\\[\nr=\\frac{1.30}{2(5/6)}\\left(\\frac{0.024}{0.480}\\right)^2\n=0.001950,\n\\qquad\n\\frac{r}{1+r}=0.1946\\%<2\\%.\n\\]\n\nThe corrected deflections are δ_b = 4.000 mm and δ_s = 0.007800 mm, giving δ_total = 4.007800 mm. The larger bending deflection follows from I being proportional to h³; all stipulated assumptions remain in force."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/argument.md'",
+          "@'\nimport math\nP,L,b,E,nu,k=1000,.48,.04,200e9,.30,5/6\nG=E/(2*(1+nu))\nfor h in (.12,.024):\n    A=b*h; I=b*h**3/12\n    db=P*L**3/(3*E*I); ds=P*L/(k*G*A)\n    print('B1',h,'bending_mm',db*1000,'shear_mm',ds*1000,'r',ds/db,'error_pct',100*ds/(db+ds))\nP,L,b,h,E,nu,k=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); A=b*h; I=b*h**3/12\nbending=P*L**3/(48*E*I); shear=P*L/(4*k*G*A)\nprint('B2','bending_mm',bending*1000,'shear_mm',shear*1000,'r',shear/bending,'error_pct',100*shear/(bending+shear))\nL,nu,k=.8,.30,5/6\nfor h in (.02,.20):\n    r=(1+nu)*(h/L)**2/(2*k)\n    print('B3',h,'r',r,'error_pct',100*r/(1+r))\nprint('B3','threshold_m',L*math.sqrt(2*k*.01/((1+nu)*(1-.01))))\nprint('C3','error_pct',100*.10/1.10)\n'@ | python -"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "**No: Euler–Bernoulli exceeds your 2% shear-omission budget.** For the stipulated cantilever model,\n\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nWith \\(h=0.120\\,\\mathrm m\\), these give\n\n\\[\n\\delta_b=0.03200\\,\\mathrm{mm},\\qquad\n\\delta_s=0.001560\\,\\mathrm{mm}.\n\\]\n\nThe omitted fraction of the full deflection is\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.001560}{0.033560}\n=\\boxed{4.648\\%}>2\\%.\n\\]\n\nUse bending plus shear for this budget; its tip-deflection estimate is \\(0.03356\\,\\mathrm{mm}\\).",
+        "**Yes—the decision changes: Euler–Bernoulli meets the 2% budget with a 24 mm bending depth.** Recomputing with \\(h=0.024\\,\\mathrm m\\),\n\n\\[\nI=4.608\\times10^{-8}\\,\\mathrm{m^4},\\quad A=9.60\\times10^{-4}\\,\\mathrm{m^2},\n\\]\n\n\\[\n\\delta_b=4.000\\,\\mathrm{mm},\\qquad\n\\delta_s=0.007800\\,\\mathrm{mm}.\n\\]\n\nThus\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.007800}{4.007800}\n=\\boxed{0.1946\\%}<2\\%.\n\\]\n\nReducing the depth increases bending deflection much faster than shear deflection: bending varies as \\(h^{-3}\\), while shear varies as \\(h^{-1}\\)."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "@'\nimport math\n\ndef cantilever(P,L,b,h,E,nu,kappa=5/6):\n    G=E/(2*(1+nu)); A=b*h; I=b*h**3/12\n    bend=P*L**3/(3*E*I); shear=P*L/(kappa*G*A)\n    return {'I':I,'A':A,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)}\nprint('B1 first', cantilever(1000,.48,.04,.12,200e9,.30))\nprint('B1 followup', cantilever(1000,.48,.04,.024,200e9,.30))\nP,L,b,h,E,nu,kappa=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); I=b*h**3/12; A=b*h\nbend=P*L**3/(48*E*I); shear=P*L/(4*kappa*G*A)\nprint('B2', {'I':I,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)})\nL,nu,kappa,budget=.8,.30,5/6,.01\nfactor=2*(1+nu)/(4*kappa)\nthreshold=L*math.sqrt(budget/((1-budget)*factor))\nprint('B3', {'factor':factor,'h_threshold_m':threshold,'min_error_pct':100*factor*(.02/L)**2/(1+factor*(.02/L)**2),'max_error_pct':100*factor*(.2/L)**2/(1+factor*(.2/L)**2)})\n'@ | python -"
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "**No: Euler–Bernoulli exceeds your 2% shear-omission budget.** For the stipulated cantilever model,\n\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nWith \\(L=0.480\\,\\mathrm m\\), \\(h=0.120\\,\\mathrm m\\) and \\(G=76.923\\,\\mathrm{GPa}\\), the shear-to-bending ratio is\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78(0.25)^2=0.04875.\n\\]\n\nThe error relative to **bending plus shear** is therefore\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac r{1+r}=4.648\\%>2\\%.\n\\]\n\nNumerically, \\(\\delta_b=0.03200\\,\\mathrm{mm}\\), \\(\\delta_s=0.001560\\,\\mathrm{mm}\\), and the combined estimate is \\(0.03356\\,\\mathrm{mm}\\). Include shear to meet this budget.",
+        "**Yes—the decision changes: Euler–Bernoulli meets the 2% shear-omission budget with \\(h=24\\,\\mathrm{mm}\\).** Updating the same check,\n\n\\[\nr=0.78\\left(\\frac{0.024}{0.480}\\right)^2=0.00195,\n\\qquad\n\\frac r{1+r}=0.1946\\%<2\\%.\n\\]\n\nThe deflections are now \\(\\delta_b=4.000\\,\\mathrm{mm}\\) and \\(\\delta_s=0.007800\\,\\mathrm{mm}\\), giving \\(4.0078\\,\\mathrm{mm}\\) combined. Reducing depth increases bending deflection more rapidly than shear deflection, so shear becomes a smaller fraction of the total."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+          "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "**No: Euler–Bernoulli fails the 2% shear-omission budget for the stated 120 mm depth.**\n\nFor a cantilever with a transverse tip load,\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA}.\n\\]\nWith \\(A=bh\\), \\(I=bh^3/12\\), and \\(G=E/[2(1+\\nu)]\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{1.30}{2(5/6)}\\left(\\frac{0.120}{0.480}\\right)^2\n=0.04875.\n\\]\nYour required denominator is the combined deflection:\n\\[\n\\text{omission error}=\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}\n=4.648\\%>2\\%.\n\\]\nNumerically, \\(\\delta_b=0.0320\\) mm and \\(\\delta_s=0.00156\\) mm, giving \\(0.03356\\) mm combined. Include shear to meet this budget under the stipulated beam model.",
+        "**Yes—the decision changes: Euler–Bernoulli meets the 2% budget with \\(h=24\\) mm.**\n\nThe corrected depth gives\n\\[\nr=\\frac{1.30}{2(5/6)}\n\\left(\\frac{0.024}{0.480}\\right)^2\n=0.00195,\n\\qquad\n\\frac{r}{1+r}=0.1946\\%<2\\%.\n\\]\nThe deflections are now \\(\\delta_b=4.000\\) mm and \\(\\delta_s=0.00780\\) mm, for \\(4.00780\\) mm combined. The depth is one fifth of the original value, so the shear-to-bending ratio falls by a factor of 25. This verdict concerns the specified shear-omission budget under your unchanged assumptions."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3",
+          "$kappa = 5.0/6.0; foreach ($case in @(@{id='B1_initial';P=1000.0;L=.48;b=.04;h=.12;E=200e9;nu=.30;support='cantilever'},@{id='B1_corrected';P=1000.0;L=.48;b=.04;h=.024;E=200e9;nu=.30;support='cantilever'},@{id='B2';P=2000.0;L=1.2;b=.04;h=.12;E=70e9;nu=.33;support='central'})) { $area=$case.b*$case.h; $inertia=$case.b*[Math]::Pow($case.h,3)/12; $shearModulus=$case.E/(2*(1+$case.nu)); if ($case.support -eq 'cantilever') { $bending=$case.P*[Math]::Pow($case.L,3)/(3*$case.E*$inertia); $shear=$case.P*$case.L/($kappa*$shearModulus*$area) } else { $bending=$case.P*[Math]::Pow($case.L,3)/(48*$case.E*$inertia); $shear=$case.P*$case.L/(4*$kappa*$shearModulus*$area) }; [PSCustomObject]@{id=$case.id;bending_mm=1000*$bending;shear_mm=1000*$shear;ratio=$shear/$bending;error_percent=100*$shear/($bending+$shear)} | ConvertTo-Json -Compress }; [PSCustomObject]@{id='B3';h_limit_m=.8*[Math]::Sqrt((2*$kappa/(1+.30))*(.01/.99));min_error_percent=100*(.78*[Math]::Pow(.02/.8,2))/(1+.78*[Math]::Pow(.02/.8,2));max_error_percent=100*(.78*[Math]::Pow(.20/.8,2))/(1+.78*[Math]::Pow(.20/.8,2))} | ConvertTo-Json -Compress"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "**No. Euler–Bernoulli exceeds your 2% shear-omission budget for the stated 120 mm depth.**\n\nFor this tip-loaded cantilever,\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nI=\\frac{bh^3}{12},\\quad A=bh.\n\\]\nUsing the supplied isotropic relation for \\(G\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{1.30}{2(5/6)}\\left(\\frac{120}{480}\\right)^2\n=0.04875.\n\\]\nThe error relative to bending **plus** shear is\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}\n=0.04648\\approx\\boxed{4.65\\%}>2\\%.\n\\]\nNumerically, \\(\\delta_b=0.03200\\) mm and \\(\\delta_s=0.00156\\) mm, giving \\(0.03356\\) mm combined. Include shear to meet this budget under the stipulated model.",
+        "**Yes—the decision changes: Euler–Bernoulli now meets the 2% shear-omission budget.** With \\(h=24\\) mm,\n\\[\nr=\\frac{1.30}{2(5/6)}\\left(\\frac{24}{480}\\right)^2\n=0.00195,\n\\qquad\n\\frac{r}{1+r}\\times100\\%=\\boxed{0.1946\\%}<2\\%.\n\\]\nThe corrected deflections are \\(\\delta_b=4.0000\\) mm and \\(\\delta_s=0.0078\\) mm, so the combined estimate is \\(4.0078\\) mm. The shallower section bends much more, while shear becomes a smaller fraction of the total."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+          "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+          "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\argument.md'",
+          "python -c \"P=1000; L=.480; b=.040; E=200e9; nu=.30; G=E/(2*(1+nu)); k=5/6; [(print({'h_m':h,'bending_mm':P*L**3/(3*E*(b*h**3/12))*1000,'shear_mm':P*L/(k*G*b*h)*1000,'r':(1+nu)*(h/L)**2/(2*k),'error_pct':100*((1+nu)*(h/L)**2/(2*k))/(1+(1+nu)*(h/L)**2/(2*k))})) for h in [.120,.024]]\""
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "**No. Omitting shear gives a 4.65% underestimate relative to bending-plus-shear deflection, exceeding your 2% budget.**\n\nFor the stipulated cantilever and tip load,\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\nWith \\(L=0.480\\,\\mathrm m\\), \\(b=0.040\\,\\mathrm m\\), \\(h=0.120\\,\\mathrm m\\), and \\(G=76.923\\,\\mathrm{GPa}\\),\n\\[\n\\delta_b=0.03200\\,\\mathrm{mm},\\qquad\n\\delta_s=0.001560\\,\\mathrm{mm}.\n\\]\nTherefore the specified omission error is\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.001560}{0.033560}\n=0.046484\\approx4.65\\%.\n\\]\nInclude shear for this budget; the bending-plus-shear estimate is \\(0.03356\\,\\mathrm{mm}\\).",
+        "**Yes—the decision changes: Euler–Bernoulli meets the 2% shear-omission budget with the corrected 24 mm depth.**\n\nUsing \\(h=0.024\\,\\mathrm m\\),\n\\[\nA=0.000960\\,\\mathrm{m^2},\\qquad I=4.608\\times10^{-8}\\,\\mathrm{m^4},\n\\]\nwhich gives\n\\[\n\\delta_b=4.0000\\,\\mathrm{mm},\\qquad\n\\delta_s=0.007800\\,\\mathrm{mm}.\n\\]\nThus\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.0078}{4.0078}\n\\approx0.0019462=0.1946\\%<2\\%.\n\\]\nReducing the depth increases bending deflection much faster than shear deflection: their ratio scales as \\(h^2/L^2\\). This decision concerns the stipulated shear-omission budget."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+          "python -c \"P=1000; L=.480; b=.040; E=200e9; nu=.30; G=E/(2*(1+nu)); k=5/6; [(print({'h_m':h,'I_m4':b*h**3/12,'bending_mm':1e3*P*L**3/(3*E*(b*h**3/12)),'shear_mm':1e3*P*L/(k*G*b*h),'shear_to_bending':(P*L/(k*G*b*h))/(P*L**3/(3*E*(b*h**3/12))),'error_percent':100*(P*L/(k*G*b*h))/(P*L**3/(3*E*(b*h**3/12))+P*L/(k*G*b*h))})) for h in [.120,.024]]\""
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Both turns use the correct cantilever components: 0.03200/0.001560 mm initially and 4.000/0.007800 mm after correction; the total-relative errors 4.648% and 0.1946% agree with independent calculation."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly answers no at 120 mm and yes at 24 mm, recomputing the shear-to-bending ratio from 0.04875 to 0.001950."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Initially recommends bending plus shear and supplies 0.03356 mm; the corrected turn supplies the completed budget decision and 4.007800 mm combined estimate, so no extra task is needed."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives the requested compact check and a direct corrected answer with a brief explanation of the depth dependence; it neither withholds the answer nor invents learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses PL^3/(3EI), PL/(kappa GA), and shear/(bending+shear), changes fail to pass, and explicitly frames the calculation within the stipulated model and shear-omission budget."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The cantilever formulas, initial deflections, corrected I=4.608e-8 m^4 and A=9.60e-4 m^2, and both errors 4.648%/0.1946% are correct under the fixture."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "The first answer rejects EB for the 2% budget; the follow-up explicitly changes the decision and recomputes using the corrected 24 mm depth."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Advises using bending plus shear for the initial budget and gives the estimate; after the correction, the requested decision and numerical check are complete without further measurements."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides formulas, substitution and a short h^-3 versus h^-1 explanation at the requested answer level, with no compulsory learner attempt or unrequested work."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "The actual cantilever-tip coefficients and combined-deflection denominator are used, producing fail then pass; the verdict is scoped to the stipulated cantilever model and stated budget."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The derived ratio 0.78(h/L)^2, initial r=0.04875 and corrected r=0.00195 are correct; errors and absolute deflections in both turns match independent calculation."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers no initially and explicitly changes to yes for 24 mm, updating the relevant ratio and tip-deflection figures."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Gives the useful initial repair, include shear, with a combined estimate; the follow-up fully settles the revised shear-budget question and needs no new task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "The compact model check and short explanation of why reducing depth changes the verdict respect the requested direct-answer detail."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses the correct cantilever-tip formulas, r/(1+r) denominator, and fail-to-pass sequence, while naming the stipulated model and the shear-omission budget."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "All displayed cantilever equations and numerical results are correct, including the factor-of-25 decrease in shear-to-bending ratio when the depth is divided by five."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Gives an immediate failing verdict at 120 mm, then a clear changed passing verdict and updated 0.1946% error at 24 mm."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The first turn tells the user to include shear and provides the resulting estimate; the corrected calculation directly resolves the remaining budget decision."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested compact calculation and an explanatory sentence, without demanding an attempt, adding unrelated tasks, or claiming learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses tip-load cantilever coefficients and combined deflection as denominator, obtains fail then pass, and explicitly limits the follow-up verdict to the specified shear-omission budget under unchanged assumptions."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The ratio, combined-relative error and component deflections are correct in both turns; 4.65% and 0.1946% are acceptable roundings of the independently calculated results."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "The first turn rejects EB for the stated 120 mm depth; the second explicitly changes the decision after substituting 24 mm."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Recommends including shear for the original depth and gives the combined estimate; with the corrected depth it completes the requested budget check without requiring anything else."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "The response supplies the requested answer and compact mathematical check, with a brief mechanism explanation and no invented learner activity."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "The formulas use the actual tip-loaded cantilever, error is shear divided by bending plus shear, and the fail-to-pass verdict is expressly about the shear-omission budget under the stipulated model."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The two turns correctly calculate initial and corrected A/I or deflections and the total-relative errors 4.65% and 0.1946%; the stated depth-squared scaling is consistent with the shear-to-bending comparison."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers the initial budget question directly and explicitly changes the decision after the depth correction, using recomputed deflections."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Includes the initial remedy of retaining shear and its combined estimate, then settles the corrected budget decision with numerical evidence; no additional task is necessary."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Offers a direct compact check with units and a short scaling explanation, without withholding the solution or asserting learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses cantilever tip-load coefficients and shear/(bending+shear), returns fail then pass, and explicitly says the decision concerns the stipulated shear-omission budget."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "candidate",
+      "sample": 1
+    },
+    "B": {
+      "version": "baseline",
+      "sample": 3
+    },
+    "C": {
+      "version": "baseline",
+      "sample": 1
+    },
+    "D": {
+      "version": "candidate",
+      "sample": 2
+    },
+    "E": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "F": {
+      "version": "baseline",
+      "sample": 2
+    }
+  },
+  "second_ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Cantilever bending and shear formulas, G, component deflections and both ratios are correct: 0.03200 plus 0.001560 mm gives 4.648% omission; corrected depth gives 4.000 plus 0.007800 mm and 0.1946%."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly rejects Euler-Bernoulli for the initial 2% budget, then changes the decision to adequate for the corrected 24 mm depth with a compact recalculation."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Gives the useful initial repair of including shear and supplies the combined estimate 0.03356 mm. The follow-up is fully decided numerically, so no extra measurement or exercise is needed under the stipulated assumptions."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Shows a compact formula-and-numbers check and answers both questions directly without forcing a preliminary attempt or adding unrelated hardware tasks."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses cantilever-tip formulas and shear divided by bending-plus-shear, obtains fail then pass after the depth correction, and expressly confines both decisions to the shear-omission budget and stipulated assumptions."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Both sets of deflections and the corrected A and I are correct. Dividing 0.001560 by 0.033560 gives 4.648%; dividing 0.007800 by 4.007800 gives 0.1946%, with the stated h^-3 and h^-1 scalings correct."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Gives the requested initial no verdict and flips to yes after the depth correction, explicitly recomputing rather than retaining the original geometry."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Recommends bending plus shear for the failed initial budget and gives its numerical estimate; after correction the direct adequacy decision is complete without a needless additional task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested compact check and a short scaling explanation, without withholding the result or introducing unrequested model-selection exercises."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses the correct cantilever bending and shear expressions, the full-deflection denominator, and the required fail-to-pass update. The conversation explicitly frames the result as the stipulated cantilever model and 2% shear budget."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly derives r=(1+nu)(h/L)^2/(2 kappa), computes 0.04875 and 0.00195, and converts them to full-deflection omission errors 4.648% and 0.1946%; all displayed deflections agree."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers no for 120 mm and explicitly changes to yes for 24 mm, updating both the ratio and deflection values to the learner's correction."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Tells the learner to include shear when the first budget fails and supplies the combined estimate; the corrected question is answered completely and requires no new learner task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives a compact analytical check followed by a concise update and physical scaling explanation, with no compulsory attempt or unrelated expansion."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses cantilever-tip formulas, the correct r/(1+r) denominator, fail then pass, and limits adequacy to the stipulated model's shear-omission budget rather than asserting general physical accuracy."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The cantilever formulas, dimensionless ratio, percentage errors and component deflections are correct. Reducing depth by five reduces the shear-to-bending ratio by 25, as stated."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Gives direct no and yes verdicts for the two specified depths and recomputes the check while retaining the learner's unchanged assumptions and 2% budget."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies including shear for the initial failed budget, gives the combined deflection, and completes the corrected decision without inventing further required measurements."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Supplies the requested compact calculation and explanation without delaying the answer for a learner attempt or adding unrelated engineering validation requirements."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Explicitly uses tip-loaded cantilever formulas and combined-deflection denominator, flips from 4.648% failure to 0.1946% pass, and states that the verdict concerns only the specified budget under unchanged assumptions."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Both r values, component deflections and omission percentages are correct; the rounded 4.65% agrees with the 4.64839% reference within the allowed tolerance, and the corrected result is 0.1946%."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly decides the initial model exceeds the budget, then changes to meets the budget when h becomes 24 mm, with an explicit updated check."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Gives the concrete initial repair to include shear and a combined estimate of 0.03356 mm; the corrected-depth adequacy question is then fully resolved without a new task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Keeps the answer to formulas, numerical comparisons and a brief explanation, respecting the request for a compact decision rather than demanding work before answering."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Correct cantilever-tip formulas and the bending-plus-shear denominator yield fail then pass. The wording repeatedly restricts adequacy to the shear-omission budget and initially states the stipulated model."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The cantilever formulas, initial and corrected A and I, deflections, and full-deflection errors are correct. The h^2/L^2 ratio statement is consistent with the shear-to-bending comparison driving the calculation."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers no with a 4.65% error initially and explicitly changes to yes with a 0.1946% error after the corrected 24 mm depth, rather than reusing the initial result."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Recommends including shear for the original failed budget and supplies the combined estimate; the corrected follow-up includes all numbers needed for the decision and needs no extra task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Shows the requested compact direct calculation and short explanation without imposing a preliminary exercise, unsupported real-world assumptions or unrelated checks."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses cantilever-tip formulas and shear divided by the total, obtains the correct fail-to-pass verdict change, and explicitly says the decision concerns the stipulated shear-omission budget."
+      }
+    }
+  }
+}

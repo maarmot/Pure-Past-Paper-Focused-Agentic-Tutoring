@@ -1,0 +1,475 @@
+{
+  "case": {
+    "id": "D2",
+    "area": "beam",
+    "messages": [
+      "For an ideal clamped solid rectangular isotropic elastic beam with tip force, L=.6m and h=.2m, nu=.30 and kappa=5/6, is EB sufficient for a static tip-deflection estimate if omitted shear must contribute no more than 5% of bending-plus-shear deflection? Assume small deflection and G=E/[2(1+nu)]. Show the compact decision and next action."
+    ],
+    "expected_facts": [
+      "r=.0866666667 and total-relative error=.0797546012, fails5%; no need for absolute load/width/E to compare ratio."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Purpose-sensitive quantitative judgment, correct denominator and explicit action."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "**No. Under the stipulated bending-plus-shear model, Euler–Bernoulli (EB) omits about 7.98% of the total tip deflection, exceeding your 5% limit.**\n\nFor tip force F,\n\nδ_b = FL³/(3EI),     δ_s = FL/(κGA),     I/A = h²/12.\n\nHence the shear-to-bending ratio is\n\nr = δ_s/δ_b = [(1 + ν)/(2κ)](h/L)²\n  = [1.30/(2 × 5/6)](0.2/0.6)²\n  = 13/150 ≈ 0.08667.\n\nYour criterion uses the **total** as its denominator:\n\nδ_s/(δ_b + δ_s) = r/(1 + r) = 13/163 ≈ 0.07975 > 0.05.\n\n**Next action:** use a shear-inclusive Timoshenko estimate, δ_tip = FL³/(3EI) + FL/(κGA) = 1.08667 δ_EB. An absolute displacement also requires the force, Young's modulus, and section width."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\development-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'; Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "**No. Euler–Bernoulli fails your 5% omitted-shear limit for this stipulated model.**\n\nFor a cantilever with transverse tip force P,\n\nδ_b = PL³/(3EI),     δ_s = PL/(κGA).\n\nUsing I/A = h²/12 and G = E/[2(1 + ν)],\n\nr = δ_s/δ_b = [(1 + ν)/(2κ)](h/L)²\n  = [1.30/(2 × 5/6)](0.2/0.6)² = 0.08667.\n\nYour denominator is the **combined deflection**, so the omitted fraction is\n\nδ_s/(δ_b + δ_s) = r/(1 + r) = 0.07975 ≈ **7.98% > 5%**.\n\n**Next action:** include shear using the elementary Timoshenko estimate δ_tip = δ_b + δ_s = 1.08667δ_b, or a shear-deformable beam formulation. P, E, and width cancel from this decision; they are needed for the absolute deflection. This comparison tests the shear omission within the stated beam model, not every possible physical modeling error."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'; Get-Content -Raw 'research/evaluation/fixture.json'; Get-Content -Raw 'research/evaluation/development-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/fields.md'; Get-Content -Raw 'research/evaluation/skill/references/argument.md'",
+          "python -c \"r=(1+.30)*(.2/.6)**2/(2*(5/6)); print('shear_to_bending=',r); print('shear_fraction_of_total=',r/(1+r)); print('allowed_shear_to_bending=',.05/.95)\""
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "**No: Euler–Bernoulli fails your 5% omitted-shear limit under the stipulated model.** Here \\(L/h=3\\). For a cantilever with transverse tip force \\(P\\),\n\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad \\delta_s=\\frac{PL}{\\kappa GA}.\n\\]\n\nUsing \\(I/A=h^2/12\\) and your relation for \\(G\\),\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{1.30}{2(5/6)}\\left(\\frac{0.2}{0.6}\\right)^2\n=0.08667.\n\\]\n\nYour denominator is **bending plus shear**, so the omitted fraction is\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}=\\frac r{1+r}\n\\approx 0.07975=7.98\\%>5\\%.\n\\]\n\nNext action: include shear using the Timoshenko estimate \\(\\delta=\\delta_b+\\delta_s\\approx1.08667\\delta_b\\). Neither \\(E\\), width nor load is needed for this ratio decision; their values are needed for the absolute deflection. This comparison checks the stipulated shear omission, rather than establishing the total error against a three-dimensional beam."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/development-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "**No. Euler–Bernoulli (EB) fails your 5% omitted-shear criterion.**\n\nFor the stipulated cantilever model,\n\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa AG}.\n\\]\n\nFor a solid rectangle, \\(I/A=h^2/12\\), so\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{3EI}{\\kappa AGL^2}\n=\\frac{(1+\\nu)h^2}{2\\kappa L^2}\n=\\frac{1.30(0.20)^2}{2(5/6)(0.60)^2}\n=0.08667.\n\\]\n\nThe required denominator is bending **plus** shear:\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}=0.07975\\approx7.98\\%>5\\%.\n\\]\n\n**Next action:** use the bending-plus-shear (Timoshenko) estimate \\(\\delta=\\delta_b+\\delta_s=1.08667\\,\\delta_{EB}\\). A numerical deflection additionally needs the load, Young’s modulus, and section width. This decision concerns the stipulated shear contribution; it does not independently validate the beam model against three-dimensional clamp or load effects."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content 'research/evaluation/skill/SKILL.md'; Get-Content 'research/evaluation/fixture.json'; Get-Content 'research/evaluation/development-prompts.json'",
+          "Get-Content -LiteralPath 'research/evaluation/skill/references/tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "**No. Under the stipulated model, omitted shear contributes about 7.98% of total tip deflection, exceeding your 5% limit.** Taking \\(h\\) as the depth in the bending plane,\n\n\\[\n\\delta_b=\\frac{FL^3}{3EI},\\qquad\n\\delta_s=\\frac{FL}{\\kappa GA},\\qquad\n\\frac IA=\\frac{h^2}{12}.\n\\]\n\nThus\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{1.30}{2(5/6)}\\left(\\frac{0.2}{0.6}\\right)^2\n=0.08667.\n\\]\n\nThe required comparison uses total deflection:\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}=0.07975>0.05.\n\\]\n\n**Next action:** use the bending-plus-shear estimate, \\(\\delta=\\delta_b+\\delta_s=1.08667\\,\\delta_{\\rm EB}\\), for this exercise. The permitted shear fraction would require \\(L/h\\geq\\sqrt{14.82}\\approx3.85\\); yours is 3."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research/evaluation/skill/SKILL.md'; Get-Content -LiteralPath 'research/evaluation/fixture.json'; Get-Content -LiteralPath 'research/evaluation/development-prompts.json'",
+          "Get-Content -LiteralPath 'research/evaluation/skill/references/tutoring.md','research/evaluation/skill/references/fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "**No—Euler–Bernoulli (EB) fails the specified 5% omitted-shear budget.** Here \\(L/h=3\\). For this ideal cantilever with a tip force \\(P\\),\n\n\\[\\delta_b=\\frac{PL^3}{3EI},\\qquad \\delta_s=\\frac{PL}{\\kappa GA}.\\]\n\nUsing \\(I/A=h^2/12\\) and your relation for \\(G\\),\n\n\\[r=\\frac{\\delta_s}{\\delta_b}=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2=\\frac{1.30}{2(5/6)}\\left(\\frac{.2}{.6}\\right)^2=0.08667.\\]\n\nYour tolerance uses **combined deflection** as the denominator:\n\n\\[\\frac{\\delta_s}{\\delta_b+\\delta_s}=\\frac{r}{1+r}=0.07975\\approx7.98\\%>5\\%.\\]\n\n**Next action:** include shear using \\(\\delta_{\\mathrm{tip}}=\\delta_b+\\delta_s\\), or use a shear-deformable beam formulation. Neither \\(E\\), beam width, nor force magnitude is needed for this ratio decision; they are needed for an absolute deflection. This verdict checks the omitted shear term within the stipulated beam model, not all physical modelling error."
+      ],
+      "actions": {
+        "files_read": [
+          "fixture.json",
+          "development-prompts.json",
+          "skill/SKILL.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research/evaluation/fixture.json'; Get-Content -LiteralPath 'research/evaluation/development-prompts.json'; Get-Content -LiteralPath 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -LiteralPath 'research/evaluation/skill/references/argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "G": {
+      "turns": [
+        "**No. Under the stipulated bending-plus-shear model, omitting shear loses about 8.0% of the total tip deflection, exceeding your 5% limit.**\n\nFor tip force P, with h the depth in the bending direction:\n\nδ_b = PL³/(3EI),   δ_s = PL/(κGA),   I/A = h²/12.\n\nTherefore:\n\nr = δ_s/δ_b = [(1 + ν)/(2κ)](h/L)²\n  = [1.30/(2 × 5/6)](0.2/0.6)² = 0.08667.\n\nThe specified omission fraction uses **total** deflection as its denominator:\n\nδ_s/(δ_b + δ_s) = r/(1 + r) = 13/163 ≈ 7.98% > 5%.\n\n**Next action:** retain shear using the Timoshenko bending-plus-shear estimate, δ = PL³/(3EI) + PL/(κGA). The decision does not require the load, modulus, or section width because they cancel from the ratio."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -LiteralPath 'research/evaluation/fixture.json'; Get-Content -LiteralPath 'research/evaluation/development-prompts.json'",
+          "Get-Content -LiteralPath 'research/evaluation/skill/references/tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "H": {
+      "turns": [
+        "**No: EB fails the stipulated 5% shear-omission limit.** For a tip force (F),\n\n\\[\n\\delta_b=\\frac{FL^3}{3EI},\\qquad\n\\delta_s=\\frac{FL}{\\kappa GA},\\qquad\n\\frac{I}{A}=\\frac{h^2}{12}.\n\\]\n\nThus, using the supplied relation for (G),\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{1.30}{2(5/6)}\\left(\\frac{0.2}{0.6}\\right)^2\n=0.08667.\n\\]\n\nThe criterion uses **bending-plus-shear deflection** as the denominator, so the omitted fraction is\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}\n=\\frac{13}{163}\\approx7.98\\%>5\\%.\n\\]\n\n**Next action:** include shear using the static Timoshenko estimate \\(\\delta_{tip}=FL^3/(3EI)+FL/(\\kappa GA)\\). Within this stipulated model, EB underestimates that total by about 8%; the relative decision does not require numerical values of (F), (E), or beam width."
+      ],
+      "actions": {
+        "files_read": [
+          "fixture.json",
+          "development-prompts.json",
+          "skill/SKILL.md",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\development-prompts.json'; Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'; Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "I": {
+      "turns": [
+        "**No—Euler–Bernoulli (EB) fails the stipulated 5% shear-omission limit.** Here \\(L/h=3\\). For this ideal cantilever under a tip force \\(P\\),\n\n\\[\\delta_b=\\frac{PL^3}{3EI},\\qquad \\delta_s=\\frac{PL}{\\kappa GA}.\\]\n\nUsing \\(I/A=h^2/12\\) and your relation for \\(G\\),\n\n\\[r=\\frac{\\delta_s}{\\delta_b}=\\frac{1+\\nu}{2\\kappa}\\left(\\frac{h}{L}\\right)^2=\\frac{1.30}{2(5/6)}\\left(\\frac{0.2}{0.6}\\right)^2=0.08667.\\]\n\nThe required denominator is **bending plus shear**, so the omitted fraction is\n\n\\[\\frac{\\delta_s}{\\delta_b+\\delta_s}=\\frac{r}{1+r}=0.07975\\approx7.98\\%>5\\%.\\]\n\n**Next action:** include shear using the Timoshenko estimate \\(\\delta_{\\text{tip}}=\\delta_b+\\delta_s\\). Neither \\(P\\), \\(E\\), nor the width is needed for this ratio decision; their values are needed for an absolute deflection. This comparison checks the stipulated omitted-shear budget within the beam model, rather than all possible physical error."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'; Get-Content -Raw 'research/evaluation/fixture.json'; Get-Content -Raw 'research/evaluation/development-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/fields.md'; Get-Content -Raw 'research/evaluation/skill/references/argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "J": {
+      "turns": [
+        "**No. EB fails the stated 5% shear-omission limit within the stipulated model.**\n\nFor the clamped beam with a transverse tip force,\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA}.\n\\]\nUsing \\(I/A=h^2/12\\) and your relation for \\(G\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{1.30}{2(5/6)}\\left(\\frac{.2}{.6}\\right)^2\n=0.08667.\n\\]\n\nYour denominator is **bending plus shear**, so the omitted fraction is\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}\n=\\frac{13}{163}\n\\approx7.98\\%>5\\%.\n\\]\n\n**Next action:** estimate the tip deflection with \\(\\delta_b+\\delta_s\\), using a shear-deformable/Timoshenko model. The force, modulus and width cancel from this decision; they are needed for a numerical deflection. This comparison checks the omitted shear contribution, not all error relative to a three-dimensional beam."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "development-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw -LiteralPath 'research/evaluation/skill/SKILL.md', 'research/evaluation/fixture.json', 'research/evaluation/development-prompts.json'",
+          "Get-Content -Raw -LiteralPath 'research/evaluation/skill/references/fields.md', 'research/evaluation/skill/references/argument.md'"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly derives r = 13/150 and the total-relative omission 13/163 = 7.97546%, so the 5% criterion fails."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers no immediately and shows the compact quantitative comparison requested."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Explicitly recommends adding the shear term using a Timoshenko estimate and lists the data needed only for an absolute displacement."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested calculation directly without requiring a learner attempt or introducing unrelated tasks."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses bending-plus-shear in the denominator and links the failed tolerance to a specific shear-inclusive action within the stipulated model."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly computes r = 0.08667 and r/(1+r) = 0.07975, recognizes cancellation of load, E and width, and scopes the result to shear omission."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly rejects EB against the supplied 5% criterion with the requested compact derivation."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Recommends the elementary Timoshenko sum or a shear-deformable formulation, with the explicit factor 1.08667."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Supplies the requested answer without forcing an attempt or expanding into an unrequested hardware assessment."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Makes the purpose-specific 7.98%-versus-5% decision with the correct total denominator and an explicit modeling action."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly calculates r = 0.08667 and the combined-deflection omission 7.98%, and distinguishes this model comparison from total three-dimensional error."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers the EB sufficiency question directly and uses the supplied geometry and material relation."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Explicitly directs inclusion of shear through the Timoshenko sum, approximately 1.08667 times bending."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives a compact worked decision without an imposed preliminary task or invented learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses the stated error purpose, the bending-plus-shear denominator and a concrete shear-inclusive next action."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly derives r from 3EI/(kappa AGL^2), obtains 0.08667 and total-relative error 0.07975, and preserves clamp/load-model limitations."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly answers no against the specified tolerance and shows the governing formulas."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Explicitly recommends the bending-plus-shear estimate and identifies missing parameters only for a numerical displacement."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested decision and calculation directly at a compact level."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Compares 7.98% of total deflection with 5% and recommends the corresponding Timoshenko action rather than a blanket slenderness rule."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly obtains r = 0.08667 and r/(1+r) = 0.07975; its additional threshold L/h >= sqrt(14.82), approximately 3.85, follows from r <= 0.05/0.95."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly answers no and computes the supplied exercise's omitted fraction."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Explicitly recommends using delta_b + delta_s = 1.08667 delta_EB for the exercise."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives the requested worked decision without requiring an attempt; the short geometry threshold remains relevant to the tolerance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses the correct total denominator and explicit action, with the acceptance threshold derived from the stated purpose."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly calculates shear-to-bending ratio 0.08667 and total-relative omission 7.98%, and limits its verdict to the stipulated shear budget."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly answers no and provides the requested formulas and numerical comparison."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifically recommends retaining shear through delta_tip = delta_b + delta_s or a shear-deformable formulation."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested compact answer without a compulsory attempt or unrelated task."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses the stated 5% purpose, correct combined-deflection denominator and a concrete modeling action."
+      }
+    },
+    "G": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly calculates r = 0.08667 and 13/163 = 7.98%, with the opening 8.0% consistent rounding, and correctly notes cancellation of load, modulus and width."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers no directly and grounds the verdict in the supplied tolerance rather than an unsupported slenderness cutoff."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Explicitly gives the Timoshenko bending-plus-shear formula as the next estimate."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Supplies the requested compact derivation without an imposed learner exercise."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Judges the purpose-specific total-relative omission and clearly directs inclusion of shear within the stipulated model."
+      }
+    },
+    "H": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly derives r = 0.08667 and 13/163 = 7.98%, and correctly states EB underestimates the stipulated combined estimate by about 8%."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly answers that EB fails the supplied 5% omission limit and shows why."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Recommends the explicit static Timoshenko sum FL^3/(3EI) + FL/(kappa GA)."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives the requested compact calculation directly without delaying for a learner attempt."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses bending-plus-shear in the denominator and pairs the quantitative failure with a specific shear-inclusive next action."
+      }
+    },
+    "I": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly calculates r = 0.08667 and r/(1+r) = 0.07975 and correctly distinguishes the shear-budget comparison from all physical error."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly rejects EB under the stipulated 5% criterion and shows the compact calculation."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Explicitly directs inclusion of shear using the Timoshenko sum and distinguishes ratio data from absolute-deflection data."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Respects the requested detail with a direct worked answer and no imposed preliminary exercise."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses the specified combined-deflection denominator, purpose-sensitive threshold and explicit modeling action."
+      }
+    },
+    "J": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly computes r = 0.08667 and 13/163 = 7.98%, notes parameter cancellation and preserves the limit relative to a three-dimensional beam."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers no directly and shows the requested compact tolerance comparison."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Explicitly recommends estimating tip displacement with delta_b + delta_s using a shear-deformable/Timoshenko model."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested answer without a compulsory attempt, unasked derivation expansion or invented performance claim."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Applies the correct total-relative denominator and links the failed 5% criterion to a specific shear-inclusive action."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "baseline",
+      "sample": 1
+    },
+    "B": {
+      "version": "candidate",
+      "sample": 2
+    },
+    "C": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "D": {
+      "version": "baseline",
+      "sample": 4
+    },
+    "E": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "F": {
+      "version": "candidate",
+      "sample": 4
+    },
+    "G": {
+      "version": "baseline",
+      "sample": 3
+    },
+    "H": {
+      "version": "baseline",
+      "sample": 5
+    },
+    "I": {
+      "version": "candidate",
+      "sample": 1
+    },
+    "J": {
+      "version": "candidate",
+      "sample": 5
+    }
+  }
+}

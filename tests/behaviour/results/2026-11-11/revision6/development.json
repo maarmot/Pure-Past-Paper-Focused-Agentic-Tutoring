@@ -1,0 +1,53 @@
+[
+  {
+    "id": "D1",
+    "area": "essay",
+    "messages": [
+      "25-mark question: Is utilitarianism convincing? My plan: thesis no. P1 experience machine shows pleasure is not everything. P2 Mill's higher pleasures answer that. Conclusion utilitarianism fails. Where is it weakest? Do not write it for me."
+    ],
+    "expected_facts": [
+      "P2 supports the position then rejected; needs weighing and scope limit. Synthetic PHIL descriptors available, not necessary to award band."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Direct weakness, one repair, no implied unlabelled band or strength-first ritual."
+    }
+  },
+  {
+    "id": "D2",
+    "area": "beam",
+    "messages": [
+      "For an ideal clamped solid rectangular isotropic elastic beam with tip force, L=.6m and h=.2m, nu=.30 and kappa=5/6, is EB sufficient for a static tip-deflection estimate if omitted shear must contribute no more than 5% of bending-plus-shear deflection? Assume small deflection and G=E/[2(1+nu)]. Show the compact decision and next action."
+    ],
+    "expected_facts": [
+      "r=.0866666667 and total-relative error=.0797546012, fails5%; no need for absolute load/width/E to compare ratio."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Purpose-sensitive quantitative judgment, correct denominator and explicit action."
+    }
+  },
+  {
+    "id": "D3",
+    "area": "transfer",
+    "messages": [
+      "I know how to test assumptions in mechanics. My history sentence is 'The price rise caused the bread riot.' My source is a petition from ten mill owners written after the riot demanding a price cap. A flour shortage happened too. Show how to use my habit here, what historical knowledge it cannot give me, and one short application."
+    ],
+    "expected_facts": [
+      "Post-event mill owners petition not direct evidence of rioters motives; shortage rival; need dated sources by rioters and chronology/scope."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Actual-work demonstration, explicit destination evidence limit, small application; no learning claim."
+    }
+  }
+]

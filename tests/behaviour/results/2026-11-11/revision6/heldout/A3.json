@@ -1,0 +1,448 @@
+{
+  "case": {
+    "id": "A3",
+    "area": "essay",
+    "messages": [
+      "Mark this practice paragraph out of 25. I don't have the instructor's descriptors: 'A historian says one mayor's diary proves the entire town welcomed the railway. The diary praises faster trade. It cannot represent the whole town, but the mayor was influential, so I conclude everyone supported the railway.'",
+      "Here are the actual descriptors: 21-25 sustained justified judgment weighing source limits; 16-20 supported argument with uneven weighing; 11-15 relevant evidence with an asserted conclusion; 6-10 disconnected points. Now give an estimated band for this paragraph, not an unwritten full essay."
+    ],
+    "expected_facts": [
+      "No criteria exist on turn1; diagnose representativeness/influence-to-unanimity error without inventing a mark. Turn2 supplies a best-fit rubric; a labelled 11-15 estimate is defensible because relevant evidence and source limitation are stated but conclusion remains asserted. Other placements require persuasive source-based justification."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Provides useful diagnosis before criteria exist, then gives a labelled scope-limited estimate grounded in the supplied descriptor without pretending the paragraph is a full essay."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "I can assess the reasoning, but I cannot give a defensible mark out of 25 without the instructor's descriptors. You correctly identify the diary's limit: one mayor cannot represent the whole town. The conclusion then overrides that limit without justification—being influential does not mean sharing everyone's views. The paragraph supports a claim about the mayor's favourable view of trade, while a claim about the whole town would require evidence representing other groups.",
+        "**Tutor-estimated band: 11–15/25 for this paragraph.** It matches “relevant evidence with an asserted conclusion”: you use the diary and recognise its representativeness problem, but “the mayor was influential” does not justify “everyone supported the railway.” The source limit is stated rather than carried through into the judgment."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+          "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "I can't give a defensible mark out of 25 without the instructor's descriptors. The decisive weakness is the move from the mayor's influence to everyone's support: influence does not establish that the mayor's opinion represents the town.\n\nYou correctly identify a source limit, but your conclusion then ignores it. The diary supports the narrower finding that the mayor welcomed the railway's trade benefits; a claim about the whole town needs evidence covering other residents' views.",
+        "**Estimated band: 11–15/25 for this paragraph**, matching **“relevant evidence with an asserted conclusion.”** You use relevant diary evidence and recognize its limited representativeness, but the mayor's influence does not justify the conclusion that everyone supported the railway. That leaves the source limit acknowledged rather than weighed in your final judgment."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+          "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+          "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "The paragraph’s main weakness is its final inference: the mayor’s influence does not make his diary representative of everyone’s views. You recognise the source limit, then draw the very conclusion that limit prevents. The diary supports a claim about the mayor’s favourable view of faster trade; a town-wide claim needs evidence covering other residents and groups. I can diagnose that weakness, but a defensible mark out of 25 needs the relevant marking descriptors.",
+        "**Tutor estimate for this paragraph: 11–15/25**, matching “relevant evidence with an asserted conclusion.” You use the diary and identify its representativeness problem, but do not justify moving from one influential person’s approval to everyone’s support. That unresolved inference keeps the paragraph below “supported argument with uneven weighing.” This estimates the submitted paragraph only."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/fields.md'",
+          "Get-Content -Raw 'research/evaluation/skill/references/tutoring.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "The conclusion is unsupported: recognising that the diary cannot represent the town conflicts with concluding that everyone supported the railway. The mayor’s influence does not establish that other residents shared the mayor’s view; the diary supports a claim about the mayor’s favourable view of faster trade.\n\nI can identify that weakness, but I cannot justify a mark out of 25 without the relevant descriptors. A useful repair is to narrow the conclusion to what this source supports, or bring in evidence from other groups before making a town-wide claim.",
+        "**Tutor’s estimated band: 11–15/25**, matching “relevant evidence with an asserted conclusion.” The paragraph uses the diary and identifies its representativeness limit, but the appeal to the mayor’s influence does not justify overriding that limit to conclude that everyone agreed. That places this submitted paragraph below the 16–20 band’s supported argument; I am not grading an unwritten full essay."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "I can't give a justified mark out of 25 without the marking descriptors. The paragraph's main weakness is clear: the mayor's influence does not make the diary representative of everyone's views. You acknowledge that limit, then draw the very conclusion it prevents. The diary supports the mayor's approval of faster trade; it does not establish universal support for the railway.\n\nThe instructor's band descriptors would let me turn that diagnosis into a tutor estimate.",
+        "**Estimated band for this paragraph: 11–15/25**, matching “relevant evidence with an asserted conclusion.” The diary is relevant, and you identify a source limit, but the move from an influential mayor's approval to everyone's support remains unsupported. That prevents this paragraph from reaching the 16–20 descriptor of a supported argument with uneven weighing."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "I can't give a grounded mark out of 25 without the instructor's descriptors. The main weakness is clear: the diary supports the mayor's approval of faster trade, but the mayor's influence does not establish that everyone agreed.\n\nYou identify the representativeness problem, then leave it unresolved in your conclusion. A concrete repair is to limit the claim to the mayor's support unless you have evidence from other groups. For a marking estimate, I need the actual descriptors.",
+        "**Estimated band: 11–15/25 for this paragraph**, matching \"relevant evidence with an asserted conclusion.\"\n\nThe diary is relevant, and you explicitly identify its limited representativeness. However, the move from an influential mayor's approval to everyone's support remains unsupported. That prevents placement in 16–20: the source limit is mentioned but does not meaningfully constrain the judgment. This estimate covers the submitted paragraph only."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly diagnoses influence as insufficient for town-wide agreement, withholds an unsupported turn-1 mark, and matches the paragraph to the supplied 11–15 descriptor on turn 2."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Gives useful reasoning feedback before descriptors are available, then directly provides the requested estimated band once they are supplied."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Identifies the supported narrower claim about the mayor and the need for evidence representing other groups for a town-wide claim; the completed band request needs no further task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Assesses only the paragraph, keeps both turns concise, and does not rewrite it or grade an unwritten full essay."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Provides a representativeness diagnosis before criteria exist, then explicitly labels a tutor-estimated band for this paragraph and ties it to relevant evidence with an asserted conclusion."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly separates the mayor's influence from representativeness, refrains from inventing a turn-1 mark, and grounds 11–15 in the supplied relevant-evidence/asserted-conclusion descriptor."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Responds with a useful diagnosis initially and updates to the requested estimated paragraph band after the actual descriptors arrive."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Shows the narrower supported finding about the mayor and specifies other residents' views as the evidence required for the wider claim."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Keeps to the submitted paragraph and requested band, with no full essay assessment, rewrite, or fabricated performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Diagnoses the source limit without a fabricated mark, then labels and justifies an estimated 11–15 band explicitly for this paragraph."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly identifies the unsupported move from an influential individual's approval to universal support; the 11–15 estimate follows the supplied descriptor and is distinguished from 16–20."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly diagnoses the paragraph before criteria exist and supplies the requested estimated band on receiving them."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies the supported claim about the mayor and the additional evidence covering other residents and groups needed for a town-wide claim."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides brief targeted feedback and explicitly confines the estimate to the submitted paragraph without a rewrite or invented full essay."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Useful representativeness diagnosis precedes any mark; turn 2 labels a paragraph-only tutor estimate and grounds it in the actual asserted-conclusion descriptor."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly explains that influence cannot establish unanimous support, refuses to fabricate a turn-1 mark, and places the paragraph in the supplied 11–15 band with a descriptor-based reason."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers the initial request as far as the missing criteria permit, then supplies the requested estimated band after the descriptors are provided."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Offers a concrete repair: narrow the conclusion to the source's support or gather evidence from other groups before claiming town-wide support."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Keeps the assessment to the paragraph, expressly excludes an unwritten full essay, and does not impose a rewrite or unnecessary task."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Diagnoses representativeness before marking criteria are available, then gives a labelled tutor-estimated paragraph band using the actual descriptor and its boundary with 16–20."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly identifies that the diary supports the mayor's view rather than universal support and uses the supplied 11–15 descriptor after withholding a mark when descriptors were absent."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Provides a useful initial diagnosis and then directly gives the requested estimated band for the paragraph when criteria arrive."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "States the supported scope of the diary and identifies the unsupported universal claim, making the necessary repair clear; the subsequent completed band request requires no new task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives concise diagnosis and paragraph marking without an unsolicited rewrite, full-essay judgment, or invented learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Provides useful reasoning feedback before criteria exist, then labels an estimated 11–15 band for this paragraph and explains why the source limit does not justify a supported-argument placement."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly rejects influence as evidence of unanimous agreement, avoids an unsupported initial mark, and uses the actual 11–15 descriptor with a justified contrast to 16–20."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Initially diagnoses the missing support, then directly supplies the requested paragraph-only estimated band once descriptors are available."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Gives a concrete repair: limit the conclusion to the mayor's support unless evidence from other groups is available."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Keeps the response concise and explicitly limits grading to the submitted paragraph, without a full rewrite or invented learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Provides useful diagnosis before criteria exist, then gives a labelled scope-limited band estimate grounded in the supplied relevant-evidence/asserted-conclusion descriptor."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "baseline",
+      "sample": 1
+    },
+    "B": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "C": {
+      "version": "candidate",
+      "sample": 1
+    },
+    "D": {
+      "version": "baseline",
+      "sample": 3
+    },
+    "E": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "F": {
+      "version": "candidate",
+      "sample": 2
+    }
+  },
+  "second_ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly distinguishes the mayor's favorable diary entry from evidence of unanimous town support and does not invent a first-turn mark or descriptors. The subsequent 11-15 estimate matches the actual supplied descriptor."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Diagnoses the reasoning while descriptors are unavailable, then directly supplies an estimated 11-15/25 paragraph band once the learner supplies them."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Identifies the needed repair: limit the claim to the mayor's view or obtain evidence representing other groups before claiming town-wide support. No further exercise is needed after the requested estimate."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides concise diagnostic feedback and a band justification without requiring a learner attempt, writing a replacement paragraph, or inventing performance beyond the submitted text."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Gives useful representativeness and influence-to-unanimity diagnosis before descriptors exist, then labels the 11-15/25 result a tutor estimate for this paragraph and ties it to relevant evidence with an asserted conclusion."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The inference diagnosis is sound: influence does not establish that a mayor represents everyone. Withholds a first-turn score and later uses the supplied 11-15 descriptor rather than inventing a rubric."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Responds to the initial request with the available reasoning assessment and updates to an explicit 11-15/25 estimate for the paragraph after the descriptors arrive."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies that a whole-town claim needs evidence covering other residents' views and identifies the narrower finding the diary supports. The second turn completes the requested marking task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Keeps feedback focused on the short paragraph and requested estimate; gives no compulsory preliminary task or unrequested full rewrite."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Explains the source-limit problem before criteria exist and subsequently matches the paragraph to the actual relevant-evidence/asserted-conclusion descriptor, with an explicitly estimated paragraph band."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly identifies the unresolved move from one influential person's approval to universal support. The labelled 11-15/25 estimate is justified using the supplied descriptor and supported-argument comparison."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Provides immediate diagnosis without unsupported scoring, then supplies the requested band when actual descriptors become available and explicitly limits it to the submitted paragraph."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Points to evidence covering other residents and groups as the requirement for a town-wide claim and states the source's narrower defensible finding. No additional task is necessary to complete the band request."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives proportionate feedback and a short estimate explanation without replacing the learner's writing or treating an unwritten essay as submitted work."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Combines useful pre-rubric diagnosis with a tutor estimate grounded in the exact 11-15 descriptor and an explicit explanation of why the unsupported inference remains below 16-20; scope is the paragraph only."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Accurately explains that acknowledging unrepresentativeness conflicts with concluding unanimity. Uses the supplied 11-15 descriptor for the later estimate without unsupported first-turn marks."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Addresses the initial marking request as far as evidence permits, then gives a direct estimated 11-15/25 band after the learner supplies actual descriptors."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Explicitly proposes narrowing the conclusion to the source's support or adding evidence from other groups before a whole-town claim, a concrete repair to the identified defect."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested diagnosis and band without a mandatory learner attempt or an unasked rewrite, and explicitly avoids grading an unwritten full essay."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Diagnoses the influence-to-unanimity error before descriptors exist, labels the later band a tutor estimate, and grounds the paragraph-only placement in the actual asserted-conclusion descriptor."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly says the diary supports the mayor's approval rather than universal railway support. The later 11-15/25 placement uses the supplied descriptor and explains why 16-20 is unsupported."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Explains what can be assessed without descriptors, then gives the requested estimated paragraph band immediately after descriptors are supplied."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Identifies both the narrower source-supported claim and the missing descriptors needed for marking; the learner supplies those descriptors and receives the completed estimate, so no new exercise is required."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Keeps the response concise and limited to diagnosis and paragraph assessment, without demanding an attempt, supplying an unsolicited rewrite, or inventing a larger essay."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Offers useful reasoning diagnosis before criteria are available and then provides an explicitly estimated 11-15/25 band for this paragraph, grounded in relevant evidence with an asserted conclusion."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Soundly rejects the inference from an influential mayor's approval to everyone's support, withholds an unsupported initial mark, and uses the actual supplied 11-15 descriptor for the later estimate."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Diagnoses the initial paragraph and explains why descriptors are needed, then updates to a clearly labelled 11-15/25 estimate when the learner provides them."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Explicitly advises limiting the claim to the mayor's support unless evidence from other groups is available; this is a specific repair of the paragraph's unsupported generalization."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Supplies a direct, proportionate assessment with no required preliminary learner task or full rewrite, and explicitly confines the estimate to the submitted paragraph."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Meets both stages: useful diagnosis without invented first-turn criteria, then an estimated paragraph-only band linked to the supplied descriptor and the failure of the source limit to constrain the judgment."
+      }
+    }
+  }
+}

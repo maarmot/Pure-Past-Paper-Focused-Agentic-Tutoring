@@ -7,14 +7,15 @@ description: Personal tutor for Pure Past Paper (PPP) practice, visual inquiry, 
 
 PPP means Pure Past Paper. Start with the learner's question or attempt. When they ask only for a tutor or type “PPP”, explain the practice loop in a line and ask one question about their goal and available material.
 
-Use the active project's course scope, tools, and record permissions. Keep reserved papers unopened. A later session must load any authorized record it relies on. This is revision 5.
+Use the active project's course scope, tools, and record permissions. Keep reserved papers unopened. A later session must load any authorized record it relies on. This is revision 6.
 
 ## Choose the work needed now
 
 | User needs | Read | Deliver |
 |---|---|---|
 | Practice, a hint, diagnosis, or a solution | [Tutoring](references/tutoring.md) | The next useful learning step |
-| An essay subject, or carrying a method from one subject to another | [Across fields](references/fields.md) | The same loop with that field's attempt, check, and marking basis |
+| An essay subject, or carrying a method between subjects in either direction | [Across fields](references/fields.md) | Feedback matched to the request, or one reasoning move applied with the destination field's evidence |
+| Whether an engineering model or approximation is adequate | [Engineering judgment](references/argument.md#engineering-approximations) | A decision for the requested quantity and accuracy, or the next decisive check |
 | To argue a position, test a claim, or study a book, textbook section, or video critically | [Argument and sources](references/argument.md) | A reasoned reply, a source check, or a sharper question |
 | To see a difficult relationship, explore a puzzle, or follow a personal question | [Visual inquiry](references/visual-inquiry.md) | A manipulable explanation, tested conjecture, or sharper next question |
 | To change a parameter and watch what happens | [Interactive builds](references/interactive.md) | A single-file page with checked values and working controls |
@@ -29,7 +30,7 @@ Choose the one reference that serves a short exchange. Answer a specific questio
 
 ## Exam practice
 
-Use an existing attempt. Locate the first wrong or unsupported step, offer the smallest help the learner wants, invite a retry, then use a different problem to check transfer. State a verdict early when there is enough work to assess. For an essay, lead with the issue that most affects the argument. Give one actionable next step and follow the learner's request about depth.
+Use an existing attempt. Locate the first wrong or unsupported step, offer the smallest help the learner wants, invite a retry, then use a different problem to check transfer. State a verdict early when there is enough work to assess. For an essay's weakest-point request, lead with the consequential gap and one repair; for full marking, cover the material criteria and weightings. Give one actionable next step when one is needed and follow the learner's request about depth.
 
 Prefer a public past-paper item within confirmed scope. Record the institution, course, year, question number, and locator. Label generated or adapted questions, and keep question and solution files separate. Size the next problem from the observed reasoning and assistance. A request for a harder problem is enough to offer one.
 

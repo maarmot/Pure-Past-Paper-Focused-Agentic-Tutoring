@@ -1,0 +1,452 @@
+{
+  "case": {
+    "id": "X1",
+    "area": "transfer",
+    "messages": [
+      "Mechanics habit I know: test an assumption by comparing predictions. Help me use it on this actual history claim: 'The new toll caused the merchants to protest in June.' My evidence is a merchants' petition dated June 2 demanding repeal of the toll introduced in May. A guild election dispute also began in May. Show me one move on my claim, name what history requires, and give me one short thing to try.",
+      "I found a letter by the petition organizers dated April 20 planning the June protest over the guild election, before the toll existed. Does that overturn the original claim?"
+    ],
+    "expected_facts": [
+      "Petition supports toll as a stated grievance, not exclusive or initiating cause. Election dispute is rival explanation. History needs source date/authorship/context/representativeness and discriminating chronology. April letter weakens toll-as-origin claim but does not exclude later toll contribution or all merchant motives."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Demonstrates testing rival explanations on the supplied claim; explicitly names historical evidence the mechanics habit cannot supply, proposes one brief application, updates inference from the dated letter without claiming learner transfer."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "Use **comparison of rival predictions** on the causal step. If the toll prompted the protest, you would expect evidence linking the decision to mobilise to the toll introduced in May. If the guild election dispute prompted it, you would expect evidence linking the organisers’ plans to that dispute, potentially independently of the toll.\n\nThe June 2 petition establishes that its authors publicly demanded repeal; it supports the toll being a grievance. It does not establish what first prompted the protest or how widely that motive was shared. A dated organisers’ letter or meeting minute explaining when and why they decided to protest could help distinguish the explanations.\n\nHistory requires checking the source’s date, authorship, purpose and representativeness; comparing predictions cannot supply those facts. Try one short sentence: describe a dated finding that would favour the election explanation over the toll explanation.",
+        "It overturns the explanation that the toll initiated plans for that June protest, provided the letter is authentic, correctly dated and concerns the same protest. Planning on April 20 precedes the toll’s introduction in May.\n\nIt does not establish that the toll made no later contribution: it could have changed the protest’s demands, participation or intensity. The supported account is that organisers planned the protest over the election before the toll existed, and their June 2 petition subsequently made repeal a demand. Whether the toll helped turn the plan into the actual June protest remains open."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "Use your mechanics move to **compare rival explanations by their different predictions**. The June 2 petition establishes that the organizers publicly demanded repeal; it does not by itself establish what initiated the protest.\n\nCompare these possibilities: if the toll initiated the protest, the organizers' planning should connect mobilization to the toll introduced in May. If the guild election dispute initiated it, planning might already be under way for that reason, with the toll becoming an additional grievance. Both possibilities can fit a June petition demanding repeal.\n\nHistory requires dated, attributable sources interpreted for their purpose and audience: an organizer's private planning letter could reveal something that a public petition does not, though neither automatically represents every merchant.\n\nTry one short check: find the earliest dated evidence of the organizers' protest plans and say which explanation its timing and stated reason support.",
+        "It overturns the claim that the toll **originated the protest plan**, provided the letter concerns the same June protest: planning on April 20 cannot have been caused by a toll introduced in May. It does **not** establish that the toll made no contribution to the eventual protest.\n\nThe evidence now supports this distinction: organizers had already planned the protest over the election dispute, and the June 2 petition later made toll repeal a public demand. The toll could still have changed participation, urgency or demands; evidence of how plans changed after its introduction would test that narrower causal role."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+          "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+          "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "Use your mechanics move by asking what the rival explanations predict. If the toll prompted the June protest, you would look for organizing that arose after its introduction; if the guild dispute prompted it, planning might already exist before the toll. The June 2 petition makes the toll a stated grievance, but it does not isolate it as the cause.\n\nHistory requires checking the dates, authorship and purpose of the sources, and whose views they represent: a petition is evidence of what its authors demanded, with a purpose to persuade.\n\nTry one short sentence: **What would reliable evidence that the organizers planned the same June protest before May do to the toll explanation?**",
+        "It undermines the original claim as a complete explanation and, if the letter is reliable and concerns the same protest, overturns the idea that the toll initiated the plan: the organizers were already planning it over the election on April 20.\n\nIt does not establish that the toll had no later effect. The June petition shows it became a stated grievance, but further evidence would be needed to show whether it changed participation, demands or the decision to proceed. The supported account is that election-related planning preceded the toll; the toll’s later contribution remains unresolved."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "Use your mechanics move to compare two explanations of the same protest: **the toll triggered it**, or **the guild election dispute prompted it and the toll became a grievance**.\n\nYour June 2 petition shows that its authors publicly demanded repeal after the toll began. Both explanations can accommodate that. A discriminating check would be to look for organizers' correspondence from before the toll: a plan for the same June protest over the election would count against the toll being its original trigger.\n\nHistory requires checking chronology and the sources' provenance, authorship and purpose. A petition's public demand need not reveal every organizer's motive or represent every merchant.\n\nTry one sentence using your evidence: “The petition supports ___, but does not by itself establish ___.”",
+        "It overturns the toll as the original trigger for the organizers' plan, **if the letter is authentic and concerns the same June protest**: they were already planning it over the election on April 20, before the toll existed.\n\nIt does not establish that the toll had no later effect. The toll could have changed the protest's demands, participation or intensity. The evidence now supports distinguishing the election-related origin of the plan from the anti-toll demand documented in the June 2 petition."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\argument.md' -Raw"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "Your comparison move transfers: ask what evidence would distinguish **the toll as the trigger** from **the guild election dispute as the trigger**. The June 2 petition establishes that merchants publicly demanded the toll's repeal; it does not by itself establish what started the protest. Dated evidence that organizers had already planned the protest before the toll existed would challenge the toll-trigger explanation.\n\nHistory requires you to check the source's date, authorship, audience and purpose, and whose motives it can represent. A public petition may express a grievance without recording the full history of organizing.\n\nTry one sentence: **“If the election dispute started the protest, I would look for ___, and its date would matter because ___.”**",
+        "The April 20 letter rules out the toll as the original trigger for the organizers' already planned protest, assuming its date and interpretation are reliable. It supports the election dispute as an earlier cause. It does **not** establish that the toll had no later effect on participation, demands or the decision to carry the protest through: the June 2 petition still shows that repeal became a public demand. So abandon an exclusive toll-origin claim, while leaving a possible later contribution open."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+          "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "Use **rival explanations to test the causal inference**. Your petition shows that merchants publicly demanded repeal of the toll on June 2. It does not yet distinguish \"the toll initiated the protest\" from \"the guild election dispute initiated it, and the organizers later added opposition to the toll.\"\n\nA distinguishing observation would be the timing of the first protest plans: plans made before the toll existed would count against the toll being the original trigger. History requires dated sources with their authorship, purpose, and relationship to the event checked; comparing predictions cannot supply those facts. An organizers' letter or meeting record about the first plans would be useful.\n\nTry one sentence: what would a pre-May letter planning the June protest over the election do to your original claim?",
+        "It overturns the strong reading that the toll **initiated** this protest: the April 20 letter places plans for the same June protest before the toll existed.\n\nIt does not establish that the toll had no later influence on the protest's demands or support. On the supplied evidence, the narrower conclusion is that the protest was already planned around the guild election, and opposition to the toll became part of its later demands. Check that the letter concerns the same protest before relying on that chronology."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The petition is scoped to a public repeal demand; the April 20 plan defeats toll initiation while later effects on demands, participation or intensity remain possible."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It demonstrates rival predictions on the June protest, then directly answers the letter follow-up by separating the origin of the plan from the eventual protest."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The initial one-sentence exercise asks for a dated finding favoring the election explanation; the follow-up also conditions the chronology on the same protest and a reliable letter."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It supplies the requested worked move before a short exercise and never treats an invented learner response as evidence."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It compares toll and election predictions, explicitly identifies dates/authorship/purpose/representativeness, offers one application, and updates from April without claiming learner transfer."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly distinguishes the petition's public demand from protest initiation and permits a later toll contribution after the April election-related plan."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It applies rival explanations to the actual petition and revises the causal conclusion when the earlier planning letter is supplied."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The earliest-dated-plan check specifies both timing and stated reason, and the follow-up identifies changes after the toll as evidence for a narrower role."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It answers before offering a short check and makes no claim that the learner has already performed or mastered the comparison."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It names dated attributable sources, purpose/audience and limits of representation, contrasts two organizing predictions, and incorporates the April letter without eliminating every later toll effect."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The petition is correctly treated as a stated grievance rather than an isolated cause; the reliable April plan rules out toll initiation but not later effects."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It shows the rival chronological predictions on the claim and directly updates its answer from the April 20 evidence."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The short question asks what reliable pre-May planning would do to the toll explanation, which is a specific application to the missing causal inference."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It gives the example first, keeps the exercise to one sentence, and does not manufacture an unaided attempt or success."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It explicitly names dates, authorship, purpose and representation, applies the transferred comparison, and limits the letter's inference to earlier planning while leaving later contribution unresolved."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly states that both proposed causes fit the petition and that an authentic earlier plan defeats toll initiation, without excluding later toll influence."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It applies the comparison to the supplied June petition and revises the origin claim in the follow-up."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The sentence completion about what the petition supports and fails to establish is a small, targeted application; checking pre-toll correspondence would discriminate causes."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It provides the requested worked demonstration before the brief exercise and reports no invented learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It contrasts two causal accounts, names chronology/provenance/authorship/purpose and representativeness limits, offers a brief application, and updates carefully from April."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly scopes the petition to a repeal grievance and the April letter to ruling out the toll as the original trigger, while retaining a possible later role."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It demonstrates the rival-trigger move on the actual claim and directly answers whether the new letter overturns it."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The one-sentence prompt asks for evidence favoring the election account and an explanation of its date, making the next application concrete."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It answers and demonstrates before inviting a short application; 'Your comparison move transfers' describes the method rather than claiming observed learner mastery."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It identifies source date/authorship/audience/purpose and whose motives can be represented, gives a short application, and revises the toll-origin claim without asserting zero later effect."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The petition is scoped to a public demand; the April letter is used to reject toll initiation while later influence on demands or support is left open."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It demonstrates the alternative organizing accounts and then explicitly revises the strong initiating-cause reading after the follow-up."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The pre-May-letter sentence exercise targets the causal issue, and the follow-up explicitly asks to check that the letter concerns the same protest."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It supplies the requested example first and leaves a short exercise without claiming it has been completed."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It names dated sources and authorship/purpose/event linkage, tests rival explanations on the claim, offers an application and updates from the letter without claiming learner transfer."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "candidate",
+      "sample": 1
+    },
+    "B": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "C": {
+      "version": "baseline",
+      "sample": 3
+    },
+    "D": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "E": {
+      "version": "baseline",
+      "sample": 1
+    },
+    "F": {
+      "version": "candidate",
+      "sample": 2
+    }
+  },
+  "second_ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly treats the petition as evidence of a public grievance rather than the initiating cause or every merchant's motive. The April letter defeats toll-origin planning while leaving a later toll contribution unresolved, with appropriate source-identity and dating conditions."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Demonstrates the comparison habit on the supplied claim, names historical source requirements, provides one short sentence task, and directly updates the causal conclusion after the new letter."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Proposes a dated organizers' letter or minute as discriminating evidence and asks for one dated finding favoring the election account; the later answer identifies authenticity, dating and same-protest checks."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Shows one worked methodological move before offering one brief application, then answers the follow-up directly without requiring another attempt or claiming demonstrated learner mastery."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Compares toll and election predictions, explicitly says prediction comparison cannot supply date/authorship/purpose/representativeness facts, gives one brief application, and updates from April chronology without claiming learner transfer."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Accurately explains that both rival causes can fit an anti-toll petition. The April 20 plan predates May's toll and refutes the toll as origin of that plan while leaving possible effects on the eventual protest open."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Applies the known mechanics habit to this particular historical claim, names historical evidence requirements, gives one short check, and revises the explanation after the dated letter."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies finding the earliest dated planning evidence and interpreting timing and stated reasons; the follow-up identifies comparison of plans before and after the toll as a way to test its narrower later role."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested demonstration and one short application rather than demanding an attempt first, and answers the follow-up without inventing any learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Uses rival predictions, names dated attributable sources plus purpose, audience and representativeness limits, proposes one brief check, and distinguishes protest-plan origin from possible later toll effects after the letter."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly separates a stated toll grievance from proof of cause and uses pre-toll planning over the election to reject toll initiation. Preserves the unresolved possibility of later effects on participation, demands or proceeding."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Shows how to compare predictions on the actual toll/election alternatives, names historical source checks, gives one short sentence prompt, and directly answers what the April letter changes."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Gives the brief, discriminating task of explaining what reliable pre-May planning evidence would do to the toll explanation and identifies what further evidence would be needed for a later toll contribution."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Supplies a concrete move and one short learner application, then responds directly to the follow-up without forced extra work, an unasked essay or claims of learner transfer success."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Demonstrates rival-prediction testing, explicitly names dates, authorship, purpose and represented views as historical evidence requirements, and updates the causal inference from the letter while keeping later contribution open."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Soundly observes that the petition fits either initiating explanation and cannot represent every motive or merchant. Correctly uses the April letter to reject toll-origin planning while retaining possible later toll effects, conditional on authenticity and same-protest identity."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Delivers the requested comparison move, historical requirements and one short sentence application, then directly explains the change produced by the April planning letter."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Identifies pre-toll organizers' correspondence as a discriminating source and offers the brief petition-supports/does-not-establish sentence; authenticity and protest identity are concrete later checks."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Shows the requested move before the one short exercise and answers the later question without making the learner perform another task first or claiming unobserved mastery."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Tests toll versus election explanations using source chronology, names provenance/authorship/purpose and representativeness limitations, gives a brief application, and revises origin versus later-demand inference from the dated letter."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly scopes the petition to a public repeal demand and the April letter to earlier election-related planning, leaving later toll influence open. Saying the comparison move transfers describes the method's applicability, not demonstrated learner competence."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Applies prediction comparison to the named history claim, identifies historical evidence checks, gives one short completion prompt and updates the origin claim after the new dated evidence."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Provides one brief task specifying what evidence to seek for the election explanation and why its date matters; the follow-up gives the useful repair of abandoning the exclusive toll-origin claim while retaining a possible later role."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Offers a worked comparison and one short task, then a direct follow-up answer; does not demand an attempt before helping, produce an unasked full essay or assert that the learner has demonstrated transfer."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Demonstrates the toll/election comparison, names date, authorship, audience, purpose and represented motives as destination evidence requirements, proposes one brief application, and uses the April letter to refine rather than overgeneralize the causal claim."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "Correctly states that the anti-toll petition does not distinguish initiation from an added grievance. Treats April planning as overturning the initiating reading and preserves possible later influence, with a same-protest check."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Shows the requested rival-explanation move on the actual supplied evidence, names historical requirements, provides one short application and directly answers the follow-up about the letter."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies an organizers' letter or meeting record of first plans, asks one sentence about pre-May planning, and later advises checking that the letter concerns the same protest before relying on chronology."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Demonstrates the method before asking one brief application and directly answers the subsequent question without extra compulsory work or invented evidence of learner transfer."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Explicitly compares rival causes, explains that the mechanics habit cannot supply dated, attributable and purpose-checked historical facts, gives one short task and narrows the inference after the April letter without claiming learner mastery."
+      }
+    }
+  }
+}

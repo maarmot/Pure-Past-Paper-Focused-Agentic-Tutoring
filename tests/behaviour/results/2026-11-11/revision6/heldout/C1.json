@@ -1,0 +1,307 @@
+{
+  "case": {
+    "id": "C1",
+    "area": "control",
+    "messages": [
+      "For practice, write a complete model paragraph now arguing that an objection to pleasure as the only good does not by itself refute every form of utilitarianism. No hints or questions."
+    ],
+    "expected_facts": [
+      "Utilitarian aggregation/right action can use a nonhedonist account of welfare. Model should give premise, distinction and justified limited conclusion."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Supplies an immediate complete coherent model paragraph with no required attempt, hints, or questions."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because a theory of what makes outcomes good and a principle for choosing between outcomes are distinct commitments. Suppose an objection successfully shows that friendship or achievement matters independently of the pleasure it produces. That would undermine hedonistic utilitarianism's account of value, but it would not yet show that we should reject impartial concern for everyone's welfare or the aim of maximizing it. A utilitarian could instead understand welfare through informed preference satisfaction or an account containing several goods. Those alternatives require their own defence, and identifying them does not prove they are correct. Nevertheless, the original objection reaches only theories committed to pleasure as the sole good; refuting every form of utilitarianism requires an argument against their remaining shared commitments or against each alternative account of welfare."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because it challenges a particular account of value rather than every way of evaluating consequences impartially. For example, if knowledge or meaningful relationships can be good independently of pleasure, then a utilitarian who counts only pleasure must answer that objection or revise the account of welfare. However, a preference utilitarian can instead assess the satisfaction of informed preferences, while a pluralist utilitarian can include several goods in the outcome being maximised. These alternatives still require justification: preferences might be misinformed, and different goods might be difficult to compare. Nevertheless, those are further objections that need their own arguments. Establishing that pleasure is not the only good therefore defeats, at most, the hedonistic premise under attack; refuting every form of utilitarianism would require showing that the surviving accounts of welfare, or their shared commitment to impartial maximisation, also fail."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because it challenges one account of what is valuable without necessarily defeating the principle of maximizing overall good. Suppose a critic argues that knowledge or meaningful achievement can make a life better even when it adds no pleasure. If successful, this objection undermines hedonistic utilitarianism's claim that pleasure alone has intrinsic value. A utilitarian could nevertheless accept the objection and count knowledge or achievement among the goods whose consequences should be assessed impartially. A preference utilitarian could instead assess outcomes through the satisfaction of people's preferences rather than pleasure alone. Such alternatives still face questions about which preferences or goods count, how they can be compared, and whether maximizing them can justify injustice. Those are further objections requiring their own arguments. Showing that a theory uses an inadequate measure of value does not establish that every alternative measure must fail, or that maximizing overall value is itself mistaken. The original objection therefore has a narrower conclusion: pleasure may be insufficient as an account of the good, while the wider utilitarian approach remains open to separate evaluation."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+          "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+          "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because it challenges one account of what is valuable rather than the whole utilitarian method of judging actions. For example, if knowledge or meaningful relationships can be valuable even when they bring no additional pleasure, that would count against hedonistic utilitarianism's claim that pleasure is the sole good. A nonhedonistic utilitarian could nevertheless include preference satisfaction or objective elements of well-being in the outcome to be maximised, while retaining impartial concern for everyone affected. An opponent might reply that abandoning pleasure removes utilitarianism's common measure of value, but that raises a further problem about comparing goods; it does not establish that comparison is impossible. To reject every utilitarian theory, an argument must also address these alternatives or challenge a commitment they share, such as deciding what is right by maximising aggregate good. The objection therefore puts pressure on hedonistic utilitarianism without, on its own, defeating the entire family of theories."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+          "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because the account of what is good can be distinguished from the principle that actions should maximise overall good impartially. Suppose an objection establishes that knowledge or friendship can be valuable even when it adds no pleasure. This would challenge hedonistic utilitarianism’s account of value, but a utilitarian could accept the objection and include those goods in what should be maximised. Preference utilitarianism similarly assesses outcomes through preference satisfaction rather than pleasure alone. These alternatives still face questions about how goods should be compared and whether maximisation gives adequate weight to rights or fairness, but those are further objections requiring their own arguments. To refute every form of utilitarianism, a critic must show that the difficulty also defeats versions with different accounts of the good, or challenge a commitment they share, such as impartial maximisation; showing that pleasure is not the only good does not accomplish that by itself."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "An objection to pleasure as the only good does not by itself refute every form of utilitarianism, because it challenges an account of value that utilitarians need not all accept. Hedonistic utilitarianism holds that pleasure and the absence of pain determine how good an outcome is. If knowledge or friendship can be valuable independently of pleasure, that gives a reason to reject this restriction. A utilitarian could nevertheless include those goods when comparing outcomes and continue to judge actions by how well their consequences promote overall good. Similarly, a preference-based version could assess welfare through the satisfaction of informed preferences rather than pleasure alone. The objection therefore exposes a possible weakness in hedonism without yet showing that maximizing overall good is an inadequate basis for morality. To reject those other versions, a critic would need a further argument against their account of good or their way of determining what is right. A successful objection to one utilitarian theory of value cannot automatically carry that additional burden."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly distinguishes the account of welfare from impartial maximization, gives nonhedonist alternatives and limits the conclusion to what the anti-hedonist objection establishes."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It immediately provides the requested complete model paragraph defending the limited conclusion."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The paragraph completes the direct writing request; no repair check or extra learner task is needed."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It gives a full paragraph without demanding an attempt, adding hints or inventing learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "The single coherent paragraph moves from the distinction through friendship/achievement and alternative welfare accounts to a justified limited conclusion, with no questions."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly explains why independently valuable knowledge or relationships challenges pleasure-only value without automatically refuting preference or pluralist utilitarianism."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It immediately writes the requested model paragraph and explicitly argues that further objections need their own arguments."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The model paragraph is a completed direct answer, so the absence of an additional task is appropriate."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It honors the request for a complete paragraph now and adds no hints, questions or required learner attempt."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "The paragraph supplies a premise, value/maximization distinction, nonhedonist examples and a justified limited conclusion in connected prose."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly separates hedonism from maximizing overall good, identifies nonhedonist welfare alternatives and treats injustice/comparison concerns as further objections."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It supplies the complete requested argument immediately and uses the knowledge/achievement objection to explain its limited reach."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The finished paragraph satisfies the direct writing request and does not need an added exercise."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It provides the model without asking the learner to attempt it first and invents no learner work or success."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It delivers one complete coherent paragraph with premise, distinction, alternatives and limited conclusion; there are no hints or questions."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly allows nonhedonist utilitarian welfare and explains that losing pleasure as a common measure raises a comparison problem rather than proving comparison impossible."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It immediately provides a complete paragraph arguing that the pleasure objection alone does not defeat the whole utilitarian family."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The direct request is completed by the model paragraph, with no missing repair or check requiring a new task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It respects the request for a full model with no hints or questions and does not require prior learner work."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "The coherent paragraph includes a premise, the value/right-action distinction, alternatives, a reply about comparability and the justified limited conclusion."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly distinguishes value from impartial maximization, identifies preference and plural-goods alternatives and does not claim those alternatives are thereby proved."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It immediately writes the requested paragraph and keeps its conclusion about the limited force of the hedonism objection."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The complete model answers the direct request, so no further learner task is called for."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It supplies full connected prose without withholding the answer for an attempt, adding hints or asking questions."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "The paragraph supplies the relevant distinction, knowledge/friendship example, nonhedonist alternatives and a justified limited conclusion in one coherent model."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly describes hedonistic value, presents independent friendship/knowledge and informed-preference alternatives and confines the objection to its actual target."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It supplies the requested complete model paragraph immediately and explicitly explains the additional argumentative burden for rejecting other utilitarian versions."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The writing task is completed directly; an added check or exercise would be unnecessary."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It gives the full answer with no required attempt, hints or questions and no invented learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "The paragraph coherently develops the premise, distinction, examples and limited conclusion without imposing any additional learner step."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "B": {
+      "version": "baseline",
+      "sample": 3
+    },
+    "C": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "D": {
+      "version": "baseline",
+      "sample": 1
+    },
+    "E": {
+      "version": "candidate",
+      "sample": 1
+    },
+    "F": {
+      "version": "candidate",
+      "sample": 2
+    }
+  }
+}

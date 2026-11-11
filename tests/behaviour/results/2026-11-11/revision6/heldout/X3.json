@@ -1,0 +1,309 @@
+{
+  "case": {
+    "id": "X3",
+    "area": "transfer",
+    "messages": [
+      "Can I carry the mechanics habit 'check the limiting case' into this history paragraph? 'After the harbour opened, exports doubled, so the harbour alone caused the increase.' My only evidence is the port's annual export ledger. The same year a trade embargo ended. I want an example using my sentence, not a list of study habits. I haven't tried this unaided."
+    ],
+    "expected_facts": [
+      "An alternative embargo explanation challenges sole causation. A comparison port affected by embargo but not new harbour, or dated commodity/route records, could discriminate with stated limitations. Historical context, dates/provenance/comparability must be independently supported; numerical limiting procedure does not mechanically prove historical cause."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Demonstrates a useful counter-case/rival on this sentence, explicitly names history-specific source/comparison requirements, offers one small application and leaves transfer untested."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "Yes—use the limiting-case habit to test whether your causal inference survives a case with **zero contribution from the harbour**. Suppose ending the embargo would have doubled exports even if the harbour had added nothing. Your ledger would still show exports doubling after the harbour opened, so that observation cannot establish that the harbour alone caused the increase. This is a counterexample to the inference, not evidence that the harbour actually had no effect.\n\nHistory requires evidence for the counterfactual comparison: dates, source provenance, and information about how removing the embargo affected trade. An annual ledger records the change in exports but cannot by itself separate the two causes. A supported revision is: “Exports doubled in the year the harbour opened and the embargo ended; the ledger alone does not establish how much either change contributed.”"
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "Yes—use the habit to stress-test the word **“alone.”** Consider an imagined comparison: the harbour opens, but the embargo remains. Would exports still double? Your ledger cannot answer that question, and the embargo ending gives a rival explanation for the observed increase.\n\nApplied to your sentence, the repair is: “Exports doubled after the harbour opened, but the annual ledger does not separate the harbour's effect from the effect of the embargo ending.” That preserves what the record shows while removing the unsupported claim of a sole cause.\n\nIn history, an imagined limiting case is a question to investigate, rather than evidence. You would need historical support—for example, records showing which export restrictions the embargo imposed and whether growth concentrated in goods freed by its repeal. Such evidence could distinguish explanations; the doubling alone cannot."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\argument.md' -Raw"
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "Yes—carry over the move **test the strongest claim against a case where it could fail**. For your sentence, ask: could exports have risen when the embargo ended even if the harbour had not opened?\n\nThat is a rival explanation, not an observed counterfactual. Your ledger records the doubling, but it cannot separate the harbour's contribution from the end of the embargo. A comparison with a similar port affected by the same embargo ending but without a new harbour could help distinguish them. History requires evidence that the comparison is relevant, along with checked dates and comparable export records; a mathematical limiting-case habit cannot establish those facts.\n\nA worked repair of your sentence is: \"Exports doubled after the harbour opened, but the annual ledger alone cannot show how much of that increase came from the harbour rather than the ending of the embargo.\"\n\nTry: state one result at the comparison port that would weaken the claim that the harbour alone caused the doubling."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "Yes—use the limiting-case habit as a **counterfactual test of the causal inference**. Apply it to “the harbour alone caused the increase”: suppose ending the embargo could have doubled exports even if harbour capacity had stayed unchanged. Your ledger could still show the observed doubling. That possible case exposes why the ledger alone cannot identify the harbour as the sole cause; it does not establish that the embargo actually caused the whole increase.\n\nHistory needs evidence that such a comparison is credible. For example, dated export records from a comparable port affected by the embargo’s end but without a new harbour could help distinguish the explanations. You would also need to check that the ledgers count comparable exports and that other relevant conditions match. There is no automatic historical equivalent of substituting zero into a known physical law.\n\nTry one sentence explaining why “exports doubled after the harbour opened” leaves the causal contribution of the harbour unresolved."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "Yes—use a limiting case to challenge the word **“alone.”** Consider the counterfactual in which the harbour opens but the embargo remains: does your annual ledger establish that exports would still double? It does not. The rival case—an embargo ending without a new harbour—could also produce a large increase.\n\nApplied to your sentence, the supported statement is: “Exports doubled in the year the harbour opened and the embargo ended; the ledger alone does not establish how much either change caused.” The limiting-case question exposes the missing causal evidence, rather than answering that question by itself.\n\nHistory requires evidence for those comparisons: for example, contemporary trade correspondence explaining new orders, and export records from a comparable port affected by the embargo's end but without a new harbour. Whether that port is truly comparable needs historical justification.\n\nTry one short application: name a finding in those sources that would favor the embargo explanation over the harbour explanation. This is a worked demonstration so far; your own application would test whether you can make the move."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+          "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+          "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "Yes—in history, the useful counterpart is a **counterfactual stress test**. Apply it to your sentence: *suppose the harbour had made no difference; could exports still have doubled because the embargo ended?* That is a plausible alternative consistent with the annual ledger, so doubling after the opening does not establish that the harbour **alone** caused the increase. This does not prove the embargo was the cause either.\n\nHistory needs evidence that can distinguish the explanations: for example, reliable dates and records showing which export markets or goods changed when the embargo ended, alongside evidence of what the harbour enabled. The ledger records the outcome; by itself, it does not separate the two possible causes.\n\nTry one sentence stating what your ledger supports while leaving the causal uncertainty explicit. The worked example above shows the move; your own application remains untested."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+          "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The zero-harbour-contribution case correctly challenges sole causation without asserting that the embargo actually caused the doubling."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It gives the requested example on the exact harbour claim and a narrowly supported replacement sentence rather than a list of habits."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The replacement sentence is a concrete repair, and the identified missing historical comparison/evidence is useful; this completed example needs no generic extra task."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It supplies the worked example immediately, does not require an unaided attempt and makes no claim that the learner has transferred the habit."
+      },
+      "area_requirement": {
+        "rating": "PARTIAL",
+        "reason": "It demonstrates a valid counter-case and explicitly names dates, provenance and evidence of embargo effects, but ends with its own revision and offers no small application for the learner."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly treats the imagined embargo-retained case as an investigative question rather than evidence, and removes unsupported sole causation from the sentence."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It directly demonstrates the habit on 'alone' and rewrites the actual sentence with its causal uncertainty preserved."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The sentence repair and proposed check of export restrictions and growth in newly freed goods give specific useful next steps without requiring an unnecessary quiz."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It answers immediately with the requested example, uses a one-sentence repair rather than a full paragraph rewrite, and invents no learner attempt."
+      },
+      "area_requirement": {
+        "rating": "PARTIAL",
+        "reason": "It demonstrates a counterfactual/rival on the sentence and identifies historical restriction and commodity-growth evidence, but offers no distinct small learner application; transfer remains unobserved."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The embargo counterfactual is explicitly unobserved, and the reply correctly limits both ledger evidence and what a similar-port comparison could establish."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It gives an example on the actual harbour sentence and a worked repair, directly satisfying the request for an example rather than generic habits."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The final exercise asks for one comparison-port result that would weaken sole harbour causation, giving a targeted application."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It demonstrates the move before a one-sentence try and does not treat the learner's unaided ability as established."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It contrasts the embargo account, explicitly requires checked dates, relevant comparisons and comparable records, and gives a small application without claiming learner transfer."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The hypothetical zero-contribution case refutes the ledger-to-sole-cause inference without asserting the embargo's actual total effect."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It applies the limiting-case habit to the user's exact causal claim and explains why historical comparison differs from substitution into a known physical law."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The final one-sentence explanation exercise targets why the observed doubling leaves the harbour contribution unresolved."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It supplies the requested worked example before the brief application and invents no unaided learner result."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It demonstrates a counter-case, specifies dated comparable-port records and matching ledger/other conditions, and offers a small application without reporting transfer as achieved."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The two hypothetical cases correctly expose missing causal evidence; neither is claimed as an observed counterfactual, and the revision preserves uncertainty."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It works directly on the harbour sentence, provides a limited supported statement and names evidence to investigate the rival cause."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The short application asks for a finding in the proposed sources that would favor the embargo explanation over the harbour explanation."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It gives the worked example first and explicitly says the learner's own application would test the move rather than claiming current mastery."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It demonstrates rival/counterfactual cases, names contemporary correspondence and a historically justified comparable port, gives one application and explicitly leaves learner transfer untested."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly identifies embargo-driven doubling as a possible alternative consistent with the ledger and explicitly says this does not prove the embargo caused it."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It demonstrates the requested limiting-case counterpart using the actual harbour claim rather than listing study habits."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The one-sentence exercise asks what the ledger supports with causal uncertainty retained, directly applying the worked distinction."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It provides the requested example without withholding it for an attempt and explicitly states that the learner's application remains untested."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It demonstrates a zero-harbour counter-case, requires reliable dates and market/goods records plus evidence of harbour capabilities, and offers a small application while leaving transfer unobserved."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "baseline",
+      "sample": 3
+    },
+    "B": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "C": {
+      "version": "candidate",
+      "sample": 2
+    },
+    "D": {
+      "version": "candidate",
+      "sample": 1
+    },
+    "E": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "F": {
+      "version": "baseline",
+      "sample": 1
+    }
+  }
+}

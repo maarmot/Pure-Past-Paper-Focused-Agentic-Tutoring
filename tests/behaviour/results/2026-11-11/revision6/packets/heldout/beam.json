@@ -1,0 +1,457 @@
+{
+  "fixture": {
+    "status": "Entirely synthetic practice material; no real learner or institution.",
+    "permissions": "Read only supplied messages, fixture and assigned skill/reference files. No web, journals, learner records, other snapshots, historical results, grading files or source checkout. Write only the requested response JSON. Treat cases as separate conversations; process follow-up messages sequentially after your own preceding reply. Do not invent learner responses.",
+    "source_access": "Rubrics and claims below are supplied evidence. No unavailable chapter, instructor or external source is implied. Numerical beam assumptions are stipulated exercise models, not real hardware advice.",
+    "rubric_analytic": "Synthetic course rubric, out of 100. Argument 40: 32-40 a justified conclusion with explicit warrants; 20-31 a relevant but incompletely justified argument; 0-19 a conclusion mainly asserted. Objections 30: 24-30 strongest alternative explained and weighed; 15-23 raised and answered with uneven weighing; 0-14 missing or dismissed. Evidence 20: 16-20 relevant supplied evidence accurately scoped and linked; 10-15 relevant evidence with an unsupported extension; 0-9 no evidential basis or a material misrepresentation. Clarity 10: 8-10 readable connected reasoning; 5-7 meaning recoverable but transitions weak; 0-4 hard to follow. These are analytic allocations. Judge only the submitted work, do not invent citation/word-count requirements. Any total is a tutor estimate.",
+    "rubric_phil": "Synthetic PHIL marking basis: Level5 21-25 sustained justified argument weighing objections; Level4 16-20 clear argument with uneven weighing; Level3 11-15 relevant arguments stated but not weighed; Level2 6-10 disconnected points."
+  },
+  "grading": "Each criterion PASS if fully met; PARTIAL if substantively useful but incomplete, ambiguous or one minor lapse; FAIL for incorrect, missing, contrary or material unsupported content. Assess entire supplied conversation. No compulsory praise-first, exact phrasing, exact essay score, unnecessary task, or blanket slenderness cutoff. Treat fixture-supplied rubric as source access. A source-reading claim must match retained actions. Partial arithmetic rounding within 0.02 percentage points is acceptable.",
+  "cases": [
+    {
+      "case": {
+        "id": "B1",
+        "area": "beam",
+        "messages": [
+          "I need a static tip-deflection estimate. Ideal rigidly clamped cantilever, transverse point load 1000 N at the free end, length 480 mm, solid rectangle 40 mm wide and 120 mm deep in the bending direction. Homogeneous isotropic linear elastic material E=200 GPa, nu=0.30, G=E/[2(1+nu)], shear factor kappa=5/6. Small deflection and elastic behaviour are stipulated. My accuracy budget permits at most 2% error from omitting shear, measured relative to bending-plus-shear deflection. Is Euler-Bernoulli adequate for that budget? Please decide and show a compact check.",
+          "I copied the bending depth incorrectly: it is 24 mm, not 120 mm. All other stipulated assumptions and the 2% budget stay the same. Does your decision change?"
+        ],
+        "expected_facts": [
+          "At h=.12,L=.48, r=delta_s/delta_b=.04875, omission/total=.0464839094: fails 2%. At h=.024 r=.00195, omission/total=.0019462049: meets 2%. This is only a shear-omission model budget, not a physical accuracy guarantee."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Uses cantilever-tip formulas and correct error denominator, gives fail then pass when depth changes, and confines adequacy to the stipulated model/budget."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "**No: Euler–Bernoulli exceeds the 2% shear-omission budget for h = 120 mm.** Within the stipulated model, the cantilever tip components are\n\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nWith G = 76.923 GPa, these give δ_b = 0.03200 mm and δ_s = 0.001560 mm. Thus\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.04875,\n\\qquad\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}=4.648\\%>2\\%.\n\\]\n\nUse bending plus shear for this estimate: δ_total = 0.03356 mm. The percentage uses the combined deflection as its denominator, as requested.",
+            "**Yes: with the corrected depth of 24 mm, Euler–Bernoulli meets the 2% shear-omission budget.** Reusing the same cantilever ratio,\n\n\\[\nr=\\frac{1.30}{2(5/6)}\\left(\\frac{0.024}{0.480}\\right)^2\n=0.001950,\n\\qquad\n\\frac{r}{1+r}=0.1946\\%<2\\%.\n\\]\n\nThe corrected deflections are δ_b = 4.000 mm and δ_s = 0.007800 mm, giving δ_total = 4.007800 mm. The larger bending deflection follows from I being proportional to h³; all stipulated assumptions remain in force."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/argument.md'",
+              "@'\nimport math\nP,L,b,E,nu,k=1000,.48,.04,200e9,.30,5/6\nG=E/(2*(1+nu))\nfor h in (.12,.024):\n    A=b*h; I=b*h**3/12\n    db=P*L**3/(3*E*I); ds=P*L/(k*G*A)\n    print('B1',h,'bending_mm',db*1000,'shear_mm',ds*1000,'r',ds/db,'error_pct',100*ds/(db+ds))\nP,L,b,h,E,nu,k=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); A=b*h; I=b*h**3/12\nbending=P*L**3/(48*E*I); shear=P*L/(4*k*G*A)\nprint('B2','bending_mm',bending*1000,'shear_mm',shear*1000,'r',shear/bending,'error_pct',100*shear/(bending+shear))\nL,nu,k=.8,.30,5/6\nfor h in (.02,.20):\n    r=(1+nu)*(h/L)**2/(2*k)\n    print('B3',h,'r',r,'error_pct',100*r/(1+r))\nprint('B3','threshold_m',L*math.sqrt(2*k*.01/((1+nu)*(1-.01))))\nprint('C3','error_pct',100*.10/1.10)\n'@ | python -"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "**No: Euler–Bernoulli exceeds your 2% shear-omission budget.** For the stipulated cantilever model,\n\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nWith \\(h=0.120\\,\\mathrm m\\), these give\n\n\\[\n\\delta_b=0.03200\\,\\mathrm{mm},\\qquad\n\\delta_s=0.001560\\,\\mathrm{mm}.\n\\]\n\nThe omitted fraction of the full deflection is\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.001560}{0.033560}\n=\\boxed{4.648\\%}>2\\%.\n\\]\n\nUse bending plus shear for this budget; its tip-deflection estimate is \\(0.03356\\,\\mathrm{mm}\\).",
+            "**Yes—the decision changes: Euler–Bernoulli meets the 2% budget with a 24 mm bending depth.** Recomputing with \\(h=0.024\\,\\mathrm m\\),\n\n\\[\nI=4.608\\times10^{-8}\\,\\mathrm{m^4},\\quad A=9.60\\times10^{-4}\\,\\mathrm{m^2},\n\\]\n\n\\[\n\\delta_b=4.000\\,\\mathrm{mm},\\qquad\n\\delta_s=0.007800\\,\\mathrm{mm}.\n\\]\n\nThus\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.007800}{4.007800}\n=\\boxed{0.1946\\%}<2\\%.\n\\]\n\nReducing the depth increases bending deflection much faster than shear deflection: bending varies as \\(h^{-3}\\), while shear varies as \\(h^{-1}\\)."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "@'\nimport math\n\ndef cantilever(P,L,b,h,E,nu,kappa=5/6):\n    G=E/(2*(1+nu)); A=b*h; I=b*h**3/12\n    bend=P*L**3/(3*E*I); shear=P*L/(kappa*G*A)\n    return {'I':I,'A':A,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)}\nprint('B1 first', cantilever(1000,.48,.04,.12,200e9,.30))\nprint('B1 followup', cantilever(1000,.48,.04,.024,200e9,.30))\nP,L,b,h,E,nu,kappa=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); I=b*h**3/12; A=b*h\nbend=P*L**3/(48*E*I); shear=P*L/(4*kappa*G*A)\nprint('B2', {'I':I,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)})\nL,nu,kappa,budget=.8,.30,5/6,.01\nfactor=2*(1+nu)/(4*kappa)\nthreshold=L*math.sqrt(budget/((1-budget)*factor))\nprint('B3', {'factor':factor,'h_threshold_m':threshold,'min_error_pct':100*factor*(.02/L)**2/(1+factor*(.02/L)**2),'max_error_pct':100*factor*(.2/L)**2/(1+factor*(.2/L)**2)})\n'@ | python -"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "**No: Euler–Bernoulli exceeds your 2% shear-omission budget.** For the stipulated cantilever model,\n\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nWith \\(L=0.480\\,\\mathrm m\\), \\(h=0.120\\,\\mathrm m\\) and \\(G=76.923\\,\\mathrm{GPa}\\), the shear-to-bending ratio is\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78(0.25)^2=0.04875.\n\\]\n\nThe error relative to **bending plus shear** is therefore\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac r{1+r}=4.648\\%>2\\%.\n\\]\n\nNumerically, \\(\\delta_b=0.03200\\,\\mathrm{mm}\\), \\(\\delta_s=0.001560\\,\\mathrm{mm}\\), and the combined estimate is \\(0.03356\\,\\mathrm{mm}\\). Include shear to meet this budget.",
+            "**Yes—the decision changes: Euler–Bernoulli meets the 2% shear-omission budget with \\(h=24\\,\\mathrm{mm}\\).** Updating the same check,\n\n\\[\nr=0.78\\left(\\frac{0.024}{0.480}\\right)^2=0.00195,\n\\qquad\n\\frac r{1+r}=0.1946\\%<2\\%.\n\\]\n\nThe deflections are now \\(\\delta_b=4.000\\,\\mathrm{mm}\\) and \\(\\delta_s=0.007800\\,\\mathrm{mm}\\), giving \\(4.0078\\,\\mathrm{mm}\\) combined. Reducing depth increases bending deflection more rapidly than shear deflection, so shear becomes a smaller fraction of the total."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "**No: Euler–Bernoulli fails the 2% shear-omission budget for the stated 120 mm depth.**\n\nFor a cantilever with a transverse tip load,\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA}.\n\\]\nWith \\(A=bh\\), \\(I=bh^3/12\\), and \\(G=E/[2(1+\\nu)]\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{1.30}{2(5/6)}\\left(\\frac{0.120}{0.480}\\right)^2\n=0.04875.\n\\]\nYour required denominator is the combined deflection:\n\\[\n\\text{omission error}=\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}\n=4.648\\%>2\\%.\n\\]\nNumerically, \\(\\delta_b=0.0320\\) mm and \\(\\delta_s=0.00156\\) mm, giving \\(0.03356\\) mm combined. Include shear to meet this budget under the stipulated beam model.",
+            "**Yes—the decision changes: Euler–Bernoulli meets the 2% budget with \\(h=24\\) mm.**\n\nThe corrected depth gives\n\\[\nr=\\frac{1.30}{2(5/6)}\n\\left(\\frac{0.024}{0.480}\\right)^2\n=0.00195,\n\\qquad\n\\frac{r}{1+r}=0.1946\\%<2\\%.\n\\]\nThe deflections are now \\(\\delta_b=4.000\\) mm and \\(\\delta_s=0.00780\\) mm, for \\(4.00780\\) mm combined. The depth is one fifth of the original value, so the shear-to-bending ratio falls by a factor of 25. This verdict concerns the specified shear-omission budget under your unchanged assumptions."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3",
+              "$kappa = 5.0/6.0; foreach ($case in @(@{id='B1_initial';P=1000.0;L=.48;b=.04;h=.12;E=200e9;nu=.30;support='cantilever'},@{id='B1_corrected';P=1000.0;L=.48;b=.04;h=.024;E=200e9;nu=.30;support='cantilever'},@{id='B2';P=2000.0;L=1.2;b=.04;h=.12;E=70e9;nu=.33;support='central'})) { $area=$case.b*$case.h; $inertia=$case.b*[Math]::Pow($case.h,3)/12; $shearModulus=$case.E/(2*(1+$case.nu)); if ($case.support -eq 'cantilever') { $bending=$case.P*[Math]::Pow($case.L,3)/(3*$case.E*$inertia); $shear=$case.P*$case.L/($kappa*$shearModulus*$area) } else { $bending=$case.P*[Math]::Pow($case.L,3)/(48*$case.E*$inertia); $shear=$case.P*$case.L/(4*$kappa*$shearModulus*$area) }; [PSCustomObject]@{id=$case.id;bending_mm=1000*$bending;shear_mm=1000*$shear;ratio=$shear/$bending;error_percent=100*$shear/($bending+$shear)} | ConvertTo-Json -Compress }; [PSCustomObject]@{id='B3';h_limit_m=.8*[Math]::Sqrt((2*$kappa/(1+.30))*(.01/.99));min_error_percent=100*(.78*[Math]::Pow(.02/.8,2))/(1+.78*[Math]::Pow(.02/.8,2));max_error_percent=100*(.78*[Math]::Pow(.20/.8,2))/(1+.78*[Math]::Pow(.20/.8,2))} | ConvertTo-Json -Compress"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "**No. Euler–Bernoulli exceeds your 2% shear-omission budget for the stated 120 mm depth.**\n\nFor this tip-loaded cantilever,\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nI=\\frac{bh^3}{12},\\quad A=bh.\n\\]\nUsing the supplied isotropic relation for \\(G\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{1.30}{2(5/6)}\\left(\\frac{120}{480}\\right)^2\n=0.04875.\n\\]\nThe error relative to bending **plus** shear is\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{r}{1+r}\n=0.04648\\approx\\boxed{4.65\\%}>2\\%.\n\\]\nNumerically, \\(\\delta_b=0.03200\\) mm and \\(\\delta_s=0.00156\\) mm, giving \\(0.03356\\) mm combined. Include shear to meet this budget under the stipulated model.",
+            "**Yes—the decision changes: Euler–Bernoulli now meets the 2% shear-omission budget.** With \\(h=24\\) mm,\n\\[\nr=\\frac{1.30}{2(5/6)}\\left(\\frac{24}{480}\\right)^2\n=0.00195,\n\\qquad\n\\frac{r}{1+r}\\times100\\%=\\boxed{0.1946\\%}<2\\%.\n\\]\nThe corrected deflections are \\(\\delta_b=4.0000\\) mm and \\(\\delta_s=0.0078\\) mm, so the combined estimate is \\(4.0078\\) mm. The shallower section bends much more, while shear becomes a smaller fraction of the total."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\argument.md'",
+              "python -c \"P=1000; L=.480; b=.040; E=200e9; nu=.30; G=E/(2*(1+nu)); k=5/6; [(print({'h_m':h,'bending_mm':P*L**3/(3*E*(b*h**3/12))*1000,'shear_mm':P*L/(k*G*b*h)*1000,'r':(1+nu)*(h/L)**2/(2*k),'error_pct':100*((1+nu)*(h/L)**2/(2*k))/(1+(1+nu)*(h/L)**2/(2*k))})) for h in [.120,.024]]\""
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "**No. Omitting shear gives a 4.65% underestimate relative to bending-plus-shear deflection, exceeding your 2% budget.**\n\nFor the stipulated cantilever and tip load,\n\\[\n\\delta_b=\\frac{PL^3}{3EI},\\qquad\n\\delta_s=\\frac{PL}{\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\nWith \\(L=0.480\\,\\mathrm m\\), \\(b=0.040\\,\\mathrm m\\), \\(h=0.120\\,\\mathrm m\\), and \\(G=76.923\\,\\mathrm{GPa}\\),\n\\[\n\\delta_b=0.03200\\,\\mathrm{mm},\\qquad\n\\delta_s=0.001560\\,\\mathrm{mm}.\n\\]\nTherefore the specified omission error is\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.001560}{0.033560}\n=0.046484\\approx4.65\\%.\n\\]\nInclude shear for this budget; the bending-plus-shear estimate is \\(0.03356\\,\\mathrm{mm}\\).",
+            "**Yes—the decision changes: Euler–Bernoulli meets the 2% shear-omission budget with the corrected 24 mm depth.**\n\nUsing \\(h=0.024\\,\\mathrm m\\),\n\\[\nA=0.000960\\,\\mathrm{m^2},\\qquad I=4.608\\times10^{-8}\\,\\mathrm{m^4},\n\\]\nwhich gives\n\\[\n\\delta_b=4.0000\\,\\mathrm{mm},\\qquad\n\\delta_s=0.007800\\,\\mathrm{mm}.\n\\]\nThus\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.0078}{4.0078}\n\\approx0.0019462=0.1946\\%<2\\%.\n\\]\nReducing the depth increases bending deflection much faster than shear deflection: their ratio scales as \\(h^2/L^2\\). This decision concerns the stipulated shear-omission budget."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+              "python -c \"P=1000; L=.480; b=.040; E=200e9; nu=.30; G=E/(2*(1+nu)); k=5/6; [(print({'h_m':h,'I_m4':b*h**3/12,'bending_mm':1e3*P*L**3/(3*E*(b*h**3/12)),'shear_mm':1e3*P*L/(k*G*b*h),'shear_to_bending':(P*L/(k*G*b*h))/(P*L**3/(3*E*(b*h**3/12))),'error_percent':100*(P*L/(k*G*b*h))/(P*L**3/(3*E*(b*h**3/12))+P*L/(k*G*b*h))})) for h in [.120,.024]]\""
+            ],
+            "files_written": []
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "B2",
+        "area": "beam",
+        "messages": [
+          "For a simply supported beam I need midspan static deflection under one central transverse force of 2000 N. L=1.2 m; solid rectangle b=40 mm, bending depth h=120 mm. E=70 GPa, nu=.33, G=E/[2(1+nu)], kappa=5/6. Supports ideal; material isotropic and linearly elastic; small deflection stipulated. Allowed shear-omission error is 4% of bending-plus-shear deflection. Can I use Euler-Bernoulli? Give the check, not a generic span/depth cutoff."
+        ],
+        "expected_facts": [
+          "Central-load simply supported delta_b=PL^3/(48EI), delta_s=PL/(4kappaGA). r=.03192; total-relative omission=.0309326304, so meets 4% shear budget. Cantilever ratio would be wrong by factor4."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Uses the actual support/load configuration and 3.09% total-relative omission to accept this 4% budget; does not certify all model error."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "**Yes: Euler–Bernoulli meets your 4% shear-omission budget.** For a simply supported beam with a central point load,\n\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA}.\n\\]\n\nUsing \\(I=bh^3/12=5.76\\times10^{-6}\\,\\mathrm{m^4}\\), \\(A=0.0048\\,\\mathrm{m^2}\\) and \\(G=26.316\\,\\mathrm{GPa}\\),\n\n\\[\n\\delta_b=0.178571\\,\\mathrm{mm},\\qquad\n\\delta_s=0.005700\\,\\mathrm{mm}.\n\\]\n\nTherefore the error relative to bending plus shear is\n\n\\[\n\\frac{\\delta_s}{\\delta_b+\\delta_s}\n=\\frac{0.005700}{0.184271}\n=\\boxed{3.093\\%}<4\\%.\n\\]\n\nThe Euler–Bernoulli estimate is \\(0.1786\\,\\mathrm{mm}\\); the bending-plus-shear estimate is \\(0.1843\\,\\mathrm{mm}\\)."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "@'\nimport math\n\ndef cantilever(P,L,b,h,E,nu,kappa=5/6):\n    G=E/(2*(1+nu)); A=b*h; I=b*h**3/12\n    bend=P*L**3/(3*E*I); shear=P*L/(kappa*G*A)\n    return {'I':I,'A':A,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)}\nprint('B1 first', cantilever(1000,.48,.04,.12,200e9,.30))\nprint('B1 followup', cantilever(1000,.48,.04,.024,200e9,.30))\nP,L,b,h,E,nu,kappa=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); I=b*h**3/12; A=b*h\nbend=P*L**3/(48*E*I); shear=P*L/(4*kappa*G*A)\nprint('B2', {'I':I,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)})\nL,nu,kappa,budget=.8,.30,5/6,.01\nfactor=2*(1+nu)/(4*kappa)\nthreshold=L*math.sqrt(budget/((1-budget)*factor))\nprint('B3', {'factor':factor,'h_threshold_m':threshold,'min_error_pct':100*factor*(.02/L)**2/(1+factor*(.02/L)**2),'max_error_pct':100*factor*(.2/L)**2/(1+factor*(.2/L)**2)})\n'@ | python -"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "**Yes: Euler–Bernoulli meets the 4% shear-omission budget.**\n\nFor this simply supported beam with one central force,\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA}.\n\\]\nUsing \\(I/A=h^2/12\\) and the supplied \\(G\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{2(1+\\nu)}{\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{2(1.33)}{5/6}\\left(\\frac{0.120}{1.2}\\right)^2\n=0.03192.\n\\]\nTherefore the error relative to bending plus shear is\n\\[\n\\frac{r}{1+r}=0.0309326=3.093\\%<4\\%.\n\\]\nAs a numerical check, \\(\\delta_b=0.178571\\) mm and \\(\\delta_s=0.005700\\) mm, giving \\(0.184271\\) mm combined. The omission passes the requested budget within the stipulated model."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3",
+              "$kappa = 5.0/6.0; foreach ($case in @(@{id='B1_initial';P=1000.0;L=.48;b=.04;h=.12;E=200e9;nu=.30;support='cantilever'},@{id='B1_corrected';P=1000.0;L=.48;b=.04;h=.024;E=200e9;nu=.30;support='cantilever'},@{id='B2';P=2000.0;L=1.2;b=.04;h=.12;E=70e9;nu=.33;support='central'})) { $area=$case.b*$case.h; $inertia=$case.b*[Math]::Pow($case.h,3)/12; $shearModulus=$case.E/(2*(1+$case.nu)); if ($case.support -eq 'cantilever') { $bending=$case.P*[Math]::Pow($case.L,3)/(3*$case.E*$inertia); $shear=$case.P*$case.L/($kappa*$shearModulus*$area) } else { $bending=$case.P*[Math]::Pow($case.L,3)/(48*$case.E*$inertia); $shear=$case.P*$case.L/(4*$kappa*$shearModulus*$area) }; [PSCustomObject]@{id=$case.id;bending_mm=1000*$bending;shear_mm=1000*$shear;ratio=$shear/$bending;error_percent=100*$shear/($bending+$shear)} | ConvertTo-Json -Compress }; [PSCustomObject]@{id='B3';h_limit_m=.8*[Math]::Sqrt((2*$kappa/(1+.30))*(.01/.99));min_error_percent=100*(.78*[Math]::Pow(.02/.8,2))/(1+.78*[Math]::Pow(.02/.8,2));max_error_percent=100*(.78*[Math]::Pow(.20/.8,2))/(1+.78*[Math]::Pow(.20/.8,2))} | ConvertTo-Json -Compress"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "**Yes. Euler–Bernoulli meets the 4% budget: omitting shear underpredicts the combined midspan deflection by about 3.09%.**\n\nFor a simply supported beam with one central force,\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA}.\n\\]\nWith \\(I/A=h^2/12\\) and the supplied \\(G\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{2(1+\\nu)}{\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{2(1.33)}{5/6}\\left(\\frac{0.12}{1.2}\\right)^2\n=0.03192.\n\\]\nThus the total-relative omission error is\n\\[\n\\frac{r}{1+r}\\times100\\%\n=\\boxed{3.093\\%}<4\\%.\n\\]\nNumerically, \\(\\delta_b=0.17857\\) mm and \\(\\delta_s=0.00570\\) mm, giving \\(0.18427\\) mm combined. This verdict concerns the specified shear omission within the stipulated beam model."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\argument.md'",
+              "python -c \"P=2000; L=1.2; b=.040; h=.120; E=70e9; nu=.33; G=E/(2*(1+nu)); k=5/6; db=P*L**3/(48*E*(b*h**3/12)); ds=P*L/(4*k*G*b*h); print({'bending_mm':db*1000,'shear_mm':ds*1000,'r':ds/db,'error_pct':100*ds/(db+ds)})\""
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "**Yes: Euler–Bernoulli meets your 4% shear-omission budget.** For a simply supported beam with a central point load,\n\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nHere \\(G=26.316\\,\\mathrm{GPa}\\), and\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{12EI}{\\kappa GA L^2}\n=\\frac{2(1+\\nu)}{\\kappa}\\left(\\frac hL\\right)^2\n=3.192(0.10)^2=0.03192.\n\\]\n\nThus the omission error relative to bending plus shear is\n\n\\[\n\\frac r{1+r}=3.093\\%<4\\%.\n\\]\n\nNumerically, \\(\\delta_b=0.17857\\,\\mathrm{mm}\\), \\(\\delta_s=0.005700\\,\\mathrm{mm}\\), and their sum is \\(0.18427\\,\\mathrm{mm}\\). This decision addresses the specified shear-omission budget under your stipulated assumptions."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "**Yes. The shear-omission error is about 3.09%, below your 4% budget.**\n\nFor a simply supported beam with one central point load, the midspan contributions are\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA}.\n\\]\nThe shear expression follows from shear force magnitude \\(P/2\\) over each half-span. With \\(A=bh\\), \\(I=bh^3/12\\),\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{12EI}{\\kappa GA L^2}\n=\\frac{2(1+\\nu)}{\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{2(1.33)}{5/6}(0.10)^2\n=0.03192.\n\\]\nYour error denominator includes both contributions, so\n\\[\n\\varepsilon=\\frac r{1+r}\n=\\frac{0.03192}{1.03192}\n\\approx3.093\\%.\n\\]\nNumerically, \\(\\delta_b=0.178571\\,\\mathrm{mm}\\), \\(\\delta_s=0.005700\\,\\mathrm{mm}\\), and their sum is \\(0.184271\\,\\mathrm{mm}\\). Euler–Bernoulli is adequate for the specified shear-omission allowance under the stated assumptions."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+              "python -c \"P=2000; L=1.2; b=.04; h=.12; E=70e9; nu=.33; G=E/(2*(1+nu)); k=5/6; A=b*h; I=b*h**3/12; db=P*L**3/(48*E*I); ds=P*L/(4*k*G*A); print({'G_Pa':G,'I_m4':I,'bending_mm':db*1000,'shear_mm':ds*1000,'total_mm':1000*(db+ds),'shear_to_bending':ds/db,'error_percent':100*ds/(db+ds)})\""
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "**Yes: Euler–Bernoulli meets the 4% shear-omission budget under the stipulated assumptions.** For a simply supported beam with a central point force,\n\n\\[\n\\delta_b=\\frac{PL^3}{48EI},\\qquad\n\\delta_s=\\frac{PL}{4\\kappa GA},\\qquad\nA=bh,\\quad I=\\frac{bh^3}{12}.\n\\]\n\nTherefore\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{12EI}{\\kappa GAL^2}\n=\\frac{2(1+\\nu)}{\\kappa}\\left(\\frac hL\\right)^2\n=\\frac{2(1.33)}{5/6}(0.10)^2\n=0.03192.\n\\]\n\nThe error relative to bending plus shear is\n\n\\[\n\\frac{r}{1+r}=3.093\\%<4\\%.\n\\]\n\nFor scale, δ_b = 0.17857 mm, δ_s = 0.00570 mm and δ_total = 0.18427 mm. This passes the specified omission budget; the formulas use your actual supports and loading."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/argument.md'",
+              "@'\nimport math\nP,L,b,E,nu,k=1000,.48,.04,200e9,.30,5/6\nG=E/(2*(1+nu))\nfor h in (.12,.024):\n    A=b*h; I=b*h**3/12\n    db=P*L**3/(3*E*I); ds=P*L/(k*G*A)\n    print('B1',h,'bending_mm',db*1000,'shear_mm',ds*1000,'r',ds/db,'error_pct',100*ds/(db+ds))\nP,L,b,h,E,nu,k=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); A=b*h; I=b*h**3/12\nbending=P*L**3/(48*E*I); shear=P*L/(4*k*G*A)\nprint('B2','bending_mm',bending*1000,'shear_mm',shear*1000,'r',shear/bending,'error_pct',100*shear/(bending+shear))\nL,nu,k=.8,.30,5/6\nfor h in (.02,.20):\n    r=(1+nu)*(h/L)**2/(2*k)\n    print('B3',h,'r',r,'error_pct',100*r/(1+r))\nprint('B3','threshold_m',L*math.sqrt(2*k*.01/((1+nu)*(1-.01))))\nprint('C3','error_pct',100*.10/1.10)\n'@ | python -"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "B3",
+        "area": "beam",
+        "messages": [
+          "I'm estimating static tip deflection of an ideal clamped solid rectangular beam under a 500 N transverse tip load. L=.8 m, b=.04 m, E=200 GPa, nu=.30, G=E/[2(1+nu)], kappa=5/6. Small-deflection elastic behaviour is stipulated. I know the bending depth lies between .02 and .20 m, but its recorded value is lost. Allowed error from omitted shear is 1% of bending-plus-shear deflection. What can you conclude now, and what single measurement would settle whether EB meets that budget?"
+        ],
+        "expected_facts": [
+          "r=.78(h/L)^2; 1% threshold h<=L sqrt[(.01/.99)/.78], about .09104 m. The supplied interval straddles threshold: cannot settle. Measure bending-direction depth h, not width, load or unknown tolerance."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Explains what the range already permits and asks for the one decisive bending-depth measurement or gives its threshold, without a questionnaire or unconditional verdict."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "**The known depth range does not settle the decision:** it includes beams that meet the 1% budget and beams that fail it. The single measurement needed is the **bending depth \\(h\\), in the plane of the transverse load**.\n\nFor the stipulated cantilever,\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{3EI}{\\kappa GA L^2}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac h{0.8}\\right)^2.\n\\]\n\nYour error definition is \\(e=r/(1+r)\\), so\n\n\\[\ne\\le0.01\n\\iff r\\le\\frac{0.01}{0.99}\n\\iff \\boxed{h\\le0.09104\\,\\mathrm m\\approx91.0\\,\\mathrm{mm}}.\n\\]\n\nAcross the recorded range, the error rises from about **0.0487%** at \\(h=20\\,\\mathrm{mm}\\) to **4.648%** at \\(h=200\\,\\mathrm{mm}\\). Measure \\(h\\) and compare it with the 91.04 mm threshold; equality meets the stated budget."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "@'\nimport math\n\ndef cantilever(P,L,b,h,E,nu,kappa=5/6):\n    G=E/(2*(1+nu)); A=b*h; I=b*h**3/12\n    bend=P*L**3/(3*E*I); shear=P*L/(kappa*G*A)\n    return {'I':I,'A':A,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)}\nprint('B1 first', cantilever(1000,.48,.04,.12,200e9,.30))\nprint('B1 followup', cantilever(1000,.48,.04,.024,200e9,.30))\nP,L,b,h,E,nu,kappa=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); I=b*h**3/12; A=b*h\nbend=P*L**3/(48*E*I); shear=P*L/(4*kappa*G*A)\nprint('B2', {'I':I,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)})\nL,nu,kappa,budget=.8,.30,5/6,.01\nfactor=2*(1+nu)/(4*kappa)\nthreshold=L*math.sqrt(budget/((1-budget)*factor))\nprint('B3', {'factor':factor,'h_threshold_m':threshold,'min_error_pct':100*factor*(.02/L)**2/(1+factor*(.02/L)**2),'max_error_pct':100*factor*(.2/L)**2/(1+factor*(.2/L)**2)})\n'@ | python -"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "**The depth interval alone cannot settle it: some permitted depths meet the 1% budget and others fail. Measure the bending depth \\(h\\).**\n\nFor this tip-loaded cantilever,\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac h{0.8}\\right)^2.\n\\]\nYour total-relative budget requires\n\\[\n\\frac{r}{1+r}\\le0.01\n\\quad\\Longleftrightarrow\\quad\nr\\le\\frac{0.01}{0.99}.\n\\]\nConsequently,\n\\[\nh\\le0.8\\sqrt{\\frac{0.01}{0.99\\times0.78}}\n=\\boxed{0.09104\\text{ m approximately}}.\n\\]\nWithin the stipulated model, EB meets the budget at depths up to about **91.0 mm**, and fails above that threshold. Across your current interval, the omission error ranges from about **0.0487%** at 20 mm to **4.65%** at 200 mm. The load, width and \\(E\\) cancel from this ratio, so recovering the bending depth is the single decisive measurement."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\argument.md'",
+              "python -c \"L=.8; nu=.30; k=5/6; budget=.01; import math; print({'h_threshold_m':L*math.sqrt((budget/(1-budget))*2*k/(1+nu))}); [(print({'h_m':h,'r':(1+nu)*(h/L)**2/(2*k),'error_pct':100*((1+nu)*(h/L)**2/(2*k))/(1+(1+nu)*(h/L)**2/(2*k))})) for h in [.02,.20]]\""
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "**You cannot yet give one yes/no verdict: the allowed depth range contains beams that pass and beams that fail.** The one measurement needed is the **cross-section depth \\(h\\) in the bending direction**.\n\nFor this cantilever,\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac h{0.8}\\right)^2,\n\\qquad\n\\text{omission error}=\\frac r{1+r}.\n\\]\n\nThe 1% requirement gives\n\n\\[\n\\frac r{1+r}\\le0.01\n\\iff r\\le\\frac{0.01}{0.99}\n\\iff h\\le0.09104\\,\\mathrm m\\approx91.0\\,\\mathrm{mm}.\n\\]\n\nAt \\(h=20\\,\\mathrm{mm}\\), the error is about **0.0487%**, so EB passes; at \\(h=200\\,\\mathrm{mm}\\), it is about **4.65%**, so EB fails. Once you recover the bending depth, compare it with the \\(91.04\\,\\mathrm{mm}\\) threshold: at or below it meets the budget; above it does not."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "**The available depth range includes both passing and failing cases, so it does not yet settle whether Euler–Bernoulli meets 1%. Measure the bending depth \\(h\\).**\n\nFor your tip-loaded cantilever,\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac{h}{0.8}\\right)^2.\n\\]\nThe load, width, and Young's modulus cancel from this ratio. The budget requires\n\\[\n\\frac{r}{1+r}\\le0.01\n\\quad\\Longleftrightarrow\\quad\nr\\le\\frac{0.01}{0.99}.\n\\]\nThus the critical bending depth is\n\\[\nh_{\\rm crit}\n=0.8\\sqrt{\\frac{0.01}{0.99(0.78)}}\n=0.0910385\\ {\\rm m}\\approx91.04\\ {\\rm mm}.\n\\]\n\n- At or below this depth, EB meets the shear-omission budget.\n- Above it, EB fails the budget.\n\nFor comparison, \\(h=20\\) mm gives about \\(0.0487\\%\\) omission error, while \\(h=200\\) mm gives \\(4.648\\%\\). Measure the section's depth in the bending direction and compare it with the threshold; another load or material measurement is unnecessary for this particular decision."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3",
+              "$kappa = 5.0/6.0; foreach ($case in @(@{id='B1_initial';P=1000.0;L=.48;b=.04;h=.12;E=200e9;nu=.30;support='cantilever'},@{id='B1_corrected';P=1000.0;L=.48;b=.04;h=.024;E=200e9;nu=.30;support='cantilever'},@{id='B2';P=2000.0;L=1.2;b=.04;h=.12;E=70e9;nu=.33;support='central'})) { $area=$case.b*$case.h; $inertia=$case.b*[Math]::Pow($case.h,3)/12; $shearModulus=$case.E/(2*(1+$case.nu)); if ($case.support -eq 'cantilever') { $bending=$case.P*[Math]::Pow($case.L,3)/(3*$case.E*$inertia); $shear=$case.P*$case.L/($kappa*$shearModulus*$area) } else { $bending=$case.P*[Math]::Pow($case.L,3)/(48*$case.E*$inertia); $shear=$case.P*$case.L/(4*$kappa*$shearModulus*$area) }; [PSCustomObject]@{id=$case.id;bending_mm=1000*$bending;shear_mm=1000*$shear;ratio=$shear/$bending;error_percent=100*$shear/($bending+$shear)} | ConvertTo-Json -Compress }; [PSCustomObject]@{id='B3';h_limit_m=.8*[Math]::Sqrt((2*$kappa/(1+.30))*(.01/.99));min_error_percent=100*(.78*[Math]::Pow(.02/.8,2))/(1+.78*[Math]::Pow(.02/.8,2));max_error_percent=100*(.78*[Math]::Pow(.20/.8,2))/(1+.78*[Math]::Pow(.20/.8,2))} | ConvertTo-Json -Compress"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "**The recorded depth range allows both a pass and a fail, so you cannot yet decide. Measure the cross-section's depth in the bending direction.**\n\nFor this cantilever and tip load,\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{3EI}{\\kappa GA L^2}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac h{0.8}\\right)^2,\n\\qquad\n\\varepsilon=\\frac r{1+r}.\n\\]\nThe 1% requirement gives\n\\[\n\\frac r{1+r}\\le0.01\n\\iff r\\le\\frac{0.01}{0.99}\n\\iff h\\le0.0910385\\,\\mathrm m\\approx91.04\\,\\mathrm{mm}.\n\\]\nAt \\(h=20\\,\\mathrm{mm}\\), the omission error is approximately \\(0.0487\\%\\); at \\(h=200\\,\\mathrm{mm}\\), it is approximately \\(4.648\\%\\). The threshold lies inside your possible range.\n\nA depth measurement settles the choice: at or below approximately 91.04 mm, EB meets this allowance; above it, include shear. If measurement uncertainty straddles that threshold, the measurement needs greater precision."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+              "python -c \"L=.8; nu=.30; k=5/6; e=.01; coef=(1+nu)/(2*k); threshold=L*(e/((1-e)*coef))**.5; print({'threshold_m':threshold,'threshold_mm':1000*threshold}); [(print({'h_m':h,'r':coef*(h/L)**2,'error_percent':100*coef*(h/L)**2/(1+coef*(h/L)**2)})) for h in [.02,.20]]\""
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "**The depth range includes both passing and failing cases, so it does not settle whether Euler–Bernoulli meets the 1% budget.** For this cantilever tip load,\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac{h}{0.8}\\right)^2,\n\\qquad e=\\frac{r}{1+r}.\n\\]\n\nAt h = 0.020 m, e = 0.04873%; at h = 0.200 m, e = 4.648%. The error increases with h, so these bound the range.\n\nFor the decision threshold,\n\n\\[\ne\\le0.01\n\\iff r\\le\\frac{0.01}{0.99}\n\\iff h\\le0.8\\sqrt{\\frac{0.01}{0.99(0.78)}}\n=0.0910385\\text{ m}.\n\\]\n\n**Measure the cross-section depth in the bending direction.** A depth at or below about 91.04 mm passes; a greater depth fails, within the stipulated model. If measurement uncertainty crosses that threshold, it will need to be reduced enough to decide. The load, width and Young’s modulus cancel from this error ratio."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/argument.md'",
+              "@'\nimport math\nP,L,b,E,nu,k=1000,.48,.04,200e9,.30,5/6\nG=E/(2*(1+nu))\nfor h in (.12,.024):\n    A=b*h; I=b*h**3/12\n    db=P*L**3/(3*E*I); ds=P*L/(k*G*A)\n    print('B1',h,'bending_mm',db*1000,'shear_mm',ds*1000,'r',ds/db,'error_pct',100*ds/(db+ds))\nP,L,b,h,E,nu,k=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); A=b*h; I=b*h**3/12\nbending=P*L**3/(48*E*I); shear=P*L/(4*k*G*A)\nprint('B2','bending_mm',bending*1000,'shear_mm',shear*1000,'r',shear/bending,'error_pct',100*shear/(bending+shear))\nL,nu,k=.8,.30,5/6\nfor h in (.02,.20):\n    r=(1+nu)*(h/L)**2/(2*k)\n    print('B3',h,'r',r,'error_pct',100*r/(1+r))\nprint('B3','threshold_m',L*math.sqrt(2*k*.01/((1+nu)*(1-.01))))\nprint('C3','error_pct',100*.10/1.10)\n'@ | python -"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    }
+  ]
+}

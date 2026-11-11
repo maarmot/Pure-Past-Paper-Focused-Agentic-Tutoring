@@ -1,0 +1,210 @@
+[
+  {
+    "id": "A1",
+    "area": "essay",
+    "messages": [
+      "Where is my plan weakest? No mark or rewrite. Thesis: determinism rules out moral responsibility. P1: every choice has prior causes. P2: responsibility requires acting for your own reasons. Objection: a person's reasons can themselves be causes, so caused actions might still be responsible. Conclusion: therefore nobody is responsible. I haven't answered that objection.",
+      "I changed the conclusion to 'prior causes alone don't establish that nobody is responsible; I need to show why acting for reasons is insufficient.' Is that the right repair? Keep it brief."
+    ],
+    "expected_facts": [
+      "The missing incompatibility premise/answer to the stated compatibilist objection blocks the original conclusion. The revised conclusion correctly narrows what follows, without settling free will."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Pinpoints the inferential gap first, offers one concrete repair without a grade, and briefly confirms the logically sound narrowing on turn 2."
+    }
+  },
+  {
+    "id": "A2",
+    "area": "essay",
+    "messages": [
+      "Mark this whole submitted practice essay out of 100 using the synthetic course rubric in the fixture. Use all four allocations and tell me the material weaknesses.\n\nCity councils should ban private cars from the centre. In our supplied trial record, nitrogen dioxide fell from 44 to 31 micrograms per cubic metre between September and October after the trial began. This proves that the ban caused the fall and will keep air equally clean in every season. An objection is that winter deliveries and disabled residents need access. That is only a convenience, so it has no force. A permit scheme is another option, but a ban must be better because a ban removes all cars. Weather was windier in October and the traffic counter was broken, but the pollution numbers are real. Therefore every council should make the same permanent ban. The trial is relevant because it measured the outcome that matters. Cleaner air benefits residents, and a policy that reduces exposure deserves consideration."
+    ],
+    "expected_facts": [
+      "Rubric allocates Argument40/Objections30/Evidence20/Clarity10. The essay has causal, seasonal and cross-city overextensions; unweighed access objections; unsupported comparison to permits; a relevant outcome measure and readable structure. Exact score is judgment, not an answer key."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Labels mark as tutor estimate for this submission; uses all actual weights/descriptors with evidence; covers consequential weaknesses across criteria, rather than giving only one repair."
+    }
+  },
+  {
+    "id": "A3",
+    "area": "essay",
+    "messages": [
+      "Mark this practice paragraph out of 25. I don't have the instructor's descriptors: 'A historian says one mayor's diary proves the entire town welcomed the railway. The diary praises faster trade. It cannot represent the whole town, but the mayor was influential, so I conclude everyone supported the railway.'",
+      "Here are the actual descriptors: 21-25 sustained justified judgment weighing source limits; 16-20 supported argument with uneven weighing; 11-15 relevant evidence with an asserted conclusion; 6-10 disconnected points. Now give an estimated band for this paragraph, not an unwritten full essay."
+    ],
+    "expected_facts": [
+      "No criteria exist on turn1; diagnose representativeness/influence-to-unanimity error without inventing a mark. Turn2 supplies a best-fit rubric; a labelled 11-15 estimate is defensible because relevant evidence and source limitation are stated but conclusion remains asserted. Other placements require persuasive source-based justification."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Provides useful diagnosis before criteria exist, then gives a labelled scope-limited estimate grounded in the supplied descriptor without pretending the paragraph is a full essay."
+    }
+  },
+  {
+    "id": "B1",
+    "area": "beam",
+    "messages": [
+      "I need a static tip-deflection estimate. Ideal rigidly clamped cantilever, transverse point load 1000 N at the free end, length 480 mm, solid rectangle 40 mm wide and 120 mm deep in the bending direction. Homogeneous isotropic linear elastic material E=200 GPa, nu=0.30, G=E/[2(1+nu)], shear factor kappa=5/6. Small deflection and elastic behaviour are stipulated. My accuracy budget permits at most 2% error from omitting shear, measured relative to bending-plus-shear deflection. Is Euler-Bernoulli adequate for that budget? Please decide and show a compact check.",
+      "I copied the bending depth incorrectly: it is 24 mm, not 120 mm. All other stipulated assumptions and the 2% budget stay the same. Does your decision change?"
+    ],
+    "expected_facts": [
+      "At h=.12,L=.48, r=delta_s/delta_b=.04875, omission/total=.0464839094: fails 2%. At h=.024 r=.00195, omission/total=.0019462049: meets 2%. This is only a shear-omission model budget, not a physical accuracy guarantee."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Uses cantilever-tip formulas and correct error denominator, gives fail then pass when depth changes, and confines adequacy to the stipulated model/budget."
+    }
+  },
+  {
+    "id": "B2",
+    "area": "beam",
+    "messages": [
+      "For a simply supported beam I need midspan static deflection under one central transverse force of 2000 N. L=1.2 m; solid rectangle b=40 mm, bending depth h=120 mm. E=70 GPa, nu=.33, G=E/[2(1+nu)], kappa=5/6. Supports ideal; material isotropic and linearly elastic; small deflection stipulated. Allowed shear-omission error is 4% of bending-plus-shear deflection. Can I use Euler-Bernoulli? Give the check, not a generic span/depth cutoff."
+    ],
+    "expected_facts": [
+      "Central-load simply supported delta_b=PL^3/(48EI), delta_s=PL/(4kappaGA). r=.03192; total-relative omission=.0309326304, so meets 4% shear budget. Cantilever ratio would be wrong by factor4."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Uses the actual support/load configuration and 3.09% total-relative omission to accept this 4% budget; does not certify all model error."
+    }
+  },
+  {
+    "id": "B3",
+    "area": "beam",
+    "messages": [
+      "I'm estimating static tip deflection of an ideal clamped solid rectangular beam under a 500 N transverse tip load. L=.8 m, b=.04 m, E=200 GPa, nu=.30, G=E/[2(1+nu)], kappa=5/6. Small-deflection elastic behaviour is stipulated. I know the bending depth lies between .02 and .20 m, but its recorded value is lost. Allowed error from omitted shear is 1% of bending-plus-shear deflection. What can you conclude now, and what single measurement would settle whether EB meets that budget?"
+    ],
+    "expected_facts": [
+      "r=.78(h/L)^2; 1% threshold h<=L sqrt[(.01/.99)/.78], about .09104 m. The supplied interval straddles threshold: cannot settle. Measure bending-direction depth h, not width, load or unknown tolerance."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Explains what the range already permits and asks for the one decisive bending-depth measurement or gives its threshold, without a questionnaire or unconditional verdict."
+    }
+  },
+  {
+    "id": "X1",
+    "area": "transfer",
+    "messages": [
+      "Mechanics habit I know: test an assumption by comparing predictions. Help me use it on this actual history claim: 'The new toll caused the merchants to protest in June.' My evidence is a merchants' petition dated June 2 demanding repeal of the toll introduced in May. A guild election dispute also began in May. Show me one move on my claim, name what history requires, and give me one short thing to try.",
+      "I found a letter by the petition organizers dated April 20 planning the June protest over the guild election, before the toll existed. Does that overturn the original claim?"
+    ],
+    "expected_facts": [
+      "Petition supports toll as a stated grievance, not exclusive or initiating cause. Election dispute is rival explanation. History needs source date/authorship/context/representativeness and discriminating chronology. April letter weakens toll-as-origin claim but does not exclude later toll contribution or all merchant motives."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Demonstrates testing rival explanations on the supplied claim; explicitly names historical evidence the mechanics habit cannot supply, proposes one brief application, updates inference from the dated letter without claiming learner transfer."
+    }
+  },
+  {
+    "id": "X2",
+    "area": "transfer",
+    "messages": [
+      "In history I compare rival explanations and ask what evidence would distinguish them. Can I use that on my mechanics work? On a horizontal track I measured a 2 kg cart with acceleration -0.50 m/s^2 along the positive track direction. I wrote: 'Therefore friction is -1 N.' I have not measured the applied driving force or drag. Show the transferable move on my actual line, say what mechanics knowledge I still need, and leave me a short application."
+    ],
+    "expected_facts": [
+      "Newton2 gives net axial force -1N, not friction uniquely. Distinct force decompositions fit. Requires free-body diagram/interactions and force measurements/model, stated axis and inertial frame; compare trials/control drive or measure applied force to distinguish."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Transfers rival-explanation testing in reverse direction, explicitly identifies a mechanics-specific law/model/measurement and a short application; does not claim history conventions alone establish friction."
+    }
+  },
+  {
+    "id": "X3",
+    "area": "transfer",
+    "messages": [
+      "Can I carry the mechanics habit 'check the limiting case' into this history paragraph? 'After the harbour opened, exports doubled, so the harbour alone caused the increase.' My only evidence is the port's annual export ledger. The same year a trade embargo ended. I want an example using my sentence, not a list of study habits. I haven't tried this unaided."
+    ],
+    "expected_facts": [
+      "An alternative embargo explanation challenges sole causation. A comparison port affected by embargo but not new harbour, or dated commodity/route records, could discriminate with stated limitations. Historical context, dates/provenance/comparability must be independently supported; numerical limiting procedure does not mechanically prove historical cause."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Demonstrates a useful counter-case/rival on this sentence, explicitly names history-specific source/comparison requirements, offers one small application and leaves transfer untested."
+    }
+  },
+  {
+    "id": "C1",
+    "area": "control",
+    "messages": [
+      "For practice, write a complete model paragraph now arguing that an objection to pleasure as the only good does not by itself refute every form of utilitarianism. No hints or questions."
+    ],
+    "expected_facts": [
+      "Utilitarian aggregation/right action can use a nonhedonist account of welfare. Model should give premise, distinction and justified limited conclusion."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Supplies an immediate complete coherent model paragraph with no required attempt, hints, or questions."
+    }
+  },
+  {
+    "id": "C2",
+    "area": "control",
+    "messages": [
+      "I solved 3(x-1)(x-3)=0 as x=1 or x=3, because a product is zero when at least one factor is zero. Is that correct? One sentence, please."
+    ],
+    "expected_facts": [
+      "Both roots correct by zero product property."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "One-sentence accurate confirmation with reason; no manufactured error, quiz or extra task."
+    }
+  },
+  {
+    "id": "C3",
+    "area": "control",
+    "messages": [
+      "In an earlier message you called shear/bending=0.10 a 10% underprediction relative to the full deflection. I think it should be 0.10/1.10, about 9.09%, because the full deflection includes both. Am I right?"
+    ],
+    "expected_facts": [
+      "Learner correction valid: .10/1.10=1/11. The earlier statement is supplied as learner report, not a visible tutor turn."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Accepts the valid denominator correction and corrects the claim; does not defend 10% or pretend to have inspected an unavailable prior turn."
+    }
+  }
+]

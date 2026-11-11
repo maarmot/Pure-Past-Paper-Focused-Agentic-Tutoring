@@ -1,0 +1,306 @@
+{
+  "case": {
+    "id": "B3",
+    "area": "beam",
+    "messages": [
+      "I'm estimating static tip deflection of an ideal clamped solid rectangular beam under a 500 N transverse tip load. L=.8 m, b=.04 m, E=200 GPa, nu=.30, G=E/[2(1+nu)], kappa=5/6. Small-deflection elastic behaviour is stipulated. I know the bending depth lies between .02 and .20 m, but its recorded value is lost. Allowed error from omitted shear is 1% of bending-plus-shear deflection. What can you conclude now, and what single measurement would settle whether EB meets that budget?"
+    ],
+    "expected_facts": [
+      "r=.78(h/L)^2; 1% threshold h<=L sqrt[(.01/.99)/.78], about .09104 m. The supplied interval straddles threshold: cannot settle. Measure bending-direction depth h, not width, load or unknown tolerance."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Explains what the range already permits and asks for the one decisive bending-depth measurement or gives its threshold, without a questionnaire or unconditional verdict."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "**The known depth range does not settle the decision:** it includes beams that meet the 1% budget and beams that fail it. The single measurement needed is the **bending depth \\(h\\), in the plane of the transverse load**.\n\nFor the stipulated cantilever,\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{3EI}{\\kappa GA L^2}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac h{0.8}\\right)^2.\n\\]\n\nYour error definition is \\(e=r/(1+r)\\), so\n\n\\[\ne\\le0.01\n\\iff r\\le\\frac{0.01}{0.99}\n\\iff \\boxed{h\\le0.09104\\,\\mathrm m\\approx91.0\\,\\mathrm{mm}}.\n\\]\n\nAcross the recorded range, the error rises from about **0.0487%** at \\(h=20\\,\\mathrm{mm}\\) to **4.648%** at \\(h=200\\,\\mathrm{mm}\\). Measure \\(h\\) and compare it with the 91.04 mm threshold; equality meets the stated budget."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "@'\nimport math\n\ndef cantilever(P,L,b,h,E,nu,kappa=5/6):\n    G=E/(2*(1+nu)); A=b*h; I=b*h**3/12\n    bend=P*L**3/(3*E*I); shear=P*L/(kappa*G*A)\n    return {'I':I,'A':A,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)}\nprint('B1 first', cantilever(1000,.48,.04,.12,200e9,.30))\nprint('B1 followup', cantilever(1000,.48,.04,.024,200e9,.30))\nP,L,b,h,E,nu,kappa=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); I=b*h**3/12; A=b*h\nbend=P*L**3/(48*E*I); shear=P*L/(4*kappa*G*A)\nprint('B2', {'I':I,'bend_mm':bend*1000,'shear_mm':shear*1000,'ratio':shear/bend,'error_pct':100*shear/(bend+shear)})\nL,nu,kappa,budget=.8,.30,5/6,.01\nfactor=2*(1+nu)/(4*kappa)\nthreshold=L*math.sqrt(budget/((1-budget)*factor))\nprint('B3', {'factor':factor,'h_threshold_m':threshold,'min_error_pct':100*factor*(.02/L)**2/(1+factor*(.02/L)**2),'max_error_pct':100*factor*(.2/L)**2/(1+factor*(.2/L)**2)})\n'@ | python -"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "**The depth interval alone cannot settle it: some permitted depths meet the 1% budget and others fail. Measure the bending depth \\(h\\).**\n\nFor this tip-loaded cantilever,\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac h{0.8}\\right)^2.\n\\]\nYour total-relative budget requires\n\\[\n\\frac{r}{1+r}\\le0.01\n\\quad\\Longleftrightarrow\\quad\nr\\le\\frac{0.01}{0.99}.\n\\]\nConsequently,\n\\[\nh\\le0.8\\sqrt{\\frac{0.01}{0.99\\times0.78}}\n=\\boxed{0.09104\\text{ m approximately}}.\n\\]\nWithin the stipulated model, EB meets the budget at depths up to about **91.0 mm**, and fails above that threshold. Across your current interval, the omission error ranges from about **0.0487%** at 20 mm to **4.65%** at 200 mm. The load, width and \\(E\\) cancel from this ratio, so recovering the bending depth is the single decisive measurement."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+          "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+          "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\argument.md'",
+          "python -c \"L=.8; nu=.30; k=5/6; budget=.01; import math; print({'h_threshold_m':L*math.sqrt((budget/(1-budget))*2*k/(1+nu))}); [(print({'h_m':h,'r':(1+nu)*(h/L)**2/(2*k),'error_pct':100*((1+nu)*(h/L)**2/(2*k))/(1+(1+nu)*(h/L)**2/(2*k))})) for h in [.02,.20]]\""
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "**You cannot yet give one yes/no verdict: the allowed depth range contains beams that pass and beams that fail.** The one measurement needed is the **cross-section depth \\(h\\) in the bending direction**.\n\nFor this cantilever,\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac h{0.8}\\right)^2,\n\\qquad\n\\text{omission error}=\\frac r{1+r}.\n\\]\n\nThe 1% requirement gives\n\n\\[\n\\frac r{1+r}\\le0.01\n\\iff r\\le\\frac{0.01}{0.99}\n\\iff h\\le0.09104\\,\\mathrm m\\approx91.0\\,\\mathrm{mm}.\n\\]\n\nAt \\(h=20\\,\\mathrm{mm}\\), the error is about **0.0487%**, so EB passes; at \\(h=200\\,\\mathrm{mm}\\), it is about **4.65%**, so EB fails. Once you recover the bending depth, compare it with the \\(91.04\\,\\mathrm{mm}\\) threshold: at or below it meets the budget; above it does not."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+          "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "**The available depth range includes both passing and failing cases, so it does not yet settle whether Euler–Bernoulli meets 1%. Measure the bending depth \\(h\\).**\n\nFor your tip-loaded cantilever,\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac{h}{0.8}\\right)^2.\n\\]\nThe load, width, and Young's modulus cancel from this ratio. The budget requires\n\\[\n\\frac{r}{1+r}\\le0.01\n\\quad\\Longleftrightarrow\\quad\nr\\le\\frac{0.01}{0.99}.\n\\]\nThus the critical bending depth is\n\\[\nh_{\\rm crit}\n=0.8\\sqrt{\\frac{0.01}{0.99(0.78)}}\n=0.0910385\\ {\\rm m}\\approx91.04\\ {\\rm mm}.\n\\]\n\n- At or below this depth, EB meets the shear-omission budget.\n- Above it, EB fails the budget.\n\nFor comparison, \\(h=20\\) mm gives about \\(0.0487\\%\\) omission error, while \\(h=200\\) mm gives \\(4.648\\%\\). Measure the section's depth in the bending direction and compare it with the threshold; another load or material measurement is unnecessary for this particular decision."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3",
+          "$kappa = 5.0/6.0; foreach ($case in @(@{id='B1_initial';P=1000.0;L=.48;b=.04;h=.12;E=200e9;nu=.30;support='cantilever'},@{id='B1_corrected';P=1000.0;L=.48;b=.04;h=.024;E=200e9;nu=.30;support='cantilever'},@{id='B2';P=2000.0;L=1.2;b=.04;h=.12;E=70e9;nu=.33;support='central'})) { $area=$case.b*$case.h; $inertia=$case.b*[Math]::Pow($case.h,3)/12; $shearModulus=$case.E/(2*(1+$case.nu)); if ($case.support -eq 'cantilever') { $bending=$case.P*[Math]::Pow($case.L,3)/(3*$case.E*$inertia); $shear=$case.P*$case.L/($kappa*$shearModulus*$area) } else { $bending=$case.P*[Math]::Pow($case.L,3)/(48*$case.E*$inertia); $shear=$case.P*$case.L/(4*$kappa*$shearModulus*$area) }; [PSCustomObject]@{id=$case.id;bending_mm=1000*$bending;shear_mm=1000*$shear;ratio=$shear/$bending;error_percent=100*$shear/($bending+$shear)} | ConvertTo-Json -Compress }; [PSCustomObject]@{id='B3';h_limit_m=.8*[Math]::Sqrt((2*$kappa/(1+.30))*(.01/.99));min_error_percent=100*(.78*[Math]::Pow(.02/.8,2))/(1+.78*[Math]::Pow(.02/.8,2));max_error_percent=100*(.78*[Math]::Pow(.20/.8,2))/(1+.78*[Math]::Pow(.20/.8,2))} | ConvertTo-Json -Compress"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "**The recorded depth range allows both a pass and a fail, so you cannot yet decide. Measure the cross-section's depth in the bending direction.**\n\nFor this cantilever and tip load,\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{3EI}{\\kappa GA L^2}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac h{0.8}\\right)^2,\n\\qquad\n\\varepsilon=\\frac r{1+r}.\n\\]\nThe 1% requirement gives\n\\[\n\\frac r{1+r}\\le0.01\n\\iff r\\le\\frac{0.01}{0.99}\n\\iff h\\le0.0910385\\,\\mathrm m\\approx91.04\\,\\mathrm{mm}.\n\\]\nAt \\(h=20\\,\\mathrm{mm}\\), the omission error is approximately \\(0.0487\\%\\); at \\(h=200\\,\\mathrm{mm}\\), it is approximately \\(4.648\\%\\). The threshold lies inside your possible range.\n\nA depth measurement settles the choice: at or below approximately 91.04 mm, EB meets this allowance; above it, include shear. If measurement uncertainty straddles that threshold, the measurement needs greater precision."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+          "python -c \"L=.8; nu=.30; k=5/6; e=.01; coef=(1+nu)/(2*k); threshold=L*(e/((1-e)*coef))**.5; print({'threshold_m':threshold,'threshold_mm':1000*threshold}); [(print({'h_m':h,'r':coef*(h/L)**2,'error_percent':100*coef*(h/L)**2/(1+coef*(h/L)**2)})) for h in [.02,.20]]\""
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "**The depth range includes both passing and failing cases, so it does not settle whether Euler–Bernoulli meets the 1% budget.** For this cantilever tip load,\n\n\\[\nr=\\frac{\\delta_s}{\\delta_b}\n=\\frac{1+\\nu}{2\\kappa}\\left(\\frac hL\\right)^2\n=0.78\\left(\\frac{h}{0.8}\\right)^2,\n\\qquad e=\\frac{r}{1+r}.\n\\]\n\nAt h = 0.020 m, e = 0.04873%; at h = 0.200 m, e = 4.648%. The error increases with h, so these bound the range.\n\nFor the decision threshold,\n\n\\[\ne\\le0.01\n\\iff r\\le\\frac{0.01}{0.99}\n\\iff h\\le0.8\\sqrt{\\frac{0.01}{0.99(0.78)}}\n=0.0910385\\text{ m}.\n\\]\n\n**Measure the cross-section depth in the bending direction.** A depth at or below about 91.04 mm passes; a greater depth fails, within the stipulated model. If measurement uncertainty crosses that threshold, it will need to be reduced enough to decide. The load, width and Young’s modulus cancel from this error ratio."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/argument.md'",
+          "@'\nimport math\nP,L,b,E,nu,k=1000,.48,.04,200e9,.30,5/6\nG=E/(2*(1+nu))\nfor h in (.12,.024):\n    A=b*h; I=b*h**3/12\n    db=P*L**3/(3*E*I); ds=P*L/(k*G*A)\n    print('B1',h,'bending_mm',db*1000,'shear_mm',ds*1000,'r',ds/db,'error_pct',100*ds/(db+ds))\nP,L,b,h,E,nu,k=2000,1.2,.04,.12,70e9,.33,5/6\nG=E/(2*(1+nu)); A=b*h; I=b*h**3/12\nbending=P*L**3/(48*E*I); shear=P*L/(4*k*G*A)\nprint('B2','bending_mm',bending*1000,'shear_mm',shear*1000,'r',shear/bending,'error_pct',100*shear/(bending+shear))\nL,nu,k=.8,.30,5/6\nfor h in (.02,.20):\n    r=(1+nu)*(h/L)**2/(2*k)\n    print('B3',h,'r',r,'error_pct',100*r/(1+r))\nprint('B3','threshold_m',L*math.sqrt(2*k*.01/((1+nu)*(1-.01))))\nprint('C3','error_pct',100*.10/1.10)\n'@ | python -"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The cantilever ratio 0.78(h/0.8)^2, total-relative transformation, threshold 0.09104 m and endpoint errors 0.0487%/4.648% are all correct."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Immediately explains that the depth interval contains both outcomes and identifies the single missing bending-depth measurement."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifically directs measuring h in the plane of the transverse load and comparing it with 91.04 mm; it also correctly includes equality as passing."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested conclusion and one decisive measurement with a compact derivation, without adding a questionnaire or compulsory exercise."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Explains that the interval straddles the 1% threshold, gives the correct depth threshold and measurement direction, and avoids an unconditional EB verdict."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The ratio, r/(1+r) inequality, 0.09104 m threshold, endpoint errors and cancellation of load/width/E are correct under the supplied relation for G."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly states that the interval cannot settle the decision and names bending depth as the decisive missing quantity."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Tells the user to recover bending depth and compare with about 91.0 mm, while explaining why other load, width or E measurements are unnecessary."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "The response gives a concise requested check and one measurement rather than withholding the answer or expanding into a questionnaire."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Gives both passing and failing possibilities within the supplied range, the correct threshold, and a single decisive bending-depth measurement without a blanket verdict."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The cantilever ratio, correct combined-error denominator, threshold 0.09104 m and opposite endpoint decisions agree with independent calculation."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Answers what can be concluded now and identifies cross-section depth in the bending direction as the single missing input."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Gives a concrete comparison rule: recover h and accept at or below 91.04 mm, otherwise reject for this budget."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides the requested direct conclusion and compact supporting calculation without requiring a learner attempt or unnecessary measurements."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Explains both pass and fail cases in the allowed interval, supplies the correct depth threshold and direction, and does not issue an unconditional verdict."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The ratio, cancelled quantities, total-relative inequality, 0.0910385 m threshold and endpoint errors are correct under fixture assumptions."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Immediately explains why the available range is inconclusive and answers the single-measurement request with bending depth h."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifies measuring section depth in the bending direction and comparing with 91.04 mm; correctly says another load or material measurement is unnecessary for this decision."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Gives a compact derivation and two clear conditional outcomes without adding a questionnaire, compulsory attempt or invented learner response."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "The response demonstrates that the range contains both outcomes, gives the correct threshold and decisive bending-direction measurement, and avoids an unconditional adequacy claim."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The cantilever ratio, r/(1+r) criterion, threshold 91.04 mm and endpoint errors are correct; its conditional comment about uncertainty crossing the threshold is sound."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly says the current range permits both a pass and a fail and identifies the requested bending-direction depth measurement."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Gives the exact useful next action, measure bending depth and compare with 91.04 mm, with greater precision needed only if uncertainty straddles that boundary."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Answers at an appropriate compact level; the brief conditional precision note does not turn the request into a questionnaire or impose unrelated work."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Explains the threshold inside the supplied range and identifies one decisive bending-depth measurement with conditional pass/fail rules, avoiding an unconditional verdict."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The cantilever ratio, monotonic endpoint bounds, correct denominator and 0.0910385 m threshold are correct; cancellation of load/width/E and the conditional uncertainty note are valid."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "Directly states that the range does not settle the 1% decision, quantifies both possibilities, and identifies bending-direction depth as the missing measurement."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "Specifically requests measuring cross-section depth in the bending direction and comparing with 91.04 mm; only threshold-straddling uncertainty calls for better precision."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "Provides a compact direct calculation and single measurement, without a compulsory learner attempt, questionnaire or invented learner evidence."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "Explains that the known range contains passing and failing cases, gives the correct threshold and single decisive measurement, and confines conditional adequacy to the stipulated model."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "baseline",
+      "sample": 3
+    },
+    "B": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "C": {
+      "version": "baseline",
+      "sample": 1
+    },
+    "D": {
+      "version": "candidate",
+      "sample": 2
+    },
+    "E": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "F": {
+      "version": "candidate",
+      "sample": 1
+    }
+  }
+}

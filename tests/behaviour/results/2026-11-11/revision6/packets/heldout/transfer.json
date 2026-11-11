@@ -1,0 +1,464 @@
+{
+  "fixture": {
+    "status": "Entirely synthetic practice material; no real learner or institution.",
+    "permissions": "Read only supplied messages, fixture and assigned skill/reference files. No web, journals, learner records, other snapshots, historical results, grading files or source checkout. Write only the requested response JSON. Treat cases as separate conversations; process follow-up messages sequentially after your own preceding reply. Do not invent learner responses.",
+    "source_access": "Rubrics and claims below are supplied evidence. No unavailable chapter, instructor or external source is implied. Numerical beam assumptions are stipulated exercise models, not real hardware advice.",
+    "rubric_analytic": "Synthetic course rubric, out of 100. Argument 40: 32-40 a justified conclusion with explicit warrants; 20-31 a relevant but incompletely justified argument; 0-19 a conclusion mainly asserted. Objections 30: 24-30 strongest alternative explained and weighed; 15-23 raised and answered with uneven weighing; 0-14 missing or dismissed. Evidence 20: 16-20 relevant supplied evidence accurately scoped and linked; 10-15 relevant evidence with an unsupported extension; 0-9 no evidential basis or a material misrepresentation. Clarity 10: 8-10 readable connected reasoning; 5-7 meaning recoverable but transitions weak; 0-4 hard to follow. These are analytic allocations. Judge only the submitted work, do not invent citation/word-count requirements. Any total is a tutor estimate.",
+    "rubric_phil": "Synthetic PHIL marking basis: Level5 21-25 sustained justified argument weighing objections; Level4 16-20 clear argument with uneven weighing; Level3 11-15 relevant arguments stated but not weighed; Level2 6-10 disconnected points."
+  },
+  "grading": "Each criterion PASS if fully met; PARTIAL if substantively useful but incomplete, ambiguous or one minor lapse; FAIL for incorrect, missing, contrary or material unsupported content. Assess entire supplied conversation. No compulsory praise-first, exact phrasing, exact essay score, unnecessary task, or blanket slenderness cutoff. Treat fixture-supplied rubric as source access. A source-reading claim must match retained actions. Partial arithmetic rounding within 0.02 percentage points is acceptable.",
+  "cases": [
+    {
+      "case": {
+        "id": "X1",
+        "area": "transfer",
+        "messages": [
+          "Mechanics habit I know: test an assumption by comparing predictions. Help me use it on this actual history claim: 'The new toll caused the merchants to protest in June.' My evidence is a merchants' petition dated June 2 demanding repeal of the toll introduced in May. A guild election dispute also began in May. Show me one move on my claim, name what history requires, and give me one short thing to try.",
+          "I found a letter by the petition organizers dated April 20 planning the June protest over the guild election, before the toll existed. Does that overturn the original claim?"
+        ],
+        "expected_facts": [
+          "Petition supports toll as a stated grievance, not exclusive or initiating cause. Election dispute is rival explanation. History needs source date/authorship/context/representativeness and discriminating chronology. April letter weakens toll-as-origin claim but does not exclude later toll contribution or all merchant motives."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Demonstrates testing rival explanations on the supplied claim; explicitly names historical evidence the mechanics habit cannot supply, proposes one brief application, updates inference from the dated letter without claiming learner transfer."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "Use **comparison of rival predictions** on the causal step. If the toll prompted the protest, you would expect evidence linking the decision to mobilise to the toll introduced in May. If the guild election dispute prompted it, you would expect evidence linking the organisers’ plans to that dispute, potentially independently of the toll.\n\nThe June 2 petition establishes that its authors publicly demanded repeal; it supports the toll being a grievance. It does not establish what first prompted the protest or how widely that motive was shared. A dated organisers’ letter or meeting minute explaining when and why they decided to protest could help distinguish the explanations.\n\nHistory requires checking the source’s date, authorship, purpose and representativeness; comparing predictions cannot supply those facts. Try one short sentence: describe a dated finding that would favour the election explanation over the toll explanation.",
+            "It overturns the explanation that the toll initiated plans for that June protest, provided the letter is authentic, correctly dated and concerns the same protest. Planning on April 20 precedes the toll’s introduction in May.\n\nIt does not establish that the toll made no later contribution: it could have changed the protest’s demands, participation or intensity. The supported account is that organisers planned the protest over the election before the toll existed, and their June 2 petition subsequently made repeal a demand. Whether the toll helped turn the plan into the actual June protest remains open."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "Use your mechanics move to **compare rival explanations by their different predictions**. The June 2 petition establishes that the organizers publicly demanded repeal; it does not by itself establish what initiated the protest.\n\nCompare these possibilities: if the toll initiated the protest, the organizers' planning should connect mobilization to the toll introduced in May. If the guild election dispute initiated it, planning might already be under way for that reason, with the toll becoming an additional grievance. Both possibilities can fit a June petition demanding repeal.\n\nHistory requires dated, attributable sources interpreted for their purpose and audience: an organizer's private planning letter could reveal something that a public petition does not, though neither automatically represents every merchant.\n\nTry one short check: find the earliest dated evidence of the organizers' protest plans and say which explanation its timing and stated reason support.",
+            "It overturns the claim that the toll **originated the protest plan**, provided the letter concerns the same June protest: planning on April 20 cannot have been caused by a toll introduced in May. It does **not** establish that the toll made no contribution to the eventual protest.\n\nThe evidence now supports this distinction: organizers had already planned the protest over the election dispute, and the June 2 petition later made toll repeal a public demand. The toll could still have changed participation, urgency or demands; evidence of how plans changed after its introduction would test that narrower causal role."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "Use your mechanics move by asking what the rival explanations predict. If the toll prompted the June protest, you would look for organizing that arose after its introduction; if the guild dispute prompted it, planning might already exist before the toll. The June 2 petition makes the toll a stated grievance, but it does not isolate it as the cause.\n\nHistory requires checking the dates, authorship and purpose of the sources, and whose views they represent: a petition is evidence of what its authors demanded, with a purpose to persuade.\n\nTry one short sentence: **What would reliable evidence that the organizers planned the same June protest before May do to the toll explanation?**",
+            "It undermines the original claim as a complete explanation and, if the letter is reliable and concerns the same protest, overturns the idea that the toll initiated the plan: the organizers were already planning it over the election on April 20.\n\nIt does not establish that the toll had no later effect. The June petition shows it became a stated grievance, but further evidence would be needed to show whether it changed participation, demands or the decision to proceed. The supported account is that election-related planning preceded the toll; the toll’s later contribution remains unresolved."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "Use your mechanics move to compare two explanations of the same protest: **the toll triggered it**, or **the guild election dispute prompted it and the toll became a grievance**.\n\nYour June 2 petition shows that its authors publicly demanded repeal after the toll began. Both explanations can accommodate that. A discriminating check would be to look for organizers' correspondence from before the toll: a plan for the same June protest over the election would count against the toll being its original trigger.\n\nHistory requires checking chronology and the sources' provenance, authorship and purpose. A petition's public demand need not reveal every organizer's motive or represent every merchant.\n\nTry one sentence using your evidence: “The petition supports ___, but does not by itself establish ___.”",
+            "It overturns the toll as the original trigger for the organizers' plan, **if the letter is authentic and concerns the same June protest**: they were already planning it over the election on April 20, before the toll existed.\n\nIt does not establish that the toll had no later effect. The toll could have changed the protest's demands, participation or intensity. The evidence now supports distinguishing the election-related origin of the plan from the anti-toll demand documented in the June 2 petition."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\argument.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "Your comparison move transfers: ask what evidence would distinguish **the toll as the trigger** from **the guild election dispute as the trigger**. The June 2 petition establishes that merchants publicly demanded the toll's repeal; it does not by itself establish what started the protest. Dated evidence that organizers had already planned the protest before the toll existed would challenge the toll-trigger explanation.\n\nHistory requires you to check the source's date, authorship, audience and purpose, and whose motives it can represent. A public petition may express a grievance without recording the full history of organizing.\n\nTry one sentence: **“If the election dispute started the protest, I would look for ___, and its date would matter because ___.”**",
+            "The April 20 letter rules out the toll as the original trigger for the organizers' already planned protest, assuming its date and interpretation are reliable. It supports the election dispute as an earlier cause. It does **not** establish that the toll had no later effect on participation, demands or the decision to carry the protest through: the June 2 petition still shows that repeal became a public demand. So abandon an exclusive toll-origin claim, while leaving a possible later contribution open."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "Use **rival explanations to test the causal inference**. Your petition shows that merchants publicly demanded repeal of the toll on June 2. It does not yet distinguish \"the toll initiated the protest\" from \"the guild election dispute initiated it, and the organizers later added opposition to the toll.\"\n\nA distinguishing observation would be the timing of the first protest plans: plans made before the toll existed would count against the toll being the original trigger. History requires dated sources with their authorship, purpose, and relationship to the event checked; comparing predictions cannot supply those facts. An organizers' letter or meeting record about the first plans would be useful.\n\nTry one sentence: what would a pre-May letter planning the June protest over the election do to your original claim?",
+            "It overturns the strong reading that the toll **initiated** this protest: the April 20 letter places plans for the same June protest before the toll existed.\n\nIt does not establish that the toll had no later influence on the protest's demands or support. On the supplied evidence, the narrower conclusion is that the protest was already planned around the guild election, and opposition to the toll became part of its later demands. Check that the letter concerns the same protest before relying on that chronology."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "X2",
+        "area": "transfer",
+        "messages": [
+          "In history I compare rival explanations and ask what evidence would distinguish them. Can I use that on my mechanics work? On a horizontal track I measured a 2 kg cart with acceleration -0.50 m/s^2 along the positive track direction. I wrote: 'Therefore friction is -1 N.' I have not measured the applied driving force or drag. Show the transferable move on my actual line, say what mechanics knowledge I still need, and leave me a short application."
+        ],
+        "expected_facts": [
+          "Newton2 gives net axial force -1N, not friction uniquely. Distinct force decompositions fit. Requires free-body diagram/interactions and force measurements/model, stated axis and inertial frame; compare trials/control drive or measure applied force to distinguish."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Transfers rival-explanation testing in reverse direction, explicitly identifies a mechanics-specific law/model/measurement and a short application; does not claim history conventions alone establish friction."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "Your calculation establishes **net horizontal force = −1 N**, but it does not identify friction as −1 N.\n\nCarry over your history move: **compare rival explanations that fit the same observation**. Newton's second law gives\n\\[\nF_{\\rm drive}+F_{\\rm friction}+F_{\\rm drag}=ma\n=2(-0.50)=-1\\text{ N}.\n\\]\nFor illustration, friction of −1 N with no driving force or drag fits the measurement; friction of −2 N plus a +1 N driving force and zero drag fits it too. Acceleration alone cannot distinguish these possibilities.\n\nMechanics requires a free-body diagram, a defined positive direction and evidence about the other horizontal interactions. Friction's direction also depends on the motion or tendency to slip; negative acceleration alone does not tell you that direction.\n\nShort application: if the measured driving force is +0.40 N and drag is −0.10 N, what friction force would give the same acceleration?"
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "The transferable move is **testing rival explanations of the same observation**. Your acceleration establishes the net horizontal force,\n\n\\[\nF_{\\text{net}}=ma=2(-0.50)=-1.0\\text{ N},\n\\]\n\nbut does not identify friction alone. With all horizontal forces signed along your positive axis,\n\n\\[\nF_{\\text{drive}}+F_{\\text{friction}}+F_{\\text{drag}}=-1.0\\text{ N}.\n\\]\n\nFor illustration, zero drive and drag with friction −1 N fits; so does drive +2 N, friction −2 N and drag −1 N. These are possible force balances, not measurements of your cart.\n\nMechanics still requires a free-body diagram, Newton’s second law, and evidence about the other forces. The cart’s acceleration alone also does not establish its direction of motion, which matters when assigning the direction of sliding friction or drag.\n\nTry this: if the drive is measured as +1.5 N and drag is negligible, what signed friction force would produce the same acceleration? Start from the force balance."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "Your calculation establishes **net force \\(-1\\,\\mathrm N\\)**; it does not yet establish friction alone:\n\\[\nF_{\\text{drive}}+F_{\\text{friction}}+F_{\\text{drag}}\n=ma=2(-0.50)=-1\\,\\mathrm N.\n\\]\nThe transferable move is to ask whether rival force combinations predict the same acceleration. If the cart is moving in the positive direction, both of these examples fit your measurement:\n\n| Driving force | Friction | Drag | Net force |\n|---:|---:|---:|---:|\n| 0 N | −1 N | 0 N | −1 N |\n| +2 N | −2 N | −1 N | −1 N |\n\nThese are illustrative possibilities, not additional measurements. Acceleration alone cannot distinguish them.\n\nThe mechanics knowledge you need is Newton's second law applied to a free-body diagram: include each horizontal force with a consistent sign. You also need the velocity direction to assign the direction of sliding friction or drag; negative acceleration alone does not tell you which way the cart is moving.\n\nTry this: keep the measured acceleration, assume motion in the positive direction, and suppose driving force is \\(+1.5\\,\\mathrm N\\) and drag is \\(-0.2\\,\\mathrm N\\). What friction force would make the net force \\(-1\\,\\mathrm N\\)?"
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "The transferable move is to compare explanations that fit the same observation. Your acceleration establishes **net horizontal force = −1 N**, because\n\n\\[\n\\sum F_x=ma=(2)(-0.50)=-1\\,\\mathrm N.\n\\]\n\nIt does not establish that friction alone is −1 N. With signed force components,\n\n\\[\nF_{\\text{drive}}+F_{\\text{friction}}+F_{\\text{drag}}=-1\\,\\mathrm N.\n\\]\n\nFor example, both \\((0,-1,0)\\,\\mathrm N\\) and \\((+2,-3,0)\\,\\mathrm N\\) fit the acceleration; these are illustrative possibilities, not measurements.\n\nMechanics requires a free-body diagram, a chosen positive direction and Newton’s second law, plus independent information about the forces. Friction’s direction also depends on the contact’s relative motion or tendency to slip, not the acceleration alone.\n\n**Try:** in a hypothetical repeat with the same mass and acceleration, the driving force is \\(+2.0\\,\\mathrm N\\) and drag is \\(-0.4\\,\\mathrm N\\). What friction force would your force equation require?"
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "**The acceleration establishes a net force of \\(-1\\) N, but it does not identify friction.** Your historical move transfers as: compare rival force explanations that predict the same observation.\n\nTaking the positive track direction as positive,\n\\[\nF_{\\rm net}=ma=2(-0.50)=-1\\ {\\rm N}.\n\\]\nIf the horizontal forces are driving force, drag, and friction, then\n\\[\nF_{\\rm drive}+F_{\\rm drag}+F_{\\rm friction}=-1\\ {\\rm N}.\n\\]\nDifferent combinations can satisfy this equation. Your line assigns the entire net force to friction without establishing the other terms.\n\nMechanics requires a free-body diagram and Newton's second law, together with evidence about the actual interactions. The direction of friction also depends on contact and relative motion; a negative acceleration alone does not determine it.\n\nTry: give two different assignments of the three signed forces that both sum to \\(-1\\) N. That will demonstrate why this acceleration measurement cannot isolate friction."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "Your line establishes **a net force of \\(-1\\,\\mathrm N\\)**, not the friction force by itself:\n\n\\[\n\\sum F_x=ma=(2)(-0.50)=-1\\,\\mathrm N.\n\\]\n\nUse your history move by comparing force explanations that fit that same measurement. For example, friction \\(-1\\,\\mathrm N\\) with no other horizontal forces fits; so does friction \\(-3\\,\\mathrm N\\) with a driving force of \\(+2\\,\\mathrm N\\) and zero drag. Acceleration alone cannot distinguish them.\n\nThe mechanics you need is a free-body diagram and a signed force balance,\n\n\\[\nF_{\\rm drive}+F_{\\rm drag}+F_{\\rm friction}=-1\\,\\mathrm N,\n\\]\n\nwith measurements or justified models for the other forces. Negative acceleration also does not tell you the velocity direction, so it cannot by itself establish the friction direction.\n\n**Short application:** suppose later measurements give \\(F_{\\rm drive}=+2.0\\,\\mathrm N\\) and \\(F_{\\rm drag}=-0.40\\,\\mathrm N\\). Write the signed equation and find \\(F_{\\rm friction}\\)."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "id": "X3",
+        "area": "transfer",
+        "messages": [
+          "Can I carry the mechanics habit 'check the limiting case' into this history paragraph? 'After the harbour opened, exports doubled, so the harbour alone caused the increase.' My only evidence is the port's annual export ledger. The same year a trade embargo ended. I want an example using my sentence, not a list of study habits. I haven't tried this unaided."
+        ],
+        "expected_facts": [
+          "An alternative embargo explanation challenges sole causation. A comparison port affected by embargo but not new harbour, or dated commodity/route records, could discriminate with stated limitations. Historical context, dates/provenance/comparability must be independently supported; numerical limiting procedure does not mechanically prove historical cause."
+        ],
+        "criteria": {
+          "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+          "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+          "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+          "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+          "area_requirement": "Demonstrates a useful counter-case/rival on this sentence, explicitly names history-specific source/comparison requirements, offers one small application and leaves transfer untested."
+        }
+      },
+      "replies": {
+        "A": {
+          "turns": [
+            "Yes—use the limiting-case habit to test whether your causal inference survives a case with **zero contribution from the harbour**. Suppose ending the embargo would have doubled exports even if the harbour had added nothing. Your ledger would still show exports doubling after the harbour opened, so that observation cannot establish that the harbour alone caused the increase. This is a counterexample to the inference, not evidence that the harbour actually had no effect.\n\nHistory requires evidence for the counterfactual comparison: dates, source provenance, and information about how removing the embargo affected trade. An annual ledger records the change in exports but cannot by itself separate the two causes. A supported revision is: “Exports doubled in the year the harbour opened and the embargo ended; the ledger alone does not establish how much either change contributed.”"
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "B": {
+          "turns": [
+            "Yes—use the habit to stress-test the word **“alone.”** Consider an imagined comparison: the harbour opens, but the embargo remains. Would exports still double? Your ledger cannot answer that question, and the embargo ending gives a rival explanation for the observed increase.\n\nApplied to your sentence, the repair is: “Exports doubled after the harbour opened, but the annual ledger does not separate the harbour's effect from the effect of the embargo ending.” That preserves what the record shows while removing the unsupported claim of a sole cause.\n\nIn history, an imagined limiting case is a question to investigate, rather than evidence. You would need historical support—for example, records showing which export restrictions the embargo imposed and whether growth concentrated in goods freed by its repeal. Such evidence could distinguish explanations; the doubling alone cannot."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md",
+              "skill/references/tutoring.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw",
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\argument.md' -Raw"
+            ],
+            "files_written": []
+          }
+        },
+        "C": {
+          "turns": [
+            "Yes—carry over the move **test the strongest claim against a case where it could fail**. For your sentence, ask: could exports have risen when the embargo ended even if the harbour had not opened?\n\nThat is a rival explanation, not an observed counterfactual. Your ledger records the doubling, but it cannot separate the harbour's contribution from the end of the embargo. A comparison with a similar port affected by the same embargo ending but without a new harbour could help distinguish them. History requires evidence that the comparison is relevant, along with checked dates and comparable export records; a mathematical limiting-case habit cannot establish those facts.\n\nA worked repair of your sentence is: \"Exports doubled after the harbour opened, but the annual ledger alone cannot show how much of that increase came from the harbour rather than the ending of the embargo.\"\n\nTry: state one result at the comparison port that would weaken the claim that the harbour alone caused the doubling."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+              "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+            ],
+            "files_written": []
+          }
+        },
+        "D": {
+          "turns": [
+            "Yes—use the limiting-case habit as a **counterfactual test of the causal inference**. Apply it to “the harbour alone caused the increase”: suppose ending the embargo could have doubled exports even if harbour capacity had stayed unchanged. Your ledger could still show the observed doubling. That possible case exposes why the ledger alone cannot identify the harbour as the sole cause; it does not establish that the embargo actually caused the whole increase.\n\nHistory needs evidence that such a comparison is credible. For example, dated export records from a comparable port affected by the embargo’s end but without a new harbour could help distinguish the explanations. You would also need to check that the ledgers count comparable exports and that other relevant conditions match. There is no automatic historical equivalent of substituting zero into a known physical law.\n\nTry one sentence explaining why “exports doubled after the harbour opened” leaves the causal contribution of the harbour unresolved."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+              "Get-Content -Raw 'research/evaluation/fixture.json'",
+              "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+              "Get-Content -Raw 'research/evaluation/skill/references/fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "E": {
+          "turns": [
+            "Yes—use a limiting case to challenge the word **“alone.”** Consider the counterfactual in which the harbour opens but the embargo remains: does your annual ledger establish that exports would still double? It does not. The rival case—an embargo ending without a new harbour—could also produce a large increase.\n\nApplied to your sentence, the supported statement is: “Exports doubled in the year the harbour opened and the embargo ended; the ledger alone does not establish how much either change caused.” The limiting-case question exposes the missing causal evidence, rather than answering that question by itself.\n\nHistory requires evidence for those comparisons: for example, contemporary trade correspondence explaining new orders, and export records from a comparable port affected by the embargo's end but without a new harbour. Whether that port is truly comparable needs historical justification.\n\nTry one short application: name a finding in those sources that would favor the embargo explanation over the harbour explanation. This is a worked demonstration so far; your own application would test whether you can make the move."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/fields.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+              "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+              "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+              "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+            ],
+            "files_written": []
+          }
+        },
+        "F": {
+          "turns": [
+            "Yes—in history, the useful counterpart is a **counterfactual stress test**. Apply it to your sentence: *suppose the harbour had made no difference; could exports still have doubled because the embargo ended?* That is a plausible alternative consistent with the annual ledger, so doubling after the opening does not establish that the harbour **alone** caused the increase. This does not prove the embargo was the cause either.\n\nHistory needs evidence that can distinguish the explanations: for example, reliable dates and records showing which export markets or goods changed when the embargo ended, alongside evidence of what the harbour enabled. The ledger records the outcome; by itself, it does not separate the two possible causes.\n\nTry one sentence stating what your ledger supports while leaving the causal uncertainty explicit. The worked example above shows the move; your own application remains untested."
+          ],
+          "actions": {
+            "files_read": [
+              "skill/SKILL.md",
+              "fixture.json",
+              "heldout-prompts.json",
+              "skill/references/tutoring.md",
+              "skill/references/fields.md",
+              "skill/references/argument.md"
+            ],
+            "commands": [
+              "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+              "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+              "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'",
+              "Get-Content -Raw 'research\\evaluation\\skill\\references\\argument.md'"
+            ],
+            "files_written": []
+          }
+        }
+      }
+    }
+  ]
+}

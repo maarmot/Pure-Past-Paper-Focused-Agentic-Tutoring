@@ -1,0 +1,55 @@
+{
+  "baseline": {
+    "commit": "f9b02a07ec97d99477a9e110667879f97a0f1db4",
+    "files": {
+      "references/aliasing-certificate.md": "8afe219c8235d1109deae50e25c348f9ce94e4fbeedd45b938d119c49a75576d",
+      "references/argument.md": "4fa61de0e023cc13b13638d76956279f33ef595394f195f32e524d1f617a79a9",
+      "references/delegation.md": "abfc90da5e25febb99b64c694eecfac967e52b7695dab367da1a4986ecb295c0",
+      "references/end-to-end.md": "9f12010d4473f35e0bd6a1f8b202a1ed41c0ce32105fbecd22bd579c473b72ea",
+      "references/fields.md": "42c3867d2e5f4fb466ad7c92cf8f0e98f6dc74e940f36143011070be7284b067",
+      "references/interactive.md": "0010d69084142713fa15dffc8e331ae2e0edd17860f6d6b7e1955cea72b8903a",
+      "references/manim.md": "008a31f26b2d7b8854741e4975bd4d96919a452db6dcf2dd20ddcd345123c2db",
+      "references/measurements/bench-trials.json": "93d845c71bdf890cf209641dd8621c01fe5898ea5865b44547b15d05528142cc",
+      "references/measurements/caption-recount.json": "185bb967012a49288c78aa1a36fd9f19805e8320b0bbf6b6b25a245589b9db31",
+      "references/pdf-purposes.md": "4baca7b947a73c5936f0658c6ce33f0fa7b050902078f389dbcb8c33aa7776a9",
+      "references/provenance.md": "7647ed03a443d45ba74cbd373088cad840516116acfc73e67d1b8198ee5826d6",
+      "references/research.md": "522dcd6061a29e7ef8e736e6bf6e149ae2193ed3f94f7e98b4d46202eba09f73",
+      "references/roadmaps.md": "e98463c7686b7c18edd730e34ed1605579869165a7af4aad4bb02d79f4811430",
+      "references/study-habits.md": "638712266ae9950fae083f6cf50610aa99eb62acc637154736ce1ac7827b0b13",
+      "references/tools.md": "ce812740836600bd39c1619414dbe416574dd8af1b84c61cc5fb18a6825ba9b0",
+      "references/tutoring.md": "2b1a177291b84430caf72f926e7868ebb8a5b0439a23ff6bd99fa31d5d3280f4",
+      "references/visual-inquiry.md": "862c74a33a8ba96f3666db0b8d0215e75c31f039b862684434a043644e8f3901",
+      "SKILL.md": "50df2fab271e2f8129c48ff586b5458b55df0db8d3c213ace85c11b3c15f7185"
+    }
+  },
+  "candidate": {
+    "base_commit": "f9b02a07ec97d99477a9e110667879f97a0f1db4",
+    "files": {
+      "references/aliasing-certificate.md": "8afe219c8235d1109deae50e25c348f9ce94e4fbeedd45b938d119c49a75576d",
+      "references/argument.md": "d6584ebbd53d5c61db2d1d17c094f1396ac83ec29a408fe8e6ea34eb57b1d539",
+      "references/delegation.md": "abfc90da5e25febb99b64c694eecfac967e52b7695dab367da1a4986ecb295c0",
+      "references/end-to-end.md": "9f12010d4473f35e0bd6a1f8b202a1ed41c0ce32105fbecd22bd579c473b72ea",
+      "references/fields.md": "f257c0c9627e262ce526c99bc611133c0f730edbe65b997d916885ec0586cf91",
+      "references/interactive.md": "0010d69084142713fa15dffc8e331ae2e0edd17860f6d6b7e1955cea72b8903a",
+      "references/manim.md": "008a31f26b2d7b8854741e4975bd4d96919a452db6dcf2dd20ddcd345123c2db",
+      "references/measurements/bench-trials.json": "9b989fc4fadcafd9461b96ae168aa87b47aeabdf3afa742af08061c43b524485",
+      "references/measurements/caption-recount.json": "f380dae15133127fff302e18470cd237a7616ce53a4189acdb8a553f6432e586",
+      "references/pdf-purposes.md": "4baca7b947a73c5936f0658c6ce33f0fa7b050902078f389dbcb8c33aa7776a9",
+      "references/provenance.md": "0324a0d4c00f11c8f34f4e3c586dd23a335851f13d9acec0dab2113479982a2e",
+      "references/research.md": "522dcd6061a29e7ef8e736e6bf6e149ae2193ed3f94f7e98b4d46202eba09f73",
+      "references/roadmaps.md": "e98463c7686b7c18edd730e34ed1605579869165a7af4aad4bb02d79f4811430",
+      "references/study-habits.md": "638712266ae9950fae083f6cf50610aa99eb62acc637154736ce1ac7827b0b13",
+      "references/tools.md": "ce812740836600bd39c1619414dbe416574dd8af1b84c61cc5fb18a6825ba9b0",
+      "references/tutoring.md": "2b1a177291b84430caf72f926e7868ebb8a5b0439a23ff6bd99fa31d5d3280f4",
+      "references/visual-inquiry.md": "862c74a33a8ba96f3666db0b8d0215e75c31f039b862684434a043644e8f3901",
+      "SKILL.md": "b65be34d2f6590897f0509c0a742614dd86025cf893f06c7f3c782ea1dcc8c8b"
+    }
+  },
+  "conditions": {
+    "model": "Inherited host model, no override",
+    "sampling": "Fresh tool-created subagent context per sample; no seed or temperature control",
+    "permissions": "Identical supplied fixture, read-only sources, only response output allowed",
+    "source_access": "Assigned snapshot and fixture only",
+    "followups": "Fixed learner follow-ups supplied in each batch, processed after preceding answer"
+  }
+}

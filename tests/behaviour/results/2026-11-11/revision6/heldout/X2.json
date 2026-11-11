@@ -1,0 +1,305 @@
+{
+  "case": {
+    "id": "X2",
+    "area": "transfer",
+    "messages": [
+      "In history I compare rival explanations and ask what evidence would distinguish them. Can I use that on my mechanics work? On a horizontal track I measured a 2 kg cart with acceleration -0.50 m/s^2 along the positive track direction. I wrote: 'Therefore friction is -1 N.' I have not measured the applied driving force or drag. Show the transferable move on my actual line, say what mechanics knowledge I still need, and leave me a short application."
+    ],
+    "expected_facts": [
+      "Newton2 gives net axial force -1N, not friction uniquely. Distinct force decompositions fit. Requires free-body diagram/interactions and force measurements/model, stated axis and inertial frame; compare trials/control drive or measure applied force to distinguish."
+    ],
+    "criteria": {
+      "correctness": "Reasoning and any calculation are correct under fixture facts; no invented sources, rubric, or observations. Assess all turns.",
+      "responsiveness": "Answers the actual request directly and updates its answer when follow-up evidence changes what follows.",
+      "next_action": "Gives a specific, useful repair/check/measurement when needed. A completed direct-answer or brief-confirmation request needs no new task.",
+      "help_level": "Respects requested detail: no compulsory attempt before a requested answer, no unasked full rewrite, no invented learner performance.",
+      "area_requirement": "Transfers rival-explanation testing in reverse direction, explicitly identifies a mechanics-specific law/model/measurement and a short application; does not claim history conventions alone establish friction."
+    }
+  },
+  "replies": {
+    "A": {
+      "turns": [
+        "Your calculation establishes **net horizontal force = −1 N**, but it does not identify friction as −1 N.\n\nCarry over your history move: **compare rival explanations that fit the same observation**. Newton's second law gives\n\\[\nF_{\\rm drive}+F_{\\rm friction}+F_{\\rm drag}=ma\n=2(-0.50)=-1\\text{ N}.\n\\]\nFor illustration, friction of −1 N with no driving force or drag fits the measurement; friction of −2 N plus a +1 N driving force and zero drag fits it too. Acceleration alone cannot distinguish these possibilities.\n\nMechanics requires a free-body diagram, a defined positive direction and evidence about the other horizontal interactions. Friction's direction also depends on the motion or tendency to slip; negative acceleration alone does not tell you that direction.\n\nShort application: if the measured driving force is +0.40 N and drag is −0.10 N, what friction force would give the same acceleration?"
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'EVIDENCE\\skill\\SKILL.md'",
+          "Get-Content -Raw 'EVIDENCE\\fixture.json'",
+          "Get-Content -Raw 'EVIDENCE\\heldout-prompts.json'",
+          "Get-Content -Raw 'EVIDENCE\\skill\\references\\fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "B": {
+      "turns": [
+        "The transferable move is **testing rival explanations of the same observation**. Your acceleration establishes the net horizontal force,\n\n\\[\nF_{\\text{net}}=ma=2(-0.50)=-1.0\\text{ N},\n\\]\n\nbut does not identify friction alone. With all horizontal forces signed along your positive axis,\n\n\\[\nF_{\\text{drive}}+F_{\\text{friction}}+F_{\\text{drag}}=-1.0\\text{ N}.\n\\]\n\nFor illustration, zero drive and drag with friction −1 N fits; so does drive +2 N, friction −2 N and drag −1 N. These are possible force balances, not measurements of your cart.\n\nMechanics still requires a free-body diagram, Newton’s second law, and evidence about the other forces. The cart’s acceleration alone also does not establish its direction of motion, which matters when assigning the direction of sliding friction or drag.\n\nTry this: if the drive is measured as +1.5 N and drag is negligible, what signed friction force would produce the same acceleration? Start from the force balance."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research/evaluation/skill/SKILL.md'",
+          "Get-Content -Raw 'research/evaluation/fixture.json'",
+          "Get-Content -Raw 'research/evaluation/heldout-prompts.json'",
+          "Get-Content -Raw 'research/evaluation/skill/references/fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "C": {
+      "turns": [
+        "Your calculation establishes **net force \\(-1\\,\\mathrm N\\)**; it does not yet establish friction alone:\n\\[\nF_{\\text{drive}}+F_{\\text{friction}}+F_{\\text{drag}}\n=ma=2(-0.50)=-1\\,\\mathrm N.\n\\]\nThe transferable move is to ask whether rival force combinations predict the same acceleration. If the cart is moving in the positive direction, both of these examples fit your measurement:\n\n| Driving force | Friction | Drag | Net force |\n|---:|---:|---:|---:|\n| 0 N | −1 N | 0 N | −1 N |\n| +2 N | −2 N | −1 N | −1 N |\n\nThese are illustrative possibilities, not additional measurements. Acceleration alone cannot distinguish them.\n\nThe mechanics knowledge you need is Newton's second law applied to a free-body diagram: include each horizontal force with a consistent sign. You also need the velocity direction to assign the direction of sliding friction or drag; negative acceleration alone does not tell you which way the cart is moving.\n\nTry this: keep the measured acceleration, assume motion in the positive direction, and suppose driving force is \\(+1.5\\,\\mathrm N\\) and drag is \\(-0.2\\,\\mathrm N\\). What friction force would make the net force \\(-1\\,\\mathrm N\\)?"
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/fields.md",
+          "skill/references/tutoring.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\fields.md' -Raw",
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\references\\tutoring.md' -Raw"
+        ],
+        "files_written": []
+      }
+    },
+    "D": {
+      "turns": [
+        "The transferable move is to compare explanations that fit the same observation. Your acceleration establishes **net horizontal force = −1 N**, because\n\n\\[\n\\sum F_x=ma=(2)(-0.50)=-1\\,\\mathrm N.\n\\]\n\nIt does not establish that friction alone is −1 N. With signed force components,\n\n\\[\nF_{\\text{drive}}+F_{\\text{friction}}+F_{\\text{drag}}=-1\\,\\mathrm N.\n\\]\n\nFor example, both \\((0,-1,0)\\,\\mathrm N\\) and \\((+2,-3,0)\\,\\mathrm N\\) fit the acceleration; these are illustrative possibilities, not measurements.\n\nMechanics requires a free-body diagram, a chosen positive direction and Newton’s second law, plus independent information about the forces. Friction’s direction also depends on the contact’s relative motion or tendency to slip, not the acceleration alone.\n\n**Try:** in a hypothetical repeat with the same mass and acceleration, the driving force is \\(+2.0\\,\\mathrm N\\) and drag is \\(-0.4\\,\\mathrm N\\). What friction force would your force equation require?"
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'; Get-Content -Raw 'research\\evaluation\\fixture.json'; Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+        ],
+        "files_written": []
+      }
+    },
+    "E": {
+      "turns": [
+        "**The acceleration establishes a net force of \\(-1\\) N, but it does not identify friction.** Your historical move transfers as: compare rival force explanations that predict the same observation.\n\nTaking the positive track direction as positive,\n\\[\nF_{\\rm net}=ma=2(-0.50)=-1\\ {\\rm N}.\n\\]\nIf the horizontal forces are driving force, drag, and friction, then\n\\[\nF_{\\rm drive}+F_{\\rm drag}+F_{\\rm friction}=-1\\ {\\rm N}.\n\\]\nDifferent combinations can satisfy this equation. Your line assigns the entire net force to friction without establishing the other terms.\n\nMechanics requires a free-body diagram and Newton's second law, together with evidence about the actual interactions. The direction of friction also depends on contact and relative motion; a negative acceleration alone does not determine it.\n\nTry: give two different assignments of the three signed forces that both sum to \\(-1\\) N. That will demonstrate why this acceleration measurement cannot isolate friction."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md",
+          "skill/references/argument.md"
+        ],
+        "commands": [
+          "Get-Content -LiteralPath 'research\\evaluation\\skill\\SKILL.md' -Raw; Get-Content -LiteralPath 'research\\evaluation\\fixture.json' -Raw; Get-Content -LiteralPath 'research\\evaluation\\heldout-prompts.json' -Raw",
+          "$evidence = 'research\\evaluation'; @('skill\\references\\tutoring.md','skill\\references\\fields.md','skill\\references\\argument.md') | ForEach-Object { [PSCustomObject]@{path=$_;content=(Get-Content -LiteralPath (Join-Path $evidence $_) -Raw)} } | ConvertTo-Json -Depth 3"
+        ],
+        "files_written": []
+      }
+    },
+    "F": {
+      "turns": [
+        "Your line establishes **a net force of \\(-1\\,\\mathrm N\\)**, not the friction force by itself:\n\n\\[\n\\sum F_x=ma=(2)(-0.50)=-1\\,\\mathrm N.\n\\]\n\nUse your history move by comparing force explanations that fit that same measurement. For example, friction \\(-1\\,\\mathrm N\\) with no other horizontal forces fits; so does friction \\(-3\\,\\mathrm N\\) with a driving force of \\(+2\\,\\mathrm N\\) and zero drag. Acceleration alone cannot distinguish them.\n\nThe mechanics you need is a free-body diagram and a signed force balance,\n\n\\[\nF_{\\rm drive}+F_{\\rm drag}+F_{\\rm friction}=-1\\,\\mathrm N,\n\\]\n\nwith measurements or justified models for the other forces. Negative acceleration also does not tell you the velocity direction, so it cannot by itself establish the friction direction.\n\n**Short application:** suppose later measurements give \\(F_{\\rm drive}=+2.0\\,\\mathrm N\\) and \\(F_{\\rm drag}=-0.40\\,\\mathrm N\\). Write the signed equation and find \\(F_{\\rm friction}\\)."
+      ],
+      "actions": {
+        "files_read": [
+          "skill/SKILL.md",
+          "fixture.json",
+          "heldout-prompts.json",
+          "skill/references/tutoring.md",
+          "skill/references/fields.md"
+        ],
+        "commands": [
+          "Get-Content -Raw 'research\\evaluation\\skill\\SKILL.md'",
+          "Get-Content -Raw 'research\\evaluation\\fixture.json'",
+          "Get-Content -Raw 'research\\evaluation\\heldout-prompts.json'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\tutoring.md'",
+          "Get-Content -Raw 'research\\evaluation\\skill\\references\\fields.md'"
+        ],
+        "files_written": []
+      }
+    }
+  },
+  "ratings": {
+    "A": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly calculates 2(-0.50)=-1 N as net force; the illustrative force pairs both sum to -1 N, and acceleration is not confused with velocity."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It applies rival-explanation testing to the learner's actual friction conclusion, states the remaining mechanics needs and leaves a short numerical application."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The +0.40 N drive/-0.10 N drag scenario asks the learner to determine friction using the same measured net force."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It shows the force balance and examples before the exercise and labels the force decompositions as illustrations rather than measurements."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It transfers the comparison from history to forces, demonstrates two compatible balances, explicitly invokes Newton's second law/free-body analysis and independent force evidence, and offers a brief application."
+      }
+    },
+    "B": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The net force is correctly -1.0 N, and both illustrative decompositions sum to it; the reply correctly distinguishes acceleration from direction of motion."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It directly repairs the actual line and demonstrates the reverse transfer with compatible force explanations before naming mechanics knowledge and the exercise."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The +1.5 N measured-drive/negligible-drag exercise specifically asks for signed friction starting from the force balance."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It provides the requested demonstration first, clearly labels examples as possibilities rather than cart measurements, and invents no learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It compares rival balances, explicitly requires Newton's law, free-body analysis and evidence of other forces, and gives a small application instead of treating historical comparison alone as proof of friction."
+      }
+    },
+    "C": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly calculates net force -1 N and presents two balances that sum to it, explicitly assuming positive motion for the illustrative friction/drag directions."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It uses the actual mistaken friction inference, demonstrates alternatives in a table, identifies mechanics-specific needs and supplies the requested application."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The hypothetical +1.5 N drive and -0.2 N drag exercise asks for the friction needed to preserve the measured acceleration."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It gives the model and examples before the exercise and explicitly says the table is not additional measurement evidence."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It reverses the transfer with two concrete force explanations, names Newton's law/free-body signs/velocity information, and leaves a short application without claiming learner success."
+      }
+    },
+    "D": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "The net-force calculation and both force triples are correct; the examples are explicitly illustrative and friction's direction is not inferred from acceleration."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It directly addresses the learner's line with a signed balance and rival explanations, then states needed mechanics knowledge and a short application."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The hypothetical repeat fixes drive at +2.0 N and drag at -0.4 N and asks for the friction consistent with the same mass and acceleration."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It explains and demonstrates before assigning a brief exercise and does not invent measurements or learner performance."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It applies rival-explanation comparison in the reverse direction, demonstrates two balances, explicitly names free-body analysis/Newton's law/independent force information and offers one application."
+      }
+    },
+    "E": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly assigns -1 N to the net force, leaves drive/drag/friction separate and correctly rejects inferring friction's direction from negative acceleration alone."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It applies the comparison to the actual line by showing the unresolved signed balance, identifies mechanics knowledge and supplies a short application."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The request for two different signed assignments summing to -1 N is a specific application of the non-identifiability problem."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It provides the corrected equation and explanation before asking for a short application and does not claim the learner has already demonstrated transfer."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It connects rival explanations to the actual force equation, explicitly names Newton's law/free-body analysis/evidence about interactions and asks for competing assignments rather than relying on history conventions to establish friction."
+      }
+    },
+    "F": {
+      "correctness": {
+        "rating": "PASS",
+        "reason": "It correctly finds net force -1 N, gives two matching decompositions and states that acceleration alone establishes neither friction magnitude nor velocity direction."
+      },
+      "responsiveness": {
+        "rating": "PASS",
+        "reason": "It repairs the exact friction conclusion with concrete rival balances, mechanics-specific requirements and the requested short application."
+      },
+      "next_action": {
+        "rating": "PASS",
+        "reason": "The later-measurements scenario gives +2.0 N drive and -0.40 N drag and asks for both the signed equation and friction."
+      },
+      "help_level": {
+        "rating": "PASS",
+        "reason": "It supplies examples and a model before the brief exercise, and 'suppose' marks the later measurements as hypothetical."
+      },
+      "area_requirement": {
+        "rating": "PASS",
+        "reason": "It demonstrates reverse-direction transfer using competing force explanations, requires a free-body balance plus measurements or justified models, and offers a brief application without claiming learner mastery."
+      }
+    }
+  },
+  "key": {
+    "A": {
+      "version": "candidate",
+      "sample": 3
+    },
+    "B": {
+      "version": "candidate",
+      "sample": 1
+    },
+    "C": {
+      "version": "baseline",
+      "sample": 2
+    },
+    "D": {
+      "version": "baseline",
+      "sample": 3
+    },
+    "E": {
+      "version": "candidate",
+      "sample": 2
+    },
+    "F": {
+      "version": "baseline",
+      "sample": 1
+    }
+  }
+}
