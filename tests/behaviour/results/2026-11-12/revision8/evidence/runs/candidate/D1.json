@@ -1,0 +1,60 @@
+{
+  "case": "D1",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/aliasing-certificate.md": "ba14bac3b751337c1d875c8c4084353b4508db35f58594709510a97bea484ec0",
+    "references/argument.md": "6ab2265bd313eea5d49eb1b2f8e027ce664f140df6f45cb11e1dae8cfc3e863a",
+    "references/delegation.md": "7f55c62cbefd1fd83a29525039c64375f58338f87c0bcd49a9c096e5992bc59d",
+    "references/deliberate-practice.md": "560116e9c11491e9ca943d0b13c15c63a525bdcd2442efdbdd9e68c9c874ac7b",
+    "references/end-to-end.md": "fb41e62cb653d9a2f456474863a87b7469b02ce585c96ed7b07fad7e15e6b978",
+    "references/fields.md": "ae388f55dfbb44eceee4bd1819d00e680a128d157301735f852477b6668bd6e4",
+    "references/interactive.md": "c2eeb5785b70b4c8338f1175d9838cb66601a66a1225e7331733a590398c8d5a",
+    "references/manim.md": "b8cd6b26687e243ab0c442f443ef8fc58b924c177e332c5082625fffa4629cee",
+    "references/pdf-purposes.md": "f38e0d9184eadc2a83387cb33b84e080661967855bb48e1fc43dbe4949aaba6c",
+    "references/provenance.md": "3c5dfa4d56280991aeb0594af1cf1fea33c64457cd25b78719ab831b79de496f",
+    "references/research.md": "cb25c2c9e9835d5eaafb7b28a4087964e0d788446621212f12b1b59d993c9735",
+    "references/roadmaps.md": "cbb5d29e083dfa8fa9074df5d2d5955e469aa204c45371f3906a33001c821abb",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/tools.md": "9cf0b58bf6a5084541c9d1b5269998e5214796ffa579b7831a88b478b8323b97",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/visual-inquiry.md": "8d0549aa3b4b692ebdea8f519f0c031dce2c5ba8440b83c2e212d6c7025043d9"
+  },
+  "turns": [
+    {
+      "learner": "I have a 20-minute session to practice translating word problems into constraints. Ask me one challenge about rectangular areas; no calculator.",
+      "tutor": "**Generated challenge \u2014 no calculator**\n\nA farmer builds a rectangular enclosure split into two pens by one straight internal fence parallel to the rectangle\u2019s width. There are **60 metres of fencing** available for the outer boundary and the divider. The total enclosed area must be **at least 120 m\u00b2**, and the rectangle\u2019s length must be **at least twice its width**.\n\nLet \\(L\\) and \\(W\\) be the rectangle\u2019s length and width in metres.\n\nWrite the constraints on \\(L\\) and \\(W\\), including their allowed signs. Explain which part of the description gives each constraint. **You do not need to solve them.**"
+    },
+    {
+      "learner": "I spent both sides of the same fence twice. Please slow down and use a diagram or a tiny numerical example. Show me where to put each side, then let me retry.",
+      "tutor": "Count each physical fence once: the two pens share the divider.\n\n```text\n                 L\n          \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n        W \u2502              \u2502\n          \u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2190 divider\n        W \u2502              \u2502\n          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\nThat sketch would make the divider parallel to **length**, so we need to turn the divider to match the question:\n\n```text\n                   L\n          \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n          \u2502        \u2502        \u2502\n        W \u2502        \u2502        \u2502 W\n          \u2502        \u2502        \u2502\n          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                   L\n                   \u2191\n             divider: W\n```\n\nPut each fence in a list:\n\n- Top and bottom: \\(L\\) each.\n- Left and right: \\(W\\) each.\n- Internal divider: \\(W\\), counted **once**. Having a pen on each side does not create a second fence.\n\nFor a tiny example, if \\(L=6\\) and \\(W=2\\), the fence pieces total\n\\[\n6+6+2+2+2=18\\text{ metres}.\n\\]\n\nNow retry **only the fencing constraint**: using \\(L\\), \\(W\\), and the available \\(60\\) metres, what inequality would you write?"
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 16.31,
+      "usage": {
+        "input_tokens": 47655,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 296,
+        "reasoning_output_tokens": 157
+      },
+      "prompt_sha256": "364b2890e7e595cf572ab006b918f7e80d0702b5b05b26db547268f218a963f6",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 11.25,
+      "usage": {
+        "input_tokens": 47846,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 284,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "7d8a1ee431f797bb582a5bd02b7d220a1e3e18ed4b4fd617f9f72f8bcd758b54",
+      "tool_calls": []
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "case": "D2",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/aliasing-certificate.md": "ba14bac3b751337c1d875c8c4084353b4508db35f58594709510a97bea484ec0",
+    "references/argument.md": "6ab2265bd313eea5d49eb1b2f8e027ce664f140df6f45cb11e1dae8cfc3e863a",
+    "references/delegation.md": "7f55c62cbefd1fd83a29525039c64375f58338f87c0bcd49a9c096e5992bc59d",
+    "references/deliberate-practice.md": "560116e9c11491e9ca943d0b13c15c63a525bdcd2442efdbdd9e68c9c874ac7b",
+    "references/end-to-end.md": "fb41e62cb653d9a2f456474863a87b7469b02ce585c96ed7b07fad7e15e6b978",
+    "references/fields.md": "ae388f55dfbb44eceee4bd1819d00e680a128d157301735f852477b6668bd6e4",
+    "references/interactive.md": "c2eeb5785b70b4c8338f1175d9838cb66601a66a1225e7331733a590398c8d5a",
+    "references/manim.md": "b8cd6b26687e243ab0c442f443ef8fc58b924c177e332c5082625fffa4629cee",
+    "references/pdf-purposes.md": "f38e0d9184eadc2a83387cb33b84e080661967855bb48e1fc43dbe4949aaba6c",
+    "references/provenance.md": "3c5dfa4d56280991aeb0594af1cf1fea33c64457cd25b78719ab831b79de496f",
+    "references/research.md": "cb25c2c9e9835d5eaafb7b28a4087964e0d788446621212f12b1b59d993c9735",
+    "references/roadmaps.md": "cbb5d29e083dfa8fa9074df5d2d5955e469aa204c45371f3906a33001c821abb",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/tools.md": "9cf0b58bf6a5084541c9d1b5269998e5214796ffa579b7831a88b478b8323b97",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/visual-inquiry.md": "8d0549aa3b4b692ebdea8f519f0c031dce2c5ba8440b83c2e212d6c7025043d9"
+  },
+  "turns": [
+    {
+      "learner": "Give me a 5-minute generated mini-exam on the relationship between position, velocity and acceleration. No solutions yet. I just learned derivatives.",
+      "tutor": "**Generated mini-exam: position, velocity and acceleration**  \n**Time: 5 minutes \u00b7 No calculator \u00b7 10 marks**\n\nAssume motion along a straight line. Position \\(x\\) is measured in metres and time \\(t\\) in seconds. Show your reasoning.\n\n1. A particle\u2019s position is\n   \\[\n   x(t)=t^3-6t^2+9t,\\qquad t\\geq0.\n   \\]\n   **(a)** Find its velocity \\(v(t)\\) and acceleration \\(a(t)\\). **[2]**  \n   **(b)** Find all times when it is at rest. **[2]**\n\n2. For the particle in Question 1, at \\(t=2\\):\n   \n   **(a)** Is it moving in the positive or negative direction? **[1]**  \n   **(b)** Is its speed increasing or decreasing? Explain using velocity and acceleration. **[2]**\n\n3. A different particle has position\n   \\[\n   x(t)=4-2t.\n   \\]\n   Find its velocity and acceleration, including units. **[2]**\n\n4. A learner claims: \u201cWhenever a particle\u2019s velocity is zero, its acceleration must also be zero.\u201d Is this true? Give a reason or a counterexample. **[1]**"
+    },
+    {
+      "learner": "Time. Give me the full key and a 5-point partial-credit scheme for the questions you just gave me.",
+      "tutor": "Here is the full key, with the original 10 marks **rescaled to 5 points**.\n\n**1. Differentiate and find rest times \u2014 2 points**\n\n**(a)**\n\\[\nv(t)=x'(t)=3t^2-12t+9\\quad\\text{m/s},\n\\]\n\\[\na(t)=v'(t)=6t-12\\quad\\text{m/s}^2.\n\\]\n\nAward **0.5** for each correct derivative.\n\n**(b)** At rest means \\(v(t)=0\\):\n\\[\n3t^2-12t+9=3(t-1)(t-3)=0.\n\\]\nThus,\n\\[\n\\boxed{t=1\\text{ s},\\quad t=3\\text{ s}.}\n\\]\n\nAward **0.5** for setting velocity equal to zero and **0.5** for both correct times.\n\n**2. Direction and speed at \\(t=2\\) \u2014 1.5 points**\n\n**(a)**\n\\[\nv(2)=12-24+9=-3\\text{ m/s}.\n\\]\nIt moves in the **negative direction**. **[0.5]**\n\n**(b)**\n\\[\na(2)=12-12=0.\n\\]\nSince velocity is nonzero, the instantaneous rate of change of speed is zero: its speed is **neither increasing nor decreasing at that instant**.\n\nAward **0.5** for \\(a(2)=0\\) and **0.5** for the correct conclusion.\n\nFor context, speed increases immediately before \\(t=2\\) and decreases immediately afterward, so it has a local maximum there.\n\n**3. Constant-velocity motion \u2014 1 point**\n\n\\[\nx(t)=4-2t\n\\quad\\Rightarrow\\quad\n\\boxed{v=-2\\text{ m/s},\\qquad a=0\\text{ m/s}^2.}\n\\]\n\nAward **0.5** for each correct value with its unit.\n\n**4. Zero velocity versus zero acceleration \u2014 0.5 points**\n\nThe claim is **false**. Question 1 supplies a counterexample:\n\\[\nv(1)=0,\\qquad a(1)=-6\\text{ m/s}^2.\n\\]\nA particle can be momentarily at rest while its velocity is changing.\n\nAward **0.5** for rejecting the claim with a valid reason or counterexample.\n\n**Marking convention:** Carry forward an earlier derivative error when later reasoning correctly uses that result; do not penalize the same error twice."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 8.67,
+      "usage": {
+        "input_tokens": 47658,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 283,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "a02a2dcffa75c0c4675934b2dafe33507068833f3631991c7c749aaf6a1a49f7",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 15.86,
+      "usage": {
+        "input_tokens": 48009,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 625,
+        "reasoning_output_tokens": 70
+      },
+      "prompt_sha256": "20f45b997aabab6d900593dd63ebbe89be4f1131a0399978ea1e8aa82e24acbd",
+      "tool_calls": []
+    }
+  ]
+}

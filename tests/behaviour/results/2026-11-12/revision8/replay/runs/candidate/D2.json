@@ -1,0 +1,60 @@
+{
+  "case": "D2",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/aliasing-certificate.md": "ba14bac3b751337c1d875c8c4084353b4508db35f58594709510a97bea484ec0",
+    "references/argument.md": "6ab2265bd313eea5d49eb1b2f8e027ce664f140df6f45cb11e1dae8cfc3e863a",
+    "references/delegation.md": "7f55c62cbefd1fd83a29525039c64375f58338f87c0bcd49a9c096e5992bc59d",
+    "references/deliberate-practice.md": "f356e9f60ed99a2d78f16579458f43175b2857ad92960bfd70a3e5e68e589ab7",
+    "references/end-to-end.md": "fb41e62cb653d9a2f456474863a87b7469b02ce585c96ed7b07fad7e15e6b978",
+    "references/fields.md": "ae388f55dfbb44eceee4bd1819d00e680a128d157301735f852477b6668bd6e4",
+    "references/interactive.md": "c2eeb5785b70b4c8338f1175d9838cb66601a66a1225e7331733a590398c8d5a",
+    "references/manim.md": "b8cd6b26687e243ab0c442f443ef8fc58b924c177e332c5082625fffa4629cee",
+    "references/pdf-purposes.md": "f38e0d9184eadc2a83387cb33b84e080661967855bb48e1fc43dbe4949aaba6c",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27",
+    "references/research.md": "cb25c2c9e9835d5eaafb7b28a4087964e0d788446621212f12b1b59d993c9735",
+    "references/roadmaps.md": "cbb5d29e083dfa8fa9074df5d2d5955e469aa204c45371f3906a33001c821abb",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/tools.md": "9cf0b58bf6a5084541c9d1b5269998e5214796ffa579b7831a88b478b8323b97",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/visual-inquiry.md": "8d0549aa3b4b692ebdea8f519f0c031dce2c5ba8440b83c2e212d6c7025043d9"
+  },
+  "turns": [
+    {
+      "learner": "Give me a 5-minute generated mini-exam on the relationship between position, velocity and acceleration. No solutions yet. I just learned derivatives.",
+      "tutor": "**Generated mini-exam: Position, velocity and acceleration**  \n**Time: 5 minutes.** Show your reasoning. All motion is along a straight line; positive position points to the right.\n\n**1. From position to motion \u2014 2 minutes**\n\nA particle\u2019s position is\n\\[\nx(t)=t^3-6t^2+9t,\n\\]\nwhere \\(x\\) is in metres and \\(t\\) is in seconds.\n\na) Find its velocity \\(v(t)\\) and acceleration \\(a(t)\\), including units.  \nb) At \\(t=2\\), is it moving left or right? Is its speed increasing or decreasing? Explain.\n\n**2. What does zero tell you? \u2014 1 minute**\n\nAt one instant, a ball thrown vertically upward has zero velocity.\n\nMust its acceleration also be zero? Explain using the relationship between velocity and acceleration. Ignore air resistance.\n\n**3. Check a claim \u2014 2 minutes**\n\nA cart has velocity\n\\[\nv(t)=4-2t\\quad\\text{m/s},\\qquad 0\\le t\\le4.\n\\]\n\na) When does the cart change direction?  \nb) A student says, \u201cIts acceleration is negative, so it moves left throughout these four seconds.\u201d Is that correct? Explain.  \nc) Can you determine the cart\u2019s position at \\(t=0\\) from this velocity formula alone? Give a reason."
+    },
+    {
+      "learner": "Time. Give me the full key and a 5-point partial-credit scheme for the questions you just gave me.",
+      "tutor": "**Full key \u2014 5 points total**\n\n**1. From position to motion \u2014 2 points**\n\na) Differentiate position to get velocity, then differentiate velocity to get acceleration:\n\\[\nv(t)=3t^2-12t+9\\quad\\text{m/s},\n\\qquad\na(t)=6t-12\\quad\\text{m/s}^2.\n\\]\n\n**Credit:** \u00bd point for each correct derivative with its units.\n\nb) At \\(t=2\\):\n\\[\nv(2)=-3\\text{ m/s},\\qquad a(2)=0\\text{ m/s}^2.\n\\]\nIt moves **left** because velocity is negative.\n\nIts speed is **neither increasing nor decreasing at that exact instant**: its instantaneous rate of change is zero. More precisely, speed increases just before \\(t=2\\) and decreases just after, so it has a local maximum there.\n\n**Credit:** \u00bd point for left with the velocity sign; \u00bd point for the instantaneous speed conclusion supported by \\(a(2)=0\\).\n\n**2. What does zero tell you? \u2014 1 point**\n\n**No.** Acceleration measures how velocity changes, rather than its current value. At the top of the flight, velocity is zero but continues changing downward. Taking upward as positive:\n\\[\na=-g\\approx-9.8\\text{ m/s}^2.\n\\]\n\n**Credit:** \u00bd point for nonzero downward acceleration; \u00bd point for explaining that zero velocity does not imply zero rate of change of velocity.\n\n**3. Check a claim \u2014 2 points**\n\na) Direction changes when velocity crosses zero:\n\\[\n4-2t=0\\quad\\Rightarrow\\quad \\boxed{t=2\\text{ s}}.\n\\]\nVelocity is positive before \\(2\\) s and negative afterward.\n\n**Credit:** \u00bd point for \\(2\\) s; \u00bd point for establishing the sign change.\n\nb) **The claim is incorrect.** Although \\(a=-2\\text{ m/s}^2\\) throughout, the cart moves right for \\(0\\le t<2\\), stops momentarily at \\(t=2\\), and moves left for \\(2<t\\le4\\). Negative acceleration means velocity decreases.\n\n**Credit:** \u00bd point for rejecting the claim with the correct distinction or direction intervals.\n\nc) **No.** The formula specifies how position changes, but gives no starting location. Carts starting at different positions can have exactly the same velocity.\n\n**Credit:** \u00bd point for \u201cno\u201d with this reason.\n\nFor this generated scheme, award each component independently and avoid penalizing the same carried-forward error twice. No score can be assigned without your answers."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 11.05,
+      "usage": {
+        "input_tokens": 47939,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 339,
+        "reasoning_output_tokens": 35
+      },
+      "prompt_sha256": "6b7d46483c77ed35de914764f9066a0954313e6467b025e7185fe65efd3656f8",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 14.92,
+      "usage": {
+        "input_tokens": 48308,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 581,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "b3966769ef774a81b87445c252ab6af5a23e4676d4d42e13965f5c005b6aef8b",
+      "tool_calls": []
+    }
+  ]
+}

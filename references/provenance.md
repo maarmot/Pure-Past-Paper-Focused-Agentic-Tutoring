@@ -2,6 +2,12 @@
 
 Read this when revising the skill or when someone asks what a recommendation rests on. Ordinary tutoring does not need it. It records history and sources; it is not a set of instructions, and none of the files or runtimes it names are promised to exist in the active workspace.
 
+## Revision 8, 2026-11-12
+
+The oral exam extends this skill's existing practice and Jane Street's single-question format. It keeps the learner's goal negotiable, asks them to defend a real decision, and treats the requested solution or pause as immediately binding. The local roadmap uses dated evidence for a particular activity and its conditions. The Jane Street decisions and MIT notice below still apply.
+
+There is experimental reason to distinguish immediate fluency from later performance. In two prose-learning studies, immediate recall and delayed recall favored different study conditions. In four other experiments, previously tested participants did better on a one-week final test than participants who restudied, including some new inference questions. These are reasons to measure retention and transfer separately from confidence. Neither study evaluated PPP, this oral-exam format, the roadmap interface, or an engineering learner's outcomes. [Roediger and Karpicke, 2006](https://pubmed.ncbi.nlm.nih.gov/16507066/) · [Butler, 2010](https://pubmed.ncbi.nlm.nih.gov/20804289/)
+
 ## Revision 7, 2026-11-12
 
 Jane Street's `socratic-tutor` starts an explicitly requested course by mapping subskills and diagnosing a starting level. Its questions ask the learner to predict, explain an error or apply an idea. It asks for actual output on practical tasks and uses later recall and mixed tasks to check progress. A learner can ask for the answer or carry a progress summary to a new conversation. The source for this comparison was the complete skill at commit `7c6715c`. [Jane Street skill](https://github.com/janestreet/agent_skills/blob/7c6715c29548a3b39d4a9545c698ee4fd17a7213/socratic-tutor/SKILL.md)

@@ -1,0 +1,60 @@
+{
+  "case": "H3",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/aliasing-certificate.md": "ba14bac3b751337c1d875c8c4084353b4508db35f58594709510a97bea484ec0",
+    "references/argument.md": "6ab2265bd313eea5d49eb1b2f8e027ce664f140df6f45cb11e1dae8cfc3e863a",
+    "references/delegation.md": "7f55c62cbefd1fd83a29525039c64375f58338f87c0bcd49a9c096e5992bc59d",
+    "references/deliberate-practice.md": "24796afcc4ecc7502869e807ad16682d663cd60229a44b3c4155e665bf2e125d",
+    "references/end-to-end.md": "fb41e62cb653d9a2f456474863a87b7469b02ce585c96ed7b07fad7e15e6b978",
+    "references/fields.md": "ae388f55dfbb44eceee4bd1819d00e680a128d157301735f852477b6668bd6e4",
+    "references/interactive.md": "c2eeb5785b70b4c8338f1175d9838cb66601a66a1225e7331733a590398c8d5a",
+    "references/manim.md": "b8cd6b26687e243ab0c442f443ef8fc58b924c177e332c5082625fffa4629cee",
+    "references/pdf-purposes.md": "f38e0d9184eadc2a83387cb33b84e080661967855bb48e1fc43dbe4949aaba6c",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27",
+    "references/research.md": "cb25c2c9e9835d5eaafb7b28a4087964e0d788446621212f12b1b59d993c9735",
+    "references/roadmaps.md": "cbb5d29e083dfa8fa9074df5d2d5955e469aa204c45371f3906a33001c821abb",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/tools.md": "9cf0b58bf6a5084541c9d1b5269998e5214796ffa579b7831a88b478b8323b97",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/visual-inquiry.md": "8d0549aa3b4b692ebdea8f519f0c031dce2c5ba8440b83c2e212d6c7025043d9"
+  },
+  "turns": [
+    {
+      "learner": "Build one original hard 12-minute mechanics problem about a cart on a straight track with a time-dependent force. Calculus I, no friction, no energy methods. I want synthesis rather than big numbers. Just the question now; hold the key and spare problem.",
+      "tutor": "**Original mechanics problem \u2014 12 minutes**\n\nA cart of mass \\(m\\) moves on a straight, frictionless horizontal track. Take rightward as positive. At \\(t=0\\), its position is \\(x=0\\) and its velocity is \\(u>0\\).\n\nFor \\(0\\le t\\le 2T\\), where \\(T>0\\), the resultant horizontal force is\n\\[\nF(t)=\\frac{mu}{T}\\left(\\frac{6t}{T}-2\\lambda\\right),\n\\]\nwhere \\(\\lambda>0\\) is an unknown dimensionless constant.\n\nAn observer reports that the cart\u2019s **first return to its starting position** occurs at a time \\(\\tau\\in(0,2T)\\), and that its velocity is zero at that instant.\n\nUse Newton\u2019s second law and calculus. **Do not use energy methods.**\n\n1. Determine \\(\\lambda\\) and \\(\\tau\\), showing that the observer\u2019s two conditions determine them uniquely.\n\n2. Find every instant in \\(0<t<2T\\) at which the cart reverses direction. Explain whether the return at \\(t=\\tau\\) is a reversal, and determine whether the cart ever enters \\(x<0\\).\n\n3. Calculate the total distance travelled during \\(0\\le t\\le2T\\), and hence the ratio\n\\[\n\\frac{\\text{average speed}}{|\\text{average velocity}|}\n\\]\nover that interval. Your working must identify the intervals on which the cart travels in each direction."
+    },
+    {
+      "learner": "Now give the full solution and a 6-point partial-credit breakdown for exactly that question. Keep the spare unseen.",
+      "tutor": "The conditions give **\\(\\lambda=2\\) and \\(\\tau=T\\)**. The cart reverses twice, touches its starting position without entering \\(x<0\\), and travels a total distance \\(\\frac{62}{27}uT\\).\n\n### 1. Determine \\(\\lambda\\) and \\(\\tau\\)\n\nIntroduce the dimensionless time \\(s=t/T\\). Newton\u2019s second law gives\n\\[\na(t)=\\frac{u}{T}\\left(\\frac{6t}{T}-2\\lambda\\right).\n\\]\nIntegrating and using \\(v(0)=u\\),\n\\[\nv(t)=u\\left(1+3s^2-2\\lambda s\\right).\n\\]\nIntegrating again and using \\(x(0)=0\\),\n\\[\nx(t)=uT\\left(s+s^3-\\lambda s^2\\right)\n     =uT\\,s(s^2-\\lambda s+1).\n\\]\n\nWrite \\(r=\\tau/T\\), so \\(0<r<2\\). The return condition \\(x(\\tau)=0\\), with \\(r>0\\), gives\n\\[\nr^2-\\lambda r+1=0.\n\\]\nThe simultaneous condition \\(v(\\tau)=0\\) gives\n\\[\n3r^2-2\\lambda r+1=0.\n\\]\nSubtract twice the first equation from the second:\n\\[\nr^2-1=0.\n\\]\nSince \\(r>0\\), necessarily \\(r=1\\). Substitution gives \\(\\lambda=2\\). Thus\n\\[\n\\boxed{\\lambda=2,\\qquad \\tau=T}.\n\\]\n\nTo verify that this is the **first** return, substitute \\(\\lambda=2\\):\n\\[\n\\boxed{x(t)=uT\\,s(s-1)^2}.\n\\]\nFor \\(0<s<1\\), this is strictly positive; at \\(s=1\\), it is zero. The solution therefore satisfies both reported conditions and is unique.\n\n### 2. Reversals and whether \\(x<0\\)\n\nWith \\(\\lambda=2\\),\n\\[\nv(t)=u(3s^2-4s+1)=u(3s-1)(s-1).\n\\]\n\n| Time interval | Sign of \\(v\\) | Direction |\n|---|---:|---|\n| \\(0<t<T/3\\) | \\(+\\) | Right |\n| \\(T/3<t<T\\) | \\(-\\) | Left |\n| \\(T<t<2T\\) | \\(+\\) | Right |\n\nVelocity changes sign at both zeros, so the reversal times are\n\\[\n\\boxed{t=\\frac T3,\\qquad t=T}.\n\\]\n\nIn particular, the return at \\(\\tau=T\\) **is a reversal**: the cart arrives moving left, stops, and moves right.\n\nAlso,\n\\[\nx(t)=uT\\,s(s-1)^2\\ge0\\qquad(0\\le s\\le2),\n\\]\nso the cart **never enters \\(x<0\\)** during the stated interval. Returning to a position does not require crossing it.\n\n### 3. Total distance and the requested ratio\n\nEvaluate the positions at the endpoints and reversals:\n\\[\nx(0)=0,\\qquad\nx(T/3)=uT\\left(\\frac13\\right)\\left(-\\frac23\\right)^2\n      =\\frac{4uT}{27},\n\\]\n\\[\nx(T)=0,\\qquad x(2T)=2uT.\n\\]\n\nAdding the distances on the three direction intervals,\n\\[\nD=\\frac{4uT}{27}+\\frac{4uT}{27}+2uT\n =\\boxed{\\frac{62uT}{27}}.\n\\]\n\nHence\n\\[\n\\text{average speed}=\\frac{D}{2T}=\\frac{31u}{27},\n\\qquad\n|\\text{average velocity}|=\\frac{|2uT-0|}{2T}=u.\n\\]\nTherefore\n\\[\n\\boxed{\\frac{\\text{average speed}}{|\\text{average velocity}|}\n=\\frac{31}{27}}.\n\\]\n\n### Proposed 6-point partial-credit breakdown\n\nThis is a tutor-created scheme for this original question.\n\n| Point | Credit criterion |\n|---:|---|\n| 1 | Correctly derives both \\(v=u(1+3s^2-2\\lambda s)\\) and \\(x=uT(s+s^3-\\lambda s^2)\\), using the initial conditions. |\n| 1 | Converts the simultaneous return and rest conditions into \\(r^2-\\lambda r+1=0\\) and \\(3r^2-2\\lambda r+1=0\\). |\n| 1 | Obtains \\(\\lambda=2,\\ \\tau=T\\), establishes uniqueness, and verifies that this is the first return. |\n| 1 | Identifies both reversals using velocity signs, explains the reversal at \\(T\\), and establishes \\(x\\ge0\\). |\n| 1 | Adds distance over the correct direction intervals to obtain \\(D=62uT/27\\). |\n| 1 | Uses displacement for average velocity and distance for average speed to obtain \\(31/27\\). |\n\nFor partial credit within a row, award half a point for a substantial correct step with an omitted justification. Carry a prior algebraic error forward where the subsequent method remains valid, rather than penalizing the same error repeatedly.\n\nThe spare remains unseen."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 22.52,
+      "usage": {
+        "input_tokens": 48006,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 640,
+        "reasoning_output_tokens": 310
+      },
+      "prompt_sha256": "14e6d88924c7e0f151cb2b79a5fd5696e47c6adb7e018e21c391bfd76d8174a2",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 30.22,
+      "usage": {
+        "input_tokens": 48404,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1346,
+        "reasoning_output_tokens": 169
+      },
+      "prompt_sha256": "cf21a13e545b651dbe30b7bef8dd55da6accdd03da4023514450e85bf38514c6",
+      "tool_calls": []
+    }
+  ]
+}

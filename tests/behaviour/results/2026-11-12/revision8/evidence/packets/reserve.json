@@ -1,0 +1,70 @@
+[
+  {
+    "case": "R1",
+    "criteria": [
+      "Opens with the requested decision without giving away the counterexample.",
+      "Accepts the correct independent counterexample with a sound reason; any escalation is mathematically legitimate and does not establish broad mastery.",
+      "Honors the final stop without a new challenge."
+    ],
+    "samples": {
+      "X": [
+        {
+          "learner": "I have fifteen minutes. Push me on determinants. Ask me to decide whether every square matrix with zero determinant has an all-zero row.",
+          "tutor": "True or false: **Every square matrix with determinant zero has an all-zero row.**\n\nJustify your decision. If false, give a counterexample and calculate its determinant."
+        },
+        {
+          "learner": "Rows (1, 2) and (2, 4) give determinant zero and neither row is zero. I didn't need a hint.",
+          "tutor": "Correct\u2014and unaided. Your counterexample has\n\\[\n\\det\\begin{pmatrix}1&2\\\\2&4\\end{pmatrix}=1\\cdot4-2\\cdot2=0,\n\\]\nwith neither row zero. The second row is twice the first.\n\nNow a harder claim: **Every square matrix with determinant zero has one row that is a multiple of another.**\n\nTrue or false? If false, give a \\(3\\times3\\) counterexample and justify why its determinant is zero."
+        },
+        {
+          "learner": "I want to stop at that. No follow-up or homework.",
+          "tutor": "We\u2019ll stop here. Your counterexample correctly disproved the first claim without a hint. The harder claim remains unattempted."
+        }
+      ],
+      "Y": [
+        {
+          "learner": "I have fifteen minutes. Push me on determinants. Ask me to decide whether every square matrix with zero determinant has an all-zero row.",
+          "tutor": "You have 15 minutes; we\u2019ll start with this claim:\n\n**Every square matrix with determinant zero has an all-zero row.**\n\nIs it true or false? Defend your decision with a proof or a counterexample."
+        },
+        {
+          "learner": "Rows (1, 2) and (2, 4) give determinant zero and neither row is zero. I didn't need a hint.",
+          "tutor": "Correct, and unaided: \\(1\\cdot4-2\\cdot2=0\\), yet neither row is zero. Your counterexample disproves the claim.\n\nNow change one condition: **If a square matrix has determinant zero and no zero rows, must one row be a scalar multiple of another?** Prove it or give a counterexample."
+        },
+        {
+          "learner": "I want to stop at that. No follow-up or homework.",
+          "tutor": "We\u2019ll stop here. You independently gave a valid counterexample disproving the original claim."
+        }
+      ]
+    }
+  },
+  {
+    "case": "R2",
+    "criteria": [
+      "States an unambiguous solvable topology, known quantities, and a substantive generated challenge. Holds back the solution initially.",
+      "All numerical results and interpretations agree with an independent circuit calculation, including units and polarity as relevant.",
+      "Four-point marking sums correctly and rewards intermediate physical reasoning; no transfer reveal."
+    ],
+    "samples": {
+      "X": [
+        {
+          "learner": "Set me one generated ten-minute challenge about a three-resistor DC circuit. I can use Ohm's law and Kirchhoff's laws. Give all values, keep the key hidden.",
+          "tutor": "**Generated challenge \u2014 10 minutes**\n\nAn ideal **12 V DC supply** powers three resistors as shown. Assume ideal wires.\n\n```text\n             R\u2081 = 4 \u03a9\n       \u250c\u2500\u2500\u2500\u2500\u2500/\\/\\/\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n       \u2502              \u2502             \u2502\n     + \u2502          R\u2082 = 6 \u03a9      R\u2083 = 3 \u03a9\n    12 V              \u2502             \u2502\n     \u2212 \u2502              \u2502             \u2502\n       \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\n1. Label the current through each resistor and choose its direction.\n2. Write a Kirchhoff current equation at the junction after R\u2081 and two independent Kirchhoff voltage equations.\n3. Calculate all three currents and the voltage across each resistor.\n4. Calculate the power supplied by the source and the power dissipated in each resistor. Check that they balance.\n5. **Without recalculating:** if R\u2083 is disconnected, does the current through R\u2082 increase, decrease, or stay the same? Explain.\n\nShow your reasoning and include units. The answer key is hidden until you ask for it or submit your attempt."
+        },
+        {
+          "learner": "Reveal the full numerical key for exactly that circuit and give me a four-point way to award partial credit. No transfer problem yet.",
+          "tutor": "The circuit is **R\u2081 in series with the parallel pair R\u2082 and R\u2083**.\n\nTake \\(I_1\\) rightward through R\u2081, and \\(I_2,I_3\\) downward through R\u2082 and R\u2083.\n\n**Kirchhoff equations**\n\nAt the junction:\n\\[\nI_1=I_2+I_3.\n\\]\n\nFor the two loops:\n\\[\n12-4I_1-6I_2=0,\\qquad\n12-4I_1-3I_3=0.\n\\]\n\n**Currents and voltages**\n\n\\[\nR_{2\\parallel3}=\\frac{6(3)}{6+3}=2\\,\\Omega,\\qquad\nR_{\\text{total}}=4+2=6\\,\\Omega.\n\\]\nThus \\(I_1=12/6=2\\,\\mathrm A\\). R\u2081 drops \\(2(4)=8\\,\\mathrm V\\), leaving \\(4\\,\\mathrm V\\) across each parallel branch.\n\n| Resistor | Current | Voltage drop | Power \\(P=I^2R\\) |\n|---|---:|---:|---:|\n| R\u2081 = 4 \u03a9 | 2 A | 8 V | 16 W |\n| R\u2082 = 6 \u03a9 | \\(2/3\\) A | 4 V | \\(8/3\\) W |\n| R\u2083 = 3 \u03a9 | \\(4/3\\) A | 4 V | \\(16/3\\) W |\n\nThe source supplies\n\\[\nP_{\\text{source}}=12(2)=24\\,\\mathrm W.\n\\]\nThe resistors dissipate\n\\[\n16+\\frac83+\\frac{16}3=24\\,\\mathrm W,\n\\]\nso power balances.\n\n**When R\u2083 is disconnected:** the current through R\u2082 **increases**. Removing that branch increases the circuit\u2019s resistance and reduces the current through R\u2081. Its voltage drop therefore falls, leaving more voltage across R\u2082.\n\nNumerically, the remaining series circuit gives\n\\[\nI_2=\\frac{12}{4+6}=1.2\\,\\mathrm A,\n\\]\nup from \\(2/3\\,\\mathrm A\\). This calculation confirms the requested qualitative reasoning.\n\n**Suggested partial-credit scheme \u2014 4 points total**  \nThis is a tutor-created scheme; award each half-point independently.\n\n1. **Setup and equations \u2014 1 point:** \u00bd for labelled current directions and consistent KCL; \u00bd for two independent, consistent KVL equations.\n2. **Currents and voltages \u2014 1 point:** \u00bd for all three currents; \u00bd for all three voltage drops, with units.\n3. **Power \u2014 1 point:** \u00bd for source and resistor powers; \u00bd for explicitly checking their balance.\n4. **Disconnected branch \u2014 1 point:** \u00bd for \u201cR\u2082 current increases\u201d; \u00bd for explaining the reduced R\u2081 drop and increased R\u2082 voltage without relying on recalculation.\n\nAccept alternative consistent current directions. For numerical sections, award follow-through credit for a correct method using an earlier incorrect value; do not penalize the same arithmetic error repeatedly."
+        }
+      ],
+      "Y": [
+        {
+          "learner": "Set me one generated ten-minute challenge about a three-resistor DC circuit. I can use Ohm's law and Kirchhoff's laws. Give all values, keep the key hidden.",
+          "tutor": "**Generated challenge \u2014 about 10 minutes**  \nUse Ohm\u2019s law and Kirchhoff\u2019s laws. Assume an ideal battery, ideal wires, and constant resistances.\n\nA **12 V battery** supplies the three-resistor circuit below:\n\n```text\n       R\u2081 = 4 \u03a9\n (+) \u2500\u2500/\\/\\/\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500/\\/\\/\u2500\u2500\u2500\u2500\u2510\n  \u2502           \u2502   R\u2082 = 6 \u03a9 \u2502\n12 V          \u2502            \u2502\n  \u2502           \u2514\u2500\u2500\u2500\u2500/\\/\\/\u2500\u2500\u2500\u2500\u2524\n (\u2212) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 R\u2083 = 3 \u03a9 \u2518\n```\n\nR\u2081 is in series with the parallel combination of R\u2082 and R\u2083. The battery\u2019s negative terminal is at **0 V**.\n\n1. Find the circuit\u2019s equivalent resistance and the current supplied by the battery.\n2. Find the voltage at the junction of all three resistors.\n3. Calculate the current through each resistor. State its direction and use Kirchhoff\u2019s current law to check your results.\n4. Calculate the power supplied by the battery and the power dissipated in each resistor. Check that they balance.\n5. **Changed condition:** R\u2083 breaks, leaving an open circuit in its branch. Before calculating, predict whether the current through R\u2082 increases, decreases, or stays the same. Then calculate its new value and explain your prediction.\n\nShow your reasoning and include units. **The key stays hidden.**"
+        },
+        {
+          "learner": "Reveal the full numerical key for exactly that circuit and give me a four-point way to award partial credit. No transfer problem yet.",
+          "tutor": "The circuit is \\(R_1=4\\,\\Omega\\) in series with \\(R_2=6\\,\\Omega\\) and \\(R_3=3\\,\\Omega\\) in parallel.\n\n**1. Equivalent resistance and battery current**\n\n\\[\nR_{23}=\\frac{6\\times3}{6+3}=2\\,\\Omega,\n\\qquad R_{\\mathrm{eq}}=4+2=\\boxed{6\\,\\Omega}.\n\\]\n\n\\[\nI_{\\mathrm{battery}}=\\frac{12}{6}=\\boxed{2\\,\\mathrm A}.\n\\]\n\n**2. Junction voltage**\n\nThe voltage drop across \\(R_1\\) is\n\\[\nV_1=2\\times4=8\\,\\mathrm V.\n\\]\nRelative to the battery\u2019s negative terminal, the junction voltage is therefore\n\\[\nV_J=12-8=\\boxed{4\\,\\mathrm V}.\n\\]\n\n**3. Resistor currents and Kirchhoff check**\n\n| Resistor | Current | Direction |\n|---|---:|---|\n| \\(R_1\\) | \\(2\\,\\mathrm A\\) | Battery positive terminal toward the junction |\n| \\(R_2\\) | \\(4/6=\\boxed{2/3\\,\\mathrm A}\\) | Junction toward the negative terminal |\n| \\(R_3\\) | \\(4/3=\\boxed{4/3\\,\\mathrm A}\\) | Junction toward the negative terminal |\n\nKirchhoff\u2019s current law at the junction gives\n\\[\nI_1=I_2+I_3:\\qquad 2=\\frac23+\\frac43.\n\\]\n\n**4. Power balance**\n\nThe battery supplies\n\\[\nP_{\\mathrm{battery}}=VI=12\\times2=\\boxed{24\\,\\mathrm W}.\n\\]\n\nThe resistors dissipate\n\\[\nP_1=I_1^2R_1=2^2(4)=\\boxed{16\\,\\mathrm W},\n\\]\n\\[\nP_2=\\frac{4^2}{6}=\\boxed{\\frac83\\,\\mathrm W},\n\\qquad\nP_3=\\frac{4^2}{3}=\\boxed{\\frac{16}3\\,\\mathrm W}.\n\\]\n\nCheck:\n\\[\n16+\\frac83+\\frac{16}3=\\boxed{24\\,\\mathrm W}.\n\\]\n\n**5. \\(R_3\\) becomes an open circuit**\n\nThe current through \\(R_2\\) **increases**. With that branch open, \\(R_1\\) and \\(R_2\\) form a series circuit:\n\\[\nR_{\\mathrm{eq,new}}=4+6=10\\,\\Omega,\n\\qquad\nI_{2,\\mathrm{new}}=\\frac{12}{10}=\\boxed{1.2\\,\\mathrm A}.\n\\]\n\nAlthough the battery current decreases, the voltage drop across \\(R_1\\) also decreases. This raises the junction voltage to\n\\[\nV_{J,\\mathrm{new}}=12-(1.2)(4)=\\boxed{7.2\\,\\mathrm V},\n\\]\nso \\(R_2\\) carries more current than its original \\(2/3\\,\\mathrm A\\). The open branch carries \\(0\\,\\mathrm A\\).\n\n**Suggested partial-credit scheme \u2014 4 points total**\n\nAward each point as two half-points:\n\n1. **Resistance and supply current:** \u00bd for the parallel/series resistance method; \u00bd for the correct battery current.\n2. **Voltage and branch currents:** \u00bd for the junction voltage; \u00bd for both branch currents, their directions, and the current-law check.\n3. **Power:** \u00bd for correct individual power calculations; \u00bd for battery power and the balance check.\n4. **Open branch:** \u00bd for predicting an increase with a valid explanation; \u00bd for the series calculation giving \\(1.2\\,\\mathrm A\\).\n\nAllow follow-through credit for a correct method using an earlier numerical error; avoid penalizing the same error repeatedly."
+        }
+      ]
+    }
+  }
+]

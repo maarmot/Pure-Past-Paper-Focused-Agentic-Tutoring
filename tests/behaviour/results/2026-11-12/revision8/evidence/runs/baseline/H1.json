@@ -1,0 +1,76 @@
+{
+  "case": "H1",
+  "source": {
+    "SKILL.md": "4f64612305b1043aa573a59cf04aaeb2f94303e594d64aec61da96e0c6964624",
+    "references/aliasing-certificate.md": "ba14bac3b751337c1d875c8c4084353b4508db35f58594709510a97bea484ec0",
+    "references/argument.md": "6ab2265bd313eea5d49eb1b2f8e027ce664f140df6f45cb11e1dae8cfc3e863a",
+    "references/delegation.md": "7f55c62cbefd1fd83a29525039c64375f58338f87c0bcd49a9c096e5992bc59d",
+    "references/end-to-end.md": "fb41e62cb653d9a2f456474863a87b7469b02ce585c96ed7b07fad7e15e6b978",
+    "references/fields.md": "ae388f55dfbb44eceee4bd1819d00e680a128d157301735f852477b6668bd6e4",
+    "references/interactive.md": "c2eeb5785b70b4c8338f1175d9838cb66601a66a1225e7331733a590398c8d5a",
+    "references/manim.md": "b8cd6b26687e243ab0c442f443ef8fc58b924c177e332c5082625fffa4629cee",
+    "references/pdf-purposes.md": "f38e0d9184eadc2a83387cb33b84e080661967855bb48e1fc43dbe4949aaba6c",
+    "references/provenance.md": "3c5dfa4d56280991aeb0594af1cf1fea33c64457cd25b78719ab831b79de496f",
+    "references/research.md": "cb25c2c9e9835d5eaafb7b28a4087964e0d788446621212f12b1b59d993c9735",
+    "references/roadmaps.md": "ce82e737eeb8045cc656ee768e4ccbb124f1e24327e1acbf313bceef738b49d5",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/tools.md": "9cf0b58bf6a5084541c9d1b5269998e5214796ffa579b7831a88b478b8323b97",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/visual-inquiry.md": "8d0549aa3b4b692ebdea8f519f0c031dce2c5ba8440b83c2e212d6c7025043d9"
+  },
+  "turns": [
+    {
+      "learner": "Help me plan a few deliberate study sessions. I keep freezing up in labs and I don't know exactly what to work on.",
+      "tutor": "Let\u2019s plan around one concrete lab task so each session gives you something observable to practise.\n\nThink of the most recent time you froze: **what were you trying to do, and what was the first point where you didn\u2019t know how to continue?** For example, choosing equipment, turning instructions into a setup, interpreting a result, or troubleshooting.\n\nA rough description is enough. We can use it to choose a few focused sessions rather than guess which topics you need."
+    },
+    {
+      "learner": "It's reading timing diagrams. I can label rising edges, but when a signal updates on one I lose track. I have two evenings. I'd like to debug a waveform independently, with the data sheet allowed.",
+      "tutor": "Let\u2019s use the two evenings to work toward **finding and explaining a waveform error independently, with the data sheet allowed**. You can already identify rising edges; the next step is tracking what each component reads at an edge and when its output changes.\n\nUse one lab waveform and its device data sheet as your reference. The checks should come from the sheet\u2019s clocking, reset, enable, and timing rules\u2014not from whether the trace looks familiar.\n\n**Evening 1 \u2014 predict updates, then check them**  \nAllow about 60\u201375 minutes, adjusted to your available time.\n\n- Find the relevant rules in the data sheet. Write a short checklist: active edge, reset behavior, enable behavior, and output delay.\n- Cover the output trace. For four to six clock edges, make a table: **inputs immediately before the edge \u2192 expected state after the edge**. Include a hold or disabled case if applicable.\n- Reveal the output and compare edge by edge. At the first disagreement, identify the rule that decides it. Work through that edge with help if needed, then try a fresh section without help.\n\nFor edge-triggered registers, distinguish the value **sampled at the edge** from the output that appears **after the specified delay**. Whether another signal\u2019s change can be sampled depends on its timing relative to that edge.\n\n**Evening 2 \u2014 find a fault without a marked location**  \nAllow about 60\u201375 minutes.\n\n- Start with a different waveform and a blank prediction table, using only the data sheet.\n- Compare your predictions against the waveform. Find the **first mismatch**, cite the rule it violates, and propose a correction.\n- Check that correction against later edges and a reset or hold case. Also inspect a correct trace, so \u201cno fault found\u201d remains a valid conclusion.\n\nThe success criterion is an explanation another person could check: **\u201cAt this edge, these inputs require this result under this data-sheet rule; the trace instead shows this.\u201d** Record any hints used separately from what you did independently.\n\nWhich device or circuit are your lab timing diagrams for\u2014for example, a counter, a shift register, or a pair of flip-flops?"
+    },
+    {
+      "learner": "Let's get started on that. Keep it to one small question at a time.",
+      "tutor": "Let\u2019s start with a **generated example**: two rising-edge D flip-flops, A and B. A\u2019s output feeds B\u2019s input. Both share the same clock and initially output 0. Assume timing requirements are met.\n\nJust before the next rising edge, A\u2019s input is 1.\n\n**What value does B sample at that edge: A\u2019s old output of 0, or its new output of 1?**"
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 6.78,
+      "usage": {
+        "input_tokens": 46065,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 98,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "65f96ebb8d153677d7b553af338b399abb457275635588f055eeb20006d7b0c4",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 22.16,
+      "usage": {
+        "input_tokens": 46216,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 444,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "b778187441e32769128f745c7722986a77d691723260ef7c0b3fdf753a97a710",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 8.31,
+      "usage": {
+        "input_tokens": 46708,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 92,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "3c8913fad744f485f25847edea8eaf75ff4587dacbb82a13c7e821df009819d3",
+      "tool_calls": []
+    }
+  ]
+}

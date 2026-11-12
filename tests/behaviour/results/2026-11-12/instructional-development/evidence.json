@@ -1,0 +1,244 @@
+{
+  "cases": [
+    {
+      "id": "D1",
+      "conversation": [
+        "I want a study series about electricity but I do not know what I want to do with it yet. I have 15 minutes today. Start where it makes sense."
+      ],
+      "criteria": [
+        "Use the given session time and leave the long-term objective open.",
+        "Ask one consequential choice or use one bounded diagnostic. Avoid a prerequisite questionnaire or choosing an end project for the learner."
+      ]
+    },
+    {
+      "id": "D2",
+      "conversation": [
+        "Grill me on flow accounting before I debug an audio queue. I want to calculate occupancy on paper in 10 minutes without code.",
+        "I calculated 8 items + 5 enqueued − 2 removed = 11 left after a tick. All five fit and the two removals succeeded. Challenge that reasoning."
+      ],
+      "criteria": [
+        "Acknowledge that 11 follows under the stipulated conditions. Do not manufacture an error or deny those conditions.",
+        "Offer one discriminating change (for instance capacity, ordering or competing rates) while preserving the established scope. Leave the changed answer to the learner."
+      ]
+    },
+    {
+      "id": "D3",
+      "conversation": [
+        "Give me one tight, difficult, generated 8-minute oral exam problem on average versus instantaneous speed, for a study group that has only seen distance/time. No solution or cues; keep a fresh transfer for next time. We do not have an official exam syllabus."
+      ],
+      "criteria": [
+        "Prompt can be answered from stipulated facts with arithmetic or geometric slopes. Any claim about an instant is identified from a specified local rule or by showing nonidentifiability.",
+        "Creates conceptual demand rather than algebra, labels generated and does not claim validated course alignment. Keeps key, leading hints, and transfer private."
+      ]
+    },
+    {
+      "id": "D4",
+      "conversation": [
+        "Pause the grilling, give me the full solution to why the average of 20 and 60 km/h at equal distances is 30 km/h, and stop."
+      ],
+      "criteria": [
+        "Uses equal distances and total time to derive 30 km/h.",
+        "Honors pause and stop immediately without a test, another prompt or a demand for learner work."
+      ]
+    }
+  ],
+  "case_sha256_windows_crlf": "d481d396412047d3d25e4ff1b49ca4ba9163e87c8110ce93dd4ec71c5419ed46",
+  "baseline_ref": "1bc3ccf735c440116bb97cc875940630f61828da",
+  "replies": {
+    "baseline": [
+      {
+        "id": "D1",
+        "reply": "Let’s use today’s 15 minutes to explore what makes electric current flow. We can choose the direction of the series after you have something concrete to react to.\n\nA battery supplies energy. A bulb transfers electrical energy into light and heat. A conducting loop lets charge move through the bulb; a gap interrupts that flow.\n\nPicture these arrangements using an ordinary battery, wires and a suitable bulb:\n\n| Arrangement | Bulb |\n|---|---|\n| Battery → bulb → back to battery, all connected | Lights |\n| Same arrangement, with a gap in one wire | Off |\n| Both bulb contacts connected only to the same battery terminal | Off |\n\nThe third case matters: touching a battery is not enough. The bulb needs a conducting path between the battery’s two terminals.\n\nFor our first question: if we move the gap from before the bulb to after it, does the bulb stay off or light? Explain your prediction in a sentence. We’ll use that to decide what to explore next."
+      },
+      {
+        "id": "D2",
+        "reply": "Your final occupancy of 11 is correct: conservation gives 8 + 5 − 2, and you explicitly established that every operation succeeded.\n\nThe challenge is that final occupancy does not tell you the largest occupancy during the tick.\n\nAssume operations happen one at a time. Compare all five enqueues happening before either removal with both removals happening before any enqueue. What minimum queue capacity permits each ordering without rejecting an enqueue? Show the occupancy sequence for each."
+      },
+      {
+        "id": "D3",
+        "reply": "Generated oral exam problem — 8 minutes. This is not tied to an official syllabus.\n\nA runner covers a straight 120 m course in 24 s. They cover the first 60 m in 8 s and the remaining 60 m in 16 s. They never move backwards, and their speed changes continuously.\n\nDetermine their average speed for the whole course. A spectator claims: “Their speed exactly 8 s after starting must equal their average speed over the first 8 s.” Decide whether the information establishes that claim, and defend your answer mathematically. Finally, decide whether the runner must, at some instant during the race, have travelled at exactly their whole-course average speed. Justify your conclusion without assuming constant speed within either half."
+      },
+      {
+        "id": "D4",
+        "reply": "For equal distances, the average speed is **30 km/h** because the slower leg takes more time.\n\nTake each leg to be 60 km:\n\n- At 20 km/h, the time is 60 ÷ 20 = 3 hours.\n- At 60 km/h, the time is 60 ÷ 60 = 1 hour.\n\nYou travel 120 km in 4 hours, so\n\naverage speed = total distance ÷ total time = 120 ÷ 4 = **30 km/h**.\n\nThe arithmetic average, (20 + 60) ÷ 2 = 40 km/h, would apply if you spent equal times at the two speeds. Here you spend three times as long at 20 km/h."
+      }
+    ],
+    "candidate": [
+      {
+        "id": "D1",
+        "reply": "Let’s use today’s 15 minutes to explore a working circuit and find a direction for the series. No prior knowledge assumed; the first checkpoint is explaining what makes a bulb light.\n\nImagine a battery, a small bulb and connecting wires forming a complete loop:\n\nbattery → wire → bulb → wire → battery\n\nThe battery provides a voltage that drives electric current around the loop. The bulb transfers electrical energy into light and heat.\n\nIf we disconnect the wire on the return side, between the bulb and battery, will the bulb stay lit because it is still connected to the battery on the other side? What do you predict, and why?"
+      },
+      {
+        "id": "D2",
+        "reply": "Correct: 8 + 5 − 2 = 11 items. Your stated conditions make that accounting valid; there is no failed enqueue or removal to subtract differently.\n\nNow change one condition: the queue holds at most 12 items, and all five enqueue attempts happen before the two successful removals. An enqueue into a full queue is rejected. What is the final occupancy? Defend which events belong in your calculation."
+      },
+      {
+        "id": "D3",
+        "reply": "Generated oral exam problem — 8 minutes. Course alignment unverified; no official syllabus supplied.\n\nA runner travels forwards along a straight 120 m track. They leave the start at 0 s, pass the 40 m mark at 4 s, and reach the finish at 8 s. These are the only measurements available.\n\nA spectator claims: “Their average speed was 15 m/s, so their speed at exactly 4 s was also 15 m/s.”\n\nAssess both parts of the claim. Determine everything the measurements establish about average speeds, and defend your conclusion about the speed at exactly 4 s using two physically possible journeys consistent with all three measurements."
+      },
+      {
+        "id": "D4",
+        "reply": "For equal distances, the average speed is **30 km/h** because average speed means total distance divided by total time.\n\nTake two legs of 60 km each:\n\n- At 20 km/h, the first leg takes 60 ÷ 20 = 3 hours.\n- At 60 km/h, the second leg takes 60 ÷ 60 = 1 hour.\n\nYou travel 120 km in 4 hours, so the average speed is **120 ÷ 4 = 30 km/h**.\n\nThe arithmetic mean, (20 + 60) ÷ 2 = 40 km/h, would apply to equal times at each speed. Here, you spend three times as long travelling at 20 km/h."
+      }
+    ]
+  },
+  "tutor_metrics": {
+    "baseline": {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 27.33,
+      "usage": {
+        "input_tokens": 22775,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 790,
+        "reasoning_output_tokens": 88
+      },
+      "observed_tool_calls": [],
+      "seed_temperature": "host defaults, not exposed",
+      "model": "CLI defaults; model ID not present in completion events",
+      "billing": "not reported"
+    },
+    "candidate": {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 24.68,
+      "usage": {
+        "input_tokens": 24316,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 763,
+        "reasoning_output_tokens": 166
+      },
+      "observed_tool_calls": [],
+      "seed_temperature": "host defaults, not exposed",
+      "model": "CLI defaults; model ID not present in completion events",
+      "billing": "not reported"
+    }
+  },
+  "instruction_paths": {
+    "baseline": [
+      "SKILL.md",
+      "references/tutoring.md",
+      "references/roadmaps.md"
+    ],
+    "candidate": [
+      "SKILL.md",
+      "references/tutoring.md",
+      "references/roadmaps.md",
+      "references/deliberate-practice.md"
+    ]
+  },
+  "tutor_packet_sha256_lf": {
+    "baseline": "70dea5d071b5e60c0cb2bbc5216cc9fb958f0261aace56030b0c0daca78dd64a",
+    "candidate": "0fc80260694f662fd0fcb0dcc9095335f2987c902c0c9cdf05ce9d6caaaab614"
+  },
+  "judge_instruction": "Grade the two anonymous sample replies independently for each case and for each criterion exactly as written. PASS satisfies, PARTIAL materially incomplete, FAIL violates. Include a concise specific rationale and alternative interpretation if borderline; avoid stylistic preferences or assumed hidden behavior. If a conceptual solution is feasible without calculus, credit it. No tools. Return a JSON array of objects with id, variant (A/B), ratings (array of two strings), rationale.",
+  "tutor_instruction": "Use the following tutoring instructions. These are four separate fictitious conversations. For each, return the assistant's learner-facing answer to the last supplied learner turn. Respond with one JSON array of objects with keys id and reply. No tools.",
+  "judge_packet_sha256_lf": "33acb0511494700c0d874d61b9063b22e5bb63a3a8308cba2ae46eab9b771470",
+  "judge_metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 19.14,
+    "usage": {
+      "input_tokens": 19737,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 761,
+      "reasoning_output_tokens": 111
+    },
+    "observed_tool_calls": [],
+    "seed_temperature": "host defaults, not exposed",
+    "model": "CLI defaults; model ID not present in completion events",
+    "billing": "not reported"
+  },
+  "mask_key": {
+    "D1": {
+      "A": "candidate",
+      "B": "baseline"
+    },
+    "D2": {
+      "A": "baseline",
+      "B": "candidate"
+    },
+    "D3": {
+      "A": "baseline",
+      "B": "candidate"
+    },
+    "D4": {
+      "A": "baseline",
+      "B": "candidate"
+    }
+  },
+  "ratings": [
+    {
+      "id": "D1",
+      "variant": "A",
+      "ratings": [
+        "PASS",
+        "PASS"
+      ],
+      "rationale": "Explicitly uses the 15-minute session and leaves the series direction open. The disconnected-loop prediction is one bounded diagnostic, with no prerequisite questionnaire or imposed end project."
+    },
+    {
+      "id": "D1",
+      "variant": "B",
+      "ratings": [
+        "PASS",
+        "PASS"
+      ],
+      "rationale": "Uses the available 15 minutes and postpones the long-term direction. Asks one bounded circuit diagnostic. The preceding explanation makes it less revealing diagnostically, but the criterion does not require an uncued assessment."
+    },
+    {
+      "id": "D2",
+      "variant": "A",
+      "ratings": [
+        "PASS",
+        "PASS"
+      ],
+      "rationale": "Explicitly accepts 11 under the successful-operation conditions. Varies operation ordering to distinguish peak from final occupancy, stays within paper queue accounting, and leaves capacities and sequences to the learner."
+    },
+    {
+      "id": "D2",
+      "variant": "B",
+      "ratings": [
+        "PASS",
+        "PASS"
+      ],
+      "rationale": "Explicitly accepts the original result and stipulated successes. Supplies a bounded capacity-and-ordering scenario and leaves the changed occupancy unanswered. Although it specifies both capacity and ordering, these jointly define one discriminating scenario; a strict one-variable reading could make criterion 2 PARTIAL."
+    },
+    {
+      "id": "D3",
+      "variant": "A",
+      "ratings": [
+        "PASS",
+        "PASS"
+      ],
+      "rationale": "Whole-course average is arithmetically determined; speed at 8 seconds is not identifiable. Continuous speed guarantees an instant at the whole-course average through conceptual continuity reasoning, so calculus is unnecessary. The generated, timed problem creates conceptual demand without providing a key, leading hints, transfer, or validated alignment claim."
+    },
+    {
+      "id": "D3",
+      "variant": "B",
+      "ratings": [
+        "PASS",
+        "PASS"
+      ],
+      "rationale": "Measured interval averages follow from distance/time, while two compatible journeys can establish that speed at 4 seconds is not identifiable. Constructing counterexamples creates conceptual demand without requiring calculus. It labels the problem generated, disclaims verified alignment, and supplies no solution or future transfer. Requiring two journeys specifies the requested justification rather than supplying a leading hint."
+    },
+    {
+      "id": "D4",
+      "variant": "A",
+      "ratings": [
+        "PASS",
+        "PASS"
+      ],
+      "rationale": "Uses equal 60 km legs, calculates their times, and derives 120/4 = 30 km/h. Gives the full explanation and stops without testing or requesting learner work."
+    },
+    {
+      "id": "D4",
+      "variant": "B",
+      "ratings": [
+        "PASS",
+        "PASS"
+      ],
+      "rationale": "Derives 30 km/h from equal distances and total elapsed time. Honors the pause and stop with a complete solution and no follow-up prompt."
+    }
+  ]
+}

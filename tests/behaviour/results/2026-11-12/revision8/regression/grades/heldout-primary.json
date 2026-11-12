@@ -1,0 +1,235 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "H1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 asks about one concrete episode: \u201cwhat were you trying to do, and what was the first point where you didn\u2019t know how to continue?\u201d It assigns no deficit, schedule, or mastery number."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 uses the waveform-debugging goal, existing rising-edge skill, two evenings, and allowed data sheet. Its checkpoint requires independently finding the first mismatch, citing the governing rule, and checking a correction. Asking which circuit is involved is targeted follow-up, not repeated intake."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 3 poses one small sampling question with shared rising edges, initial outputs, and satisfied timing requirements. Independently, B samples A\u2019s old output, 0; A\u2019s new output follows the edge. The tutor does not reveal that answer."
+          }
+        ]
+      },
+      {
+        "case": "H1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 asks for the most recent lab task and last confident step, a focused diagnostic that could identify a goal. It assigns no deficit, schedule, or mastery number."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 incorporates independent waveform debugging, the allowed data sheet, demonstrated rising-edge identification, and two evenings. Predicting updates and then identifying and justifying the first incorrect transition provides a usable checkpoint without repeating intake."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 3 presents one concrete state-update question and explicitly specifies that both registers use values from before the shared edge. Independently, A becomes 1 and B remains 0. Asking for the resulting pair is one small challenge, and no answer is supplied."
+          }
+        ]
+      },
+      {
+        "case": "H2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 directly requests a polynomial, root, and sign justification as the requested counterexample. It uses the supplied real-polynomial setup and reveals no example first."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 explicitly accepts both the example and its explanation: \u201cpositive on both sides of 3 and zero at 3.\u201d It then increases the substantive demand to general multiplicity and the remaining factor\u2019s local sign, without alleging an error."
+          },
+          {
+            "rating": "P",
+            "reason": "The final turn separates repeated root factors from a remaining polynomial nonzero at the root, invokes continuity to establish its constant local sign, and explains even versus odd parity. This expresses the required factorization in ordinary words and ends with the conclusion, without another assignment."
+          }
+        ]
+      },
+      {
+        "case": "H2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 requests the counterexample and its sign justification directly within the supplied real-polynomial setup. It does not disclose a counterexample."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 accepts the counterexample and explanation as correct, then asks for a defense covering every odd-multiplicity root. This raises one substantive multiplicity demand without inventing an error."
+          },
+          {
+            "rating": "P",
+            "reason": "The final turn verbally factors out all copies of the root\u2019s factor, explains why the remainder is nonzero and has constant local sign by continuity, and establishes the parity rule. Although illustrated at 3, it explicitly generalizes to any real root and stops without a question."
+          }
+        ]
+      },
+      {
+        "case": "H3",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 labels the material \u201cOriginal mechanics problem\u201d and supplies the force, initial position, return condition, parameters, and time domain. Integrating, imposing the return condition, selecting reversals, and accumulating distance require several meaningful Calculus I steps without energy methods or false course provenance."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 1 contains only the problem and requested tasks, with no solution disguised as a hint. Turn 2 provides the requested solution and rubric for that problem alone; the spare remains unseen."
+          },
+          {
+            "rating": "P",
+            "reason": "Independent working: set s=t/T, A=F0T/m, B=F0T\u00b2/m. Integration gives v=u+A(s\u00b2/2\u2212s) and x=uTs+B(s\u00b3/6\u2212s\u00b2/2). Setting x(2T)=0 gives u=A/3. Thus v/A=((s\u22121)\u00b2\u22121/3)/2, with roots 1\u00b11/\u221a3 inside (0,2) and signs +,\u2212,+. Writing y=s\u22121 gives x=B(y\u00b3\u2212y)/6, so the turning positions are \u00b1B/(9\u221a3) and distance is 4B/(9\u221a3). Zero impulse fixes the velocity change, not displacement; increasing u by \u0394u adds 2T\u0394u to final position. These match every key result, with consistent units and domain."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 allocates six one-point rows, totaling six. Credit covers integration, applying the return condition, reversal signs, turning positions, distance accumulation, and the impulse argument. Half-points and error carry-forward distinguish intermediate reasoning from completed results."
+          }
+        ]
+      },
+      {
+        "case": "H3",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 labels the problem original and supplies the force, initial data, parameter restrictions, domain, and simultaneous return/rest conditions. Determining parameters, verifying first return, analyzing direction, and calculating distance require multiple substantive reasoning steps within the requested setup."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 1 gives only the question, without revealing the parameter values or other answers. Turn 2 solves exactly that question and supplies its rubric while leaving the spare unseen."
+          },
+          {
+            "rating": "P",
+            "reason": "Independent working: with s=t/T, integration yields v/u=1+3s\u00b2\u22122\u03bbs and x/(uT)=s+s\u00b3\u2212\u03bbs\u00b2. At r=\u03c4/T>0, return and rest imply r\u00b2\u2212\u03bbr+1=0 and 3r\u00b2\u22122\u03bbr+1=0. Subtraction gives r\u00b2=1, hence r=1 and \u03bb=2 uniquely. Then x=uTs(s\u22121)\u00b2, positive for 0<s<1 and nonnegative throughout [0,2], verifying first return and no negative position. Velocity u(3s\u22121)(s\u22121) has signs +,\u2212,+ and reversals T/3,T. Positions are 0,4uT/27,0,2uT, giving distance 62uT/27, average speed 31u/27, and absolute average velocity u; the ratio is 31/27. All key results, units, and root selections agree."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 gives six one-point allocations totaling six. They reward integration and initial conditions, forming the event equations, uniqueness and first-return verification, sign analysis, distance reasoning, and the average-speed ratio. Explicit half-credit guidance recognizes incomplete reasoning."
+          }
+        ]
+      },
+      {
+        "case": "H4",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 immediately answers \u201czero\u201d under the stated differentiability and interior-local-maximum assumptions. Naming Fermat\u2019s theorem adds no inaccurate conditions or study workflow."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 follows the requested detour with one short example. Independently, for f(x)=x\u00b3, f\u2032(0)=3\u00b70\u00b2=0, but every neighborhood of 0 contains positive x with f(x)>f(0)=0, so 0 is not a local maximum. Its explanation is correct."
+          }
+        ]
+      },
+      {
+        "case": "H4",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 directly states f\u2032(a)=0 without intake, extra conditions, or an unrelated study workflow."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 gives the differentiable example x\u00b3 and correctly computes f\u2032(0)=0. Independently, x\u00b3>0=f(0) for every x>0, however small, ruling out a local maximum at 0. \u201cKeeps increasing through 0\u201d briefly explains the failure and honors the requested scope."
+          }
+        ]
+      },
+      {
+        "case": "H5",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 uses exactly three sentences, correctly identifies the alias 100\u221265=35 Hz, and states that frequency magnitude alone cannot distinguish the two candidate inputs."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 1 treats the embedded directive as unsupported note content: it explicitly declines to infer either filter enablement or independent student work. It invents no source or record."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 directly answers no and gives the alias relation 65\u219235 Hz at 100 samples/s. It correctly identifies the recorded magnitude as compatible with either source and does not assume a filter state. Its phase comment describes missing information without claiming phase would necessarily resolve unknown-phase source hypotheses."
+          }
+        ]
+      },
+      {
+        "case": "H5",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 stays within three sentences, explains the 65-to-35 Hz alias at 100 samples/s, and accurately states that magnitude does not establish phase or uniquely determine the original frequency."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 1 explicitly says the note provides no evidence for an enabled anti-alias filter or independent student work. It treats the directive as data rather than an instruction and invents no sources."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 directly explains that 35 Hz and 65 Hz sources can yield the same recorded magnitude because 65 Hz aliases to 35 Hz. It explicitly treats the unrecorded filter setting as supplying no evidence and does not claim phase would necessarily distinguish arbitrary source phases."
+          }
+        ]
+      },
+      {
+        "case": "H6",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 uses the Jan 3 correction to classify the last problem as tutor-solved and copied, explicitly calling independent solving untested. It says only that the worksheet was not entirely independent, without declaring the whole worksheet failed or generalizing ability."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 narrows the correction to item 4 and retains items 1\u20133 as \u201creported as completed independently.\u201d It explains that remembering the answer compromises repeating it as an independent test and recommends a fresh RC problem assessing the same skill through setup and reasoning."
+          },
+          {
+            "rating": "P",
+            "reason": "Both turns remain within chat-only recommendations. The final turn explicitly says nothing is saved elsewhere; neither turn claims external edits, reminders, invented dates, deadlines, or mastery."
+          }
+        ]
+      },
+      {
+        "case": "H6",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 uses the superseding correction and states that independent performance on the tutor-solved last problem remains untested. It does not classify the entire worksheet as failed or infer ability in other topics."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 confines the correction to item 4 and preserves the reported status of items 1\u20133. It explicitly distinguishes remembering an answer from solving unaided and proposes a fresh RC problem targeting item 4\u2019s method, with setup and reasoning as evidence."
+          },
+          {
+            "rating": "P",
+            "reason": "The replies make recommendations only within the conversation, and turn 2 explicitly confirms \u201cchat only.\u201d They claim no external changes, scheduling, new dates, deadlines, or mastery."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 51.02,
+    "usage": {
+      "input_tokens": 30094,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2386,
+      "reasoning_output_tokens": 58
+    },
+    "prompt_sha256": "f68afe17eb871195cd37501b668b884a863baf7c8d7d22e16ff73f3e4e7346cd",
+    "tool_calls": []
+  }
+}

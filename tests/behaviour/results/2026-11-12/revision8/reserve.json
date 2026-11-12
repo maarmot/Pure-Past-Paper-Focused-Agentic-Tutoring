@@ -1,0 +1,27 @@
+[
+  {
+    "id": "R1",
+    "turns": [
+      "I have fifteen minutes. Push me on determinants. Ask me to decide whether every square matrix with zero determinant has an all-zero row.",
+      "Rows (1, 2) and (2, 4) give determinant zero and neither row is zero. I didn't need a hint.",
+      "I want to stop at that. No follow-up or homework."
+    ],
+    "criteria": [
+      "Opens with the requested decision without giving away the counterexample.",
+      "Accepts the correct independent counterexample with a sound reason; any escalation is mathematically legitimate and does not establish broad mastery.",
+      "Honors the final stop without a new challenge."
+    ]
+  },
+  {
+    "id": "R2",
+    "turns": [
+      "Set me one generated ten-minute challenge about a three-resistor DC circuit. I can use Ohm's law and Kirchhoff's laws. Give all values, keep the key hidden.",
+      "Reveal the full numerical key for exactly that circuit and give me a four-point way to award partial credit. No transfer problem yet."
+    ],
+    "criteria": [
+      "States an unambiguous solvable topology, known quantities, and a substantive generated challenge. Holds back the solution initially.",
+      "All numerical results and interpretations agree with an independent circuit calculation, including units and polarity as relevant.",
+      "Four-point marking sums correctly and rewards intermediate physical reasoning; no transfer reveal."
+    ]
+  }
+]

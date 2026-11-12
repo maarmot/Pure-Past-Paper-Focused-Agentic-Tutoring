@@ -1,5 +1,9 @@
 SKILL.md
 agents/openai.yaml
+assets/challenges/rotation.md
+assets/challenges/rotation-key.md
+assets/challenges/rotation-transfer.md
+assets/challenges/rotation-transfer-key.md
 assets/argument-session.template.json
 assets/inquiry-session.template.json
 assets/inquiry-storyboard.template.md
@@ -23,6 +27,7 @@ assets/visual-evidence.template.json
 references/aliasing-certificate.md
 references/argument.md
 references/delegation.md
+references/deliberate-practice.md
 references/end-to-end.md
 references/fields.md
 references/interactive.md
@@ -39,3 +44,4 @@ references/tools.md
 references/tutoring.md
 references/visual-inquiry.md
 scripts/ppp_tools.py
+scripts/export_roadmap_event.py

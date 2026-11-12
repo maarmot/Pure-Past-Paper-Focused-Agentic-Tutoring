@@ -71,12 +71,16 @@ class RuntimePackageTests(unittest.TestCase):
 
     def test_runtime_manifest_covers_local_document_links_and_skill_metadata(self):
         manifest = set((ROOT / "runtime-files.txt").read_text(encoding="utf-8").splitlines())
+        self.assertEqual({p for p in manifest if p.startswith("scripts/")}, {
+            "scripts/ppp_tools.py", "scripts/export_roadmap_event.py"
+        })
         self.assertTrue({"SKILL.md", "agents/openai.yaml", "references/jane-street-license.txt",
                          "scripts/ppp_tools.py"}.issubset(manifest))
         for name in manifest:
             path = ROOT / name
             self.assertTrue(path.is_file(), name)
-            self.assertFalse(name.startswith(("tests/", "examples/", "records/", ".git", "output/")))
+            self.assertFalse(name.startswith(("tests/", "examples/", "records/", "private/", "roadmap/",
+                                              "docs/", ".git", "output/")))
             if path.suffix != ".md":
                 continue
             for link in re.findall(r"\]\(([^)\n]+)\)", path.read_text(encoding="utf-8")):

@@ -1,0 +1,97 @@
+{
+  "case": "Exposed primary-development D2 replay; first learner turn matches, second independently worded.",
+  "first_message": "Give me a 5-minute generated mini-exam on the relationship between position, velocity and acceleration. No solutions yet. I just learned derivatives.",
+  "second_message": "Now give me the complete key with a five-point partial-credit rubric.",
+  "prefix": "Act as a tutor using the following instructions. You are in a text-only study session; no external tools are available. Answer the learner directly.",
+  "instructions": [
+    "SKILL.md",
+    "references/tutoring.md",
+    "references/deliberate-practice.md"
+  ],
+  "second_repair_edits": [
+    {
+      "previous": "- **Repeated trouble.** Reduce the demand at the sticking point. Give the missing definition, a smaller case, or one worked step, then let the learner try a nearby case. Before showing a sketch, check its labels, orientation and constraints against the learner's setup. If the prerequisite is outside their stated background, supply it or change the problem.",
+      "candidate": "- **Repeated trouble.** Reduce the demand at the sticking point. Give the missing definition, a smaller case, or one worked step, then let the learner try a nearby case. Keep the original constraints when simplifying a sketch. Check example dimensions against every constraint before drawing, or sketch with symbols alone. If the prerequisite is outside their stated background, supply it or change the problem."
+    },
+    {
+      "previous": "Read the exact question back against the key. Can the learner give the verified answer in the form the question permits, including equality or insufficient data when relevant? If choosing a method is the challenge, leave that choice to the learner.",
+      "candidate": "Solve each subquestion privately with the exact values the learner will see. Write its answer first, then phrase the question so that answer fits. If the wording offers alternatives, try selecting the keyed answer verbatim. When none fits, use an open question such as “What happens at this instant?” Check the prompt and the solution again after changing either one. If choosing a method is the challenge, leave it to the learner."
+    }
+  ],
+  "replays": {
+    "before": {
+      "reference_sha256": "1d5f4a5f1c51b5b8d0b2ecbcb5b1596a60657ad5f93e7cf2f53a36c1f1881fa7",
+      "question": "**Generated mini-exam: Position, velocity and acceleration**  \n**Time: 5 minutes.** No calculator needed. Show your reasoning. Assume all motion is along a straight line.\n\n**1. From position to motion — 2 minutes**\n\nA particle’s position is\n\\[\nx(t)=t^3-6t^2+9t,\n\\]\nwhere \\(x\\) is measured in metres and \\(t\\) in seconds.\n\na. Find expressions for velocity \\(v(t)\\) and acceleration \\(a(t)\\). Include units.\n\nb. At \\(t=2\\), is the particle moving in the positive or negative direction?\n\nc. At \\(t=2\\), is its speed increasing or decreasing? Explain using your results.\n\n**2. An instant at rest — 1 minute**\n\nA ball moves vertically, with upward defined as positive. At one instant, its velocity is zero and its acceleration is \\(-9.8\\ \\mathrm{m/s^2}\\).\n\nA student says: “Its velocity is zero, so its acceleration must also be zero.”\n\nIs the student correct? Explain what the given acceleration tells you about how the velocity is changing at that instant.\n\n**3. What velocity tells you — 2 minutes**\n\nA different particle has velocity\n\\[\nv(t)=4-2t\\quad \\mathrm{m/s},\\qquad 0\\leq t\\leq4.\n\\]\n\na. Find its acceleration.\n\nb. During which time interval is its position increasing, and during which is it decreasing?\n\nc. Can you determine its exact position at \\(t=2\\) from the information given? Explain.",
+      "key": "**Complete key — 5 points total**\n\n**1. From position to motion — 2 points**\n\na. Differentiate position to get velocity, then differentiate velocity to get acceleration:\n\\[\nv(t)=3t^2-12t+9\\quad\\mathrm{m/s},\n\\]\n\\[\na(t)=6t-12\\quad\\mathrm{m/s^2}.\n\\]\n\n**Credit:** 0.5 point for each correct expression with its units.\n\nb. At \\(t=2\\),\n\\[\nv(2)=12-24+9=-3\\ \\mathrm{m/s}.\n\\]\nThe particle moves in the **negative direction**.\n\n**Credit:** 0.5 point for the negative direction supported by \\(v(2)<0\\).\n\nc. At \\(t=2\\),\n\\[\na(2)=0.\n\\]\nThe speed is **neither increasing nor decreasing at that exact instant**: its instantaneous rate of change is zero. It decreases just before \\(t=2\\) and increases just afterward, so it has a local minimum there.\n\n**Credit:** 0.5 point for the instantaneous conclusion supported by \\(a(2)=0\\). Give 0.25 for correctly finding zero acceleration without explaining speed.\n\n**2. An instant at rest — 1 point**\n\nThe student is **incorrect**. Velocity describes how position changes; acceleration describes how velocity changes. Zero velocity at an instant does not require zero acceleration.\n\nHere,\n\\[\n\\frac{dv}{dt}=-9.8\\ \\mathrm{m/s^2},\n\\]\nso velocity is changing toward negative values at that instant. If this acceleration persists, the ball begins moving downward.\n\n**Credit:** 0.5 point for rejecting the claim and distinguishing velocity from acceleration; 0.5 for correctly interpreting the negative acceleration.\n\n**3. What velocity tells you — 2 points**\n\na.\n\\[\na(t)=\\frac{dv}{dt}=-2\\ \\mathrm{m/s^2}.\n\\]\n\n**Credit:** 0.5 point, including units.\n\nb. Position increases when velocity is positive and decreases when velocity is negative:\n\\[\n4-2t>0\\quad\\text{for }t<2,\\qquad\n4-2t<0\\quad\\text{for }t>2.\n\\]\nThus position increases from \\(t=0\\) to \\(t=2\\) and decreases from \\(t=2\\) to \\(t=4\\). At \\(t=2\\), velocity is zero and position reaches a maximum.\n\n**Credit:** 0.5 point for each correct interval connected to the sign of velocity. Accept either endpoint convention if the zero velocity at \\(t=2\\) is clear.\n\nc. **No.** Velocity tells us how position changes, but no starting position is given. For example, both\n\\[\nx(t)=4t-t^2\n\\quad\\text{and}\\quad\nx(t)=100+4t-t^2\n\\]\nhave the given velocity, yet their positions at \\(t=2\\) differ.\n\n**Credit:** 0.5 point for “cannot determine” with the missing starting position or equivalent explanation.\n\n*Apply follow-through credit when a learner correctly interprets their own earlier derivative error; avoid penalizing the same error twice.*",
+      "question_packet_sha256": "b74c8aa8723690c911f6eceb1cd1f9ebf60666a0efece13fd06552bf3c2beba5",
+      "key_packet_sha256": "96702aab73cd756bdf67c15b07b2494cd8b2615960282e45c05c28162977e916",
+      "question_metrics": {
+        "cli": "codex-cli 0.167.0-alpha.4.1",
+        "seconds": 11.77,
+        "usage": {
+          "input_tokens": 22975,
+          "cached_input_tokens": 12416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 373,
+          "reasoning_output_tokens": 26
+        },
+        "observed_tool_calls": [],
+        "seed_temperature": "host defaults, not exposed",
+        "model": "CLI defaults; model ID not present in completion events",
+        "billing": "not reported"
+      },
+      "key_metrics": {
+        "cli": "codex-cli 0.167.0-alpha.4.1",
+        "seconds": 16.86,
+        "usage": {
+          "input_tokens": 23335,
+          "cached_input_tokens": 16512,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 700,
+          "reasoning_output_tokens": 0
+        },
+        "observed_tool_calls": [],
+        "seed_temperature": "host defaults, not exposed",
+        "model": "CLI defaults; model ID not present in completion events",
+        "billing": "not reported"
+      }
+    },
+    "after": {
+      "reference_sha256": "9d7d18240082874fe3a185b400805c7b45e83d6cc74dc65b7bca3d53e053e4db",
+      "question": "**Generated mini-exam — 5 minutes**\n\nAssume motion along a straight line. Positive position is to the right of the origin. Time \\(t\\) is in seconds and position \\(x\\) is in metres. Show your reasoning and include units. No calculator needed.\n\n**1. Position → velocity → acceleration** *(2 minutes)*\n\nA particle’s position is\n\\[\nx(t)=t^2-4t+3.\n\\]\n\na) Find expressions for its velocity \\(v(t)\\) and acceleration \\(a(t)\\).\n\nb) At \\(t=1\\), find its position and velocity. Is it moving left or right?\n\n**2. A moment at rest** *(2 minutes)*\n\nFor the same particle:\n\na) Find the time when its velocity is zero.\n\nb) A learner says, “Its velocity is zero then, so its acceleration must also be zero.” Decide whether this is correct and justify your answer using the function.\n\nc) Does the particle change direction at that time? Use its velocity just before and just after to explain.\n\n**3. Signs and motion** *(1 minute)*\n\nAt one instant, a different particle has\n\\[\nx=-5\\text{ m},\\qquad v=+3\\text{ m/s},\\qquad a=-2\\text{ m/s}^2.\n\\]\n\nIs it:\n\na) Left or right of the origin?\n\nb) Moving left or right?\n\nc) Speeding up or slowing down at that instant?\n\nGive a brief reason for (c).",
+      "key": "Each numbered rubric item is worth **1 point**, for a total of **5 points**. Award **½ point** as specified.\n\n1. **Question 1(a): Derivatives — 1 point**\n\n   \\[\n   v(t)=\\frac{dx}{dt}=2t-4\\ \\text{m/s},\\qquad\n   a(t)=\\frac{dv}{dt}=2\\ \\text{m/s}^2.\n   \\]\n\n   Award ½ point for each correct derivative.\n\n2. **Question 1(b): Position and motion — 1 point**\n\n   \\[\n   x(1)=1-4+3=0\\text{ m},\\qquad v(1)=2-4=-2\\text{ m/s}.\n   \\]\n\n   The particle is **at the origin, moving left**, because its velocity is negative.\n\n   Award ½ point for the position; ½ point for the velocity with its correct direction.\n\n3. **Questions 2(a–b): Rest and acceleration — 1 point**\n\n   Set \\(v(t)=0\\):\n   \\[\n   2t-4=0\\quad\\Rightarrow\\quad t=2\\text{ s}.\n   \\]\n\n   The claim is **incorrect**: \\(a(2)=2\\text{ m/s}^2\\). Zero velocity at an instant does not imply zero acceleration; acceleration measures how velocity is changing.\n\n   Award ½ point for \\(t=2\\text{ s}\\); ½ point for rejecting the claim using the nonzero acceleration.\n\n4. **Question 2(c): Change of direction — 1 point**\n\n   **Yes.** Just before \\(t=2\\), \\(v=2t-4<0\\); just after, \\(v>0\\). The particle therefore changes from moving left to moving right.\n\n   Award ½ point for the correct velocity signs on both sides; ½ point for connecting that sign change to reversal of direction. A bare “yes” earns no credit.\n\n5. **Question 3(a–c): Interpreting signs — 1 point**\n\n   a) **Left** of the origin, since \\(x<0\\).  \n   b) **Moving right**, since \\(v>0\\).  \n   c) **Slowing down**, since acceleration points opposite to velocity.\n\n   Award ½ point for both (a) and (b) correct; ½ point for (c) with the opposing-sign explanation.\n\n**Marking convention:** Accept equivalent reasoning. Carry forward an earlier algebra error when later reasoning uses it consistently, so the same error is not penalized twice. Require units on numerical quantities; within the affected half-point component, withhold credit if units are missing or incorrect.",
+      "question_packet_sha256": "83b4e881b639492c2a68f2a8a8dafda62f264ea4bc241e090e97e1f839632f23",
+      "key_packet_sha256": "4c70a1630ff355e1b6ef6a2ab499736f8e09a5e25f253d4fa32eb586c7ddf03e",
+      "question_metrics": {
+        "cli": "codex-cli 0.167.0-alpha.4.1",
+        "seconds": 18.66,
+        "usage": {
+          "input_tokens": 23020,
+          "cached_input_tokens": 12416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 471,
+          "reasoning_output_tokens": 146
+        },
+        "observed_tool_calls": [],
+        "seed_temperature": "host defaults, not exposed",
+        "model": "CLI defaults; model ID not present in completion events",
+        "billing": "not reported"
+      },
+      "key_metrics": {
+        "cli": "codex-cli 0.167.0-alpha.4.1",
+        "seconds": 15.87,
+        "usage": {
+          "input_tokens": 23358,
+          "cached_input_tokens": 12416,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 579,
+          "reasoning_output_tokens": 0
+        },
+        "observed_tool_calls": [],
+        "seed_temperature": "host defaults, not exposed",
+        "model": "CLI defaults; model ID not present in completion events",
+        "billing": "not reported"
+      }
+    }
+  }
+}

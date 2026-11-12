@@ -1,0 +1,62 @@
+[
+  {
+    "case": "D1",
+    "criteria": [
+      "Start practicing with a valid constraint question and use the supplied time/goal/aids without re-asking.",
+      "Second reply addresses the stated double count using a consistent diagram or small example and a smaller next step; a retry remains possible.",
+      "Reasoning is correct in its stated fencing setup and feedback does not assign mastery."
+    ],
+    "samples": {
+      "X": [
+        {
+          "learner": "I have a 20-minute session to practice translating word problems into constraints. Ask me one challenge about rectangular areas; no calculator.",
+          "tutor": "**Generated challenge \u2014 no calculator**\n\nA farmer builds a rectangular enclosure split into two pens by one straight internal fence parallel to the rectangle\u2019s width. There are **60 metres of fencing** available for the outer boundary and the divider. The total enclosed area must be **at least 120 m\u00b2**, and the rectangle\u2019s length must be **at least twice its width**.\n\nLet \\(L\\) and \\(W\\) be the rectangle\u2019s length and width in metres.\n\nWrite the constraints on \\(L\\) and \\(W\\), including their allowed signs. Explain which part of the description gives each constraint. **You do not need to solve them.**"
+        },
+        {
+          "learner": "I spent both sides of the same fence twice. Please slow down and use a diagram or a tiny numerical example. Show me where to put each side, then let me retry.",
+          "tutor": "Count each physical fence once: the two pens share the divider.\n\n```text\n                 L\n          \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n        W \u2502              \u2502\n          \u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2190 divider\n        W \u2502              \u2502\n          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\nThat sketch would make the divider parallel to **length**, so we need to turn the divider to match the question:\n\n```text\n                   L\n          \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n          \u2502        \u2502        \u2502\n        W \u2502        \u2502        \u2502 W\n          \u2502        \u2502        \u2502\n          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                   L\n                   \u2191\n             divider: W\n```\n\nPut each fence in a list:\n\n- Top and bottom: \\(L\\) each.\n- Left and right: \\(W\\) each.\n- Internal divider: \\(W\\), counted **once**. Having a pen on each side does not create a second fence.\n\nFor a tiny example, if \\(L=6\\) and \\(W=2\\), the fence pieces total\n\\[\n6+6+2+2+2=18\\text{ metres}.\n\\]\n\nNow retry **only the fencing constraint**: using \\(L\\), \\(W\\), and the available \\(60\\) metres, what inequality would you write?"
+        }
+      ],
+      "Y": [
+        {
+          "learner": "I have a 20-minute session to practice translating word problems into constraints. Ask me one challenge about rectangular areas; no calculator.",
+          "tutor": "Here\u2019s a generated challenge\u2014no calculator needed.\n\nA rectangular garden is built against a straight wall. You have **24 metres of fencing** for the other three sides. The garden must have an area of **at least 64 square metres**.\n\nLet \\(x\\) be the length of each side perpendicular to the wall, and \\(y\\) the side parallel to it.\n\n**Write the constraints on \\(x\\) and \\(y\\), including their possible signs.** You don\u2019t need to solve them yet."
+        },
+        {
+          "learner": "I spent both sides of the same fence twice. Please slow down and use a diagram or a tiny numerical example. Show me where to put each side, then let me retry.",
+          "tutor": "The fence is counted by its **length**, so each fenced side appears once. The wall supplies the fourth side.\n\n```text\n             WALL \u2014 no fencing\n         \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n       x \u2502                  \u2502 x\n         \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                  y\n```\n\nThe two sides sticking out from the wall each have length \\(x\\). The bottom side has length \\(y\\).\n\nFor a tiny example, if \\(x=3\\) metres and \\(y=8\\) metres, the fencing used is\n\\[\n3+3+8=14\\text{ metres}.\n\\]\nWe count each fence segment once; its two faces don\u2019t require two lengths of fencing.\n\nYour turn: using \\(x\\) and \\(y\\), write **only the fencing constraint** for the garden with 24 metres available. We\u2019ll return to area and signs afterward."
+        }
+      ]
+    }
+  },
+  {
+    "case": "D2",
+    "criteria": [
+      "A clearly generated, feasible and solvable question set focuses on the given derivatives, has no leaked answers, and avoids inventing course provenance.",
+      "The key answers every generated question with correct signs, units where defined and interpretation.",
+      "Partial credit sums to five and rewards identifiable reasoning steps without double counting."
+    ],
+    "samples": {
+      "X": [
+        {
+          "learner": "Give me a 5-minute generated mini-exam on the relationship between position, velocity and acceleration. No solutions yet. I just learned derivatives.",
+          "tutor": "**Generated mini-exam: position, velocity and acceleration**  \n**Time: 5 minutes \u00b7 No calculator \u00b7 10 marks**\n\nAssume motion along a straight line. Position \\(x\\) is measured in metres and time \\(t\\) in seconds. Show your reasoning.\n\n1. A particle\u2019s position is\n   \\[\n   x(t)=t^3-6t^2+9t,\\qquad t\\geq0.\n   \\]\n   **(a)** Find its velocity \\(v(t)\\) and acceleration \\(a(t)\\). **[2]**  \n   **(b)** Find all times when it is at rest. **[2]**\n\n2. For the particle in Question 1, at \\(t=2\\):\n   \n   **(a)** Is it moving in the positive or negative direction? **[1]**  \n   **(b)** Is its speed increasing or decreasing? Explain using velocity and acceleration. **[2]**\n\n3. A different particle has position\n   \\[\n   x(t)=4-2t.\n   \\]\n   Find its velocity and acceleration, including units. **[2]**\n\n4. A learner claims: \u201cWhenever a particle\u2019s velocity is zero, its acceleration must also be zero.\u201d Is this true? Give a reason or a counterexample. **[1]**"
+        },
+        {
+          "learner": "Time. Give me the full key and a 5-point partial-credit scheme for the questions you just gave me.",
+          "tutor": "Here is the full key, with the original 10 marks **rescaled to 5 points**.\n\n**1. Differentiate and find rest times \u2014 2 points**\n\n**(a)**\n\\[\nv(t)=x'(t)=3t^2-12t+9\\quad\\text{m/s},\n\\]\n\\[\na(t)=v'(t)=6t-12\\quad\\text{m/s}^2.\n\\]\n\nAward **0.5** for each correct derivative.\n\n**(b)** At rest means \\(v(t)=0\\):\n\\[\n3t^2-12t+9=3(t-1)(t-3)=0.\n\\]\nThus,\n\\[\n\\boxed{t=1\\text{ s},\\quad t=3\\text{ s}.}\n\\]\n\nAward **0.5** for setting velocity equal to zero and **0.5** for both correct times.\n\n**2. Direction and speed at \\(t=2\\) \u2014 1.5 points**\n\n**(a)**\n\\[\nv(2)=12-24+9=-3\\text{ m/s}.\n\\]\nIt moves in the **negative direction**. **[0.5]**\n\n**(b)**\n\\[\na(2)=12-12=0.\n\\]\nSince velocity is nonzero, the instantaneous rate of change of speed is zero: its speed is **neither increasing nor decreasing at that instant**.\n\nAward **0.5** for \\(a(2)=0\\) and **0.5** for the correct conclusion.\n\nFor context, speed increases immediately before \\(t=2\\) and decreases immediately afterward, so it has a local maximum there.\n\n**3. Constant-velocity motion \u2014 1 point**\n\n\\[\nx(t)=4-2t\n\\quad\\Rightarrow\\quad\n\\boxed{v=-2\\text{ m/s},\\qquad a=0\\text{ m/s}^2.}\n\\]\n\nAward **0.5** for each correct value with its unit.\n\n**4. Zero velocity versus zero acceleration \u2014 0.5 points**\n\nThe claim is **false**. Question 1 supplies a counterexample:\n\\[\nv(1)=0,\\qquad a(1)=-6\\text{ m/s}^2.\n\\]\nA particle can be momentarily at rest while its velocity is changing.\n\nAward **0.5** for rejecting the claim with a valid reason or counterexample.\n\n**Marking convention:** Carry forward an earlier derivative error when later reasoning correctly uses that result; do not penalize the same error twice."
+        }
+      ],
+      "Y": [
+        {
+          "learner": "Give me a 5-minute generated mini-exam on the relationship between position, velocity and acceleration. No solutions yet. I just learned derivatives.",
+          "tutor": "**5-minute mini-exam \u2014 Position, velocity and acceleration**  \n*Generated practice. Assume motion along a straight line. No calculator needed.*\n\nShow your working. Position \\(x\\) is in metres and time \\(t\\) is in seconds.\n\n**1. From position to motion \u2014 3 marks**  \nA particle has position\n\\[\nx(t)=t^3-3t^2+2,\\qquad t\\geq0.\n\\]\n\n(a) Find its velocity \\(v(t\\)).  \n(b) Find its acceleration \\(a(t)\\).  \n(c) At \\(t=1\\), is it moving in the positive or negative direction?\n\n**2. At rest \u2014 2 marks**  \nFor the same particle, find **all** times \\(t\\geq0\\) when it is instantaneously at rest. Does being at rest necessarily mean its acceleration is zero? Support your answer using one of those times.\n\n**3. Speeding up or slowing down \u2014 2 marks**  \nAt one instant, another particle has\n\\[\nv=-4\\ \\text{m/s},\\qquad a=+2\\ \\text{m/s}^2.\n\\]\nIs its speed increasing or decreasing at that instant? Explain.\n\n**4. What can velocity tell you? \u2014 2 marks**  \nA third particle has constant velocity \\(v(t)=3\\ \\text{m/s}\\).\n\n(a) State its acceleration.  \n(b) Can you determine its position at \\(t=2\\) from this information alone? Explain.\n\n**Total: 9 marks.**"
+        },
+        {
+          "learner": "Time. Give me the full key and a 5-point partial-credit scheme for the questions you just gave me.",
+          "tutor": "Here\u2019s the full key, with the original 9 marks **rescaled to 5 points**. Award each listed credit independently.\n\n| Part | Answer and reasoning | Credit |\n|---|---|---:|\n| **1(a)** | \\(v(t)=x'(t)=3t^2-6t\\). | **0.5** for differentiating position to find velocity; **0.5** for the correct expression. |\n| **1(b)** | \\(a(t)=v'(t)=6t-6\\). | **0.5** |\n| **1(c)** | \\(v(1)=3-6=-3\\ \\text{m/s}\\), so it moves in the **negative direction**. | **0.5** for the calculation and direction. |\n| **2** | At rest means \\(v=0\\): \\(3t(t-2)=0\\), giving **\\(t=0\\) and \\(t=2\\) s**. Acceleration need not be zero: \\(a(0)=-6\\ \\text{m/s}^2\\), or \\(a(2)=6\\ \\text{m/s}^2\\). | **0.25** for setting \\(v=0\\); **0.25** for each time; **0.25** for a valid nonzero-acceleration example. |\n| **3** | Speed is **decreasing**. Positive acceleration makes the negative velocity less negative, moving it toward zero and reducing its magnitude. | **0.5** for decreasing; **0.5** for the explanation. |\n| **4(a)** | \\(a=0\\ \\text{m/s}^2\\), because velocity is constant. | **0.5** |\n| **4(b)** | **No.** We need an initial position: \\(x(2)=x(0)+(3\\ \\text{m/s})(2\\ \\text{s})=x(0)+6\\ \\text{m}\\). Velocity determines the displacement, but not the absolute position. | **0.5** for identifying the missing initial position or an equivalent explanation. |\n\n**Total: 5 points.** For follow-through credit, if an earlier algebra error produces an incorrect velocity, award 1(b) credit for correctly differentiating that velocity and 1(c) credit for correctly evaluating and interpreting its sign."
+        }
+      ]
+    }
+  }
+]

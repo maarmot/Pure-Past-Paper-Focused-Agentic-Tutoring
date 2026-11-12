@@ -1,0 +1,24 @@
+[
+  {
+    "id": "T1",
+    "turns": [
+      "Create one short original multiple-choice question for a lab apprentice. Use the temperature history T(t) = 18 + (t-3)^2 degrees C for 0 to 6 minutes and ask about the instantaneous rate of change at minute 3. Use plausible choices. No answers yet.",
+      "Give me the key now, including a way to check why the alternatives are wrong."
+    ],
+    "criteria": [
+      "The first turn poses a well-formed question, contains no solution, and includes exactly one defensible answer in its actual alternatives. Compute the instantaneous slope at t=3 directly from the supplied quadratic and check each alternative. Equivalent verbal descriptions are allowed.",
+      "The second turn identifies a choice that actually appeared, gives a sound derivation or check at t=3 and explains why its distractors fail. Distinguish the instantaneous slope from change on either side."
+    ]
+  },
+  {
+    "id": "T2",
+    "turns": [
+      "Give me a coaching question on translating this loading problem into constraints. A kit needs both red cases (3 kg each) and blue cases (2 kg each), at least five cases and at most 12 kg. Start with the physical picture and leave the algebra to me.",
+      "I keep mixing up the count and the weight. Slow down and show a small numerical packing, then let me try the constraints."
+    ],
+    "criteria": [
+      "Responds to the initial request with the stated loading setup, keeps count and mass distinct, and leaves the requested algebra to the learner.",
+      "The numerical packing used to illustrate the requested kit contains both kinds, has integer counts totaling at least five, and weighs at most 12 kg; the tutor labels counts and weights or their units accurately, then leaves a retry. An example demonstrating an explicitly different subproblem only partially meets the actual request."
+    ]
+  }
+]

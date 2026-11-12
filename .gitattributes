@@ -2,3 +2,5 @@
 # Frozen evaluation bytes must survive staging and checkout unchanged.
 tests/behaviour/results/2026-11-11/revision6/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 tests/behaviour/results/2026-11-12/revision7/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tests/behaviour/results/2026-11-12/revision8/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tests/behaviour/results/2026-11-12/instructional-development/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

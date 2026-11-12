@@ -1,0 +1,99 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "H2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 asks, \u201cCan you give a real polynomial with a real root where the function does not change sign,\u201d requests justification, and supplies no counterexample. It directly uses the learner\u2019s polynomial-root setup."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 explicitly accepts both example and explanation: \u201cCorrect\u201d and \u201cpositive on both sides.\u201d It raises one substantive demand: characterize sign change through multiplicity and justify why the nonzero remaining factor cannot disrupt the local argument."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 3 describes factoring out all copies of the root\u2019s factor, equivalent to p(x)=(x-a)^m q(x), with q(a) nonzero. It explains that continuity gives q a constant local sign, establishes even versus odd parity, and ends with the conclusion without another question or assignment."
+          }
+        ]
+      },
+      {
+        "case": "H2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 asks for a counterexample, its polynomial and root, and a same-sign justification. It reveals no example and uses the supplied real-polynomial setup."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 says \u201cCorrect\u201d and confirms positivity on either side of 3. It increases the demand to proving the sign-change claim for any root of odd multiplicity, without alleging an error."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 3 separates all copies of the root\u2019s factor from a remaining polynomial factor, explicitly explains why that factor is nonzero and has constant local sign by continuity, and proves the parity distinction. Although illustrated at 3, it explicitly extends the argument to any real root and stops without an assignment."
+          }
+        ]
+      },
+      {
+        "case": "H3",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 labels this an \u201cOriginal mechanics problem\u201d and supplies the force, initial position, interval, parameters, and return condition. Integrating, imposing a boundary condition, selecting reversals, computing distance, and analyzing impulse require multiple meaningful Calculus I steps. No false course provenance appears."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 1 contains only the problem and method constraints, with no solution or disguised answer hint. Turn 2 reveals the requested solution and rubric for exactly that problem; the spare remains unseen."
+          },
+          {
+            "rating": "P",
+            "reason": "Independent calculation: integrating F/m gives v=u+(F0/m)(t\u00b2/(2T)-t) and x=ut+(F0/m)(t\u00b3/(6T)-t\u00b2/2). Thus x(2T)=0 requires u=F0T/(3m). With s=t/T, v=(F0T/m)(s\u00b2/2-s+1/3), whose roots 1\u00b11/\u221a3 lie in (0,2) and have signs +,-,+. Writing y=s-1 gives x=(F0T\u00b2/(6m))(y\u00b3-y), so the turning positions are \u00b1F0T\u00b2/(9\u221a3m) and distance is 4F0T\u00b2/(9\u221a3m). The impulse is zero, implying equal endpoint velocities, while adding \u0394u adds 2T\u0394u to final displacement. These agree with every result in turn 2; signs, domain, and velocity/length units are valid."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 allocates six one-point rows, totaling six. Credit explicitly covers integrations, applying the return condition, root and sign analysis, turning positions, absolute position changes, and the impulse explanation. Intermediate methods are distinguished from final results, with half-point and error-carried-forward guidance."
+          }
+        ]
+      },
+      {
+        "case": "H3",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 labels the material \u201cOriginal mechanics problem\u201d and provides all force and initial data, parameter restrictions, and observer conditions. Determining parameters from simultaneous position and velocity conditions, proving first return, analyzing reversals, and computing distance and averages form a self-contained multistep Calculus I problem. No course provenance is claimed."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 1 presents only the question, without revealing parameter values, event times, or other answers. Turn 2 supplies exactly the requested solution and six-point rubric, and keeps the spare unseen."
+          },
+          {
+            "rating": "P",
+            "reason": "Independent calculation: with s=t/T, integration gives v=u(1+3s\u00b2-2\u03bbs) and x=uT(s+s\u00b3-\u03bbs\u00b2). For r=\u03c4/T>0, return and rest require r\u00b2-\u03bbr+1=0 and 3r\u00b2-2\u03bbr+1=0. Subtraction gives r\u00b2=1, hence uniquely r=1 and \u03bb=2. Then x=uTs(s-1)\u00b2, positive for 0<s<1 and nonnegative throughout [0,2], verifying first return and no negative position. Velocity u(3s-1)(s-1) has signs +,-,+ and reversals at T/3 and T. Positions are 0, 4uT/27, 0, and 2uT, giving distance 62uT/27, average speed 31u/27, and absolute average velocity u; the ratio is 31/27. All match turn 2, with valid units and event selection."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 gives six one-point allocations totaling six. It separately rewards integration with initial conditions, forming the event equations, solving and verifying uniqueness and first return, sign reasoning, distance calculation, and the average-speed ratio. Half-point guidance explicitly rewards substantial intermediate reasoning with omitted justification."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 27.17,
+    "usage": {
+      "input_tokens": 23034,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1209,
+      "reasoning_output_tokens": 32
+    },
+    "prompt_sha256": "f00713aa37d009399f964e7c347da6e0489f3780606d8df69ec6c3a14cfecfc2",
+    "tool_calls": []
+  }
+}

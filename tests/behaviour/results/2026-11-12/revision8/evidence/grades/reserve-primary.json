@@ -1,0 +1,91 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "R1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 asks whether the exact requested claim is true or false and requests justification, without supplying a counterexample."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 correctly accepts the independent counterexample: 1\u00d74\u22122\u00d72=0, and both rows are nonzero. The harder claim is a legitimate escalation: rows (1,0,1), (0,1,1), (1,1,2) have determinant 1(2\u22121)+1(0\u22121)=0, with no pair scalar multiples. 'Correct\u2014and unaided' describes this attempt without claiming broad mastery."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 3 says 'We\u2019ll stop here' and records that the harder claim remains unattempted; it adds no challenge or homework."
+          }
+        ]
+      },
+      {
+        "case": "R1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 presents the requested claim and asks for a decision supported by proof or counterexample, without revealing the answer."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 correctly verifies 1\u00d74\u22122\u00d72=0 with neither row zero and accepts the unaided disproof. The escalation is mathematically legitimate: rows (1,0,1), (0,1,1), (1,1,2) are nonzero, have no proportional pair, and have determinant 1(2\u22121)+1(0\u22121)=0. No broad mastery claim is made."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 3 explicitly stops and only acknowledges the original independent counterexample, with no follow-up or homework."
+          }
+        ]
+      },
+      {
+        "case": "R2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 specifies a 12 V ideal supply and 4 \u03a9 in series with parallel 6 \u03a9 and 3 \u03a9 resistors. Its equations, currents, voltages, powers, and qualitative disconnection question form a substantive solvable challenge; the solution is withheld."
+          },
+          {
+            "rating": "P",
+            "reason": "Independent calculation gives Rp=(6\u00d73)/(6+3)=2 \u03a9, total 6 \u03a9, and supply current 2 A. Thus drops are 8 V across R\u2081 and 4 V across each branch; branch currents are 2/3 A and 4/3 A. Powers are 16, 8/3, and 16/3 W, totaling 24 W=12 V\u00d72 A. With R\u2083 open, I\u2082=12/(4+6)=1.2 A, an increase. All agree with turn 2, including the specified current directions and KCL/KVL signs."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 awards four categories of 1 point each, subdivided into eight half-points, totaling 4. It rewards KCL/KVL setup, power balance, and physical reasoning about the reduced R\u2081 voltage drop, with follow-through credit. The disconnection answer belongs to original question 5; no new transfer problem is revealed."
+          }
+        ]
+      },
+      {
+        "case": "R2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 explicitly states R\u2081 is in series with parallel R\u2082 and R\u2083, gives 12 V, 4 \u03a9, 6 \u03a9, 3 \u03a9, and a 0 V reference. This prose fixes the topology despite the rough diagram. The multistep numerical and prediction challenge is substantive, and its key is withheld."
+          },
+          {
+            "rating": "P",
+            "reason": "Independent calculation gives Rp=18/9=2 \u03a9, Req=6 \u03a9, and battery current 2 A. The junction is 12\u22122\u00d74=4 V, giving branch currents 4/6=2/3 A and 4/3 A toward the negative terminal. Powers are 16, 8/3, and 16/3 W, summing to the supplied 24 W. Opening R\u2083 gives I\u2082=12/10=1.2 A, junction voltage 12\u22121.2\u00d74=7.2 V, and open-branch current 0 A. Turn 2 matches every result and interpretation."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 gives four points, each split into two half-points, correctly totaling 4. Resistance method, KCL verification, power balance, and an explained prediction earn credit, with follow-through allowed. The open-branch calculation answers original question 5 and introduces no transfer problem."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 26.67,
+    "usage": {
+      "input_tokens": 21370,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1030,
+      "reasoning_output_tokens": 80
+    },
+    "prompt_sha256": "8d69b3e86d1ac8ae829e83711e985025fe14c60a7a4519105cfe07ac7d091adb",
+    "tool_calls": []
+  }
+}

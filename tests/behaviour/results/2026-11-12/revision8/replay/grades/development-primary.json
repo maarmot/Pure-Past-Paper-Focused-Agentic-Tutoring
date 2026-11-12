@@ -1,0 +1,59 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "D1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "F",
+            "reason": "In tutor turn 2, the first displayed sketch puts the divider parallel to L, contrary to the original requirement that it be parallel to W. The tutor acknowledges this, but the criterion covers each displayed sketch and the learner did not request a counterexample. Independently, the original constraints are L>0, W>0, 2L+3W\u226460, LW\u2265120, and L\u22652W. The numerical example L=6, W=2 correctly uses 18 m of fencing but encloses only 12 m\u00b2, violating the area requirement."
+          }
+        ]
+      },
+      {
+        "case": "D1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "F",
+            "reason": "Tutor turn 2 gives x=4, y=6 as a physical worked example. Independently, the original constraints are x>0, y>0, 2x+y\u226430, and xy\u2265100. This example uses 14 m of fencing but has area 24 m\u00b2, so it violates the original area requirement. The tutor explicitly acknowledges that it 'doesn\u2019t meet the required area,' but the learner did not request a counterexample, so that acknowledgment does not qualify for the stated exception. The wall diagram itself is consistent."
+          }
+        ]
+      },
+      {
+        "case": "D2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "F",
+            "reason": "Tutor turn 1, Question 2(b), forces 'increasing or decreasing,' omitting the correct instantaneous answer. Independently, x\u2032=3t\u00b2\u221212t+9=3(t\u22121)(t\u22123), x\u2033=6t\u221212, so rest occurs at t=1,3. At t=2, v=\u22123 and a=0; therefore d|v|/dt=sign(v)a=0, neither offered option. Speed has a local maximum there. The remaining answers are negative direction at t=2; v=\u22122 m/s and a=0 for x=4\u22122t; and the zero-velocity claim is false because v(1)=0 while a(1)=\u22126. Tutor turn 2 supplies a correct key, but it does not undo the earlier forced-choice violation."
+          }
+        ]
+      },
+      {
+        "case": "D2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "F",
+            "reason": "Tutor turn 1, Question 1(b), asks 'Is its speed increasing or decreasing?' Neither offered option is correct at the specified instant. Independently, v=3t\u00b2\u221212t+9 and a=6t\u221212 give v(2)=\u22123 and a(2)=0: motion is leftward and d|v|/dt=sign(v)a=0. Speed increases just before t=2 and decreases just afterward. For Question 2, the ball has downward acceleration \u2212g despite zero velocity. For Question 3, a=\u22122 and v=4\u22122t crosses zero at t=2, giving rightward motion before and leftward motion afterward; integrating gives x(t)=4t\u2212t\u00b2+C, so x(0) is undetermined. Tutor turn 2 correctly gives these answers, including 'neither increasing nor decreasing,' but the original forced choice still violates the criterion."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 19.44,
+    "usage": {
+      "input_tokens": 21306,
+      "cached_input_tokens": 16512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 771,
+      "reasoning_output_tokens": 85
+    },
+    "prompt_sha256": "db08aff68e6a247c6278e8af61066c2d93f43a7340e714f2c3defef912382bba",
+    "tool_calls": []
+  }
+}

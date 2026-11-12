@@ -1,0 +1,60 @@
+{
+  "case": "R2",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/aliasing-certificate.md": "ba14bac3b751337c1d875c8c4084353b4508db35f58594709510a97bea484ec0",
+    "references/argument.md": "6ab2265bd313eea5d49eb1b2f8e027ce664f140df6f45cb11e1dae8cfc3e863a",
+    "references/delegation.md": "7f55c62cbefd1fd83a29525039c64375f58338f87c0bcd49a9c096e5992bc59d",
+    "references/deliberate-practice.md": "24796afcc4ecc7502869e807ad16682d663cd60229a44b3c4155e665bf2e125d",
+    "references/end-to-end.md": "fb41e62cb653d9a2f456474863a87b7469b02ce585c96ed7b07fad7e15e6b978",
+    "references/fields.md": "ae388f55dfbb44eceee4bd1819d00e680a128d157301735f852477b6668bd6e4",
+    "references/interactive.md": "c2eeb5785b70b4c8338f1175d9838cb66601a66a1225e7331733a590398c8d5a",
+    "references/manim.md": "b8cd6b26687e243ab0c442f443ef8fc58b924c177e332c5082625fffa4629cee",
+    "references/pdf-purposes.md": "f38e0d9184eadc2a83387cb33b84e080661967855bb48e1fc43dbe4949aaba6c",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27",
+    "references/research.md": "cb25c2c9e9835d5eaafb7b28a4087964e0d788446621212f12b1b59d993c9735",
+    "references/roadmaps.md": "cbb5d29e083dfa8fa9074df5d2d5955e469aa204c45371f3906a33001c821abb",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/tools.md": "9cf0b58bf6a5084541c9d1b5269998e5214796ffa579b7831a88b478b8323b97",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/visual-inquiry.md": "8d0549aa3b4b692ebdea8f519f0c031dce2c5ba8440b83c2e212d6c7025043d9"
+  },
+  "turns": [
+    {
+      "learner": "Set me one generated ten-minute challenge about a three-resistor DC circuit. I can use Ohm's law and Kirchhoff's laws. Give all values, keep the key hidden.",
+      "tutor": "**Generated challenge \u2014 about 10 minutes**  \nUse Ohm\u2019s law and Kirchhoff\u2019s laws. Assume an ideal battery, ideal wires, and constant resistances.\n\nA **12 V battery** supplies the three-resistor circuit below:\n\n```text\n       R\u2081 = 4 \u03a9\n (+) \u2500\u2500/\\/\\/\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500/\\/\\/\u2500\u2500\u2500\u2500\u2510\n  \u2502           \u2502   R\u2082 = 6 \u03a9 \u2502\n12 V          \u2502            \u2502\n  \u2502           \u2514\u2500\u2500\u2500\u2500/\\/\\/\u2500\u2500\u2500\u2500\u2524\n (\u2212) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 R\u2083 = 3 \u03a9 \u2518\n```\n\nR\u2081 is in series with the parallel combination of R\u2082 and R\u2083. The battery\u2019s negative terminal is at **0 V**.\n\n1. Find the circuit\u2019s equivalent resistance and the current supplied by the battery.\n2. Find the voltage at the junction of all three resistors.\n3. Calculate the current through each resistor. State its direction and use Kirchhoff\u2019s current law to check your results.\n4. Calculate the power supplied by the battery and the power dissipated in each resistor. Check that they balance.\n5. **Changed condition:** R\u2083 breaks, leaving an open circuit in its branch. Before calculating, predict whether the current through R\u2082 increases, decreases, or stays the same. Then calculate its new value and explain your prediction.\n\nShow your reasoning and include units. **The key stays hidden.**"
+    },
+    {
+      "learner": "Reveal the full numerical key for exactly that circuit and give me a four-point way to award partial credit. No transfer problem yet.",
+      "tutor": "The circuit is \\(R_1=4\\,\\Omega\\) in series with \\(R_2=6\\,\\Omega\\) and \\(R_3=3\\,\\Omega\\) in parallel.\n\n**1. Equivalent resistance and battery current**\n\n\\[\nR_{23}=\\frac{6\\times3}{6+3}=2\\,\\Omega,\n\\qquad R_{\\mathrm{eq}}=4+2=\\boxed{6\\,\\Omega}.\n\\]\n\n\\[\nI_{\\mathrm{battery}}=\\frac{12}{6}=\\boxed{2\\,\\mathrm A}.\n\\]\n\n**2. Junction voltage**\n\nThe voltage drop across \\(R_1\\) is\n\\[\nV_1=2\\times4=8\\,\\mathrm V.\n\\]\nRelative to the battery\u2019s negative terminal, the junction voltage is therefore\n\\[\nV_J=12-8=\\boxed{4\\,\\mathrm V}.\n\\]\n\n**3. Resistor currents and Kirchhoff check**\n\n| Resistor | Current | Direction |\n|---|---:|---|\n| \\(R_1\\) | \\(2\\,\\mathrm A\\) | Battery positive terminal toward the junction |\n| \\(R_2\\) | \\(4/6=\\boxed{2/3\\,\\mathrm A}\\) | Junction toward the negative terminal |\n| \\(R_3\\) | \\(4/3=\\boxed{4/3\\,\\mathrm A}\\) | Junction toward the negative terminal |\n\nKirchhoff\u2019s current law at the junction gives\n\\[\nI_1=I_2+I_3:\\qquad 2=\\frac23+\\frac43.\n\\]\n\n**4. Power balance**\n\nThe battery supplies\n\\[\nP_{\\mathrm{battery}}=VI=12\\times2=\\boxed{24\\,\\mathrm W}.\n\\]\n\nThe resistors dissipate\n\\[\nP_1=I_1^2R_1=2^2(4)=\\boxed{16\\,\\mathrm W},\n\\]\n\\[\nP_2=\\frac{4^2}{6}=\\boxed{\\frac83\\,\\mathrm W},\n\\qquad\nP_3=\\frac{4^2}{3}=\\boxed{\\frac{16}3\\,\\mathrm W}.\n\\]\n\nCheck:\n\\[\n16+\\frac83+\\frac{16}3=\\boxed{24\\,\\mathrm W}.\n\\]\n\n**5. \\(R_3\\) becomes an open circuit**\n\nThe current through \\(R_2\\) **increases**. With that branch open, \\(R_1\\) and \\(R_2\\) form a series circuit:\n\\[\nR_{\\mathrm{eq,new}}=4+6=10\\,\\Omega,\n\\qquad\nI_{2,\\mathrm{new}}=\\frac{12}{10}=\\boxed{1.2\\,\\mathrm A}.\n\\]\n\nAlthough the battery current decreases, the voltage drop across \\(R_1\\) also decreases. This raises the junction voltage to\n\\[\nV_{J,\\mathrm{new}}=12-(1.2)(4)=\\boxed{7.2\\,\\mathrm V},\n\\]\nso \\(R_2\\) carries more current than its original \\(2/3\\,\\mathrm A\\). The open branch carries \\(0\\,\\mathrm A\\).\n\n**Suggested partial-credit scheme \u2014 4 points total**\n\nAward each point as two half-points:\n\n1. **Resistance and supply current:** \u00bd for the parallel/series resistance method; \u00bd for the correct battery current.\n2. **Voltage and branch currents:** \u00bd for the junction voltage; \u00bd for both branch currents, their directions, and the current-law check.\n3. **Power:** \u00bd for correct individual power calculations; \u00bd for battery power and the balance check.\n4. **Open branch:** \u00bd for predicting an increase with a valid explanation; \u00bd for the series calculation giving \\(1.2\\,\\mathrm A\\).\n\nAllow follow-through credit for a correct method using an earlier numerical error; avoid penalizing the same error repeatedly."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 18.5,
+      "usage": {
+        "input_tokens": 47992,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 418,
+        "reasoning_output_tokens": 114
+      },
+      "prompt_sha256": "bc8eb04e42aadb4c5e2d01fc45fa06995512e515766f5926511d50031019be97",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 21.48,
+      "usage": {
+        "input_tokens": 48392,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 854,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "a595e4d45b3f7472cd70fd25f60b5aad8f3c8bde8735d7ac3161c8424935fc2f",
+      "tool_calls": []
+    }
+  ]
+}

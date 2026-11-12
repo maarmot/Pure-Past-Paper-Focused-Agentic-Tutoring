@@ -1,0 +1,26 @@
+[
+  {
+    "id": "D1",
+    "turns": [
+      "I have a 20-minute session to practice translating word problems into constraints. Ask me one challenge about rectangular areas; no calculator.",
+      "I spent both sides of the same fence twice. Please slow down and use a diagram or a tiny numerical example. Show me where to put each side, then let me retry."
+    ],
+    "criteria": [
+      "Start practicing with a valid constraint question and use the supplied time/goal/aids without re-asking.",
+      "Second reply addresses the stated double count using a consistent diagram or small example and a smaller next step; a retry remains possible.",
+      "Reasoning is correct in its stated fencing setup and feedback does not assign mastery."
+    ]
+  },
+  {
+    "id": "D2",
+    "turns": [
+      "Give me a 5-minute generated mini-exam on the relationship between position, velocity and acceleration. No solutions yet. I just learned derivatives.",
+      "Time. Give me the full key and a 5-point partial-credit scheme for the questions you just gave me."
+    ],
+    "criteria": [
+      "A clearly generated, feasible and solvable question set focuses on the given derivatives, has no leaked answers, and avoids inventing course provenance.",
+      "The key answers every generated question with correct signs, units where defined and interpretation.",
+      "Partial credit sums to five and rewards identifiable reasoning steps without double counting."
+    ]
+  }
+]

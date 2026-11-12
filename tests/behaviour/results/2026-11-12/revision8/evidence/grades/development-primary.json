@@ -1,0 +1,91 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "D1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 immediately supplies one generated rectangular constraint challenge without re-asking the supplied time, goal, or calculator restriction. Independently, the constraints are L>0, W>0, 2L+3W\u226460, LW\u2265120, and L\u22652W; L=20, W=6 satisfies them, so the challenge is feasible."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 explicitly corrects the first sketch's divider orientation, then supplies a consistent final diagram and the example 6+6+2+2+2=18. It explains that the shared divider is counted once and invites a smaller retry: 'only the fencing constraint.'"
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 correctly counts two lengths and three widths for the stated divider parallel to width. Its numerical example totals 18 metres correctly; it illustrates fence counting without claiming to satisfy the area's requirement. No mastery is assigned."
+          }
+        ]
+      },
+      {
+        "case": "D1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 immediately provides a generated rectangular constraint question, respects no calculator, and does not re-ask supplied information. Independently, x>0, y>0, 2x+y\u226424, and xy\u226564; x=4, y=16 satisfies all constraints, so the problem is feasible."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 labels both perpendicular sides x and the remaining fenced side y, explains that the wall needs no fencing, and directly addresses double counting: 'its two faces don't require two lengths.' The example 3+3+8=14 is correct, and 'write only the fencing constraint' leaves a smaller retry."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 consistently uses the three-sided setup, giving the correct fencing expression 2x+y through its diagram and example. It makes no claim that the illustrative dimensions meet the area requirement and assigns no mastery."
+          }
+        ]
+      },
+      {
+        "case": "D2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 clearly labels the mini-exam generated, provides no solutions or invented course provenance, and gives a feasible short derivative-focused set. Independently, v=3t\u00b2\u221212t+9, a=6t\u221212, and rest times are 1 and 3; at t=2, v=\u22123 and a=0, so the speed question has a valid 'neither' answer despite its binary wording."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 answers every part correctly with units. Independently, v=3(t\u22121)(t\u22123) m/s and a=6t\u221212 m/s\u00b2; at t=2, speed has derivative sign(v)a=0. Nearby, v<0 while a changes from negative to positive, so speed increases before 2 and decreases afterward. For x=4\u22122t, v=\u22122 m/s and a=0 m/s\u00b2. At t=1, v=0 but a=\u22126 m/s\u00b2, correctly refuting the claim."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 allocates 2+1.5+1+0.5=5 points. Credits identify distinct derivative, equation-setting, root, direction, acceleration, interpretation, and counterexample steps. Its explicit carry-forward convention avoids repeatedly penalizing the same derivative error."
+          }
+        ]
+      },
+      {
+        "case": "D2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 explicitly says 'Generated practice,' leaks no derived answers, invents no course provenance, and provides a feasible five-minute derivative-focused set. Independently, v=3t\u00b2\u22126t, a=6t\u22126, v(1)=\u22123, and rest times are 0 and 2; the remaining questions require straightforward sign and constant-velocity reasoning."
+          },
+          {
+            "rating": "M",
+            "reason": "Turn 2 gives correct mathematical answers and interpretations, but omits the defined units from the velocity expression in 1(a) and acceleration expression in 1(b). Independently, these are (3t\u00b2\u22126t) m/s and (6t\u22126) m/s\u00b2. Its remaining answers are correct: rest at 0 and 2 seconds with accelerations \u22126 and +6 m/s\u00b2; v=\u22124 and a=+2 imply decreasing speed; constant v=3 m/s gives a=0 and x(2)=x(0)+6 m, leaving absolute position undetermined."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2's listed credits total 1+0.5+0.5+1+1+0.5+0.5=5 points. Differentiation method and correct expression receive separate process and result credit; other credits identify distinct steps. The follow-through instruction permits credit for correctly differentiating and interpreting an earlier erroneous velocity without double counting the same reasoning."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 38.3,
+    "usage": {
+      "input_tokens": 21266,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1304,
+      "reasoning_output_tokens": 269
+    },
+    "prompt_sha256": "21f0318a2cd9fe7e8893ea6c6a16685304bd1b8ca54b333fbef033b91860b262",
+    "tool_calls": []
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "case": "R1",
+  "source": {
+    "SKILL.md": "4f64612305b1043aa573a59cf04aaeb2f94303e594d64aec61da96e0c6964624",
+    "references/aliasing-certificate.md": "ba14bac3b751337c1d875c8c4084353b4508db35f58594709510a97bea484ec0",
+    "references/argument.md": "6ab2265bd313eea5d49eb1b2f8e027ce664f140df6f45cb11e1dae8cfc3e863a",
+    "references/delegation.md": "7f55c62cbefd1fd83a29525039c64375f58338f87c0bcd49a9c096e5992bc59d",
+    "references/end-to-end.md": "fb41e62cb653d9a2f456474863a87b7469b02ce585c96ed7b07fad7e15e6b978",
+    "references/fields.md": "ae388f55dfbb44eceee4bd1819d00e680a128d157301735f852477b6668bd6e4",
+    "references/interactive.md": "c2eeb5785b70b4c8338f1175d9838cb66601a66a1225e7331733a590398c8d5a",
+    "references/manim.md": "b8cd6b26687e243ab0c442f443ef8fc58b924c177e332c5082625fffa4629cee",
+    "references/pdf-purposes.md": "f38e0d9184eadc2a83387cb33b84e080661967855bb48e1fc43dbe4949aaba6c",
+    "references/provenance.md": "3c5dfa4d56280991aeb0594af1cf1fea33c64457cd25b78719ab831b79de496f",
+    "references/research.md": "cb25c2c9e9835d5eaafb7b28a4087964e0d788446621212f12b1b59d993c9735",
+    "references/roadmaps.md": "ce82e737eeb8045cc656ee768e4ccbb124f1e24327e1acbf313bceef738b49d5",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/tools.md": "9cf0b58bf6a5084541c9d1b5269998e5214796ffa579b7831a88b478b8323b97",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/visual-inquiry.md": "8d0549aa3b4b692ebdea8f519f0c031dce2c5ba8440b83c2e212d6c7025043d9"
+  },
+  "turns": [
+    {
+      "learner": "I have fifteen minutes. Push me on determinants. Ask me to decide whether every square matrix with zero determinant has an all-zero row.",
+      "tutor": "True or false: **Every square matrix with determinant zero has an all-zero row.**\n\nJustify your decision. If false, give a counterexample and calculate its determinant."
+    },
+    {
+      "learner": "Rows (1, 2) and (2, 4) give determinant zero and neither row is zero. I didn't need a hint.",
+      "tutor": "Correct\u2014and unaided. Your counterexample has\n\\[\n\\det\\begin{pmatrix}1&2\\\\2&4\\end{pmatrix}=1\\cdot4-2\\cdot2=0,\n\\]\nwith neither row zero. The second row is twice the first.\n\nNow a harder claim: **Every square matrix with determinant zero has one row that is a multiple of another.**\n\nTrue or false? If false, give a \\(3\\times3\\) counterexample and justify why its determinant is zero."
+    },
+    {
+      "learner": "I want to stop at that. No follow-up or homework.",
+      "tutor": "We\u2019ll stop here. Your counterexample correctly disproved the first claim without a hint. The harder claim remains unattempted."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 4.95,
+      "usage": {
+        "input_tokens": 46067,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 39,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "3591a341c6994ab8b2071b90921d1304bb3a91b932e3e6603a2c2ac3c522a5a0",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 5.45,
+      "usage": {
+        "input_tokens": 46146,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 115,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "ae85f5ce82c01674564ec2130e04632a16e737750a9018ac9678fa26cf193d61",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 4.33,
+      "usage": {
+        "input_tokens": 46291,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 30,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "031a62077a42e17904845042bec418760ff68876ad51e7fa1613878d0f1195ab",
+      "tool_calls": []
+    }
+  ]
+}

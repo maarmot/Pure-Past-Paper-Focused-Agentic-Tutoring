@@ -1,0 +1,361 @@
+{
+  "development": {
+    "cases": {
+      "D1": {
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "baseline": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0
+      },
+      "D2": {
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "baseline": {
+          "P": 2,
+          "M": 1,
+          "F": 0
+        },
+        "candidate_minus_baseline": 1
+      }
+    },
+    "turns_per_arm": 4,
+    "primary": {
+      "baseline": {
+        "P": 5,
+        "M": 1,
+        "F": 0
+      },
+      "candidate": {
+        "P": 6,
+        "M": 0,
+        "F": 0
+      }
+    },
+    "new_candidate_fails": [],
+    "primary_non_pass": [
+      [
+        "D2",
+        "baseline",
+        2,
+        "M"
+      ]
+    ],
+    "second_ratings": 0,
+    "disagreements": [],
+    "sample_improvement_gate": true
+  },
+  "heldout": {
+    "cases": {
+      "H1": {
+        "baseline": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0
+      },
+      "H2": {
+        "baseline": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0,
+        "second_difference": 0
+      },
+      "H3": {
+        "baseline": {
+          "P": 4,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 4,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0,
+        "second_difference": 0
+      },
+      "H4": {
+        "baseline": {
+          "P": 2,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 2,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0
+      },
+      "H5": {
+        "baseline": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0
+      },
+      "H6": {
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "baseline": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0
+      }
+    },
+    "turns_per_arm": 14,
+    "primary": {
+      "baseline": {
+        "P": 18,
+        "M": 0,
+        "F": 0
+      },
+      "candidate": {
+        "P": 18,
+        "M": 0,
+        "F": 0
+      }
+    },
+    "new_candidate_fails": [],
+    "primary_non_pass": [],
+    "second_ratings": 14,
+    "disagreements": [],
+    "sample_improvement_gate": false
+  },
+  "targeted": {
+    "cases": {
+      "T1": {
+        "baseline": {
+          "P": 2,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 2,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0,
+        "second_difference": 0
+      },
+      "T2": {
+        "candidate": {
+          "P": 2,
+          "M": 0,
+          "F": 0
+        },
+        "baseline": {
+          "P": 2,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0,
+        "second_difference": 0
+      }
+    },
+    "turns_per_arm": 4,
+    "primary": {
+      "baseline": {
+        "P": 4,
+        "M": 0,
+        "F": 0
+      },
+      "candidate": {
+        "P": 4,
+        "M": 0,
+        "F": 0
+      }
+    },
+    "new_candidate_fails": [],
+    "primary_non_pass": [],
+    "second_ratings": 8,
+    "disagreements": [],
+    "sample_improvement_gate": false
+  },
+  "reserve": {
+    "cases": {
+      "R1": {
+        "baseline": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0,
+        "second_difference": 0
+      },
+      "R2": {
+        "baseline": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0,
+        "second_difference": 0
+      }
+    },
+    "turns_per_arm": 5,
+    "primary": {
+      "baseline": {
+        "P": 6,
+        "M": 0,
+        "F": 0
+      },
+      "candidate": {
+        "P": 6,
+        "M": 0,
+        "F": 0
+      }
+    },
+    "new_candidate_fails": [],
+    "primary_non_pass": [],
+    "second_ratings": 12,
+    "disagreements": [],
+    "sample_improvement_gate": false
+  },
+  "exposed_broad_replay": {
+    "cases": {
+      "H1": {
+        "baseline": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0
+      },
+      "H2": {
+        "baseline": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0,
+        "second_difference": 0
+      },
+      "H3": {
+        "baseline": {
+          "P": 4,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 4,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0,
+        "second_difference": 0
+      },
+      "H4": {
+        "candidate": {
+          "P": 2,
+          "M": 0,
+          "F": 0
+        },
+        "baseline": {
+          "P": 2,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0
+      },
+      "H5": {
+        "baseline": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0
+      },
+      "H6": {
+        "baseline": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 3,
+          "M": 0,
+          "F": 0
+        },
+        "candidate_minus_baseline": 0
+      }
+    },
+    "turns_per_arm": 14,
+    "primary": {
+      "baseline": {
+        "P": 18,
+        "M": 0,
+        "F": 0
+      },
+      "candidate": {
+        "P": 18,
+        "M": 0,
+        "F": 0
+      }
+    },
+    "new_candidate_fails": [],
+    "primary_non_pass": [],
+    "second_ratings": 14,
+    "disagreements": [],
+    "sample_improvement_gate": false
+  }
+}

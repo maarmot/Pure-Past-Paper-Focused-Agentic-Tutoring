@@ -59,6 +59,36 @@ jobs:
             fi
           done
 
+  roadmap:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - name: Check roadmap evidence rules
+        run: node --test tests/roadmap-model.test.mjs
+      - name: Rebuild and verify revision 8 behavioral evidence
+        working-directory: tests/behaviour/results/2026-11-12/revision8
+        run: |
+          release=$(git log -1 --diff-filter=A --format=%H -- check.py)
+          test -n "$release"
+          python -B check.py --broad-replay --repo ../../../../.. --candidate "$release"
+          python -B replay.py check --repo ../../../../.. --candidate "$release"
+          python -B verify_mechanics.py
+          python -B -m unittest discover -s . -p test_evidence.py -v
+          python -B ../instructional-development/check.py "$release"
+      - name: Install browser test dependencies
+        run: |
+          npm ci --prefix tests/browser
+          node tests/browser/node_modules/playwright/cli.js install --with-deps chromium
+      - name: Exercise the local study workflow
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 --directory roadmap &
+          server=$!
+          trap 'kill "$server"' EXIT
+          curl --fail --retry 10 --retry-delay 1 --retry-connrefused http://127.0.0.1:4173/ --output /dev/null
+          npm test --prefix tests/browser
+
   scene-preview:
     if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest

@@ -1,0 +1,10 @@
+{
+  "T1": {
+    "X": "baseline",
+    "Y": "candidate"
+  },
+  "T2": {
+    "X": "candidate",
+    "Y": "baseline"
+  }
+}

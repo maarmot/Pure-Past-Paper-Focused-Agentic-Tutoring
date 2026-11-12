@@ -1,0 +1,12 @@
+{
+  "purpose": "Exposed development replay after primary judge passed both defects. Freeze this supplementary check before generating repaired transcripts. Neither replay nor newly written anchors are held out.",
+  "cases": {
+    "D1": [
+      "After the learner asks to slow down, each displayed sketch or physical worked example must be consistent with the original setup. Exclude partial sketches deliberately labeled as a learner-requested counterexample; the learner in this case did not request one."
+    ],
+    "D2": [
+      "Every forced choice offered about the generated motion must include a mathematically correct option. Open-ended questions also pass if they allow the exact verified answer. Calculate quantities from the position functions independently before grading."
+    ]
+  },
+  "plan": "Use the same fixed-turn D scenarios; sample the repaired candidate once per case. Reuse the original candidate's saved transcripts as comparison. Mask prior and repaired as two unknown arms per case. Use the extra criteria only, and preserve the original development scores separately. One fresh masked judge; no statistical or learner claim."
+}

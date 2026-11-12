@@ -1,0 +1,91 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "R1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 opens with the requested true-or-false determinant claim and asks for justification without revealing a counterexample."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 correctly accepts the independent counterexample: my calculation is 1\u00d74\u22122\u00d72=0, and both rows are nonzero. The escalation is legitimate: rows (1,0,0), (0,1,0), (1,1,0) give determinant zero because the third row is the sum of the first two, with no row a scalar multiple of another. 'Correct\u2014and unaided' recognizes this performance without claiming broad mastery."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 3 explicitly says 'We\u2019ll stop here' and only records that the harder claim remains unattempted; it assigns no new challenge or homework."
+          }
+        ]
+      },
+      {
+        "case": "R1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 presents the requested claim and asks for a proof or counterexample without giving away its falsity or a counterexample."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 correctly accepts the independent counterexample: my calculation is 1\u00d74\u22122\u00d72=0, with neither row zero. The revised challenge is mathematically legitimate: rows (1,0,0), (0,1,0), (1,1,0) are nonzero and have no pair of scalar-multiple rows, yet their determinant is zero because row 3 equals row 1 plus row 2. The tutor claims success only on the original claim."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 3 honors the stop with 'We\u2019ll stop here' and a brief factual acknowledgment, without a new challenge or homework."
+          }
+        ]
+      },
+      {
+        "case": "R2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 specifies an ideal 12 V source, R1=4 \u03a9 in series with parallel R2=6 \u03a9 and R3=3 \u03a9, and substantive Kirchhoff, current, voltage, power, and disconnection questions. The diagram defines the topology, and the solution is withheld."
+          },
+          {
+            "rating": "P",
+            "reason": "Independent calculation: 6\u22253=2 \u03a9, total resistance=6 \u03a9, I1=2 A, and the R1 drop is 8 V, leaving 4 V across each branch. Thus I2=2/3 A and I3=4/3 A; powers are 16, 8/3, and 16/3 W, totaling the source's 24 W. Opening R3 gives I2=12/(4+6)=1.2 A, an increase. All Turn 2 numerical results, directions, KCL/KVL equations, units, and physical explanations agree."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 allocates four categories of 1 point each, each split into two half-points, totaling 4. It rewards current directions, KCL/KVL, power balance, qualitative voltage reasoning, and follow-through. The disconnected-branch answer belongs to the original challenge; no additional transfer problem is revealed."
+          }
+        ]
+      },
+      {
+        "case": "R2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 explicitly states that R1 is in series with parallel R2 and R3, resolving the topology alongside the diagram. It gives all resistances, an ideal 12 V battery, and the negative-terminal 0 V reference. The multi-part calculation and open-branch prediction form a substantive challenge, with the key withheld."
+          },
+          {
+            "rating": "P",
+            "reason": "Independent calculation: R23=(6\u00d73)/(6+3)=2 \u03a9 and Req=6 \u03a9, so battery current=2 A. The junction is 12\u22122\u00d74=4 V, giving branch currents 2/3 A and 4/3 A toward the negative terminal. Powers are 16, 8/3, and 16/3 W, totaling 24 W. Opening R3 gives Req=10 \u03a9, I2=1.2 A, junction voltage=12\u22121.2\u00d74=7.2 V, and open-branch current=0 A. All Turn 2 results and interpretations agree."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 gives four points, each divided into two half-points, totaling 4. Credit includes resistance methods, current directions and KCL, power balance, physical prediction and explanation, and follow-through. The open-branch calculation answers original question 5, so it does not reveal a new transfer problem."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 23.47,
+    "usage": {
+      "input_tokens": 21366,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1005,
+      "reasoning_output_tokens": 41
+    },
+    "prompt_sha256": "8d69b3e86d1ac8ae829e83711e985025fe14c60a7a4519105cfe07ac7d091adb",
+    "tool_calls": []
+  }
+}

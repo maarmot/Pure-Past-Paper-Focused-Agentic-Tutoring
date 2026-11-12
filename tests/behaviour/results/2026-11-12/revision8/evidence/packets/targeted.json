@@ -1,0 +1,60 @@
+[
+  {
+    "case": "T1",
+    "criteria": [
+      "The first turn poses a well-formed question, contains no solution, and includes exactly one defensible answer in its actual alternatives. Compute the instantaneous slope at t=3 directly from the supplied quadratic and check each alternative. Equivalent verbal descriptions are allowed.",
+      "The second turn identifies a choice that actually appeared, gives a sound derivation or check at t=3 and explains why its distractors fail. Distinguish the instantaneous slope from change on either side."
+    ],
+    "samples": {
+      "X": [
+        {
+          "learner": "Create one short original multiple-choice question for a lab apprentice. Use the temperature history T(t) = 18 + (t-3)^2 degrees C for 0 to 6 minutes and ask about the instantaneous rate of change at minute 3. Use plausible choices. No answers yet.",
+          "tutor": "**Original multiple-choice question**\n\nA temperature sensor records \\(T(t)=18+(t-3)^2\\) \u00b0C, where \\(t\\) is time in minutes, for \\(0\\le t\\le6\\).\n\nWhat is the instantaneous rate of change of temperature at minute 3?\n\nA. \\(-3\\) \u00b0C/min  \nB. \\(0\\) \u00b0C/min  \nC. \\(3\\) \u00b0C/min  \nD. \\(18\\) \u00b0C/min"
+        },
+        {
+          "learner": "Give me the key now, including a way to check why the alternatives are wrong.",
+          "tutor": "**Key: B \u2014 \\(0\\) \u00b0C/min.**\n\nDifferentiate the temperature:\n\\[\nT'(t)=2(t-3),\\qquad T'(3)=0.\n\\]\nAt minute 3, the temperature reaches its minimum, where the graph has a horizontal tangent.\n\nTo check the alternatives:\n\n- **A and C (\\(-3\\) and \\(3\\) \u00b0C/min):** For a small time step \\(h\\),\n  \\[\n  \\frac{T(3+h)-T(3)}{h}=\\frac{h^2}{h}=h.\n  \\]\n  This approaches \\(0\\), rather than \\(-3\\) or \\(3\\), as \\(h\\to0\\).\n- **D (\\(18\\) \u00b0C/min):** \\(T(3)=18\\) \u00b0C is the **temperature**, not its rate of change. Temperature and rate have different units."
+        }
+      ],
+      "Y": [
+        {
+          "learner": "Create one short original multiple-choice question for a lab apprentice. Use the temperature history T(t) = 18 + (t-3)^2 degrees C for 0 to 6 minutes and ask about the instantaneous rate of change at minute 3. Use plausible choices. No answers yet.",
+          "tutor": "**Original practice question**\n\nA lab sample\u2019s temperature is \\(T(t)=18+(t-3)^2\\) \u00b0C, where \\(t\\) is time in minutes, for \\(0\\le t\\le6\\).\n\nWhat is the instantaneous rate of change of temperature at \\(t=3\\) minutes?\n\nA. \\(-6\\) \u00b0C/min  \nB. \\(0\\) \u00b0C/min  \nC. \\(2\\) \u00b0C/min  \nD. \\(18\\) \u00b0C/min"
+        },
+        {
+          "learner": "Give me the key now, including a way to check why the alternatives are wrong.",
+          "tutor": "**Key: B, \\(0\\) \u00b0C/min.**\n\nDifferentiate:\n\\[\nT'(t)=2(t-3),\\qquad T'(3)=0.\n\\]\nAt minute 3, the temperature reaches its minimum, and its graph has a horizontal tangent.\n\nCheck the alternatives:\n\n- **A: \\(-6\\) \u00b0C/min** is \\(T'(0)\\), the rate at minute 0.\n- **C: \\(2\\) \u00b0C/min** is \\(T'(4)\\). The second derivative is also \\(2\\), but its units are \u00b0C/min\u00b2.\n- **D: \\(18\\) \u00b0C/min** confuses the temperature \\(T(3)=18\\) \u00b0C with its rate of change.\n\nAn independent check uses a short interval \\(h\\):\n\\[\n\\frac{T(3+h)-T(3)}{h}=\\frac{h^2}{h}=h.\n\\]\nAs \\(h\\to0\\), the rate approaches \\(0\\) \u00b0C/min."
+        }
+      ]
+    }
+  },
+  {
+    "case": "T2",
+    "criteria": [
+      "Responds to the initial request with the stated loading setup, keeps count and mass distinct, and leaves the requested algebra to the learner.",
+      "The numerical packing used to illustrate the requested kit contains both kinds, has integer counts totaling at least five, and weighs at most 12 kg; the tutor labels counts and weights or their units accurately, then leaves a retry. An example demonstrating an explicitly different subproblem only partially meets the actual request."
+    ],
+    "samples": {
+      "X": [
+        {
+          "learner": "Give me a coaching question on translating this loading problem into constraints. A kit needs both red cases (3 kg each) and blue cases (2 kg each), at least five cases and at most 12 kg. Start with the physical picture and leave the algebra to me.",
+          "tutor": "Picture loading whole cases into an empty kit: each red case adds 3 kg, and each blue case adds 2 kg. You need at least one of each colour, at least five cases altogether, and no more than 12 kg.\n\nLet \\(r\\) and \\(b\\) be the numbers of red and blue cases. How would you translate those requirements into constraints, including which values \\(r\\) and \\(b\\) can take?"
+        },
+        {
+          "learner": "I keep mixing up the count and the weight. Slow down and show a small numerical packing, then let me try the constraints.",
+          "tutor": "Picture **2 red cases and 3 blue cases** in the kit.\n\n| Colour | Number of cases | Weight |\n|---|---:|---:|\n| Red | 2 | \\(2\\times3=6\\) kg |\n| Blue | 3 | \\(3\\times2=6\\) kg |\n| **Total** | **5 cases** | **12 kg** |\n\nFor the **count**, each case contributes one. For the **weight**, each red contributes 3 kg and each blue contributes 2 kg.\n\nThis packing has both colours, reaches the minimum count, and stays within the weight limit.\n\nNow let \\(r\\) and \\(b\\) be the numbers of red and blue cases. Try just the **\u201cat least five cases altogether\u201d** constraint. What would you write?"
+        }
+      ],
+      "Y": [
+        {
+          "learner": "Give me a coaching question on translating this loading problem into constraints. A kit needs both red cases (3 kg each) and blue cases (2 kg each), at least five cases and at most 12 kg. Start with the physical picture and leave the algebra to me.",
+          "tutor": "Picture placing whole cases on a scale: each red case adds 3 kg, and each blue case adds 2 kg. The kit must contain both colours.\n\nHow would you choose variables and write constraints that ensure both colours are present, there are at least five cases altogether, and the scale reads no more than 12 kg? Include what values your variables are allowed to take."
+        },
+        {
+          "learner": "I keep mixing up the count and the weight. Slow down and show a small numerical packing, then let me try the constraints.",
+          "tutor": "Picture **1 red case and 4 blue cases** on the scale:\n\n| Colour | Number of cases | Weight |\n|---|---:|---:|\n| Red | 1 | 3 kg |\n| Blue | 4 | 8 kg |\n| **Total** | **5 cases** | **11 kg** |\n\nFor the **count**, each case counts as one. For the **weight**, each red contributes 3 kg and each blue contributes 2 kg.\n\nThis packing has both colours, reaches five cases, and stays within 12 kg.\n\nNow let \\(r\\) and \\(b\\) mean the numbers of red and blue cases. Try writing only the constraint for **at least five cases altogether**."
+        }
+      ]
+    }
+  }
+]

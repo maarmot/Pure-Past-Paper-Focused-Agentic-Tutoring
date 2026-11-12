@@ -6,6 +6,20 @@ Use this guide to create or revise a learning plan. Start with a concrete capabi
 
 Use [the roadmap template](../assets/roadmap.template.md). Inspect the current course materials, project constraints, and authorized session records before filling it. Keep unknown prerequisites explicit; do not convert an assumed background into a demonstrated skill.
 
+For a new multi-session goal, use the short agreement in [deliberate practice](deliberate-practice.md). The roadmap carries the agreed capability and the evidence for changing the next checkpoint. Revising the goal is a planning decision; it adds no evidence of performance.
+
+## Exchange one observation with the optional roadmap website
+
+The compact skill works in chat and with existing private files. The full source checkout also contains a local browser roadmap and its format guide, `roadmap/FORMAT.md`. The browser cannot discover or update a session file. For a requested export, work in the authorized private location and inspect the observation before copying it.
+
+```sh
+python scripts/export_roadmap_event.py SESSION.json --event 1 --skill aliasing --output NEW.json
+```
+
+Run the script from the skill folder and supply paths to the authorized session and a **new private output file**. Event numbers start at 1. Use a skill ID that exists in the destination roadmap; `aliasing` is an example. For a legacy event without an attempt ID, add `--id` and keep that opaque identifier for the same observation on subsequent exports. An optional `--session-ref` labels the source without disclosing its filesystem path. Review the derived JSON before importing the event into the browser. Export a single event back to the PPP session format from the website when needed. Reconcile by attempt ID before adding it to an existing journal.
+
+Keep existing Markdown roadmaps and dated sessions in place. Copy verified goals and prerequisites deliberately. Import only observations supported by the authoritative private evidence. A checked resource or a plan written in Markdown supplies no attempt. Correct or delete the private observation and its authorized browser copy separately. An exported backup remains a separate copy. A whole-roadmap restore replaces browser data and requires review. A review date is a planning field.
+
 ## Plan from observable work
 
 1. State the target capability and conditions, including allowed tools, assistance, time limits, and physical equipment when relevant.

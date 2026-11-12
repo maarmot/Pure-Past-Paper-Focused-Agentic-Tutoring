@@ -1,6 +1,6 @@
 ---
 name: ppp-learning
-description: Tutor from a past paper, a learner's question, or their own work. Use for PPP, exam practice, hints and worked solutions, checking a derivation or essay, exploring a mechanism visually, studying a source, or resuming a technical study plan. Supports verified study PDFs, interactives, and Manim lessons. Use the ordinary workflow for software maintenance and isolated factual lookups.
+description: Use for PPP tutoring, past papers, oral exams or grilling, hard practice sets, hints, worked solutions, derivation or essay feedback, visual inquiry, source study, or a personal study roadmap. Supports verified study PDFs, interactives, and Manim lessons. Use the ordinary workflow for software maintenance and isolated factual lookups.
 ---
 
 # Pure Past Paper tutoring
@@ -14,6 +14,7 @@ Load the reference whose instructions you need. A short answer may need none.
 | Request | Reference and first action |
 |---|---|
 | Exam preparation, hint, or feedback on work | [Practice](references/tutoring.md). Work from the supplied attempt or offer one in-scope problem. |
+| Deliberate study, “grill me,” or a hard mock | [Deliberate practice](references/deliberate-practice.md). Use the learner's goal to choose the first question. |
 | Essay, rubric, or transfer between subjects | [Across fields](references/fields.md). Give the requested assessment using the destination field's criteria. |
 | Debate, source study, or engineering approximation | [Argument and sources](references/argument.md). Engage the claim, passage, or quantity of interest. |
 | Understand a mechanism or puzzle | [Visual inquiry](references/visual-inquiry.md). Show a sketch, small table, or experiment now. Make prediction optional. |
@@ -37,4 +38,4 @@ Before building a substantial artifact, specify what should happen, the source o
 
 Open learner records only for authorized continuity work. Personal material belongs in the designated private workspace. Respect a request to keep the exchange in chat. For a specific question or a worked solution, leave the journal closed unless the learner asks for it. After a substantial session, ask a closing question only when the answer would change what happens next. Use observed work, assistance, exposure and dates to describe what the learner did. A tutor's solution, recognition and an unanswered prompt each leave independent performance untested. Record duration as unknown unless supported by timestamps or a labeled estimate. Suggest a review date when useful. Schedule a reminder only on request and confirm it only after the scheduling tool succeeds.
 
-Revision 7.
+Revision 8.

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f7f7ee" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>PPP Fieldnotes · Study roadmap</title>
+    <link rel="icon" href="./mark.svg" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./boot.mjs"></script>
+  </head>
+  <body>
+    <a class="skip" href="#workspace">Skip to roadmap</a>
+    <header>
+      <div class="bar">
+        <a href="./" class="brand" aria-label="PPP Fieldnotes home"
+          ><img src="./mark.svg" alt="" /><strong>Fieldnotes</strong></a
+        ><span class="brand-tail">by PPP</span>
+        <div class="actions">
+          <span id="save-state">Session only</span
+          ><button id="data" class="btn">My data</button>
+        </div>
+      </div>
+    </header>
+    <main id="workspace">
+      <div id="alert" role="alert" hidden></div>
+      <section class="hero" aria-labelledby="topic">
+        <div>
+          <div class="subject" id="field">Study roadmap</div>
+          <h1 id="topic">Loading roadmap…</h1>
+          <p id="goal-line"></p>
+          <button class="hero-action" id="goal">Set study goal</button>
+        </div>
+        <figure class="plate" id="plate">
+          <svg
+            id="signal"
+            viewBox="0 0 420 118"
+            role="img"
+            aria-label="Two cosine signals, 1 and 11 hertz, coincide at each 10 hertz sample."
+          ></svg>
+          <figcaption>
+            <span class="swatch slow"></span>1 Hz
+            <span class="swatch fast"></span>11 Hz
+            <span class="sample-dot"></span>10 Hz samples
+          </figcaption>
+        </figure>
+      </section>
+      <div class="columns">
+        <section class="map-panel" aria-labelledby="map-heading">
+          <div class="section-head">
+            <div>
+              <h2 id="map-heading">Skill map</h2>
+              <p id="map-meta"></p>
+            </div>
+            <div class="seg" aria-label="Roadmap view">
+              <button id="graph-view" aria-pressed="true">Graph</button
+              ><button id="list-view" aria-pressed="false">List</button>
+            </div>
+          </div>
+          <div id="canvas" aria-label="Prerequisite graph">
+            <div id="world"></div>
+          </div>
+          <div id="map-list" hidden></div>
+          <div class="map-foot">
+            <span><i class="key-dot"></i>Selected skill</span>
+            <div class="tools" aria-label="Graph controls">
+              <button id="zoom-out" aria-label="Zoom out">−</button
+              ><output id="zoom-level" aria-label="Zoom level">100%</output
+              ><button id="zoom-in" aria-label="Zoom in">+</button
+              ><button id="fit">Recenter</button>
+            </div>
+          </div>
+        </section>
+        <section class="inspector" aria-labelledby="skill-title">
+          <div class="inspector-head">
+            <div class="skill-symbol" aria-hidden="true" id="skill-icon"></div>
+            <span id="state-label"></span>
+          </div>
+          <h2 id="skill-title" tabindex="-1">Selected skill</h2>
+          <p id="description"></p>
+          <h3>Prerequisites</h3>
+          <div id="prereqs"></div>
+          <hr />
+          <h3>Next challenge</h3>
+          <p id="recommend"></p>
+          <p class="challenge" id="challenge"></p>
+          <button id="prepare" class="primary wide">
+            Prepare a session <span aria-hidden="true">↗</span>
+          </button>
+        </section>
+      </div>
+      <section class="ledger" aria-labelledby="ledger-heading">
+        <div class="section-head">
+          <div>
+            <h2 id="ledger-heading">Evidence notebook</h2>
+            <p id="ledger-meta"></p>
+          </div>
+          <button id="add" class="btn">Record attempt</button>
+        </div>
+        <div id="events"></div>
+      </section>
+      <div class="footer">
+        <span>Fieldnotes / Pure Past Paper tutoring</span><span id="net"></span>
+      </div>
+    </main>
+    <div class="sr" id="announce" role="status" aria-live="polite"></div>
+    <dialog id="dialog" aria-labelledby="dialog-title">
+      <div class="dialog-head">
+        <h2 id="dialog-title"></h2>
+        <button id="close" aria-label="Close dialog">×</button>
+      </div>
+      <div id="dialog-body"></div>
+    </dialog>
+    <noscript
+      >JavaScript is required to explore the map. The repository includes a
+      Markdown roadmap template.</noscript
+    >
+  </body>
+</html>

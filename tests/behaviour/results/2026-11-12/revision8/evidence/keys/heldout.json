@@ -1,0 +1,26 @@
+{
+  "H1": {
+    "X": "baseline",
+    "Y": "candidate"
+  },
+  "H2": {
+    "X": "baseline",
+    "Y": "candidate"
+  },
+  "H3": {
+    "X": "baseline",
+    "Y": "candidate"
+  },
+  "H4": {
+    "X": "baseline",
+    "Y": "candidate"
+  },
+  "H5": {
+    "X": "baseline",
+    "Y": "candidate"
+  },
+  "H6": {
+    "X": "candidate",
+    "Y": "baseline"
+  }
+}

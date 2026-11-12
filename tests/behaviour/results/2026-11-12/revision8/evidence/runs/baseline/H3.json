@@ -1,0 +1,59 @@
+{
+  "case": "H3",
+  "source": {
+    "SKILL.md": "4f64612305b1043aa573a59cf04aaeb2f94303e594d64aec61da96e0c6964624",
+    "references/aliasing-certificate.md": "ba14bac3b751337c1d875c8c4084353b4508db35f58594709510a97bea484ec0",
+    "references/argument.md": "6ab2265bd313eea5d49eb1b2f8e027ce664f140df6f45cb11e1dae8cfc3e863a",
+    "references/delegation.md": "7f55c62cbefd1fd83a29525039c64375f58338f87c0bcd49a9c096e5992bc59d",
+    "references/end-to-end.md": "fb41e62cb653d9a2f456474863a87b7469b02ce585c96ed7b07fad7e15e6b978",
+    "references/fields.md": "ae388f55dfbb44eceee4bd1819d00e680a128d157301735f852477b6668bd6e4",
+    "references/interactive.md": "c2eeb5785b70b4c8338f1175d9838cb66601a66a1225e7331733a590398c8d5a",
+    "references/manim.md": "b8cd6b26687e243ab0c442f443ef8fc58b924c177e332c5082625fffa4629cee",
+    "references/pdf-purposes.md": "f38e0d9184eadc2a83387cb33b84e080661967855bb48e1fc43dbe4949aaba6c",
+    "references/provenance.md": "3c5dfa4d56280991aeb0594af1cf1fea33c64457cd25b78719ab831b79de496f",
+    "references/research.md": "cb25c2c9e9835d5eaafb7b28a4087964e0d788446621212f12b1b59d993c9735",
+    "references/roadmaps.md": "ce82e737eeb8045cc656ee768e4ccbb124f1e24327e1acbf313bceef738b49d5",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/tools.md": "9cf0b58bf6a5084541c9d1b5269998e5214796ffa579b7831a88b478b8323b97",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/visual-inquiry.md": "8d0549aa3b4b692ebdea8f519f0c031dce2c5ba8440b83c2e212d6c7025043d9"
+  },
+  "turns": [
+    {
+      "learner": "Build one original hard 12-minute mechanics problem about a cart on a straight track with a time-dependent force. Calculus I, no friction, no energy methods. I want synthesis rather than big numbers. Just the question now; hold the key and spare problem.",
+      "tutor": "**Original mechanics problem \u2014 suggested time: 12 minutes**\n\nA cart of mass \\(m\\) moves on a straight, horizontal, frictionless track. Take rightward as positive. At \\(t=0\\), the cart is at \\(x=0\\), with an initial velocity \\(u\\) that you must determine.\n\nFor \\(0\\le t\\le 2T\\), the net horizontal force on the cart is\n\\[\nF(t)=F_0\\left(\\frac{t}{T}-1\\right),\n\\]\nwhere \\(F_0>0\\) and \\(T>0\\) are constants. The initial velocity is chosen so that the cart returns to \\(x=0\\) at \\(t=2T\\).\n\nUse Newton\u2019s second law and calculus. **Do not use energy methods.** Give exact answers in terms of \\(F_0\\), \\(m\\), and \\(T\\).\n\n1. Determine the required initial velocity \\(u\\), and obtain expressions for \\(v(t)\\) and \\(x(t)\\).\n\n2. Find every time in \\(0<t<2T\\) when the cart reverses direction. State when it moves right and when it moves left.\n\n3. Determine the **total distance travelled** during \\(0\\le t\\le2T\\). Your reasoning must explain how the turning positions enter the calculation.\n\n4. A student argues:  \n   \u201cThe net impulse over the interval is zero, so the cart must return to its starting point whatever its initial velocity.\u201d\n\n   Identify the flaw in this argument. If the initial velocity were increased from your value of \\(u\\) to \\(u+\\Delta u\\), with the force unchanged, determine the cart\u2019s displacement at \\(t=2T\\)."
+    },
+    {
+      "learner": "Now give the full solution and a 6-point partial-credit breakdown for exactly that question. Keep the spare unseen.",
+      "tutor": "Let \\(A=\\dfrac{F_0T}{m}\\), \\(B=\\dfrac{F_0T^2}{m}\\), and \\(s=t/T\\).\n\n### 1. Initial velocity, velocity and position\n\nNewton\u2019s second law gives\n\\[\na(t)=\\frac{F_0}{m}\\left(\\frac tT-1\\right).\n\\]\nIntegrating with \\(v(0)=u\\),\n\\[\nv(t)=u+\\frac{F_0}{m}\\left(\\frac{t^2}{2T}-t\\right).\n\\]\nIntegrating again with \\(x(0)=0\\),\n\\[\nx(t)=ut+\\frac{F_0}{m}\\left(\\frac{t^3}{6T}-\\frac{t^2}{2}\\right).\n\\]\n\nThe return condition is\n\\[\n0=x(2T)=2Tu-\\frac{2F_0T^2}{3m},\n\\]\nso\n\\[\n\\boxed{u=\\frac{F_0T}{3m}}.\n\\]\n\nConsequently,\n\\[\n\\boxed{v(t)=A\\left(\\frac{s^2}{2}-s+\\frac13\\right)},\\qquad\n\\boxed{x(t)=B\\left(\\frac{s^3}{6}-\\frac{s^2}{2}+\\frac s3\\right)}.\n\\]\n\n### 2. Reversals and directions\n\nSetting \\(v=0\\),\n\\[\n3s^2-6s+2=0\n\\quad\\Longrightarrow\\quad\ns=1\\pm\\frac1{\\sqrt3}.\n\\]\nThus the reversal times are\n\\[\n\\boxed{t_-=T\\left(1-\\frac1{\\sqrt3}\\right),\\qquad\nt_+=T\\left(1+\\frac1{\\sqrt3}\\right)}.\n\\]\n\nThe velocity quadratic opens upward and changes sign at both roots:\n\n| Time interval | Velocity sign | Direction |\n|---|---|---|\n| \\(0\\le t<t_-\\) | Positive | Right |\n| \\(t_-<t<t_+\\) | Negative | Left |\n| \\(t_+<t\\le2T\\) | Positive | Right |\n\nAt each reversal, the cart is momentarily at rest.\n\n### 3. Total distance\n\nTo evaluate the turning positions, write \\(y=s-1\\). Then\n\\[\nx=\\frac B6(y^3-y).\n\\]\nAt the two reversals, \\(y=\\mp1/\\sqrt3\\), giving\n\\[\n\\boxed{x(t_-)=\\frac{B}{9\\sqrt3}},\\qquad\n\\boxed{x(t_+)=-\\frac{B}{9\\sqrt3}}.\n\\]\n\nThe cart travels from \\(0\\) to the positive turning position, then to the negative turning position, then back to \\(0\\). Therefore,\n\\[\n\\begin{aligned}\nD\n&=|x(t_-)-0|+|x(t_+)-x(t_-)|+|0-x(t_+)|\\\\\n&=\\frac{B}{9\\sqrt3}+\\frac{2B}{9\\sqrt3}+\\frac{B}{9\\sqrt3}.\n\\end{aligned}\n\\]\nHence\n\\[\n\\boxed{D=\\frac{4F_0T^2}{9\\sqrt3\\,m}}.\n\\]\n\n### 4. What zero impulse establishes\n\nThe net impulse is\n\\[\n\\int_0^{2T}F(t)\\,dt\n=F_0\\left[\\frac{t^2}{2T}-t\\right]_0^{2T}=0.\n\\]\nThis establishes **zero change in momentum**, so \\(v(2T)=v(0)\\). Returning to the starting position instead requires\n\\[\n\\int_0^{2T}v(t)\\,dt=0.\n\\]\nEqual initial and final velocities do not ensure that condition.\n\nIncreasing the initial velocity by \\(\\Delta u\\), while preserving the force, adds \\(\\Delta u\\) to the velocity at every time. It therefore adds \\(t\\Delta u\\) to the position:\n\\[\n\\boxed{x_{\\mathrm{new}}(2T)=2T\\Delta u}.\n\\]\n\n### Suggested partial-credit breakdown: 6 points\n\nThis is a tutor-designed scheme for this original question.\n\n| Point | Credit criterion |\n|---|---|\n| **1** | Uses \\(F=ma\\) and integrates correctly to obtain \\(v(t)\\), retaining \\(u\\). |\n| **1** | Integrates to obtain \\(x(t)\\) and applies \\(x(2T)=0\\) to find \\(u=F_0T/(3m)\\). |\n| **1** | Finds both reversal times and correctly identifies the three direction intervals. |\n| **1** | Evaluates both turning positions correctly. |\n| **1** | Adds the three absolute position changes to obtain the total distance. |\n| **1** | Explains that zero impulse fixes the velocity change, and derives the displacement \\(2T\\Delta u\\). |\n\nAward half-points for materially correct but incomplete work within a row. Carry earlier algebraic errors forward where the subsequent method is correct, avoiding repeated penalties for the same error.\n\nThe spare problem remains unseen."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 26.03,
+      "usage": {
+        "input_tokens": 46093,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 738,
+        "reasoning_output_tokens": 368
+      },
+      "prompt_sha256": "6a970189b6e9d2d6332d01bc7b3404014683232654c2e1a8a4d851f40adb6340",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 29.27,
+      "usage": {
+        "input_tokens": 46539,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1287,
+        "reasoning_output_tokens": 157
+      },
+      "prompt_sha256": "728502618ecbf0ffa14a04dfa8452e6de712d80b5e71c752cebad88b87383875",
+      "tool_calls": []
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "T1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 supplies the specified quadratic, domain, and instantaneous-rate question without a solution. Independently, T'(t)=2(t-3), so T'(3)=0 \u00b0C/min. Of A=-3, B=0, C=3, and D=18, exactly B is correct."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 correctly selects the actual choice B and derives T'(3)=0. Independently, [T(3+h)-T(3)]/h=h tends to zero from either side, although finite intervals on the left give negative slopes and those on the right give positive slopes. Its limit check rejects A and C, and its temperature-versus-rate explanation correctly rejects D."
+          }
+        ]
+      },
+      {
+        "case": "T1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 states the required setup and asks the instantaneous-rate question without revealing a solution. Independently, T'(3)=2(3-3)=0 \u00b0C/min. Checking A=-6, B=0, C=2, and D=18 leaves exactly B defensible."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 selects the actual choice B and correctly differentiates. Independently, T'(0)=-6, T'(4)=2, T''=2 \u00b0C/min\u00b2, and T(3)=18 \u00b0C, confirming its distractor explanations. Its difference quotient h tends to zero from both sides, correctly distinguishing the instantaneous slope from nonzero changes over nearby intervals."
+          }
+        ]
+      },
+      {
+        "case": "T2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 pictures loading whole cases, correctly states 3 kg per red and 2 kg per blue, both colours, at least five cases, and at most 12 kg. It defines r and b as counts and asks the learner to supply constraints and allowed values, leaving the algebra undone."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 uses 2 red and 3 blue cases. Independently, both counts are positive integers, 2+3=5 cases, and 3(2)+2(3)=12 kg. The table accurately separates counts from weights, and the final prompt leaves the count constraint for the learner to retry."
+          }
+        ]
+      },
+      {
+        "case": "T2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 gives a physical scale picture with the correct per-case masses and explicitly retains both colours, at least five cases, and no more than 12 kg. It distinguishes case count from scale weight and leaves variable selection, constraints, and allowed values to the learner."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 uses 1 red and 4 blue cases. Independently, both counts are positive integers, 1+4=5 cases, and 3(1)+2(4)=11 kg\u226412 kg. Its table labels counts and kilogram weights accurately, and it asks the learner to retry the minimum-count constraint."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 27.92,
+    "usage": {
+      "input_tokens": 20033,
+      "cached_input_tokens": 19840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 767,
+      "reasoning_output_tokens": 0
+    },
+    "prompt_sha256": "511f3edcdf75fc524ccf71d23ea986acc8b1e228c47c67972f1246e90847e9ea",
+    "tool_calls": []
+  }
+}

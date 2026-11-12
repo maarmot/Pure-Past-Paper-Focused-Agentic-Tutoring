@@ -1,0 +1,38 @@
+{
+  "browser": "157.0.4341.46",
+  "conditions": [
+    {
+      "width": 320,
+      "height": 740,
+      "theme": "dark"
+    },
+    {
+      "width": 736,
+      "height": 414,
+      "theme": "dark"
+    },
+    {
+      "width": 1360,
+      "height": 930,
+      "theme": "dark"
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "theme": "light"
+    },
+    {
+      "width": 736,
+      "height": 414,
+      "theme": "light"
+    },
+    {
+      "width": 1360,
+      "height": 930,
+      "theme": "light"
+    }
+  ],
+  "uncaughtPageErrors": [],
+  "foreignRequests": [],
+  "completed": true
+}

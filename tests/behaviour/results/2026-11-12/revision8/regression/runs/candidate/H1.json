@@ -1,0 +1,77 @@
+{
+  "case": "H1",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/aliasing-certificate.md": "ba14bac3b751337c1d875c8c4084353b4508db35f58594709510a97bea484ec0",
+    "references/argument.md": "6ab2265bd313eea5d49eb1b2f8e027ce664f140df6f45cb11e1dae8cfc3e863a",
+    "references/delegation.md": "7f55c62cbefd1fd83a29525039c64375f58338f87c0bcd49a9c096e5992bc59d",
+    "references/deliberate-practice.md": "24796afcc4ecc7502869e807ad16682d663cd60229a44b3c4155e665bf2e125d",
+    "references/end-to-end.md": "fb41e62cb653d9a2f456474863a87b7469b02ce585c96ed7b07fad7e15e6b978",
+    "references/fields.md": "ae388f55dfbb44eceee4bd1819d00e680a128d157301735f852477b6668bd6e4",
+    "references/interactive.md": "c2eeb5785b70b4c8338f1175d9838cb66601a66a1225e7331733a590398c8d5a",
+    "references/manim.md": "b8cd6b26687e243ab0c442f443ef8fc58b924c177e332c5082625fffa4629cee",
+    "references/pdf-purposes.md": "f38e0d9184eadc2a83387cb33b84e080661967855bb48e1fc43dbe4949aaba6c",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27",
+    "references/research.md": "cb25c2c9e9835d5eaafb7b28a4087964e0d788446621212f12b1b59d993c9735",
+    "references/roadmaps.md": "cbb5d29e083dfa8fa9074df5d2d5955e469aa204c45371f3906a33001c821abb",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/tools.md": "9cf0b58bf6a5084541c9d1b5269998e5214796ffa579b7831a88b478b8323b97",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/visual-inquiry.md": "8d0549aa3b4b692ebdea8f519f0c031dce2c5ba8440b83c2e212d6c7025043d9"
+  },
+  "turns": [
+    {
+      "learner": "Help me plan a few deliberate study sessions. I keep freezing up in labs and I don't know exactly what to work on.",
+      "tutor": "We can build a few sessions around one concrete lab task, then practise the point where you get stuck. That will give us something observable to improve: making and explaining your next decision when the procedure stops being clear.\n\nThink of the most recent lab where you froze: **what were you trying to do, and what was the last step you felt sure about?** An example is enough; you don\u2019t need to diagnose why it happened."
+    },
+    {
+      "learner": "It's reading timing diagrams. I can label rising edges, but when a signal updates on one I lose track. I have two evenings. I'd like to debug a waveform independently, with the data sheet allowed.",
+      "tutor": "Let\u2019s use the two evenings to work toward **debugging a waveform independently, with the data sheet available**. You can already identify rising edges; we\u2019ll start with tracking what changes at an edge.\n\nProposed plan:\n\n- **Evening 1:** Practise one edge at a time: read the values immediately before it, apply the device\u2019s update rule, then write the values immediately after it. Build up to a short waveform.\n- **Evening 2:** Diagnose a fresh waveform with an intentional fault. You\u2019ll identify the first incorrect transition and justify it from the supplied device rules. Hints stay available if you want them.\n\nWe\u2019ll check your predictions against those rules, including an edge where the output should stay unchanged.\n\nStart with this **generated diagnostic**:\n\nTwo registers, A and B, update on the same rising clock edge. Their rules are:\n\n\\[\nA_{\\text{next}}=D,\\qquad B_{\\text{next}}=A\n\\]\n\nBoth read their inputs immediately **before** the edge and update their outputs immediately **after** it.\n\nBefore one rising edge, \\(D=1,\\ A=0,\\ B=0\\).\n\n**What are A and B immediately after that edge, and why?**"
+    },
+    {
+      "learner": "Let's get started on that. Keep it to one small question at a time.",
+      "tutor": "Two registers update on the same rising edge:\n\n- A takes D\u2019s value from **before** the edge.\n- B takes A\u2019s value from **before** the edge.\n\nBefore the edge: D = 1, A = 0, B = 0.\n\n**What are A and B immediately after the edge?**"
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 7.7,
+      "usage": {
+        "input_tokens": 47978,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 92,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "1a129d0d4ee0147dec04a1d93267b8c5ea6d56dbffdad85ad57076b25593bbf9",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 12.94,
+      "usage": {
+        "input_tokens": 48121,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 258,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "484692bc2ced368532d113dde47c7933c43ab6d50ce3793a71f1b9b4da59a42e",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 4.89,
+      "usage": {
+        "input_tokens": 48470,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 70,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "b44da298af10c55bb2f2ac0c111de12444d32d0a887b6d3f8d5648cd7e08c4b6",
+      "tool_calls": []
+    }
+  ]
+}

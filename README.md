@@ -21,6 +21,20 @@ Bring a past-paper question, a line of working you distrust, or a mechanism you 
 
 The core works in conversation. Codex discovers [the skill](SKILL.md) and loads specialized references as needed. Local tools validate records and select due items. Optional tools support checked browser activities, Manim animations and LaTeX study documents. REA can inspect a supplied software artifact on hosts that provide it. Superpowers can coordinate engineering work on the skill. Ordinary tutoring needs neither integration.
 
+## Study with Fieldnotes
+
+Run the roadmap from this source checkout with Python 3.9 or later.
+
+```sh
+python -m http.server 4173 --bind 127.0.0.1 --directory roadmap
+```
+
+Open [Fieldnotes on this computer](http://127.0.0.1:4173/). Set a capability you want to demonstrate, then select a skill in the signals and sampling map. **Prepare a session** builds an editable prompt for an oral exam, a hard exam, a conceptual explanation or session planning. Copy it into your tutor when ready. You can also ask PPP directly, for example “Grill me on which assumptions my derivation needs. One question at a time.” [Deliberate practice](references/deliberate-practice.md)
+
+![Signals and sampling roadmap, with Aliasing selected and its prerequisites visible](docs/roadmap-preview/desktop.png)
+
+Record a result and the help used in **Evidence notebook**. Its four evidence categories distinguish explanation, unaided solving, unfamiliar transfer and later retrieval. Use **My data → Save on this device** for continuity after refresh. An export is a portable backup. Correct or delete an observation in its row, or erase the browser copy in **My data**. For privacy on a shared computer, use a separate browser profile or a private window. The application makes no model calls. [Walkthrough and browser checks](docs/roadmap-guide.md) · [Record exchange](roadmap/FORMAT.md) · [Revision 8 evaluation](tests/behaviour/results/2026-11-12/revision8/README.md)
+
 ## Install and update
 
 **For Codex.** Use one enabled `ppp-learning` folder. The user scope is `~/.agents/skills/ppp-learning`, shared across that user's projects. Project scope is `.agents/skills/ppp-learning` inside the chosen project. A project's `AGENTS.md` supplies local course and storage instructions. Other assistants can read the Markdown manually. Automated discovery was tested with Codex. [Official OpenAI skills documentation](https://learn.chatgpt.com/docs/build-skills)
@@ -45,7 +59,7 @@ Inside a clean tracking checkout on `main`, use `git status --short --branch` an
 
 The skill can operate entirely in chat. For ongoing study, designate a private location outside this repository. A dated session record or journal holds the goal, problem source, observed work, help received and next step. A question bank can index attempts and review dates. A roadmap can link a prerequisite or project checkpoint to that evidence. A later chat must actually open the relevant record to use it. [Study records and corrections](references/study-habits.md)
 
-Ask to correct assistance, remove an attempt, or stop logging. The tutor should identify the authorized files it changed and reconcile any derived claim. A correct guess, recognition of a worked item and a solution produced with AI leave unaided performance open. The record format supports unknown help and duration. A review date is read when requested. Creating a calendar reminder requires a separate request and a successful scheduling action. The package provides no server, account memory, telemetry or background scheduler. Your host controls its own chat history.
+Ask to correct assistance, remove an attempt, or stop logging. The tutor should identify the authorized files it changed and reconcile any derived claim. A correct guess, recognition of a worked item and a solution produced with AI leave unaided performance open. The record format supports unknown help and duration. A review date is read when requested. Creating a calendar reminder requires a separate request and a successful scheduling action. The compact tutoring package provides no server, account memory, telemetry or background scheduler. Your host controls its own chat history.
 
 ## Check and reproduce
 

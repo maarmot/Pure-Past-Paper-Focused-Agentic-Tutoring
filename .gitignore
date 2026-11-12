@@ -13,3 +13,5 @@ docs/SESSION-HANDOFF.md
 docs/rev5-evidence/
 .env
 .env.*
+/tests/browser/node_modules/
+/private/
