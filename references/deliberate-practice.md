@@ -38,6 +38,8 @@ Solve each subquestion privately with the exact values the learner will see. Wri
 
 The [camera challenge](../assets/challenges/rotation.md) is a generated example with a [separate key](../assets/challenges/rotation-key.md). For a later transfer, use the separate [sensor question](../assets/challenges/rotation-transfer.md) and [sensor key](../assets/challenges/rotation-transfer-key.md). Share only the requested part.
 
+For an offline technical exercise, open the [rail-dock calculus problem](../assets/challenges/technical-practice/rail-dock/problem.md), [FPGA streaming register](../assets/challenges/technical-practice/stream-register/problem.md), or [stereo depth problem](../assets/challenges/technical-practice/stereo-depth/problem.md). Each folder has a separate examiner’s `key.md` with hints, oral follow-ups and grading, a `transfer.md` and its `transfer-key.md`. Share the part the learner requested.
+
 ## Explain or summarize at the requested depth
 
 For a quick answer, give the decision and the reason. For a topic overview, organize the ideas around the question they answer. Use one familiar example from the learner's actual work, when available, and one condition under which the usual conclusion breaks. Source-dependent claims need a checked source or an explicit uncertainty. End with a new question only when it invites a direction the learner wants. A supplied explanation belongs to the tutor. Wait for learner reasoning before drawing conclusions about understanding.

@@ -1,0 +1,103 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "A1.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 supplies position and time axes, exact coordinates, and one speed comparison with justification. Independently, AB has speed (4\u22120)/(2\u22120)=2 m/s and BC has speed (6\u22124)/(6\u22122)=0.5 m/s, so AB is faster. The exact coordinates make the task usable despite the rough sketch."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 1 asks 'Explain how you decided' without explaining slope or revealing which segment is faster. It assigns no weakness or prior study and offers one short pencil task suited to twelve minutes."
+          }
+        ]
+      },
+      {
+        "case": "A1.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 defines velocity and time axes, gives both endpoints and a sketch, and asks for position relative to the start. Independently, v=4\u22122t, so displacement is \u222b\u2080\u2074(4\u22122t)dt=16\u221216=0 m: the trolley returns to its starting position."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 1 requests graph-based reasoning without supplying the signed-area rule or identifying the answer. 'Ahead of, behind, or back at' enumerates possible outcomes without leading toward one or supplying a recognition cue. No weakness or study history is assumed."
+          }
+        ]
+      },
+      {
+        "case": "A1.2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 supplies velocity\u2013time endpoints with units, directs a sketch, and asks for acceleration's sign at a specified time. Independently, acceleration is the constant slope (\u22124\u22124)/(4\u22120)=\u22122 m/s\u00b2, so it is negative at t=2 s. The sketch supports the single requested conclusion."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 1 asks 'Explain how the graph tells you' without teaching the slope rule or revealing the sign. 'Positive, negative, or zero' lists the possible signs without leading labels or explanatory cues. The task remains diagnostic, brief, and feasible with pencil."
+          }
+        ]
+      },
+      {
+        "case": "A1.2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 defines a velocity\u2013time graph through explicit endpoints and units, asks for a sketch, and requests one displacement. Independently, the positive triangular area is \u00bd\u00d72\u00d74=4 m and the negative area is \u22124 m, giving displacement 0 m."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 1 asks for displacement and supporting reasoning without explaining integration or signed area, supplying an answer, or offering leading choices. It assumes no weakness and starts one achievable pencil task."
+          }
+        ]
+      },
+      {
+        "case": "A2.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 immediately asks the learner to 'Construct a differentiable, strictly increasing function whose derivative is zero somewhere' and identify that point. It supplies no example, recipe, or proof and reserves the defense for the next exchange, matching the oral target."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 immediately provides a complete counterexample in three sentences and stops. Independently, for a<b, b\u00b3\u2212a\u00b3=(b\u2212a)[(a+b/2)\u00b2+3b\u00b2/4]>0 because the bracket vanishes only when a=b=0; hence x\u00b3 is strictly increasing. Its derivative is 3x\u00b2, with f\u2032(0)=0, exactly as stated."
+          }
+        ]
+      },
+      {
+        "case": "A2.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 starts the requested construction without asking about time, topic, or resources. 'Construct a function that is differentiable and strictly increasing, but whose derivative is not positive everywhere' requests one cold attempt and its failure point without supplying a construction method or example."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 switches directly to the written answer, uses three sentences, and adds no question or roadmap. Independently, b\u00b3\u2212a\u00b3=(b\u2212a)(a\u00b2+ab+b\u00b2)>0 for a<b, since a\u00b2+ab+b\u00b2=(a+b/2)\u00b2+3b\u00b2/4 can vanish only when both are zero. Thus x\u00b3 is differentiable and strictly increasing, while f\u2032(0)=0 refutes positivity everywhere."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 26.97,
+    "usage": {
+      "input_tokens": 20117,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1190,
+      "reasoning_output_tokens": 87
+    },
+    "prompt_sha256": "5ee93029a56a2d674d21bd3c1820c43bd1bc8ac740018fb249f2cb544a4853f4",
+    "tool_calls": []
+  }
+}

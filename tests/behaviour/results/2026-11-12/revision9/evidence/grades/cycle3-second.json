@@ -1,0 +1,103 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "C1.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 retains the 4-bit counter, integer range 0..31, modulo 16 update once per clock, and consecutive samples 3,9,15,5. 'What can you determine about k?' removes uniqueness without disclosing candidates or suggesting a method."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 gives exactly 6 and 22, proves exhaustion using k=6+16m with m=0,1, predicts 11, and explains indistinguishability for all subsequent readings. Independently, the differences are 6,6,-10, all 6 modulo 16; (3+22n)-(3+6n)=16n, so both sequences agree for every integer n, including n=4 giving 11. The four independently available rubric points reward intermediate reasoning and completeness."
+          }
+        ]
+      },
+      {
+        "case": "C1.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 preserves every numeric constraint and consecutive samples, and asks neutrally, 'What can you determine about k from these observations?' It supplies neither candidate counts nor answers, terminology, or calculations."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 derives k\u22616 modulo 16, identifies the complete set {6,22} within 0..31, gives the fifth value 11, and explains identical updates from every state. Independently, all three differences equal 6 modulo 16, and the two sequences differ by 16n; at n=4 their unreduced values are 27 and 91, both 11 modulo 16. Four separate points reward derivation, consistency, candidates, and completeness."
+          }
+        ]
+      },
+      {
+        "case": "C1.2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 retains the exact degree of counter resolution, range, modulus, clock update, and four consecutive readings. Its neutral 'What can you determine about k?' removes the false uniqueness premise without clues or answers."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 gives exactly 6 and 22 and states that the range contains no other integers congruent to 6. It predicts 11 and proves identical updates for every current state. Independently, k=6+16m permits only m=0,1; the sequence formulas differ by 16n and both yield 11 at n=4. The four one-point rubric entries support partial credit for consequential reasoning."
+          }
+        ]
+      },
+      {
+        "case": "C1.2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 preserves all numeric constraints and consecutive samples, replacing uniqueness with 'What can you determine about k from these observations?' It gives no method, candidate count, or answer."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 establishes k\u22616 modulo 16 and identifies the candidates in 0..31 as 6 and 22, thereby establishing exhaustion. It checks their transitions, predicts 11, and explains identical updates from every state. Independently, 0\u22646+16m\u226431 implies m=0 or 1, and (3+22n)-(3+6n)=16n; n=4 gives 11 modulo 16 for both. Four independently awarded points reward inference, checking, candidate enumeration, and indistinguishability."
+          }
+        ]
+      },
+      {
+        "case": "C2.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 provides only a learner-facing problem, retains cubic degree and strict extrema at 0 and 2, and repairs the value relation to f(0)>f(2). It gives no construction method, coefficients, solution, or explanation of the original impossibility."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 gives the complete family f(x)=kx\u00b3/3\u2212kx\u00b2+C with k>0 and a reasoning-based partial-credit rubric. Independently, f\u2032=kx(x\u22122) has signs +,\u2212,+ across 0 and 2, and f(0)\u2212f(2)=4k/3>0. Its final unanswered quartic transfer is feasible: g\u2032=A(x\u00b2\u22121)(x\u2212r), with A>3/2 and r=3/(2A), gives strict minima at \u00b11 and g(1)\u2212g(\u22121)=4Ar/3=2; an additive constant sets g(\u22121)=0."
+          }
+        ]
+      },
+      {
+        "case": "C2.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 supplies only the generated problem, preserves cubic degree and the two strict extremum locations, and changes the relation to f(0)>f(2). It discloses no method or answer to the original feasibility issue."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 supplies the exhaustive family k(x\u00b3/3\u2212x\u00b2)+C, k>0, verifies its extrema and value relation, and allocates partial credit to consequential intermediate reasoning. Independently, f\u2032=kx(x\u22122) changes + to \u2212 at 0 and \u2212 to + at 2, while f(0)\u2212f(2)=4k/3>0. The separate final transfer changes the constraints and is unanswered and feasible: writing p=ax\u00b3+bx\u00b2+cx+d gives d=0, b=\u22126a, c=2+8a, and p\u2032(1)=2\u2212a=0, hence p=2x\u00b3\u221212x\u00b2+18x satisfies all its constraints."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 30.8,
+    "usage": {
+      "input_tokens": 23005,
+      "cached_input_tokens": 16512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1310,
+      "reasoning_output_tokens": 148
+    },
+    "prompt_sha256": "80c00dbe2d99d0f78b5b10d2b8bccf8613cd3026b4cda2139a77efd49c53e46c",
+    "tool_calls": []
+  }
+}

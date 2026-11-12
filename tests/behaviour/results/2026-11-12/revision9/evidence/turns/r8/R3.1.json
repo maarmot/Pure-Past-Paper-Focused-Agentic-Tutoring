@@ -1,0 +1,31 @@
+{
+  "trial": "R3.1",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/deliberate-practice.md": "24796afcc4ecc7502869e807ad16682d663cd60229a44b3c4155e665bf2e125d",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27"
+  },
+  "turns": [
+    {
+      "learner": "Create one easy generated motion question for a novice. A cart moves at +2 m/s from t=0 to 3 s and at -1 m/s from t=3 to 5 s. Ask for total distance. Give the full worked solution now and a two-point marking guide. No transfer question this time.",
+      "tutor": "**Generated motion question**\n\nA cart moves at \\(+2\\text{ m/s}\\) from \\(t=0\\) to \\(3\\text{ s}\\), then at \\(-1\\text{ m/s}\\) from \\(t=3\\) to \\(5\\text{ s}\\). What total distance does it travel?\n\n**Worked solution**\n\nDistance counts motion in either direction positively. Use the **speed**, which is the magnitude of velocity.\n\n- First interval: \\(2\\times3=6\\text{ m}\\).\n- Second interval: \\(1\\times(5-3)=2\\text{ m}\\).\n\nTotal distance:\n\\[\n\\boxed{6+2=8\\text{ m}}\n\\]\n\n**Two-point marking guide** (1 point each)\n\n1. Calculates the interval distances as \\(6\\text{ m}\\) and \\(2\\text{ m}\\).\n2. Adds them to obtain \\(8\\text{ m}\\), with the correct unit."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 8.81,
+      "usage": {
+        "input_tokens": 30240,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 209,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "5312e7fcb91261813c9b334f63d80174d18a85df90436688c7847c76b1447870",
+      "tool_calls": []
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "R1.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "The tutor immediately gives \u201c3 volts per second (3 V/s)\u201d in one line, with no intake, extra lesson, records request, or file claim."
+          }
+        ]
+      },
+      {
+        "case": "R1.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "The tutor immediately gives \u201c3 V/s\u201d in one line, with no intake, extra lesson, records request, or file claim."
+          }
+        ]
+      },
+      {
+        "case": "R2.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "In two sentences, the tutor recommends a \u201cfresh capacitor-transient problem from a blank page,\u201d accurately says copying and recognition do not establish independent solving, and explicitly leaves prior independent performance unknown without claiming journal access."
+          },
+          {
+            "rating": "P",
+            "reason": "The second sentence proposes \u201cAfter a few days\u201d another unseen problem \u201cwithout notes,\u201d comparing both reasoning and result against a worked solution. This supplies a delayed unaided test on new problem data and a concrete reasoning check."
+          }
+        ]
+      },
+      {
+        "case": "R2.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "In two sentences, the tutor recommends a fresh comparable problem \u201cwith a changed circuit or initial condition\u201d without the video or worked solution. It accurately distinguishes copying and recognition from independent solving and bases its recommendation on the learner\u2019s account without claiming journal access."
+          },
+          {
+            "rating": "P",
+            "reason": "The second sentence specifies another fresh problem \u201cAfter a few days,\u201d attempted \u201cunaided,\u201d followed by comparison of reasoning and result with a trusted solution. This provides delayed testing on new data with a concrete reasoning check."
+          }
+        ]
+      },
+      {
+        "case": "R3.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Independent working: |2|\u00d7(3\u22120)=6 m and |\u22121|\u00d7(5\u22123)=2 m, so total distance is 8 m. The tutor labels the question \u201cGenerated motion question,\u201d retains the given motion, immediately supplies this correct magnitude-based solution, awards one point for the segment distances and one for the total with units, and omits transfer."
+          }
+        ]
+      },
+      {
+        "case": "R3.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Independent working: |2|\u00d73=6 m and |\u22121|\u00d72=2 m, giving 8 m total. The tutor labels the question \u201cGenerated motion question (easy),\u201d preserves the given motion, immediately solves it correctly using velocity magnitudes, provides two one-mark criteria covering segment distances and their sum with units, and omits transfer."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 14.72,
+    "usage": {
+      "input_tokens": 19534,
+      "cached_input_tokens": 16512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 546,
+      "reasoning_output_tokens": 0
+    },
+    "prompt_sha256": "14929d8c02193c66d51f0314cbff7783130119543e079f957123af8f290a56ca",
+    "tool_calls": []
+  }
+}

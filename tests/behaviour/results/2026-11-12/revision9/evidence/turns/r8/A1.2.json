@@ -1,0 +1,31 @@
+{
+  "trial": "A1.2",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/deliberate-practice.md": "24796afcc4ecc7502869e807ad16682d663cd60229a44b3c4155e665bf2e125d",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27"
+  },
+  "turns": [
+    {
+      "learner": "I have twelve minutes, pencil only. I want to be better with graphs in physics. The last tutor asked if I wanted interpreting slopes, sketching motion, or applying formulas. I genuinely can't choose from course labels. You pick an entry point and use what I actually do to find out where to spend the time.",
+      "tutor": "Let\u2019s start with a short **generated physics question**. Your reasoning will help us choose where to spend the twelve minutes.\n\nA trolley\u2019s velocity\u2013time graph is a straight line from \\(v=+4\\text{ m/s}\\) at \\(t=0\\) to \\(v=-4\\text{ m/s}\\) at \\(t=4\\text{ s}\\).\n\nSketch it with your pencil. **At \\(t=2\\text{ s}\\), is the trolley\u2019s acceleration positive, negative, or zero? Explain how the graph tells you.**"
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 5.86,
+      "usage": {
+        "input_tokens": 30239,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 121,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "823951a8dad2d9948d55ee27efc99c73c2aab293e3e9e84cf9d4728c3918d3ad",
+      "tool_calls": []
+    }
+  ]
+}

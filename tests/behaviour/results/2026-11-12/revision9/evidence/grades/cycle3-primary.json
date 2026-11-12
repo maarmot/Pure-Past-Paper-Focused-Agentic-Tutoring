@@ -1,0 +1,103 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "C1.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 retains the 4-bit counter, integer range 0..31, modulo 16 updates once per clock, and all four consecutive samples. 'What can you determine about k?' removes uniqueness without revealing candidates or a method."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 gives exactly 6 and 22, proves exhaustion using k=6+16m with m=0,1, and predicts 11 for both. Independently, the transitions require k\u22616 mod 16; (3+22n)-(3+6n)=16n, so every whole-clock observation agrees. At n=4 both yield 11 modulo 16. The four independently available rubric points reward increment identification, consistency, candidates, and completeness."
+          }
+        ]
+      },
+      {
+        "case": "C1.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 preserves every numeric constraint and the consecutive samples 3,9,15,5. Its neutral question, 'What can you determine about k?', gives neither a method nor the number or values of answers."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 gives {6,22}, explains that these exhaust the permitted congruence class in 0..31, and gives the fifth reading 11. Independently, k=6+16m permits only m=0,1, and (3+22n)-(3+6n)=16n proves indistinguishability at every integer n; n=4 gives 11. The four-point rubric separately rewards consequential intermediate reasoning and completeness."
+          }
+        ]
+      },
+      {
+        "case": "C1.2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 supplies only the problem, retains all numeric constraints and 'four consecutive rising edges,' and replaces uniqueness with 'What can you determine about k?' without hints or disclosed answers."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 states exactly 6 and 22, explicitly excludes other integers in the range congruent to 6, predicts 11, and explains identical updates from any state. Independently, the differences are 6,6,-10\u22616 modulo 16, so k=6+16m with m=0,1. The trajectories differ by 16n and therefore agree modulo 16; their fifth value is 11. Four separate rubric points support partial reasoning."
+          }
+        ]
+      },
+      {
+        "case": "C1.2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 retains the unknown fixed integer, 0..31 range, 4-bit modulo 16 counter, once-per-clock update, and consecutive samples. Its neutral inference question reveals no method or candidate information."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 derives k\u22616 mod 16 and lists exactly 6 and 22 'with no other candidates in the stated range,' establishing exhaustion alongside the displayed congruence. It predicts 11 and proves identical updates for every state. Independently, k=6+16m restricts m to 0,1; the trajectories differ by 16n, and n=4 gives 11 modulo 16. Its four points reward intermediate work and explicitly allow independent awards."
+          }
+        ]
+      },
+      {
+        "case": "C2.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 gives only a learner-facing problem, preserves exact cubic degree and strict maximum at 0 and minimum at 2, and repairs the value relation to f(0)>f(2). It supplies no construction method, coefficients, or feasibility explanation."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 correctly gives f(x)=kx\u00b3/3-kx\u00b2+C, k>0. Independently, f'=kx(x-2) has signs +,-,+ across 0 and 2, and f(0)-f(2)=4k/3>0; these derivative roots also establish completeness. The rubric rewards stationarity, derivative structure, signs, integration, and verification. The final unanswered quartic transfer is feasible: independently, g'=A(x\u00b2-1)(x-r), 0<r<1, A=3/(2r), yields strict minima at \u00b11 and g(1)-g(-1)=4Ar/3=2; an additive constant sets g(-1)=0."
+          }
+        ]
+      },
+      {
+        "case": "C2.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 provides only the generated problem, preserves cubic degree and the two strict extrema at 0 and 2, and changes the relation to f(0)>f(2). It discloses no method, coefficients, solution, or explanation of the original impossibility."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 correctly derives the exhaustive family f(x)=k(x\u00b3/3-x\u00b2)+C, k>0. Independently, f'=kx(x-2) changes signs +,-,+ and f(0)-f(2)=4k/3>0. Its rubric assigns partial credit to consequential intermediate steps. The separate unanswered transfer changes the constraints and is feasible: independently, writing ax\u00b3+bx\u00b2+cx+d gives d=0, b=-6a, c=9a, and f(2)=2a=4, hence f=2x\u00b3-12x\u00b2+18x; f'(1)=0 and f''=12x-24 changes sign at 2."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 30.06,
+    "usage": {
+      "input_tokens": 23009,
+      "cached_input_tokens": 16512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1260,
+      "reasoning_output_tokens": 111
+    },
+    "prompt_sha256": "80c00dbe2d99d0f78b5b10d2b8bccf8613cd3026b4cda2139a77efd49c53e46c",
+    "tool_calls": []
+  }
+}

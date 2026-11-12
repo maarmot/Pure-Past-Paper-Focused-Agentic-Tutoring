@@ -4,6 +4,7 @@ import {
   validateRoadmap,
   parseRoadmap,
   parseEvidence,
+  validRetrievalSource,
   recordAttempt,
   correctAttempt,
   deleteAttempt,
@@ -432,7 +433,7 @@ function attempt(previous) {
     confidence: "unknown",
   };
   field(form, "Problem or activity ID", "problem_id", e.problem_id, {
-    required: true,
+    required: true, rows: 1,
   });
   const observation = field(
     form,
@@ -443,7 +444,7 @@ function attempt(previous) {
   );
   const grid = elt("div", undefined, "form-grid");
   form.append(grid);
-  field(grid, "Date", "date", e.date, { type: "date", required: true });
+  const attemptDate = field(grid, "Date", "date", e.date, { type: "date", required: true });
   const outcome = field(grid, "Outcome", "outcome", e.outcome, {
     required: true,
     choices: [
@@ -485,7 +486,7 @@ function attempt(previous) {
       ...opts("generated", "past-paper", "source-adapted"),
     ],
   });
-  field(grid, "Source or locator", "source", e.source);
+  field(grid, "Source or locator", "source", e.source, { rows: 1 });
   field(
     grid,
     "New transfer problem?",
@@ -520,48 +521,55 @@ function attempt(previous) {
       ],
     },
   );
-  const earlier = state.evidence.filter(
-    (x) => x.skill_id === selected && x.attempt_id !== e.attempt_id,
+  const retrieval = field(
+    form, "Delayed check of earlier attempt", "retrieval_from", "", { choices: [] },
   );
-  field(
-    form,
-    "Delayed check of earlier attempt",
-    "retrieval_from",
-    e.retrieval_from,
-    {
-      choices: [
-        ["", "None"],
-        ...earlier.map((x) => [x.attempt_id, x.date + " · " + x.problem_id]),
-      ],
-    },
-  );
+  let chosenSource = e.retrieval_from || "";
+  function updateSources() {
+    const target = { skill_id: selected, date: attemptDate.value };
+    const eligible = state.evidence.filter(
+      (prior) => prior.attempt_id !== e.attempt_id && validRetrievalSource(prior, target),
+    );
+    retrieval.replaceChildren(new Option("None", ""));
+    for (const prior of eligible) {
+      const option = new Option(prior.date + " · " + prior.problem_id, prior.attempt_id);
+      retrieval.add(option);
+      if (prior.attempt_id === chosenSource) option.selected = true;
+    }
+  }
+  updateSources();
+  attemptDate.oninput = updateSources;
+  retrieval.onchange = () => { chosenSource = retrieval.value; };
   field(form, "What remains uncertain?", "uncertainty", e.uncertainty, {
     rows: 2,
   });
-  let withdraw;
   if (editing && typeof e.independent_success === "boolean") {
-    withdraw = field(form, "Legacy independence flag", "legacy", "keep", {
+    field(form, "Legacy independence flag", "legacy", "keep", {
       choices: [
         ["keep", "Keep prior flag (" + e.independent_success + ")"],
         ["withdraw", "Withdraw disputed flag"],
       ],
     });
   }
+  const initial = new FormData(form);
   submit(
     form,
     editing ? "Apply correction" : "Record attempt",
     async (values) => {
-      delete values.legacy;
-      const event = {
-        ...values,
-        source: values.source || null,
-        transfer: values.transfer === "true",
-        retrieval_from: values.retrieval_from || null,
-      };
-      if (values.prior_familiarity !== "keep")
-        event.previously_seen = values.prior_familiarity === "seen";
-      delete event.prior_familiarity;
-      if (withdraw?.value === "withdraw") event.independent_success = null;
+      // Controls normalize line endings and display defaults for omitted legacy fields.
+      // An unchanged control must leave its original stored value alone.
+      if (editing) {
+        for (const [key, value] of Object.entries(values)) {
+          if (value === initial.get(key)) delete values[key];
+        }
+      }
+      const { prior_familiarity, legacy, ...event } = values;
+      if ("source" in event) event.source = event.source || null;
+      if ("transfer" in event) event.transfer = event.transfer === "true";
+      if ("retrieval_from" in event) event.retrieval_from = event.retrieval_from || null;
+      if (prior_familiarity && prior_familiarity !== "keep")
+        event.previously_seen = prior_familiarity === "seen";
+      if (legacy === "withdraw") event.independent_success = null;
       const next = editing
         ? correctAttempt(state, e.attempt_id, event)
         : recordAttempt(state, {
@@ -569,6 +577,11 @@ function attempt(previous) {
             attempt_id: crypto.randomUUID(),
             skill_id: selected,
           });
+      if (next === state) {
+        close();
+        say("No changes to this attempt");
+        return;
+      }
       await change(next);
       close();
       say(editing ? "Attempt corrected" : "Attempt recorded");

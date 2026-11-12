@@ -21,6 +21,18 @@ Bring a past-paper question, a line of working you distrust, or a mechanism you 
 
 The core works in conversation. Codex discovers [the skill](SKILL.md) and loads specialized references as needed. Local tools validate records and select due items. Optional tools support checked browser activities, Manim animations and LaTeX study documents. REA can inspect a supplied software artifact on hosts that provide it. Superpowers can coordinate engineering work on the skill. Ordinary tutoring needs neither integration.
 
+## Try a checked problem
+
+Three original technical exercises come with the installed skill. Start with a learner sheet. In each folder, `key.md` contains a worked solution, grading, oral follow-ups and hints. Save `transfer.md` for a separate attempt and `transfer-key.md` for marking it.
+
+| Practice | Decision to make |
+|---|---|
+| [Inspection cart](assets/challenges/technical-practice/rail-dock/problem.md) | Turn a spatial demand description into a cost function and defend a global minimum. |
+| [FPGA register and firmware counter](assets/challenges/technical-practice/stream-register/problem.md) | Reconcile accepted and delivered beats when a downstream device stalls. |
+| [Stereo depth](assets/challenges/technical-practice/stereo-depth/problem.md) | Decide which depth claims two uncertain measurements actually support. |
+
+[Teaching research](docs/research-revision9.md) · [Revision 9 test and release report](tests/verification-revision9.md) · [Exercise verification](assets/challenges/technical-practice/verification.md)
+
 ## Study with Fieldnotes
 
 Run the roadmap from this source checkout with Python 3.9 or later.
@@ -69,12 +81,14 @@ From the source checkout:
 python scripts/ppp_tools.py audit
 python -B -m unittest discover -s tests -p "test_*.py" -v
 python -B assets/manim/lesson_beats.py --check
-python -B tests/behaviour/results/2026-11-12/revision7/check_results.py
+node --test tests/roadmap-model.test.mjs
+python -B tests/behaviour/results/2026-11-12/revision9/verify.py --release-rev ARCHIVED
+python -B -m unittest discover -s tests/behaviour/results/2026-11-12/revision9 -p "test_integrity.py"
 ```
 
 The [CLI reference](references/tools.md) documents `validate-record`, `due --brief`, caption checks, media decoding and render timing. A starter JSON file needs `--allow-template` until filled with observations. The Python CLI uses the standard library. Installations that already provide FFmpeg and ffprobe can decode media. Browser interaction, Manim rendering, PDF compilation and audio quality each require their own checks.
 
-The [revision 7 evaluation](tests/behaviour/results/2026-11-12/revision7/README.md) provides the preregistered cases, exact replies, blind grading, sample sizes and reproduction instructions. The [release checks](tests/verification-revision7.md) cover record validation, packaging and optional media. The [historical evaluations](tests/behaviour/README.md) and [CI workflow](.github/workflows/tests.yml) retain earlier tests. A synthetic tutor response cannot demonstrate a person's retention or later transfer.
+The [revision 9 comparison](tests/behaviour/results/2026-11-12/revision9/README.md) includes the frozen cases, exact replies, masked ratings, rejected candidates and replay commands. The [release checks](tests/verification-revision9.md) cover the installed skill, offline exercises, and Fieldnotes. The [historical evaluations](tests/behaviour/README.md) and [CI workflow](.github/workflows/tests.yml) retain earlier tests. A synthetic tutor response cannot demonstrate a person's retention or later transfer.
 
 ## Sources and contributions
 

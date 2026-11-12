@@ -1,0 +1,103 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "A1.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Tutor turn 1 supplies position and time axes, exact coordinates and one speed comparison. Independently, AB has speed (4\u22120)/(2\u22120)=2 m/s and BC has speed (6\u22124)/(6\u22122)=0.5 m/s, so AB is faster. The exact coordinates make the task usable despite the rough sketch."
+          },
+          {
+            "rating": "P",
+            "reason": "Tutor turn 1 asks 'Explain how you decided' without teaching the slope rule or revealing the answer. It assumes no learner weakness and gives one short task suited to pencil and twelve minutes."
+          }
+        ]
+      },
+      {
+        "case": "A1.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Tutor turn 1 defines velocity and time axes, endpoints and a single final-position question. Independently, v=4\u22122t; displacement is 4(4)\u22124\u00b2=0 m, so the trolley returns to its starting position."
+          },
+          {
+            "rating": "P",
+            "reason": "Tutor turn 1 asks how the learner used the graph without explaining signed area or identifying cancellation. 'Ahead of, behind, or back at' lists possible outcomes without leading conceptual labels or revealing the answer; the task remains diagnostic and manageable."
+          }
+        ]
+      },
+      {
+        "case": "A1.2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Tutor turn 1 supplies a complete velocity\u2013time line with units and asks for a sketch supporting one acceleration judgment. Independently, acceleration is the constant slope (\u22124\u22124)/(4\u22120)=\u22122 m/s\u00b2, including at t=2 s."
+          },
+          {
+            "rating": "P",
+            "reason": "Tutor turn 1 gives no slope rule, answer or assumed weakness. 'Positive, negative, or zero' supplies ordinary sign alternatives without cues linking them to graph features; asking for an explanation preserves the diagnostic task."
+          }
+        ]
+      },
+      {
+        "case": "A1.2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Tutor turn 1 defines the velocity\u2013time data and units and requests one displacement answer supported by a sketch. Independently, the positive triangle contributes \u00bd(2)(4)=4 m and the negative triangle contributes \u22124 m, giving displacement 0 m."
+          },
+          {
+            "rating": "P",
+            "reason": "Tutor turn 1 asks 'Explain how your sketch supports your answer' without teaching area, revealing cancellation or assigning a weakness. The single short problem fits the stated time and resources."
+          }
+        ]
+      },
+      {
+        "case": "A2.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Tutor turn 1 immediately asks the learner to construct a differentiable, strictly increasing function with a zero derivative somewhere and identify that point. It supplies no example or construction method and reserves the defense for the next exchange."
+          },
+          {
+            "rating": "P",
+            "reason": "Tutor turn 2 switches directly to a complete written counterexample in three sentences and stops. Independently, for a<b, b\u2212a>0 and a\u00b2+ab+b\u00b2=(a+b/2)\u00b2+3b\u00b2/4>0 because distinct a,b cannot both be zero; hence x\u00b3 is strictly increasing, while its derivative 3x\u00b2 vanishes at 0. The supplied proof is valid."
+          }
+        ]
+      },
+      {
+        "case": "A2.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Tutor turn 1 immediately requests one counterexample and where its derivative condition fails, without asking about resources or supplying a recipe or example. Its explicit strictly increasing interpretation suits the oral target and leaves construction to the learner."
+          },
+          {
+            "rating": "P",
+            "reason": "Tutor turn 2 provides the complete x\u00b3 counterexample in three sentences with no further question or roadmap. Independently, b\u00b3\u2212a\u00b3=(b\u2212a)(a\u00b2+ab+b\u00b2)>0 for a<b, since the second factor is a sum of squares vanishing only when a=b=0; f\u2032(x)=3x\u00b2 gives f\u2032(0)=0. Thus differentiability, strict increase and the exceptional derivative are correctly established."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 24.48,
+    "usage": {
+      "input_tokens": 20121,
+      "cached_input_tokens": 16512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 916,
+      "reasoning_output_tokens": 70
+    },
+    "prompt_sha256": "5ee93029a56a2d674d21bd3c1820c43bd1bc8ac740018fb249f2cb544a4853f4",
+    "tool_calls": []
+  }
+}

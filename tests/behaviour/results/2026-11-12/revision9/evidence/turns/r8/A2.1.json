@@ -1,0 +1,48 @@
+{
+  "trial": "A2.1",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/deliberate-practice.md": "24796afcc4ecc7502869e807ad16682d663cd60229a44b3c4155e665bf2e125d",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27"
+  },
+  "turns": [
+    {
+      "learner": "I already understand sign tables. I have 8 minutes, paper only. I need to defend a counterexample at an oral exam to 'a differentiable increasing function has positive derivative everywhere.' Let me construct it myself, then ask me to defend it.",
+      "tutor": "You have 8 minutes, paper only. We\u2019ll focus on constructing a counterexample and defending why it meets every condition. I\u2019ll take \u201cincreasing\u201d to mean **strictly increasing**, so your example also covers the stronger interpretation.\n\nConstruct a function that is differentiable and strictly increasing, but whose derivative is not positive everywhere. Give your function and show where the derivative condition fails; then I\u2019ll ask you to defend it."
+    },
+    {
+      "learner": "Change of plan before I try: I need a written answer to the claim instead. Give the complete counterexample and explanation in at most four sentences; then stop.",
+      "tutor": "The claim is false: take \\(f(x)=x^3\\) on \\(\\mathbb R\\), which is differentiable everywhere. It is strictly increasing because, for \\(a<b\\), \\(b^3-a^3=(b-a)(a^2+ab+b^2)>0\\), since \\(a^2+ab+b^2=(a+b/2)^2+3b^2/4>0\\) when \\(a\\ne b\\). However, \\(f'(x)=3x^2\\), so \\(f'(0)=0\\), contradicting the claim that the derivative is positive everywhere."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 8.26,
+      "usage": {
+        "input_tokens": 30226,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 91,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "bc4a2789f5b88da5ab6b7c1cecda6c0bd52c81fac747051c47aad1be9cb15be8",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 6.27,
+      "usage": {
+        "input_tokens": 30360,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 137,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "f5e4759d09327b1125f2b0a8ded871aaefbfd9e53bf7a8102b3f85f8b5793c46",
+      "tool_calls": []
+    }
+  ]
+}

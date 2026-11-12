@@ -1,6 +1,6 @@
 // Bump this identifier when changing an application file. Cache only the public shell.
 const cachePrefix = "ppp-fieldnotes-shell-" + self.registration.scope + "|";
-const version = cachePrefix + "v1.0";
+const version = cachePrefix + "v1.1";
 const files = [
   "index.html",
   "style.css",

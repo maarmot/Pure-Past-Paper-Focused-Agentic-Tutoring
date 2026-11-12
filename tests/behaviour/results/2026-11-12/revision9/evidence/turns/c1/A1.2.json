@@ -1,0 +1,31 @@
+{
+  "trial": "A1.2",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/deliberate-practice.md": "ac43a8d029933012b537c6acae08abe705ba6ca65fac7cf24f7f3ecfcc15b62e",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27"
+  },
+  "turns": [
+    {
+      "learner": "I have twelve minutes, pencil only. I want to be better with graphs in physics. The last tutor asked if I wanted interpreting slopes, sketching motion, or applying formulas. I genuinely can't choose from course labels. You pick an entry point and use what I actually do to find out where to spend the time.",
+      "tutor": "We\u2019ll use your twelve minutes for short graph problems, choosing each next step from your reasoning. Pencil only.\n\n**Generated starting problem:** A velocity\u2013time graph is a straight line from \\(v=+4\\,\\text{m/s}\\) at \\(t=0\\) to \\(v=-4\\,\\text{m/s}\\) at \\(t=4\\,\\text{s}\\).\n\nSketch it. **What is the object\u2019s displacement over those four seconds?** Explain how your sketch supports your answer\u2014even if you\u2019re unsure."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 11.12,
+      "usage": {
+        "input_tokens": 30267,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 189,
+        "reasoning_output_tokens": 73
+      },
+      "prompt_sha256": "074364a8d145a20c56eb783456ddfff1de5b0e7ec90a45e59808fefa2ce6cca7",
+      "tool_calls": []
+    }
+  ]
+}

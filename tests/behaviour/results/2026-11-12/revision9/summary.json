@@ -1,0 +1,254 @@
+{
+  "comparisons": {
+    "cycle1": {
+      "arms": [
+        "r8",
+        "c1"
+      ],
+      "counts": {
+        "primary": {
+          "r8": {
+            "P": 6,
+            "M": 0,
+            "F": 0
+          },
+          "c1": {
+            "P": 6,
+            "M": 0,
+            "F": 0
+          }
+        },
+        "second": {
+          "r8": {
+            "P": 6,
+            "M": 0,
+            "F": 0
+          },
+          "c1": {
+            "P": 6,
+            "M": 0,
+            "F": 0
+          }
+        }
+      },
+      "paired_directions": {
+        "primary": {
+          "A1.1": 0,
+          "A1.2": 0,
+          "A2.1": 0
+        },
+        "second": {
+          "A1.1": 0,
+          "A1.2": 0,
+          "A2.1": 0
+        }
+      },
+      "new_fails": {
+        "primary": [],
+        "second": []
+      },
+      "judge_agreement": [
+        12,
+        12
+      ],
+      "numerical_gate": false
+    },
+    "cycle2": {
+      "arms": [
+        "r8",
+        "c2"
+      ],
+      "counts": {
+        "primary": {
+          "r8": {
+            "P": 4,
+            "M": 2,
+            "F": 0
+          },
+          "c2": {
+            "P": 5,
+            "M": 0,
+            "F": 1
+          }
+        },
+        "second": {
+          "r8": {
+            "P": 4,
+            "M": 2,
+            "F": 0
+          },
+          "c2": {
+            "P": 5,
+            "M": 0,
+            "F": 1
+          }
+        }
+      },
+      "paired_directions": {
+        "primary": {
+          "B1.1": 1,
+          "B1.2": -1,
+          "B2.1": 0
+        },
+        "second": {
+          "B1.1": 1,
+          "B1.2": -1,
+          "B2.1": 0
+        }
+      },
+      "new_fails": {
+        "primary": [
+          [
+            "B1.2",
+            1
+          ]
+        ],
+        "second": [
+          [
+            "B1.2",
+            1
+          ]
+        ]
+      },
+      "judge_agreement": [
+        12,
+        12
+      ],
+      "numerical_gate": false
+    },
+    "cycle3": {
+      "arms": [
+        "r8",
+        "c3"
+      ],
+      "counts": {
+        "primary": {
+          "r8": {
+            "P": 6,
+            "M": 0,
+            "F": 0
+          },
+          "c3": {
+            "P": 6,
+            "M": 0,
+            "F": 0
+          }
+        },
+        "second": {
+          "r8": {
+            "P": 6,
+            "M": 0,
+            "F": 0
+          },
+          "c3": {
+            "P": 6,
+            "M": 0,
+            "F": 0
+          }
+        }
+      },
+      "paired_directions": {
+        "primary": {
+          "C1.1": 0,
+          "C1.2": 0,
+          "C2.1": 0
+        },
+        "second": {
+          "C1.1": 0,
+          "C1.2": 0,
+          "C2.1": 0
+        }
+      },
+      "new_fails": {
+        "primary": [],
+        "second": []
+      },
+      "judge_agreement": [
+        12,
+        12
+      ],
+      "numerical_gate": false
+    },
+    "final": {
+      "arms": [
+        "r8",
+        "release"
+      ],
+      "counts": {
+        "primary": {
+          "r8": {
+            "P": 4,
+            "M": 0,
+            "F": 0
+          },
+          "release": {
+            "P": 4,
+            "M": 0,
+            "F": 0
+          }
+        },
+        "second": {
+          "r8": {
+            "P": 4,
+            "M": 0,
+            "F": 0
+          },
+          "release": {
+            "P": 4,
+            "M": 0,
+            "F": 0
+          }
+        }
+      },
+      "paired_directions": {
+        "primary": {
+          "R1.1": 0,
+          "R2.1": 0,
+          "R3.1": 0
+        },
+        "second": {
+          "R1.1": 0,
+          "R2.1": 0,
+          "R3.1": 0
+        }
+      },
+      "new_fails": {
+        "primary": [],
+        "second": []
+      },
+      "judge_agreement": [
+        8,
+        8
+      ],
+      "numerical_gate": true
+    }
+  },
+  "tutor": {
+    "calls": 38,
+    "tokens": {
+      "input_tokens": 1171074,
+      "cached_input_tokens": 565760,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7477,
+      "reasoning_output_tokens": 1324
+    },
+    "summed_worker_seconds": 343.98,
+    "cli_versions": [
+      "codex-cli 0.167.0-alpha.4.1"
+    ]
+  },
+  "judge": {
+    "calls": 8,
+    "tokens": {
+      "input_tokens": 166875,
+      "cached_input_tokens": 123904,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8300,
+      "reasoning_output_tokens": 675
+    },
+    "summed_worker_seconds": 204.22,
+    "cli_versions": [
+      "codex-cli 0.167.0-alpha.4.1"
+    ]
+  }
+}

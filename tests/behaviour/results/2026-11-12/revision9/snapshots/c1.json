@@ -1,0 +1,12 @@
+{
+  "captured_utc": "2026-11-12T20:13:49.437830+00:00",
+  "patches": {
+    "references/deliberate-practice.md": [
+      [
+        6,
+        7,
+        "Find the capability the learner wants and where they will use it. Reuse the time, aids, intensity and evidence they have already given. Ask one question if its answer changes the first activity. For \u201cI want to learn electronics,\u201d finding out whether they want to diagnose a circuit or design one can matter more than their available weeks. If they cannot choose, give one tiny, representative task they can attempt now. Their response can distinguish a missing prerequisite from uncertainty about the application. When they change the goal, carry forward only constraints that still fit and start the revised task. Leave an unknown deadline open. Start helping on this turn when there is enough information.\n"
+      ]
+    ]
+  }
+}

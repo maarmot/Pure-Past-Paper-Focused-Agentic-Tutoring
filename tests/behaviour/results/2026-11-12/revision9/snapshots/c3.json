@@ -1,0 +1,12 @@
+{
+  "captured_utc": "2026-11-12T20:18:05.699872+00:00",
+  "patches": {
+    "references/deliberate-practice.md": [
+      [
+        36,
+        37,
+        "Solve from the learner sheet alone, including its title, data, choices and permitted aids. Try a second admissible case that would change the answer. If it exists, ask for a bound or what extra observation distinguishes the cases. If fixed requirements contradict one another, show the conflict and give a feasible alternative with the changed assumption explicit. When difficulty lies in choosing a method, remove cues from headings, intermediate questions and the visible rubric. Check the exact sheet again after editing.\n"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "trial": "B1.2",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/deliberate-practice.md": "bec05d4a72ab5430821e12b95d47486a3e2788f93206f1a3d9a602562f65d668",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27"
+  },
+  "turns": [
+    {
+      "learner": "Oral calculus. For F(x) equal to the integral from 0 to x squared of 2t dt, I got F'(0)=0 by putting zero where I saw an x. I don't know if my rule would keep working. Give me a single test to do myself before explaining what happened.",
+      "tutor": "Test your rule at \\(x=1\\): **does it give the correct value of \\(F'(1)\\)?**\n\nWrite down its prediction first. Then check independently by evaluating\n\\[\nF(x)=\\int_0^{x^2}2t\\,dt\n\\]\nand differentiating the resulting expression. Show both results."
+    },
+    {
+      "learner": "My rule was just twice the upper limit. What missing step changes that? Give one worked step and let me try again.",
+      "tutor": "Your rule gives \\(2x^2\\), which evaluates the integrand at the upper limit. The missing step is multiplying by **the derivative of the upper limit**, because \\(x^2\\) itself changes with \\(x\\).\n\nOne worked step, using the chain rule:\n\\[\nF'(x)=\\underbrace{2(x^2)}_{\\text{integrand at upper limit}}\n\\;\\underbrace{\\frac{d}{dx}(x^2)}_{\\text{rate upper limit changes}}.\n\\]\n\nNow complete that derivative and find \\(F'(1)\\)."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 10.36,
+      "usage": {
+        "input_tokens": 30256,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 186,
+        "reasoning_output_tokens": 111
+      },
+      "prompt_sha256": "091fba9d866cb49a818e6ecb104a31cef57034ded56c9e4f17f4787f9da7e371",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 10.33,
+      "usage": {
+        "input_tokens": 34259,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 123,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "6dd730e65cd097cdb0b61df676248891d069373d58ee1d72ba3a5ccecf5ef082",
+      "tool_calls": []
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "source": {
+    "SKILL.md": "9db8e5ba8f65f5db0d7494783f809dfdd1a1ceb297fcf1ce89daadf80d8a6251",
+    "references/tutoring.md": "e4a31fa4d4dc0adf865e5e50fc2a19764686f574420d317cf3b513771903d0fe",
+    "references/deliberate-practice.md": "e64b6ea5a4108432c06a01afd795689fec6efe1442b4b3b3607f22090acade09",
+    "references/study-habits.md": "52c4b49bed2ca715913a071ab934973ddd10d19f7a4c77c0e1f844c5fa749f74"
+  },
+  "messages": [
+    {
+      "learner": "One easy original question only for a beginner who just learned series resistors. Give a voltage and the values of two distinct positive resistors in series and ask me for the current. No answer or hints yet."
+    },
+    {
+      "tutor": "**Original question:** A 12 V battery is connected to two resistors in series: 4 \u03a9 and 2 \u03a9. What current flows through the circuit?"
+    },
+    {
+      "learner": "Please give the complete numerical solution and a two-point partial-credit rule for your exact question. No additional questions."
+    },
+    {
+      "tutor": "The total resistance in series is\n\\[\nR = 4 + 2 = 6\\,\\Omega.\n\\]\n\nUsing Ohm\u2019s law, the current is\n\\[\nI = \\frac{V}{R} = \\frac{12}{6} = \\boxed{2\\,\\text{A}}.\n\\]\n\n**Partial-credit rule (2 points total):**\n\n- **1 point:** Correctly adds the series resistances to get \\(6\\,\\Omega\\).\n- **1 point:** Uses \\(I=V/R\\) with the total resistance and obtains \\(2\\,\\text{A}\\)."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 4.23,
+      "usage": {
+        "input_tokens": 24872,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 37,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "86f1e8cf8c17d8828ba32000dbd48d21f049403d735ae598541181ad7f5b0466",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 6.12,
+      "usage": {
+        "input_tokens": 24938,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 131,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "2003c5fc90966552359bdc2ae23943025c488c56bbcb878acc6b9a1208b684fe",
+      "tool_calls": []
+    }
+  ]
+}

@@ -48,6 +48,15 @@ jobs:
           python -B -m unittest discover -s tests/behaviour/results/2026-11-12/revision7 -p 'test_evidence.py' -v
       - name: Build the runtime package from this commit
         run: python scripts/package_skill.py "$RUNNER_TEMP/ppp-learning.zip"
+      - name: Reconstruct revision 9 comparisons and release checks
+        run: |
+          eval_dir=tests/behaviour/results/2026-11-12/revision9
+          smoke_dir=tests/behaviour/results/2026-11-12/revision9-smoke
+          python -B "$eval_dir/verify.py" --release-rev ARCHIVED
+          python -B -m unittest discover -s "$eval_dir" -p test_integrity.py -v
+          release=$(git log -1 --diff-filter=A --format=%H -- "$smoke_dir/observed/easy.json")
+          test -n "$release"
+          python -B "$smoke_dir/run.py" . "$release" "$smoke_dir/observed" --check
       - name: Validate starter records
         shell: bash
         run: |

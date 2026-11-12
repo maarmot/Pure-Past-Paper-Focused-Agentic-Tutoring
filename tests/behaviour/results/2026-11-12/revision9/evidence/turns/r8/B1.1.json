@@ -1,0 +1,48 @@
+{
+  "trial": "B1.1",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/deliberate-practice.md": "24796afcc4ecc7502869e807ad16682d663cd60229a44b3c4155e665bf2e125d",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27"
+  },
+  "turns": [
+    {
+      "learner": "Oral calculus. For F(x) equal to the integral from 0 to x squared of 2t dt, I got F'(0)=0 by putting zero where I saw an x. I don't know if my rule would keep working. Give me a single test to do myself before explaining what happened.",
+      "tutor": "For the same \\(F(x)=\\int_0^{x^2}2t\\,dt\\), find **\\(F'(1)\\)** using your rule. Show the expression you substitute \\(x=1\\) into."
+    },
+    {
+      "learner": "My rule was just twice the upper limit. What missing step changes that? Give one worked step and let me try again.",
+      "tutor": "Your rule gives \\(2x^2\\): it evaluates the integrand at the upper limit. The missing step is multiplying by **how fast that upper limit changes**.\n\nBy the chain rule,\n\\[\nF'(x)=2(x^2)\\cdot\\frac{d}{dx}(x^2)=2x^2\\cdot2x.\n\\]\n\nAt \\(x=0\\), your rule and the correct rule both give zero, so that result alone didn\u2019t test the missing factor.\n\nNow try again: what is \\(F'(1)\\)?"
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 7.75,
+      "usage": {
+        "input_tokens": 30236,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 126,
+        "reasoning_output_tokens": 73
+      },
+      "prompt_sha256": "ae3a25961e6b53cb4ef19df1726e55beade5adc26ae55514c290fe9cfbcc2538",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 5.48,
+      "usage": {
+        "input_tokens": 30325,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 120,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "1974ed0b9adf2bfc77d75cf22bbe1f432037507cf7ccc9f764b09c36fe52fdbe",
+      "tool_calls": []
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "trial": "C2.1",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/deliberate-practice.md": "24796afcc4ecc7502869e807ad16682d663cd60229a44b3c4155e665bf2e125d",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27"
+  },
+  "turns": [
+    {
+      "learner": "Generate a challenging, cold calculus exam item on constructing examples from constraints. Make the required object a cubic polynomial with a strict local maximum at 0, a strict local minimum at 2, and equal values at those two points. If my constraints don't work, keep the degree and the extremum locations and repair only the relation between the values. The student must decide how to construct it. Give the problem alone for now.",
+      "tutor": "**Generated exam-style problem**\n\nDetermine all real cubic polynomials \\(f\\) satisfying these constraints:\n\n- \\(f\\) has a strict local maximum at \\(x=0\\).\n- \\(f\\) has a strict local minimum at \\(x=2\\).\n- \\(f(0)>f(2)\\).\n\nJustify that your family contains every polynomial satisfying the constraints."
+    },
+    {
+      "learner": "Reveal your key and partial-credit rubric. Include a different transfer prompt at the very end, without its answer.",
+      "tutor": "The original equal-value condition is impossible. Between a cubic\u2019s local maximum at \\(0\\) and local minimum at \\(2\\), its derivative is negative, so \\(f(0)>f(2)\\). That is the repaired relation used in the problem.\n\n**Key**\n\nAt both extrema, the derivative vanishes:\n\\[\nf'(0)=f'(2)=0.\n\\]\nSince \\(f\\) is cubic, its derivative is quadratic, so\n\\[\nf'(x)=k\\,x(x-2),\\qquad k\\ne0.\n\\]\n\nFor a strict maximum at \\(0\\), the derivative must change from positive to negative. This requires \\(k>0\\). The same choice gives a change from negative to positive at \\(2\\), hence a strict minimum there.\n\nIntegrating gives every possible polynomial:\n\\[\n\\boxed{f(x)=\\frac{k}{3}x^3-kx^2+C,\\qquad k>0,\\quad C\\in\\mathbb R.}\n\\]\n\nIts values satisfy\n\\[\nf(0)=C,\\qquad f(2)=C-\\frac{4k}{3},\n\\]\nso \\(f(0)>f(2)\\) automatically.\n\nThis proves completeness: every admissible cubic must have the derivative above, and every polynomial in the displayed family satisfies all three constraints.\n\n**Proposed partial-credit rubric \u2014 10 marks**\n\nThis is an authored rubric for the generated item.\n\n| Criterion | Marks |\n|---|---:|\n| Uses stationarity to obtain \\(f'(0)=f'(2)=0\\). | 2 |\n| Uses the quadratic degree to deduce \\(f'(x)=kx(x-2)\\), \\(k\\ne0\\). | 2 |\n| Establishes \\(k>0\\) and verifies both required extrema through sign changes or second derivatives. | 2 |\n| Integrates correctly, including an arbitrary additive constant. | 2 |\n| Verifies the value inequality. | 1 |\n| Explicitly establishes that the family is exhaustive and sufficient. | 1 |\n\nAward equivalent reasoning equally, including direct work with cubic coefficients. A single valid example earns the applicable construction and verification marks, but does not establish the requested complete family. Stationary points alone do not earn the extrema-verification marks.\n\n**Transfer prompt \u2014 generated**\n\nDetermine all real quartic polynomials \\(g\\) with strict local minima at \\(x=-1\\) and \\(x=1\\), satisfying\n\\[\ng(-1)=0,\\qquad g(1)=2.\n\\]\nJustify that your family contains every such polynomial, and determine the possible locations of its intervening local maximum."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 10.98,
+      "usage": {
+        "input_tokens": 30260,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 241,
+        "reasoning_output_tokens": 158
+      },
+      "prompt_sha256": "0e1d9375b7ba932a224c9a345810de1cea4109fb38cf9d4e39f716045b3f59c4",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 23.92,
+      "usage": {
+        "input_tokens": 34275,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 793,
+        "reasoning_output_tokens": 233
+      },
+      "prompt_sha256": "8ce3dc0302017b0ab1bc6984c23223bdc54b5be623106d5494077284b3db5b5c",
+      "tool_calls": []
+    }
+  ]
+}

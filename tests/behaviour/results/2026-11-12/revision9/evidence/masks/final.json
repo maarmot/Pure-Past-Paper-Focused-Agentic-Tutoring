@@ -1,0 +1,20 @@
+{
+  "comparison": [
+    "r8",
+    "release"
+  ],
+  "arms": {
+    "R1.1": {
+      "X": "r8",
+      "Y": "release"
+    },
+    "R2.1": {
+      "X": "release",
+      "Y": "r8"
+    },
+    "R3.1": {
+      "X": "r8",
+      "Y": "release"
+    }
+  }
+}

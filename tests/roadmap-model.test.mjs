@@ -149,7 +149,10 @@ test('corrections withdraw superseded imported independence claims and keep an u
   const downgraded = correctAttempt(strong,'first',{assistance:'hint'},day);
   assert.equal(report(downgraded).gates.solve,false);
   const weak = stateWith(event({assistance:'hint',independent_success:false}));
-  assert.equal(report(correctAttempt(weak,'first',{assistance:'none'},day)).gates.solve,true);
+  const stillWithheld = correctAttempt(weak,'first',{assistance:'none'},day);
+  assert.equal(stillWithheld.evidence[0].independent_success,false);
+  assert.equal(report(stillWithheld).gates.solve,false);
+  assert.equal(report(correctAttempt(stillWithheld,'first',{independent_success:null},day)).gates.solve,true);
   const veto = stateWith(event({independent_success:false}));
   assert.equal(report(correctAttempt(veto,'first',{uncertainty:'Source review pending'},day)).gates.solve,false);
   assert.equal(report(correctAttempt(veto,'first',{independent_success:null},day)).gates.solve,true);
@@ -206,4 +209,47 @@ test('snapshot and PPP exports carry familiarity without publishing fresh indepe
   const veto=stateWith(s.evidence[0],{...s.evidence[1],independent_success:false});
   assert.equal(exportSession(veto,'second',day).events[0].roadmap.retrieval_eligible,undefined);
   assert.throws(()=>stateWith(event({previously_seen:'yes'})), /exposure|familiar/i);
+});
+
+test('correcting the earlier attempt withdraws only retrieval links it no longer supports', () => {
+  const earlier = event({attempt_id:'practice', outcome:'partial', assistance:'hint'});
+  const next = event({attempt_id:'cold', date:'2026-05-05', retrieval_from:'practice'});
+  const later = event({attempt_id:'later', date:day, problem_id:'different', retrieval_from:'practice'});
+  const initial = stateWith(earlier, next, later);
+  const moved = correctAttempt(initial, 'practice', {date:'2026-05-06'}, day);
+  assert.equal(moved.evidence[1].retrieval_from, undefined);
+  assert.equal(moved.evidence[1].previously_seen, true);
+  assert.equal(moved.evidence[2].retrieval_from, 'practice');
+  const corrected = correctAttempt(moved, 'practice', {outcome:'not-attempted'}, day);
+  assert.equal(corrected.evidence.length, 3);
+  assert.equal(report(corrected).gates.delayed, false);
+  assert.equal(exportSession(corrected, 'later', day).events[0].roadmap.retrieval_from, undefined);
+  assert.deepEqual(parseRoadmap(JSON.stringify(corrected), day), corrected);
+  assert.equal(initial.evidence[1].retrieval_from, 'practice');
+  const sameDay = correctAttempt(initial, 'cold', {date:earlier.date}, day);
+  assert.equal(sameDay.evidence[1].retrieval_from, undefined);
+  assert.equal(sameDay.evidence[2].retrieval_from, 'practice');
+  assert.throws(() => correctAttempt(corrected, 'cold', {retrieval_from:'practice'}, day));
+});
+
+test('session preparation carries the observation provenance, correction date and explicit veto into the tutor handoff', () => {
+  const original = stateWith(event({independent_success:false, source:'PRIVATE-LOCATOR', provenance:'past-paper'}));
+  const corrected = correctAttempt(original, 'first', {uncertainty:'Working unavailable'}, day);
+  const prompt = buildPrompt(corrected, 'trace', 'prepare', day);
+  const data = JSON.parse(prompt.slice(prompt.indexOf('\n\n{') + 2));
+  assert.equal(data.observations[0].provenance, 'past-paper');
+  assert.equal(data.observations[0].independent_success, false);
+  assert.equal(data.observations[0].corrected_on, day);
+  assert.equal(data.observations[0].date, '2026-05-01');
+  assert.equal(data.gates.solve, false);
+  assert.ok(!prompt.includes('PRIVATE-LOCATOR'));
+});
+
+test('applying unchanged values preserves the original correction history', () => {
+  for (const history of [{}, {corrected_on:'2026-05-03'}]) {
+    const original = stateWith(event(history));
+    for (const same of [{}, {assistance:'none'}, {independent_success:null}]) {
+      assert.strictEqual(correctAttempt(original,'first',same,day), original);
+    }
+  }
 });

@@ -1,0 +1,103 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "B1.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 explicitly validates \u201cF'(0)=0\u201d while leaving the rule unverified and requests one discriminating answer, F'(1), with working. Independently, F(x)=[t\u00b2]\u2080^{x\u00b2}=x\u2074, so F'(x)=4x\u00b3: at 1 the true value is 4 whereas 2x\u00b2 gives 2. Neither value nor the missing factor is disclosed."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 identifies the missing derivative of the upper limit and correctly works the chain-rule setup F'(x)=2(x\u00b2)\u00b7d(x\u00b2)/dx. Independently this becomes 2x\u00b2\u00b72x=4x\u00b3. Asking the learner to complete the derivative factor and find F'(1) leaves a concrete attempt unanswered, without invalidating the original zero or repeating the diagnostic."
+          }
+        ]
+      },
+      {
+        "case": "B1.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "M",
+            "reason": "Turn 1 requests one suitable answer, F'(1), and its substitution expression without revealing the factor or answer, but does not first validate F'(0)=0. Independently, F=x\u2074 and F'=4x\u00b3, so zero is correct and x=1 distinguishes 4 from the learner's predicted 2."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 correctly explains and evaluates the missing factor: F'(x)=2(x\u00b2)\u00b7d(x\u00b2)/dx=2x\u00b2\u00b72x. Independently this is 4x\u00b3. It explicitly preserves the correctness of the original zero and leaves F'(1) unanswered; the short explanation of agreement at zero does not repeat the entire diagnostic."
+          }
+        ]
+      },
+      {
+        "case": "B1.2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "M",
+            "reason": "Turn 1 gives one discriminating test, F'(1), with reasoning and no disclosed answer or missing factor, but omits explicit validation of the original numerical result. Independently, integrating gives F=x\u2074 and differentiating gives F'=4x\u00b3; thus F'(0)=0 is correct, while at 1 the competing rules give 4 and 2."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 correctly identifies the derivative of x\u00b2 as the missing factor and shows F'(x)=2x\u00b2(2x). Independently this equals 4x\u00b3. It leaves evaluation of F'(1) open and neither disputes the original zero nor repeats the diagnostic."
+          }
+        ]
+      },
+      {
+        "case": "B1.2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "F",
+            "reason": "Turn 1 omits validation of F'(0)=0 and explicitly asks for two results: \u201cWrite down its prediction first\u201d and independently integrate and differentiate, then \u201cShow both results.\u201d This violates the exactly-one-answer scope. Independently, F=x\u2074 gives F'=4x\u00b3, so the proposed comparison would distinguish the true 4 from the learner's 2 at x=1, but that does not cure the scope violation."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 identifies the missing derivative of the upper limit and correctly works F'(x)=2(x\u00b2)\u00b7d(x\u00b2)/dx. Independently, completing this gives 2x\u00b2\u00b72x=4x\u00b3. The learner is left to complete the derivative and evaluate F'(1), with no answer disclosed or implication that the original zero was wrong."
+          }
+        ]
+      },
+      {
+        "case": "B2.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 asks for one answer-neutral representation, \u201cone expression for the ratio Iafter/Ibefore,\u201d with working. It neither establishes a diagnosis nor reveals the corrected comparison or supplies diagnostic choices."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 gives the full ratio and explicitly proves it exceeds 1/2 through the positive difference R\u2082/[2(2R\u2081+R\u2082)]. Independently, q=(R\u2081+R\u2082)/(2R\u2081+R\u2082), q\u22121/2=R\u2082/[2(2R\u2081+R\u2082)]>0, and 1\u2212q=R\u2081/(2R\u2081+R\u2082)>0. Its displayed ratio and statement that the current \u201creduces\u201d establish the upper comparison in words plus algebra. It ends without another task or question."
+          }
+        ]
+      },
+      {
+        "case": "B2.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 requests a paired before/after current representation using R\u2081, R\u2082, and V. These expressions form one coherent intermediate calculation of the requested change, rather than independent diagnostic questions. It remains answer-neutral and attributes no error."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 derives I'/I=(R\u2081+R\u2082)/(2R\u2081+R\u2082), shows equality to 1/2 would require the excluded R\u2082=0, and states the complete comparison I/2<I'<I. Independently, subtracting 1/2 gives R\u2082/[2(2R\u2081+R\u2082)]>0 and subtracting the ratio from 1 gives R\u2081/(2R\u2081+R\u2082)>0, confirming both bounds. The displayed ratio, positivity argument, and verbal comparison provide the required algebra and inequalities, and the response ends without a task or question."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 35.03,
+    "usage": {
+      "input_tokens": 20758,
+      "cached_input_tokens": 16512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1300,
+      "reasoning_output_tokens": 169
+    },
+    "prompt_sha256": "979be73fc5a0daf72f95341cc16b7a477cde78cfe6229837c3ecaaa04932046a",
+    "tool_calls": []
+  }
+}

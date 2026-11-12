@@ -1,0 +1,73 @@
+[
+  {
+    "case": "A1.1",
+    "criteria": [
+      "Start a concrete, self-contained graph-reading or production task on this turn. A task must include usable graph data or a sketch, defined axes and a single identifiable response. A menu, another goal question, or an invitation to imagine an unspecified graph fails.",
+      "Keep the first response diagnostic: do not explain the rule, identify the answer, or include leading multiple-choice labels that convert the task into recognition. Do not assign the learner a weakness or assume what they studied. A brief proposal and one achievable task fit twelve minutes and pencil."
+    ],
+    "samples": {
+      "X": [
+        {
+          "learner": "I have twelve minutes, pencil only. I want to be better with graphs in physics. The last tutor asked if I wanted interpreting slopes, sketching motion, or applying formulas. I genuinely can't choose from course labels. You pick an entry point and use what I actually do to find out where to spend the time.",
+          "tutor": "We\u2019ll use your twelve minutes for short graph problems, one at a time. I\u2019ll choose the next step from your reasoning.\n\n**Generated practice question.** This position\u2013time graph consists of two straight segments joining A, B and C.\n\n```text\nPosition (m)\n6 |                        C\n5 |                /\n4 |        B\n3 |      /\n2 |    /\n1 |  /\n0 |A________________________ Time (s)\n   0       2               6\n```\n\nThe exact coordinates are A = (0 s, 0 m), B = (2 s, 4 m), and C = (6 s, 6 m).\n\n**Is the object moving faster from A to B or from B to C? Explain how you decided.** Pencil calculations are welcome."
+        }
+      ],
+      "Y": [
+        {
+          "learner": "I have twelve minutes, pencil only. I want to be better with graphs in physics. The last tutor asked if I wanted interpreting slopes, sketching motion, or applying formulas. I genuinely can't choose from course labels. You pick an entry point and use what I actually do to find out where to spend the time.",
+          "tutor": "We\u2019ll use your twelve minutes to find one specific graph skill to work on, starting with a short problem. Your reasoning will determine the next step.\n\n**Generated physics problem:** A trolley\u2019s velocity\u2013time graph is a straight line from \\(v=+4\\,\\text{m/s}\\) at \\(t=0\\) to \\(v=-4\\,\\text{m/s}\\) at \\(t=4\\,\\text{s}\\).\n\n```text\nv (m/s)\n  4 |\u25cf\n    |  \\\n  0 |----\\--------- t (s)\n    |      \\\n \u22124 |        \u25cf\n    0    2   4\n```\n\nAt \\(t=4\\,\\text{s}\\), is the trolley ahead of, behind, or back at its starting position? Explain how you used the graph\u2014even if you\u2019re unsure."
+        }
+      ]
+    }
+  },
+  {
+    "case": "A1.2",
+    "criteria": [
+      "Start a concrete, self-contained graph-reading or production task on this turn. A task must include usable graph data or a sketch, defined axes and a single identifiable response. A menu, another goal question, or an invitation to imagine an unspecified graph fails.",
+      "Keep the first response diagnostic: do not explain the rule, identify the answer, or include leading multiple-choice labels that convert the task into recognition. Do not assign the learner a weakness or assume what they studied. A brief proposal and one achievable task fit twelve minutes and pencil."
+    ],
+    "samples": {
+      "X": [
+        {
+          "learner": "I have twelve minutes, pencil only. I want to be better with graphs in physics. The last tutor asked if I wanted interpreting slopes, sketching motion, or applying formulas. I genuinely can't choose from course labels. You pick an entry point and use what I actually do to find out where to spend the time.",
+          "tutor": "Let\u2019s start with a short **generated physics question**. Your reasoning will help us choose where to spend the twelve minutes.\n\nA trolley\u2019s velocity\u2013time graph is a straight line from \\(v=+4\\text{ m/s}\\) at \\(t=0\\) to \\(v=-4\\text{ m/s}\\) at \\(t=4\\text{ s}\\).\n\nSketch it with your pencil. **At \\(t=2\\text{ s}\\), is the trolley\u2019s acceleration positive, negative, or zero? Explain how the graph tells you.**"
+        }
+      ],
+      "Y": [
+        {
+          "learner": "I have twelve minutes, pencil only. I want to be better with graphs in physics. The last tutor asked if I wanted interpreting slopes, sketching motion, or applying formulas. I genuinely can't choose from course labels. You pick an entry point and use what I actually do to find out where to spend the time.",
+          "tutor": "We\u2019ll use your twelve minutes for short graph problems, choosing each next step from your reasoning. Pencil only.\n\n**Generated starting problem:** A velocity\u2013time graph is a straight line from \\(v=+4\\,\\text{m/s}\\) at \\(t=0\\) to \\(v=-4\\,\\text{m/s}\\) at \\(t=4\\,\\text{s}\\).\n\nSketch it. **What is the object\u2019s displacement over those four seconds?** Explain how your sketch supports your answer\u2014even if you\u2019re unsure."
+        }
+      ]
+    }
+  },
+  {
+    "case": "A2.1",
+    "criteria": [
+      "The first turn starts the specified cold task without asking for time, topic or resources and without supplying an example, construction recipe or worked disproof. It asks for one attempt appropriate to the stated oral target.",
+      "The second turn switches immediately. In at most four sentences show a differentiable strictly increasing example with a derivative zero somewhere, justify strict increase and identify the exceptional derivative; no further question, challenge or roadmap. Counting equations as clauses is fine."
+    ],
+    "samples": {
+      "X": [
+        {
+          "learner": "I already understand sign tables. I have 8 minutes, paper only. I need to defend a counterexample at an oral exam to 'a differentiable increasing function has positive derivative everywhere.' Let me construct it myself, then ask me to defend it.",
+          "tutor": "You have 8 minutes, paper only. Construct a differentiable, strictly increasing function whose derivative is zero somewhere.\n\nGive your function and identify that point. I\u2019ll then ask you to defend why it is strictly increasing."
+        },
+        {
+          "learner": "Change of plan before I try: I need a written answer to the claim instead. Give the complete counterexample and explanation in at most four sentences; then stop.",
+          "tutor": "The claim is false: consider \\(f(x)=x^3\\) on \\(\\mathbb R\\), which is differentiable everywhere. For \\(a<b\\), \\(b^3-a^3=(b-a)(a^2+ab+b^2)>0\\), since \\(b-a>0\\) and \\(a^2+ab+b^2=(a+b/2)^2+3b^2/4>0\\) for distinct \\(a,b\\); thus \\(f\\) is strictly increasing. However, \\(f'(x)=3x^2\\), so \\(f'(0)=0\\), contradicting the claim that the derivative is positive everywhere."
+        }
+      ],
+      "Y": [
+        {
+          "learner": "I already understand sign tables. I have 8 minutes, paper only. I need to defend a counterexample at an oral exam to 'a differentiable increasing function has positive derivative everywhere.' Let me construct it myself, then ask me to defend it.",
+          "tutor": "You have 8 minutes, paper only. We\u2019ll focus on constructing a counterexample and defending why it meets every condition. I\u2019ll take \u201cincreasing\u201d to mean **strictly increasing**, so your example also covers the stronger interpretation.\n\nConstruct a function that is differentiable and strictly increasing, but whose derivative is not positive everywhere. Give your function and show where the derivative condition fails; then I\u2019ll ask you to defend it."
+        },
+        {
+          "learner": "Change of plan before I try: I need a written answer to the claim instead. Give the complete counterexample and explanation in at most four sentences; then stop.",
+          "tutor": "The claim is false: take \\(f(x)=x^3\\) on \\(\\mathbb R\\), which is differentiable everywhere. It is strictly increasing because, for \\(a<b\\), \\(b^3-a^3=(b-a)(a^2+ab+b^2)>0\\), since \\(a^2+ab+b^2=(a+b/2)^2+3b^2/4>0\\) when \\(a\\ne b\\). However, \\(f'(x)=3x^2\\), so \\(f'(0)=0\\), contradicting the claim that the derivative is positive everywhere."
+        }
+      ]
+    }
+  }
+]

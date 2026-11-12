@@ -1,0 +1,48 @@
+{
+  "trial": "C1.2",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/deliberate-practice.md": "24796afcc4ecc7502869e807ad16682d663cd60229a44b3c4155e665bf2e125d",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27"
+  },
+  "turns": [
+    {
+      "learner": "I'm writing an FPGA lab quiz. A 4-bit free-running counter adds an unknown fixed integer k from 0 through 31 once per clock, modulo 16. A logic analyzer captures 3,9,15,5 on consecutive rising edges. My draft asks the student to find the unique k. Keep these four samples and that k range. If my question has a problem, fix its wording. Give just the cold question first: I want the student to decide what can be inferred, without clues or a method.",
+      "tutor": "A 4-bit free-running counter adds an unknown fixed integer \\(k\\), where \\(0 \\le k \\le 31\\), once per clock, modulo 16. A logic analyzer records counter values \\(3, 9, 15, 5\\) on consecutive rising edges.\n\nWhat can you determine about \\(k\\) from these observations? Justify your answer."
+    },
+    {
+      "learner": "Now show the checked key and a four-point partial-credit rubric. Can taking one more reading on the next clock distinguish all the candidates?",
+      "tutor": "The samples determine **\\(k\\equiv6\\pmod{16}\\)**, so the candidates in \\(0\\le k\\le31\\) are **\\(k=6\\) and \\(k=22\\)**. A unique \\(k\\) cannot be inferred.\n\nEach transition gives the same increment modulo 16:\n\\[\n9-3=6,\\qquad15-9=6,\\qquad5-15=-10\\equiv6\\pmod{16}.\n\\]\nChecking both candidates:\n\\[\n\\begin{array}{c|ccc}\nk & 3\\to9 & 9\\to15 & 15\\to5\\\\ \\hline\n6 &(3+6)\\bmod16=9 &(9+6)\\bmod16=15 &(15+6)\\bmod16=5\\\\\n22 &(3+22)\\bmod16=9 &(9+22)\\bmod16=15 &(15+22)\\bmod16=5\n\\end{array}\n\\]\n\nProposed **four-point rubric**, one point each:\n\n- Identifies an increment of \\(6\\) modulo \\(16\\) from a transition.\n- Checks the remaining transitions, including the wrap from \\(15\\) to \\(5\\).\n- Lists both \\(k=6\\) and \\(k=22\\), with no other candidates in the stated range.\n- Explains that the observations cannot distinguish these candidates because their increments differ by \\(16\\).\n\nAccept equivalent reasoning; award points independently where demonstrated.\n\n**One more reading cannot distinguish them.** Both predict\n\\[\n(5+k)\\bmod16=11.\n\\]\nIndeed, no number of further readings of this counter can separate them: for every state \\(x\\),\n\\[\n(x+22)\\bmod16=(x+6)\\bmod16.\n\\]\nA next reading other than \\(11\\) would contradict the stated model rather than select one candidate."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 6.12,
+      "usage": {
+        "input_tokens": 30281,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 119,
+        "reasoning_output_tokens": 35
+      },
+      "prompt_sha256": "1669d0a928efbe72214276b9485c9cbfa9cc82e01aacd7b1c160f0986fde1dc1",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 10.95,
+      "usage": {
+        "input_tokens": 30404,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 408,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "0087eec10d73be04463b55817428adcdf4a7445a5ef6c344cb3eba6480a5073a",
+      "tool_calls": []
+    }
+  ]
+}

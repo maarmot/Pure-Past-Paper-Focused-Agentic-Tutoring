@@ -1,0 +1,48 @@
+{
+  "trial": "B2.1",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/deliberate-practice.md": "bec05d4a72ab5430821e12b95d47486a3e2788f93206f1a3d9a602562f65d668",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27"
+  },
+  "turns": [
+    {
+      "learner": "Grill me on circuits. Two positive resistors are in series with an ideal battery. I said that doubling just the first resistor must halve the current. I have no written work and can't remember my steps. Please ask me for just one thing I can produce on paper to show you my thinking.",
+      "tutor": "Write an expression for the current before and after doubling the first resistor, using \\(R_1\\), \\(R_2\\), and battery voltage \\(V\\)."
+    },
+    {
+      "learner": "I meant doubling the entire resistance, not just R1. I treated those as the same change. I'm done with the grill. Give the full algebra for the original claim, then stop.",
+      "tutor": "Doubling the **total resistance** halves the current. The error was treating doubling \\(R_1\\) as doubling the total.\n\nOriginally, the series resistance is \\(R_1+R_2\\), so\n\\[\nI=\\frac{V}{R_1+R_2}.\n\\]\n\nAfter doubling only \\(R_1\\),\n\\[\nI'=\\frac{V}{2R_1+R_2}.\n\\]\n\nThus\n\\[\n\\frac{I'}{I}=\\frac{R_1+R_2}{2R_1+R_2}.\n\\]\n\nFor the current to halve, we would need\n\\[\n\\frac{R_1+R_2}{2R_1+R_2}=\\frac12\n\\quad\\Longrightarrow\\quad\n2R_1+2R_2=2R_1+R_2\n\\quad\\Longrightarrow\\quad\nR_2=0.\n\\]\n\nBut both resistors are positive. Therefore the original claim is false: **the current decreases, but remains greater than half its original value**:\n\\[\n\\boxed{\\frac I2<I'<I}.\n\\]"
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 3.81,
+      "usage": {
+        "input_tokens": 30253,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 38,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "5dc8b4bdfff46513e43564b5df849ddd2e19813f6d7cb3145c11c12d4497f7c0",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 8.22,
+      "usage": {
+        "input_tokens": 30340,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 252,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "39535ecb44163fe33f7e6a660314d587bff40fa5c200070a573ae2b9fef6f43f",
+      "tool_calls": []
+    }
+  ]
+}

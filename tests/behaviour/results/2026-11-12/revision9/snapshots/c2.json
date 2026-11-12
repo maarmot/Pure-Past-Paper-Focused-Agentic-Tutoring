@@ -1,0 +1,12 @@
+{
+  "captured_utc": "2026-11-12T20:15:20.866476+00:00",
+  "patches": {
+    "references/deliberate-practice.md": [
+      [
+        15,
+        16,
+        "- **A plausible answer with a gap.** Name the part that holds and the unsupported inference. Before asking a probe, work out how two possible replies would change your help. Ask for the smallest observation that distinguishes them without supplying the distinction or a forced choice. Accept a sound sketch, counterexample or short phrase. If the response is ambiguous or the learner goes quiet, leave the cause open. After a second blockage, demonstrate the sticking point.\n"
+      ]
+    ]
+  }
+}

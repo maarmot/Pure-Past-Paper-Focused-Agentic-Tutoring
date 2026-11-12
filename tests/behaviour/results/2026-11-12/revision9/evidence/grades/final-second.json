@@ -1,0 +1,87 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "R1.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "The tutor immediately gives \u201c3 volts per second (3 V/s)\u201d in one line, with no intake, extraneous lesson, records request, or file claim."
+          }
+        ]
+      },
+      {
+        "case": "R1.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "The tutor immediately gives \u201c3 V/s\u201d in one line, with no intake, extraneous lesson, records request, or file claim."
+          }
+        ]
+      },
+      {
+        "case": "R2.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Sentence 1 recommends a \u201cfresh capacitor-transient problem from a blank page\u201d with setup explanation, conveying an unseen, unaided comparable attempt now. It accurately says copying and recognition \u201cdo not establish independent solving\u201d; sentence 2 explicitly leaves prior independent performance unknown. The response has two sentences and makes no journal access claim."
+          },
+          {
+            "rating": "P",
+            "reason": "Sentence 2 proposes attempting \u201canother unseen problem without notes\u201d after a few days and checking both reasoning and result against a worked solution afterward. This supplies a delayed unaided attempt on new problem data and a concrete reasoning check."
+          }
+        ]
+      },
+      {
+        "case": "R2.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Sentence 1 recommends a fresh capacitor-transient problem with a changed circuit or initial condition, without the video or worked solution, and requires explaining the setup. It accurately states that copying and recognition do not show independent solving. The two-sentence response rests on the learner's account and claims no journal access."
+          },
+          {
+            "rating": "P",
+            "reason": "Sentence 2 recommends \u201canother fresh problem unaided\u201d after a few days and comparing reasoning and result with a trusted solution. This is a delayed test using a new problem with an explicit reasoning check, rather than repeated recognition."
+          }
+        ]
+      },
+      {
+        "case": "R3.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Independent working: the interval durations are 3 s and 2 s, so distance is |2|\u00d73 + |-1|\u00d72 = 6 + 2 = 8 m. The tutor labels the question \u201cGenerated motion question,\u201d retains the given motion, immediately provides this correct magnitude-based solution, supplies two one-point marking criteria, and omits transfer."
+          }
+        ]
+      },
+      {
+        "case": "R3.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Independent working: the interval durations are 3 s and 5\u22123 = 2 s; their distances are |2|\u00d73 = 6 m and |-1|\u00d72 = 2 m, totaling 8 m. The tutor labels the generated question, preserves the motion, immediately solves it using velocity magnitudes, gives two one-mark criteria, and includes no transfer question."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 15.33,
+    "usage": {
+      "input_tokens": 19534,
+      "cached_input_tokens": 16512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 586,
+      "reasoning_output_tokens": 0
+    },
+    "prompt_sha256": "14929d8c02193c66d51f0314cbff7783130119543e079f957123af8f290a56ca",
+    "tool_calls": []
+  }
+}

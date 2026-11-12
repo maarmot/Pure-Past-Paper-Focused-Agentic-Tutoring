@@ -1,0 +1,48 @@
+{
+  "trial": "B2.1",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/deliberate-practice.md": "24796afcc4ecc7502869e807ad16682d663cd60229a44b3c4155e665bf2e125d",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27"
+  },
+  "turns": [
+    {
+      "learner": "Grill me on circuits. Two positive resistors are in series with an ideal battery. I said that doubling just the first resistor must halve the current. I have no written work and can't remember my steps. Please ask me for just one thing I can produce on paper to show you my thinking.",
+      "tutor": "Write one expression for the ratio \\(I_{\\text{after}}/I_{\\text{before}}\\), using \\(R_1\\) and \\(R_2\\) for the original resistances. Show how you get it."
+    },
+    {
+      "learner": "I meant doubling the entire resistance, not just R1. I treated those as the same change. I'm done with the grill. Give the full algebra for the original claim, then stop.",
+      "tutor": "Doubling the total resistance does halve the current. The error was treating doubling \\(R_1\\) as doubling the total resistance.\n\nFor an ideal battery of fixed voltage \\(V\\), initially:\n\\[\nI_{\\text{before}}=\\frac{V}{R_1+R_2}.\n\\]\n\nAfter doubling only \\(R_1\\):\n\\[\nI_{\\text{after}}=\\frac{V}{2R_1+R_2}.\n\\]\n\nTherefore,\n\\[\n\\frac{I_{\\text{after}}}{I_{\\text{before}}}\n=\\frac{R_1+R_2}{2R_1+R_2}.\n\\]\n\nFor this ratio to equal \\(\\tfrac12\\), we would need\n\\[\n2(R_1+R_2)=2R_1+R_2\n\\quad\\Rightarrow\\quad R_2=0.\n\\]\nBut both resistors are positive, so that is excluded. In fact,\n\\[\n\\frac{R_1+R_2}{2R_1+R_2}-\\frac12\n=\\frac{R_2}{2(2R_1+R_2)}>0.\n\\]\n\nThus doubling only the first resistor reduces the current, but leaves it **greater than half** its original value."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 5.03,
+      "usage": {
+        "input_tokens": 34122,
+        "cached_input_tokens": 12416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 51,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "cfb005c4bb35a523ffff36cc58ebed546bb504fc11164c8f9c7bf8418c681730",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 8.44,
+      "usage": {
+        "input_tokens": 30336,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 279,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "082fdf4f9a37e97980312dfeb1a5fdb059df73b3a5be7492cdacb6cf203ab7dc",
+      "tool_calls": []
+    }
+  ]
+}

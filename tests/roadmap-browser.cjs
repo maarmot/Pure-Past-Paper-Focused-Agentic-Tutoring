@@ -30,6 +30,89 @@ async function artifact(page, name) {
       animations: "disabled",
     });
 }
+async function checkImportedCorrections(browser, backup) {
+  const page = await browser.newPage();
+  const original = {
+    skill_id: "aliasing", attempt_id: "first", date: "2020-05-02",
+    problem_id: "Scope trace\r\npart A", provenance: "source-adapted",
+    source: "Manual, ch. 1\r\nTable 2", evidence: "Compared edges.\r\nRechecked.",
+    outcome: "partial", assistance: "hint", response_basis: "reasoned",
+    attribution: "observed-work", transfer: false,
+  };
+  const later = {
+    ...original, attempt_id: "later", problem_id: "Later trace", date: "2020-05-04",
+    retrieval_from: "first",
+  };
+  const absent = {
+    ...original, attempt_id: "absent", problem_id: "Skipped", date: "2020-05-01",
+    outcome: "not-attempted",
+  };
+  const another = {
+    ...original, attempt_id: "another", problem_id: "Another trace", date: "2020-05-06",
+    corrected_on: "2020-05-07", outcome: "correct", activity: "solve",
+    transfer: true, independent_success: false,
+  };
+  try {
+    await page.goto(url);
+    await click(page, "My data");
+    await chooseFile(page, { ...backup, evidence: [original, later, absent, another] });
+    await click(page, "Replace roadmap");
+    const edit = (text) => click(page.locator(".row").filter({ hasText: text }), "Correct");
+    const dateField = input(page, "Date");
+    const sources = input(page, "Delayed check of earlier attempt");
+    const listed = () => sources.locator("option").evaluateAll((options) => options.map((item) => item.value));
+
+    await edit("Another trace");
+    await click(page, "Apply correction");
+    await edit("Later trace");
+    const initially = await listed();
+    await dateField.fill("2020-05-02");
+    const sameDay = await listed();
+    await dateField.fill("2020-05-07");
+    const afterBoth = await listed();
+    await sources.selectOption("another");
+    await input(page, "Source or locator").fill("Revised manual\nAppendix A");
+    await input(page, "What remains uncertain?").fill("Timing of the last edge");
+    await click(page, "Apply correction");
+    await edit("Scope trace");
+    await dateField.fill("2020-05-03");
+    await input(page, "Help used").selectOption("prompt");
+    await click(page, "Apply correction");
+    await click(page, "My data");
+    const gotDownload = page.waitForEvent("download");
+    await click(page, "Export roadmap");
+    const saved = JSON.parse(await fs.readFile(await (await gotDownload).path(), "utf8"));
+    const [corrected, changedLink, unchangedAbsent, unchangedOther] = saved.evidence;
+    const { corrected_on, ...rest } = corrected;
+    assert.match(corrected_on, /^\d{4}-\d{2}-\d{2}$/);
+    assert.deepEqual(
+      { corrected: rest, initially, sameDay, afterBoth },
+      {
+        corrected: { ...original, date: "2020-05-03", assistance: "prompt" },
+        initially: ["", "first"], sameDay: [""], afterBoth: ["", "first", "another"],
+      },
+    );
+    assert.equal(changedLink.date, "2020-05-07");
+    assert.equal(changedLink.retrieval_from, "another");
+    assert.equal(changedLink.source, "Revised manual\nAppendix A");
+    assert.equal(changedLink.uncertainty, "Timing of the last edge");
+    assert.deepEqual(unchangedAbsent, absent);
+    assert.deepEqual(unchangedOther, another);
+    await click(page, "Close dialog");
+    await edit("Another trace");
+    await input(page, "Help used").selectOption("none");
+    assert.equal(await input(page, "Legacy independence flag").inputValue(), "keep");
+    await click(page, "Apply correction");
+    await click(page, "Prepare a session");
+    const prompt = await input(page, "Editable prompt").inputValue();
+    const evidence = JSON.parse(prompt.slice(prompt.indexOf("\n\n{") + 2));
+    assert.equal(evidence.observations.find(item => item.problem === "Another trace").independent_success, false);
+    assert.equal(evidence.gates.solve, false);
+    assert.equal(evidence.gates.transfer, false);
+  } finally {
+    await page.close();
+  }
+}
 async function run() {
   if (output) await fs.mkdir(output, { recursive: true });
   const browser = await chromium.launch({
@@ -233,6 +316,13 @@ async function run() {
     );
     await click(page, "Apply correction");
     await page.getByRole("dialog").waitFor({ state: "hidden" });
+    await click(page, "Prepare a session");
+    const prepared = await input(page, "Editable prompt").inputValue();
+    const handoff = JSON.parse(prepared.slice(prepared.indexOf("\n\n{") + 2));
+    assert.equal(handoff.observations[0].provenance, "generated");
+    assert.match(handoff.observations[0].corrected_on, /^\d{4}-\d{2}-\d{2}$/);
+    assert.equal(handoff.observations[0].assistance, "none");
+    await page.keyboard.press("Escape");
     assert.equal(
       await page.locator("#state-label").innerText(),
       "Solved unaided",
@@ -250,6 +340,7 @@ async function run() {
     const download = await dl;
     const backup = JSON.parse(await fs.readFile(await download.path(), "utf8"));
     assert.equal(backup.evidence.length, 1);
+    await checkImportedCorrections(browser, backup);
     const wrong = structuredClone(backup);
     wrong.skills[0].prerequisites = [wrong.skills[0].id];
     await chooseFile(page, wrong);

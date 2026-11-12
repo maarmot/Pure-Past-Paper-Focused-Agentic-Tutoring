@@ -1,0 +1,48 @@
+{
+  "trial": "B1.1",
+  "source": {
+    "SKILL.md": "da87d7a8777c88961f2d1de12509bd801346334ef7154f181951684167c96eeb",
+    "references/deliberate-practice.md": "bec05d4a72ab5430821e12b95d47486a3e2788f93206f1a3d9a602562f65d668",
+    "references/tutoring.md": "79cd64c28001c48d22a405d50328e587feba35d5a718fd56d33250d653f45d78",
+    "references/study-habits.md": "70b772320aa863758e79a584256a9bd2d84a76d1abcca36614309706f9ff42e3",
+    "references/provenance.md": "12a7ded6327c1270d0dad96811372bfb73c138b592cc9d2713c7f84a2e657d27"
+  },
+  "turns": [
+    {
+      "learner": "Oral calculus. For F(x) equal to the integral from 0 to x squared of 2t dt, I got F'(0)=0 by putting zero where I saw an x. I don't know if my rule would keep working. Give me a single test to do myself before explaining what happened.",
+      "tutor": "Your value \\(F'(0)=0\\) is correct; substituting zero alone doesn\u2019t establish the derivative rule.\n\nSingle test: for the same function\n\\[\nF(x)=\\int_0^{x^2}2t\\,dt,\n\\]\nfind **\\(F'(1)\\)**. Show how you obtain it so we can check whether your rule holds."
+    },
+    {
+      "learner": "My rule was just twice the upper limit. What missing step changes that? Give one worked step and let me try again.",
+      "tutor": "Your rule gives \\(2x^2\\), but it misses **how fast the upper limit changes with \\(x\\)**.\n\nThe chain rule supplies that factor:\n\\[\nF'(x)=\\underbrace{2(x^2)}_{\\text{integrand at upper limit}}\n\\;\\underbrace{\\frac{d}{dx}(x^2)}_{\\text{rate of change of upper limit}}.\n\\]\n\nNow evaluate that derivative factor and use the product to find \\(F'(1)\\)."
+    }
+  ],
+  "metrics": [
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 7.55,
+      "usage": {
+        "input_tokens": 30256,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 135,
+        "reasoning_output_tokens": 53
+      },
+      "prompt_sha256": "091fba9d866cb49a818e6ecb104a31cef57034ded56c9e4f17f4787f9da7e371",
+      "tool_calls": []
+    },
+    {
+      "cli": "codex-cli 0.167.0-alpha.4.1",
+      "seconds": 5.36,
+      "usage": {
+        "input_tokens": 30378,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 106,
+        "reasoning_output_tokens": 0
+      },
+      "prompt_sha256": "ffe04868c988b7ad362c1e91b1691fd1d3b6781716fe9aab35b791a3e43c5cb7",
+      "tool_calls": []
+    }
+  ]
+}

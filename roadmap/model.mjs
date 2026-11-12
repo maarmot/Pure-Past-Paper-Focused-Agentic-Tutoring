@@ -177,7 +177,7 @@ export function validateRoadmap(state, today = localDay()) {
   for (const e of seen.values()) {
     if (e.retrieval_from == null) continue;
     const prior = seen.get(e.retrieval_from);
-    check(prior && prior.skill_id === e.skill_id && prior.date < e.date && prior.outcome !== 'not-attempted',
+    check(validRetrievalSource(prior, e),
       'Delayed retrieval needs an earlier attempted observation on the same skill, on a different day.');
   }
   check(utf8.encode(JSON.stringify(state, null, 2)).length + 1 <= MAX_JSON, 'The roadmap is too large for a portable snapshot.');
@@ -208,6 +208,15 @@ function findEvent(state, id) {
   return event;
 }
 
+export function validRetrievalSource(prior, event) {
+  return prior && prior.skill_id === event.skill_id && prior.date < event.date && prior.outcome !== 'not-attempted';
+}
+
+function withoutRetrieval(event) {
+  const {retrieval_from, ...observation} = event;
+  return observation;
+}
+
 export function recordAttempt(state, event, today) {
   const prior = state.evidence.find(e => e.attempt_id === event.attempt_id);
   if (prior) {
@@ -221,25 +230,35 @@ export function recordAttempt(state, event, today) {
 export function correctAttempt(state, id, changes, today = localDay()) {
   const original = findEvent(state, id);
   check(!own(changes, 'attempt_id') || changes.attempt_id === id, 'A correction must retain the original attempt ID.');
-  const updated = {...original, ...changes, corrected_on:today};
+  const {corrected_on, ...edits} = changes;
+  const updated = {...original, ...edits};
   const factsChanged = ['outcome','assistance','attribution','response_basis'].some(key => original[key] !== updated[key]);
-  const oldClaim = !own(changes, 'independent_success') || original.independent_success === changes.independent_success;
-  if (changes.independent_success === null || (factsChanged && oldClaim && (
-    (original.independent_success === true && !independentFacts(updated)) ||
-    (original.independent_success === false && !independentFacts(original) && independentFacts(updated))
-  ))) delete updated.independent_success;
+  if (edits.independent_success === null || (factsChanged && original.independent_success === true
+      && updated.independent_success === true && !independentFacts(updated))) {
+    delete updated.independent_success;
+  }
+  if (Object.keys({...original, ...updated}).every(key => original[key] === updated[key])) return state;
+  updated.corrected_on = today;
   const priorExposure = repeatedAttempts(state);
   if (changes.previously_seen === false) priorExposure.delete(id);
-  return keepExposure({...state, evidence:state.evidence.map(e => e === original ? updated : e)}, today, priorExposure);
+  const evidence = state.evidence.map(e => {
+    if (e !== original) {
+      return e.retrieval_from === id && !validRetrievalSource(updated, e) ? withoutRetrieval(e) : e;
+    }
+    // Withdraw a pre-existing link invalidated by this correction. Validate newly selected links normally.
+    if (updated.retrieval_from != null && updated.retrieval_from === original.retrieval_from
+        && !validRetrievalSource(findEvent(state, updated.retrieval_from), updated)) {
+      return withoutRetrieval(updated);
+    }
+    return updated;
+  });
+  return keepExposure({...state, evidence}, today, priorExposure);
 }
 
 export function deleteAttempt(state, id, today) {
   findEvent(state, id);
-  const remaining = state.evidence.filter(e => e.attempt_id !== id).map(e => {
-    if (e.retrieval_from !== id) return e;
-    const {retrieval_from, ...rest} = e;
-    return rest;
-  });
+  const remaining = state.evidence.filter(e => e.attempt_id !== id)
+    .map(e => e.retrieval_from === id ? withoutRetrieval(e) : e);
   return keepExposure({...state, evidence:remaining}, today, repeatedAttempts(state));
 }
 
@@ -358,7 +377,8 @@ export function buildPrompt(state, id, mode, today = localDay()) {
     [view.events.length === 0 ? 'starting_challenge' : 'original_example_for_context']:skill.challenge,
     open_question:skill.open_question || null,
     observations:view.events.slice(0,3).map(e => ({
-      date:e.date, problem:e.problem_id, outcome:e.outcome, assistance:e.assistance, origin:e.attribution,
+      date:e.date, corrected_on:e.corrected_on, problem:e.problem_id, provenance:e.provenance,
+      outcome:e.outcome, assistance:e.assistance, origin:e.attribution, independent_success:e.independent_success,
       basis:e.response_basis, activity:e.activity || 'unspecified', changed_setup_reported:e.transfer,
       previously_seen:familiar.has(e.attempt_id),
       fresh_transfer_supported:supported(e) && e.activity === 'solve' && e.transfer && !familiar.has(e.attempt_id),

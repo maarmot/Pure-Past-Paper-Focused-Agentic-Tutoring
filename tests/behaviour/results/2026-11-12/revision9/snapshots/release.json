@@ -1,0 +1,24 @@
+{
+  "captured_utc": "2026-11-12T20:20:10.000850+00:00",
+  "patches": {
+    "SKILL.md": [
+      [
+        16,
+        17,
+        "| Deliberate study, \u201cgrill me,\u201d bundled technical exercises or a hard mock | [Deliberate practice](references/deliberate-practice.md). Use the learner's goal to choose the first question. |\n"
+      ],
+      [
+        40,
+        41,
+        "Revision 9.\n"
+      ]
+    ],
+    "references/deliberate-practice.md": [
+      [
+        40,
+        40,
+        "For an offline technical exercise, open the [rail-dock calculus problem](../assets/challenges/technical-practice/rail-dock/problem.md), [FPGA streaming register](../assets/challenges/technical-practice/stream-register/problem.md), or [stereo depth problem](../assets/challenges/technical-practice/stereo-depth/problem.md). Each folder has a separate examiner\u2019s `key.md` with hints, oral follow-ups and grading, a `transfer.md` and its `transfer-key.md`. Share the part the learner requested.\n\n"
+      ]
+    ]
+  }
+}

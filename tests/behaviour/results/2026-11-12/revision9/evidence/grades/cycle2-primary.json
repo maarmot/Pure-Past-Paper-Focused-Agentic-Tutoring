@@ -1,0 +1,103 @@
+{
+  "grade": {
+    "items": [
+      {
+        "case": "B1.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 explicitly validates \u201cF'(0)=0\u201d while leaving the rule unverified, then requests only F'(1) with working and reveals no missing factor or test result. Independently, F(x)=[t\u00b2]\u2080^{x\u00b2}=x\u2074, so F'(x)=4x\u00b3; at 1 the true value is 4 and the learner's rule gives 2."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 identifies the missing derivative of the upper limit and correctly works the chain-rule setup F'(x)=2(x\u00b2)\u00b7d(x\u00b2)/dx. Independently this becomes 2x\u00b2\u00b72x=4x\u00b3. It leaves evaluating the factor and finding F'(1) open, without supplying that answer or disputing the original zero."
+          }
+        ]
+      },
+      {
+        "case": "B1.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "M",
+            "reason": "Turn 1 requests one discriminating answer, F'(1), with the substitution expression, and discloses neither the missing factor nor the answer. Independently, F=x\u2074 gives F'=4x\u00b3, so at 1 the correct value 4 differs from the learner's 2. However, it never validates the original numerical result F'(0)=0."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 explicitly identifies the upper-limit derivative and correctly works F'(x)=2(x\u00b2)\u00b7d(x\u00b2)/dx=2x\u00b2\u00b72x. Independently this is 4x\u00b3, which agrees with the learner's rule at zero. It accurately explains that agreement and leaves F'(1) unanswered."
+          }
+        ]
+      },
+      {
+        "case": "B1.2",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "M",
+            "reason": "Turn 1 asks only for F'(1) with reasoning and withholds the missing factor and answer, but does not validate F'(0)=0; \u201cbeyond zero\u201d is not explicit validation. Independently, integrating gives F=x\u2074 and F'=4x\u00b3, so x=1 separates the correct value 4 from the learner's 2."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 identifies the missing derivative of x\u00b2 and correctly shows F'(x)=2x\u00b2(2x). Independently, this equals 4x\u00b3. It leaves the concrete calculation F'(1) open, supplies no numerical answer, and neither challenges the original zero nor repeats the diagnostic."
+          }
+        ]
+      },
+      {
+        "case": "B1.2",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "F",
+            "reason": "Turn 1 does not validate F'(0)=0 and explicitly requests multiple results: \u201cWrite down its prediction first,\u201d independently integrate and differentiate, and \u201cShow both results.\u201d This violates the exactly-one-answer requirement. The chosen test itself discriminates: independently F=x\u2074, hence F'(1)=4, whereas 2x\u00b2 predicts 2."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 names the missing upper-limit derivative and gives the correct worked setup F'(x)=2(x\u00b2)\u00b7d(x\u00b2)/dx. Independently, completing it gives 2x\u00b2\u00b72x=4x\u00b3. It leaves completing the derivative and finding F'(1) open without giving the test answer or implying the original zero was wrong."
+          }
+        ]
+      },
+      {
+        "case": "B2.1",
+        "label": "X",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 requests one answer-neutral intermediate calculation: an expression for I_after/I_before with working. It establishes no diagnosis and reveals no corrected comparison. Independently, Ohm's law gives the ratio (R1+R2)/(2R1+R2), so this representation can expose the learner's treatment of total resistance."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 derives both currents and the correct ratio, then explicitly proves ratio\u22121/2=R2/[2(2R1+R2)]>0. It also states that current decreases, supported by the displayed denominators: independently, 1\u2212ratio=R1/(2R1+R2)>0. Thus both required bounds are established through words and algebra. It ends without another task or question."
+          }
+        ]
+      },
+      {
+        "case": "B2.1",
+        "label": "Y",
+        "ratings": [
+          {
+            "rating": "P",
+            "reason": "Turn 1 requests a single paired before/after current representation using R1, R2, and V. These linked expressions reveal the learner's resistance model without prescribing a diagnosis or corrected comparison; they are not a batch of independent questions. Independently, the expected expressions are V/(R1+R2) and V/(2R1+R2)."
+          },
+          {
+            "rating": "P",
+            "reason": "Turn 2 derives I'/I=(R1+R2)/(2R1+R2), demonstrates that equality to 1/2 would require excluded R2=0, and explicitly concludes I/2<I'<I. Independently, ratio\u22121/2=R2/[2(2R1+R2)]>0 and 1\u2212ratio=R1/(2R1+R2)>0, confirming the stated bounds. Its words and displayed algebra establish the comparison, and it ends without another task or question."
+          }
+        ]
+      }
+    ]
+  },
+  "metrics": {
+    "cli": "codex-cli 0.167.0-alpha.4.1",
+    "seconds": 26.83,
+    "usage": {
+      "input_tokens": 20797,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1192,
+      "reasoning_output_tokens": 90
+    },
+    "prompt_sha256": "979be73fc5a0daf72f95341cc16b7a477cde78cfe6229837c3ecaaa04932046a",
+    "tool_calls": []
+  }
+}
