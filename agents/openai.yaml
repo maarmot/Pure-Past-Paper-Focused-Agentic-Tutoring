@@ -1,6 +1,6 @@
 interface:
-  display_name: "PPP tutor (Pure Past Paper)"
-  short_description: "Past-paper tutoring, argument, visual inquiry, spaced review"
-  default_prompt: "Use $ppp-learning to tutor me: start from my question or attempt, find my first wrong step, and tell me what is due for review."
+  display_name: "Pure Past Paper tutor"
+  short_description: "Practice from your work, explore a question, or resume study"
+  default_prompt: "Use $ppp-learning. Start with the question or work I give you and follow the level of help I ask for."
 policy:
   allow_implicit_invocation: true

@@ -1,0 +1,137 @@
+{
+  "T1": {
+    "A": "baseline-t1",
+    "B": "baseline-t2",
+    "C": "final-t1",
+    "D": "final-t2"
+  },
+  "T2": {
+    "A": "final-t2",
+    "B": "baseline-t1",
+    "C": "final-t1",
+    "D": "baseline-t2"
+  },
+  "T3": {
+    "A": "final-t2",
+    "B": "final-t1",
+    "C": "baseline-t1",
+    "D": "baseline-t2"
+  },
+  "T4": {
+    "A": "baseline-t2",
+    "B": "final-t1",
+    "C": "baseline-t1",
+    "D": "final-t2"
+  },
+  "Q1": {
+    "A": "final-h2",
+    "B": "candidate-h1",
+    "C": "baseline-h1",
+    "D": "candidate-h2",
+    "E": "baseline-h2",
+    "F": "final-h1"
+  },
+  "Q2": {
+    "A": "final-h2",
+    "B": "candidate-h1",
+    "C": "candidate-h2",
+    "D": "final-h1",
+    "E": "baseline-h2",
+    "F": "baseline-h1"
+  },
+  "Q3": {
+    "A": "final-h2",
+    "B": "baseline-h1",
+    "C": "candidate-h1",
+    "D": "candidate-h2",
+    "E": "final-h1",
+    "F": "baseline-h2"
+  },
+  "Q4": {
+    "A": "candidate-h2",
+    "B": "baseline-h1",
+    "C": "final-h1",
+    "D": "baseline-h2",
+    "E": "candidate-h1",
+    "F": "final-h2"
+  },
+  "Q5": {
+    "A": "final-h1",
+    "B": "candidate-h2",
+    "C": "candidate-h1",
+    "D": "final-h2",
+    "E": "baseline-h1",
+    "F": "baseline-h2"
+  },
+  "Q6": {
+    "A": "final-h1",
+    "B": "baseline-h2",
+    "C": "final-h2",
+    "D": "candidate-h2",
+    "E": "candidate-h1",
+    "F": "baseline-h1"
+  },
+  "Q7": {
+    "A": "candidate-h1",
+    "B": "baseline-h2",
+    "C": "final-h1",
+    "D": "candidate-h2",
+    "E": "baseline-h1",
+    "F": "final-h2"
+  },
+  "Q8": {
+    "A": "final-h2",
+    "B": "baseline-h2",
+    "C": "final-h1",
+    "D": "candidate-h2",
+    "E": "candidate-h1",
+    "F": "baseline-h1"
+  },
+  "Q9": {
+    "A": "final-h2",
+    "B": "candidate-h1",
+    "C": "baseline-h2",
+    "D": "final-h1",
+    "E": "baseline-h1",
+    "F": "candidate-h2"
+  },
+  "Q10": {
+    "A": "baseline-h1",
+    "B": "final-h2",
+    "C": "final-h1",
+    "D": "candidate-h1",
+    "E": "baseline-h2",
+    "F": "candidate-h2"
+  },
+  "Q11": {
+    "A": "candidate-h2",
+    "B": "baseline-h2",
+    "C": "baseline-h1",
+    "D": "final-h2",
+    "E": "candidate-h1",
+    "F": "final-h1"
+  },
+  "Q12": {
+    "A": "baseline-h1",
+    "B": "final-h2",
+    "C": "baseline-h2",
+    "D": "candidate-h1",
+    "E": "candidate-h2",
+    "F": "final-h1"
+  },
+  "D1": {
+    "A": "final-d1",
+    "B": "baseline-d1",
+    "C": "candidate-d1"
+  },
+  "D2": {
+    "A": "final-d1",
+    "B": "candidate-d1",
+    "C": "baseline-d1"
+  },
+  "D3": {
+    "A": "final-d1",
+    "B": "baseline-d1",
+    "C": "candidate-d1"
+  }
+}

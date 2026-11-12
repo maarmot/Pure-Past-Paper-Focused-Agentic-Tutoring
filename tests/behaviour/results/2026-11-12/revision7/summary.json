@@ -1,0 +1,260 @@
+{
+  "primary": {
+    "decisions": {
+      "heldout": {
+        "baseline": {
+          "P": 47,
+          "partial": 1,
+          "F": 0
+        },
+        "candidate": {
+          "P": 44,
+          "partial": 4,
+          "F": 0
+        }
+      },
+      "development": {
+        "baseline": {
+          "P": 6,
+          "partial": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 6,
+          "partial": 0,
+          "F": 0
+        }
+      }
+    },
+    "second_decisions": 24,
+    "disagreements": [],
+    "non_pass": [
+      [
+        "Q3",
+        "C",
+        "candidate-h2",
+        1,
+        "partial"
+      ],
+      [
+        "Q3",
+        "D",
+        "candidate-h1",
+        1,
+        "partial"
+      ],
+      [
+        "Q8",
+        "A",
+        "candidate-h1",
+        2,
+        "partial"
+      ],
+      [
+        "Q8",
+        "C",
+        "baseline-h1",
+        2,
+        "partial"
+      ],
+      [
+        "Q8",
+        "D",
+        "candidate-h2",
+        2,
+        "partial"
+      ]
+    ]
+  },
+  "followup": {
+    "decisions": {
+      "transfer": {
+        "baseline": {
+          "P": 13,
+          "partial": 1,
+          "F": 2
+        },
+        "final": {
+          "P": 16,
+          "partial": 0,
+          "F": 0
+        }
+      },
+      "heldout": {
+        "baseline": {
+          "P": 46,
+          "partial": 1,
+          "F": 1
+        },
+        "candidate": {
+          "P": 44,
+          "partial": 2,
+          "F": 2
+        },
+        "final": {
+          "P": 48,
+          "partial": 0,
+          "F": 0
+        }
+      },
+      "development": {
+        "baseline": {
+          "P": 6,
+          "partial": 0,
+          "F": 0
+        },
+        "candidate": {
+          "P": 6,
+          "partial": 0,
+          "F": 0
+        },
+        "final": {
+          "P": 6,
+          "partial": 0,
+          "F": 0
+        }
+      },
+      "transfer_second": {
+        "baseline": {
+          "P": 13,
+          "partial": 1,
+          "F": 2
+        },
+        "final": {
+          "P": 16,
+          "partial": 0,
+          "F": 0
+        }
+      }
+    },
+    "second_disagreements": [],
+    "regrade_changes": [
+      [
+        "Q8",
+        "baseline-h2",
+        2,
+        "P",
+        "partial"
+      ],
+      [
+        "Q8",
+        "candidate-h2",
+        2,
+        "partial",
+        "F"
+      ],
+      [
+        "Q8",
+        "candidate-h1",
+        2,
+        "partial",
+        "F"
+      ],
+      [
+        "Q8",
+        "baseline-h1",
+        2,
+        "partial",
+        "F"
+      ]
+    ],
+    "non_pass": [
+      [
+        "transfer",
+        "T1",
+        "B",
+        "baseline-t2",
+        1,
+        "partial"
+      ],
+      [
+        "transfer",
+        "T3",
+        "C",
+        "baseline-t1",
+        2,
+        "F"
+      ],
+      [
+        "transfer",
+        "T3",
+        "D",
+        "baseline-t2",
+        2,
+        "F"
+      ],
+      [
+        "second",
+        "T1",
+        "B",
+        "baseline-t2",
+        1,
+        "partial"
+      ],
+      [
+        "second",
+        "T3",
+        "C",
+        "baseline-t1",
+        2,
+        "F"
+      ],
+      [
+        "second",
+        "T3",
+        "D",
+        "baseline-t2",
+        2,
+        "F"
+      ],
+      [
+        "replay1",
+        "Q3",
+        "C",
+        "candidate-h1",
+        1,
+        "partial"
+      ],
+      [
+        "replay1",
+        "Q3",
+        "D",
+        "candidate-h2",
+        1,
+        "partial"
+      ],
+      [
+        "replay2",
+        "Q8",
+        "B",
+        "baseline-h2",
+        2,
+        "partial"
+      ],
+      [
+        "replay2",
+        "Q8",
+        "D",
+        "candidate-h2",
+        2,
+        "F"
+      ],
+      [
+        "replay2",
+        "Q8",
+        "E",
+        "candidate-h1",
+        2,
+        "F"
+      ],
+      [
+        "replay2",
+        "Q8",
+        "F",
+        "baseline-h1",
+        2,
+        "F"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "Q1": {
+    "prompt": "I have 45 seconds. Give just the derivative of ln(1+x²), no steps or questions.",
+    "criteria": [
+      "Supplies 2x/(1+x²) or equivalent.",
+      "Stops with the answer, respecting the time and format."
+    ],
+    "responses": {
+      "A": "2x/(1+x²)",
+      "B": "2x/(1+x²)",
+      "C": "\\(\\displaystyle \\frac{2x}{1+x^2}\\)",
+      "D": "2x/(1+x²)",
+      "E": "2x/(1+x²)",
+      "F": "2x/(1+x²)"
+    }
+  },
+  "Q2": {
+    "prompt": "Forget the weekly FPGA plan. Just show the complete calculation of the ADC step size for an ideal 0–4.096 V 12-bit quantizer with equal-width bins, then stop.",
+    "criteria": [
+      "Computes 4.096 V/4096 = 0.001 V = 1 mV (equivalent units allowed).",
+      "No plan, follow-up question, or extra exercise."
+    ],
+    "responses": {
+      "A": "A 12-bit quantizer has 2¹² = 4096 equal-width bins.\n\nStep size = (4.096 − 0) V / 4096 = 0.001 V = 1 mV.",
+      "B": "A 12-bit quantizer has 2¹² = 4096 equal-width bins.\n\nStep size = (4.096 − 0) V / 4096 = 0.001 V = 1 mV.",
+      "C": "A 12-bit quantizer has 2¹² = 4096 equal-width bins.\n\nStep size = (4.096 − 0) V / 4096 = 0.001 V = 1 mV.",
+      "D": "A 12-bit quantizer has 2¹² = 4096 equal-width bins.\n\nStep size = (4.096 − 0) V / 4096 = 0.001 V = 1 mV.",
+      "E": "Number of bins = 2¹² = 4096.\nADC step size = (4.096 − 0) V / 4096 = 0.001 V = 1 mV.",
+      "F": "A 12-bit quantizer has \\(2^{12}=4096\\) equal-width bins.\n\\[\n\\Delta V=\\frac{4.096-0}{4096}\\text{ V}=0.001\\text{ V}=\\boxed{1\\text{ mV}}.\n\\]"
+    }
+  },
+  "Q3": {
+    "prompt": "Keep the answer hidden. For x²=9 I wrote x=3 because square roots are positive. Is my reasoning good? Just the smallest hint.",
+    "criteria": [
+      "Identifies the distinction between the principal square root and solutions of a squared equation without endorsing the reasoning.",
+      "Preserves the attempt: no explicit missing root, ±3, or complete solution."
+    ],
+    "responses": {
+      "A": "Your reasoning misses a possibility: the square-root symbol gives the nonnegative root, but the equation asks which numbers square to 9. Could a negative number qualify?",
+      "B": "Your reasoning misses a possibility: √9 is positive, but could a negative x also satisfy x² = 9?",
+      "C": "Your reasoning misses a possibility: does squaring a negative number also give a positive result?",
+      "D": "Your reasoning misses a possibility: can a negative number also square to 9?",
+      "E": "Your reasoning misses a possible solution: √9 denotes the positive square root, but solving x² = 9 asks for every number whose square is 9. Could a negative number work?",
+      "F": "Your reasoning leaves a gap: √9 denotes the positive square root, but does squaring preserve a number’s sign?"
+    }
+  },
+  "Q4": {
+    "prompt": "I guessed the right sign for induced voltage twice. In one of the trials both the loop orientation and the direction of the changing field were reversed. What would tell you whether I understand it?",
+    "criteria": [
+      "Does not infer independent sign reasoning from two guesses or diagnose a specific missing skill as established.",
+      "Offers one discriminating check with controlled conventions and learner reasoning; no broad intake."
+    ],
+    "responses": {
+      "A": "Two correct guesses don't yet show understanding. Reversing both the loop orientation and the changing field can leave the signed induced voltage unchanged, so that trial doesn't isolate either effect.\n\nI'd ask you to choose a positive loop direction and its associated normal, then explain the sign using ε = −dΦ/dt. Next, predict and justify what happens when only the field change reverses, with the loop convention fixed. Your reasoning on that changed case would distinguish understanding from guessing; a later cold check would test retention.",
+      "B": "The two correct guesses don't yet establish understanding. Reversing both the loop orientation and the field change can leave the signed voltage unchanged, so that trial doesn't isolate either effect.\n\nI'd ask you to choose a loop direction and its corresponding normal, then explain the sign using ε = −dΦ/dt. For an independent check, predict what happens when only the field change reverses, then when only the loop orientation reverses. Your reasoning about those cases would be more informative than another guessed sign.",
+      "C": "Two correct guesses don't establish understanding. Reversing both the loop orientation and the field's change can leave the signed induced voltage unchanged, so that trial doesn't isolate either choice.\n\nA useful check is to fix a positive loop direction and its corresponding normal. For a field along that normal that is increasing, explain the signs of dΦ/dt and ε = −dΦ/dt. Then reverse only the loop orientation and explain what changes in the signed voltage and the physical induced current. Your reasoning, rather than the guessed signs, would show what you understand.",
+      "D": "Two correct guesses don't yet show the reasoning. Reversing both the loop orientation and the changing field can leave the signed voltage unchanged, so that trial doesn't isolate either effect.\n\nA useful check is an unfamiliar diagram: choose an area normal and its corresponding positive loop direction, then explain the sign using ε = −dΦ/dt. Predict what changes if only the field change reverses, and separately if only the orientation reverses. An unaided explanation and correct predictions would support understanding; a later fresh check would test retention.",
+      "E": "Two correct guesses don't establish understanding. Reversing both the loop orientation and the field change can leave the signed voltage unchanged, so that trial doesn't distinguish sound reasoning from a guess.\n\nA useful check is an unfamiliar diagram with a stated positive loop direction. Predict the voltage sign when only the field change reverses, then explain it using the associated surface normal and ε = −dΦ/dt. Your explanation and an unaided prediction would provide evidence; a later check would test retention.",
+      "F": "Two correct guesses leave understanding untested. Reversing both the loop orientation and the field change can preserve the voltage sign, so that trial alone does not distinguish understanding from guessing.\n\nA useful check is a fresh diagram where you choose a positive loop direction, state its associated normal, and explain the sign using ε = −dΦ/dt. Then change only one condition: reverse the field change while keeping the orientation fixed. Predict and justify the voltage sign before seeing the answer. Include a constant-flux case to check when the induced voltage is zero."
+    }
+  }
+}

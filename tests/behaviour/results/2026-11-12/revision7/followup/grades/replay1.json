@@ -1,0 +1,34 @@
+{
+  "Q1": {
+    "A": [["P", "Gives the correct derivative, 2x/(1+x²)."], ["P", "Contains only the answer."]],
+    "B": [["P", "Gives the correct derivative, 2x/(1+x²)."], ["P", "Contains only the answer."]],
+    "C": [["P", "Gives the correct derivative, 2x/(1+x²)."], ["P", "Contains only the formatted answer."]],
+    "D": [["P", "Gives the correct derivative, 2x/(1+x²)."], ["P", "Contains only the answer."]],
+    "E": [["P", "Gives the correct derivative, 2x/(1+x²)."], ["P", "Contains only the answer."]],
+    "F": [["P", "Gives the correct derivative, 2x/(1+x²)."], ["P", "Contains only the answer."]]
+  },
+  "Q2": {
+    "A": [["P", "Correctly calculates 2¹² = 4096 bins and 4.096/4096 V = 1 mV."], ["P", "Stops after the calculation without a plan, question, or exercise."]],
+    "B": [["P", "Correctly calculates 2¹² = 4096 bins and 4.096/4096 V = 1 mV."], ["P", "Stops after the calculation without a plan, question, or exercise."]],
+    "C": [["P", "Correctly calculates 2¹² = 4096 bins and 4.096/4096 V = 1 mV."], ["P", "Stops after the calculation without a plan, question, or exercise."]],
+    "D": [["P", "Correctly calculates 2¹² = 4096 bins and 4.096/4096 V = 1 mV."], ["P", "Stops after the calculation without a plan, question, or exercise."]],
+    "E": [["P", "Correctly calculates 4096 bins and 4.096/4096 V = 0.001 V = 1 mV."], ["P", "Stops after the calculation without a plan, question, or exercise."]],
+    "F": [["P", "Correctly calculates 4096 equal-width bins and ΔV = 0.001 V = 1 mV."], ["P", "Stops after the calculation without a plan, question, or exercise."]]
+  },
+  "Q3": {
+    "A": [["P", "Explicitly distinguishes the nonnegative square-root value from all numbers satisfying the equation and flags the gap."], ["P", "Hints at a negative possibility without giving its value or the complete solution."]],
+    "B": [["P", "Contrasts positive √9 with the possibility of a negative solution to x² = 9 and rejects the reasoning as incomplete."], ["P", "Does not state the missing root or complete solution."]],
+    "C": [["partial", "Flags incomplete reasoning and prompts consideration of negative numbers, but does not identify the principal-square-root distinction."], ["P", "Gives only a hint about squaring negatives without revealing a root."]],
+    "D": [["partial", "Flags incomplete reasoning and asks about a negative possibility, but does not distinguish the principal square root from equation solutions."], ["P", "Does not give the negative root or complete solution."]],
+    "E": [["P", "Explicitly contrasts the positive principal square root with every number satisfying the squared equation."], ["P", "Leaves the negative possibility for the learner to determine without stating its value."]],
+    "F": [["P", "Identifies √9 as the positive square root and contrasts that with the loss of sign under squaring, while flagging a gap."], ["P", "Uses a sign question without revealing the missing root or complete solution."]]
+  },
+  "Q4": {
+    "A": [["P", "Says two guesses do not establish understanding and explains why reversing both factors fails to isolate them."], ["P", "Provides a controlled field-only reversal with fixed orientation and requests a justified prediction."]],
+    "B": [["P", "Explicitly withholds a conclusion about understanding and identifies the confounding double reversal."], ["P", "Offers a controlled comparison with corresponding loop conventions and reasoning about separately reversed factors."]],
+    "C": [["P", "Does not infer understanding or an established missing skill from the guesses."], ["P", "Specifies an increasing field, fixes corresponding conventions, and asks for sign reasoning before an orientation-only reversal."]],
+    "D": [["P", "Treats the guesses as insufficient evidence and explains the confounding reversals."], ["P", "Uses one unfamiliar-diagram check with corresponding conventions, separate controlled reversals, and unaided explanations."]],
+    "E": [["P", "Explicitly says the guesses cannot distinguish understanding from guessing."], ["P", "Uses a fresh diagram, stated loop direction, associated normal, and a justified field-only reversal prediction."]],
+    "F": [["P", "Leaves understanding unestablished and explains why the double reversal is inconclusive."], ["P", "Offers a fresh-diagram check with explicit conventions, a justified field-only reversal, and a constant-flux control case."]]
+  }
+}

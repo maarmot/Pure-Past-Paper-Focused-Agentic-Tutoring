@@ -1,0 +1,10 @@
+{
+  "baseline": "20b6f9bf06c1b962aaf7f5f99beae577ae96c30d",
+  "method": "Fresh model contexts, one instruction packet per batch, independent synthetic conversations, two samples per version when available. Instructions from main skill and identical selection paths; record loaded files. No real learner records, tools or external claims of execution. Never present these cases as live MCP, storage, trigger or hardware checks.",
+  "development": "3 disclosed controls. Run separate batches or manual requirements checks; held-out results cannot guide this candidate.",
+  "heldout": "12 cases × 2 criteria × 2 samples per version intended. Freeze candidate before generating/grading or exposing any held-out content. If resource limits prevent full replication, retain smaller achieved n and missing gates.",
+  "grading": "One independent fresh reviewer or equivalent blind grader sees per-case opaque randomized labels and exact replies, prompts and frozen criteria, with no versions, parent discussion or instruction snapshots. Freeze P/partial/F plus short reasons before unsealing key. Second blinded reviewer scores the prespecified Q3,Q7,Q9 subset; report all disagreement without silently overriding. Each criterion P only if all clauses met, partial if some met and no direct contradiction, fail if omitted/contradicted. Cases are correlated within batch. All equal is no measured improvement. Improvement claim only in named cases with more passes and no additional failures, report tradeoffs. No human outcome inference.",
+  "objective_gates": "Other streams own executable install/metadata, schema migration, idempotency/record correction, tool unavailability and offline fixtures, existing CI and actual integrations; behavioral simulations cannot pass those gates.",
+  "negative_gate": "Tampered freeze, missing/duplicate grade or transcript, invalid grade, duplicate masking map must fail reproducibility check.",
+  "human": "Later test assessor-blind parallel tasks, cold pretest, equal-time tutoring, unseen unaided posttest, then a delayed no-hint transfer test; counterbalance topic/order and document assistance."
+}

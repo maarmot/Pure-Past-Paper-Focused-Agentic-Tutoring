@@ -6,7 +6,7 @@ Run commands from the `ppp-learning` folder, or give absolute script and input p
 python scripts/ppp_tools.py audit --output capability-audit.json
 python scripts/ppp_tools.py validate-record path/to/session.json
 python scripts/ppp_tools.py validate-record assets/session.template.json --allow-template
-python scripts/ppp_tools.py due path/to/question-bank.json --on 2026-11-09
+python scripts/ppp_tools.py due path/to/question-bank.json --on 2026-11-09 --brief
 python scripts/ppp_tools.py check-captions path/to/captions.srt --media path/to/lesson.mp4
 python scripts/ppp_tools.py check-captions path/to/captions.srt --duration 285.3
 python scripts/ppp_tools.py media-info path/to/lesson.mp4 --require-video --require-audio --timeout 60
@@ -23,7 +23,7 @@ Validation, caption, and media commands return 0 when their applicable checks pa
 - `validate-record` reports `structurally-valid`, not verified truth. It cannot inspect image pixels, authenticate a source, establish actual observation, or measure learning. A record that still contains starter text (a `template_notice`, or a value beginning `Template:`, `Template only`, `Replace with the`, `Replace with verified`, or `Replace before logging`) is rejected so a template cannot be saved as a real record; `--allow-template` checks the shape of a starter file anyway. A session dated more than one day ahead is rejected.
 - `check-captions` checks complete SRT syntax, numbering, positive spans, nonoverlap, nonempty text, and media bounds. It allows at most 0.05 seconds past the duration for frame rounding, tolerates extra blank lines between cues and cue settings after the end time, and reports a WebVTT file as the wrong format rather than as broken cues. It does not assess speech alignment, reading speed, or placement.
 - `media-info` probes streams and decodes the entire file with FFmpeg. `--timeout` bounds each subprocess separately. Require audio/video explicitly for a finished narrated video; omit those requirements for intentional silent or audio-only artifacts. Presence of an audio stream does not prove intelligible or non-silent narration. Listening remains required.
-- `due` validates a question bank, then lists unprotected items whose `next_review` is on or before the day given (today by default), oldest first. It returns 0 whenever the bank is valid, including when nothing is due, and 1 for an invalid bank. It reads the file and schedules nothing.
+- `due` validates the named bank and lists unprotected items due on or before the given day (today by default), oldest first. Use `--brief` for a review inventory. Each listed item contains only its local `problem_id` and `next_review`. The default full listing includes the due items' stored fields and history. A valid bank returns 0, including when nothing is due. An invalid bank returns 1. Both modes read the entire named bank locally. Neither schedules a reminder.
 - Output is written as UTF-8 whatever the console code page, so a non-ASCII filename or source title cannot replace a finding with an encoding error.
 - `render-timing` times a final-sized PNG, a 480p MP4 preview and a 1080p MP4 of the requested scene with caching off. Pass an executable path (including spaces) or a launcher such as `--manim "uv run manim"`. Within a launcher string, quote arguments containing spaces using the platform's quoting convention. Each command runs without a shell. A timeout terminates the Windows job or POSIX process group containing the launcher and renderer. The time includes process startup and cleanup.
 - By default the CLI removes its temporary media. With `--keep DIR` it reports a fresh `kept_directory` beneath DIR for the attempt, including partial outputs if rendering fails. An attempt-specific copy of the current directory's Manim configuration routes Manim's output and caches into that directory, selects the requested input and renders its full animation range. Appearance and renderer settings carry through. The CLI clears the configured output filename so the generated names identify the scene Manim selected. Each successful run must exit zero and produce a nonempty final file named for the requested class under its own media directory. Partial movies and section clips do not count. The JSON reports the relative artifact path, command, return code, timeout status and wall time. Inspect and decode the files separately to verify their content.
@@ -56,12 +56,14 @@ Each event requires:
 | `problem_id` | Nonempty local identifier |
 | `provenance` | `past-paper`, `generated`, `source-adapted` |
 | `source` | Source locator required for past-paper or adapted; may be null for generated |
-| `assistance` | `none`, `prompt`, `hint`, `partial`, `full-solution` |
+| `assistance` | `none`, `prompt`, `hint`, `partial`, `full-solution`, `ai-assisted`, `unknown`. Record what is known about the learner's work. An AI-produced answer with no learner attempt stays `not-attempted`. |
 | `outcome` | `not-attempted`, `incorrect`, `partial`, `correct` |
 | `evidence` | The actual response or an accurate description of what was observed; nonempty unless `outcome` is `not-attempted` |
 | `attribution` | `learner-statement`, `observed-work`, `agent-inference` |
 | `transfer` | Boolean; label only a genuinely different task as transfer |
-| `independent_success` | Optional Boolean; true requires correct, unaided, observed work |
+| `response_basis` | Optional `reasoned`, `recognition`, `guess` or `unknown`. Use `reasoned` when the learner's reasoning is evident. Distinguish a remembered answer or an explicit guess even when the answer is correct. |
+| `independent_success` | Optional Boolean. True requires correct, unaided, observed work and supporting evidence. If `response_basis` is present it must also be `reasoned`. Missing legacy evidence needs inspection before a learning claim. |
+| `attempt_id` | Optional stable, unique identifier for this observation. Use the same value for its corresponding question-bank entry. |
 
 An optional `inquiry` object holds `question`, `prediction`, `observation`, and `open_question`. Each is the learner's own words as a nonempty string, or null when they gave none; never fill one with a tutor's or agent's answer. A transfer task that was shown and not attempted is valid (`outcome: "not-attempted"`, `transfer: true`) and stands for a pending check.
 
@@ -80,7 +82,7 @@ Use `kind: "question-bank"`, `schema_version: 1`, and an `items` array. Start fr
 | `concepts` | Array of nonempty strings; may be empty |
 | `exposure` | `unseen`, `exposed`, `attempted`, `worked`; an item with attempts is `attempted` or `worked` |
 | `protected` | Boolean; true reserves a paper for a fresh timed attempt |
-| `attempts` | Array in date order; each has `date`, `outcome` (`incorrect`, `partial`, `correct`), `assistance`, and `recall` |
+| `attempts` | Array in date order. Each has `date`, `outcome` (`incorrect`, `partial`, `correct`), `assistance`, and `recall`. The session's assistance vocabulary and optional `attempt_id` and `response_basis` apply here too. |
 | `recall` | The learner's own rating `again`, `hard`, `good`, `easy`, or null when not asked |
 | `next_review` | `YYYY-MM-DD` not before the latest attempt, or null |
 
@@ -89,6 +91,14 @@ Two optional attempt fields serve essay subjects and cross-subject work ([across
 For a first essay submission, identify an assessable target in the criteria, such as weighing a particular objection. Use `correct`, `partial`, or `incorrect` for the observed extent to which the paragraph demonstrates that target. Keep the overall band estimate in `band`. If a fair target has yet to be established, record qualitative feedback in the authorized journal and defer the bank outcome. An actual submission counts as attempted. On a retry, the agreed repair can serve as the assessable target. The optional `bridge` records the learner's words naming a move they have used before. It supplies context for a later transfer check.
 
 A protected item must be `unseen`, with no attempts and no review date. The validator cannot tell whether a rating was really the learner's or whether a review date is wise.
+
+## Retrying a save, correcting evidence and opening older files
+
+Assign a stable `attempt_id` when first recording a new observation, for example `session-07-q2-try1`. When saving it again after an interruption, find the existing ID and update that entry. A new learner attempt gets a new ID even on the same problem and date. IDs must be unique within one session and across all items in one bank. The validator checks one file at a time. It cannot detect repetitions with different IDs, compare files, or determine whether two unkeyed entries are distinct. Correct the authoritative private record. Check the authorization for each derived file before changing it. Report an inconsistency with an out-of-scope export from the evidence already available.
+
+For a learner correction, update the original observation in its authorized private file, reconcile its matching bank entry and any handoff or roadmap claim derived from it, and validate each edited JSON file. Ask about a conflict only if it affects the next decision. Remove a record and its derived private summaries when asked. An authorized location may have its own backups or history.
+
+Older version 1 files work without either optional field. Leave unknown details unset or use the explicit unknown values. Add an identifier to an older observation only if you can identify it reliably. A different schema version is rejected. Preserve its original bytes and look up the producing version's conversion rules before any migration.
 
 ## Visual evidence schema, version 1
 

@@ -42,7 +42,8 @@ BANK_LIMITATION = (
     "and a due item is a suggestion, not evidence about what the learner remembers."
 )
 PROVENANCE = ("past-paper", "generated", "source-adapted")
-ASSISTANCE = ("none", "prompt", "hint", "partial", "full-solution")
+ASSISTANCE = ("none", "prompt", "hint", "partial", "full-solution", "ai-assisted", "unknown")
+RESPONSE_BASES = ("reasoned", "recognition", "guess", "unknown")
 OUTCOMES = ("not-attempted", "incorrect", "partial", "correct")
 POSITION_LEARNER_FIELDS = ("question", "first_claim", "first_reason", "revised_claim", "what_moved", "open_question")
 SOURCE_BASIS = ("supplied-text", "opened-source", "learner-account", "none")
@@ -157,6 +158,21 @@ def string_list(record: dict[str, Any], key: str, errors: list[str], *, required
         errors.append(f"{key}: provide at least one item")
 
 
+def validate_attempt_fields(attempt: dict[str, Any], label: str, ids: set[str], errors: list[str]) -> None:
+    if attempt.get("assistance") not in ASSISTANCE:
+        errors.append(f"{label}.assistance: expected one of {', '.join(ASSISTANCE)}")
+    if "response_basis" in attempt and attempt["response_basis"] not in RESPONSE_BASES:
+        errors.append(f"{label}.response_basis: expected one of {', '.join(RESPONSE_BASES)}")
+    if "attempt_id" in attempt:
+        attempt_id = attempt["attempt_id"]
+        if not nonempty(attempt_id):
+            errors.append(f"{label}.attempt_id: expected a nonempty string")
+        elif attempt_id in ids:
+            errors.append(f"{label}.attempt_id: duplicates an observation in this record")
+        else:
+            ids.add(attempt_id)
+
+
 def validate_session(record: dict[str, Any], errors: list[str]) -> None:
     day = iso_day(record.get("date"))
     if day is None:
@@ -222,6 +238,7 @@ def validate_session(record: dict[str, Any], errors: list[str]) -> None:
     if not isinstance(events, list):
         errors.append("events: expected an array, use [] when no attempt occurred")
         return
+    attempt_ids: set[str] = set()
     for index, event in enumerate(events):
         label = f"events[{index}]"
         if not isinstance(event, dict):
@@ -235,8 +252,7 @@ def validate_session(record: dict[str, Any], errors: list[str]) -> None:
             errors.append(f"{label}.source: expected a nonempty string or null")
         if event.get("provenance") in ("past-paper", "source-adapted") and not nonempty(event.get("source")):
             errors.append(f"{label}.source: source provenance requires a source locator")
-        if event.get("assistance") not in ("none", "prompt", "hint", "partial", "full-solution"):
-            errors.append(f"{label}.assistance: expected none, prompt, hint, partial, or full-solution")
+        validate_attempt_fields(event, label, attempt_ids, errors)
         if event.get("outcome") not in ("not-attempted", "incorrect", "partial", "correct"):
             errors.append(f"{label}.outcome: expected not-attempted, incorrect, partial, or correct")
         if not isinstance(event.get("evidence"), str):
@@ -254,8 +270,9 @@ def validate_session(record: dict[str, Any], errors: list[str]) -> None:
             and event.get("assistance") == "none"
             and event.get("attribution") == "observed-work"
             and nonempty(event.get("evidence"))
+            and ("response_basis" not in event or event["response_basis"] == "reasoned")
         ):
-            errors.append(f"{label}.independent_success: requires correct unaided observed work and evidence")
+            errors.append(f"{label}.independent_success: requires correct unaided observed work and evidence of reasoning")
 
 
 def validate_bank(record: dict[str, Any], errors: list[str]) -> None:
@@ -265,6 +282,7 @@ def validate_bank(record: dict[str, Any], errors: list[str]) -> None:
         errors.append("items: expected an array, use [] for an empty bank")
         return
     seen: set[str] = set()
+    attempt_ids: set[str] = set()
     for index, item in enumerate(items):
         label = f"items[{index}]"
         if not isinstance(item, dict):
@@ -313,8 +331,7 @@ def validate_bank(record: dict[str, Any], errors: list[str]) -> None:
                 last = day
             if attempt.get("outcome") not in OUTCOMES[1:]:
                 errors.append(f"{where}.outcome: expected incorrect, partial, or correct")
-            if attempt.get("assistance") not in ASSISTANCE:
-                errors.append(f"{where}.assistance: expected none, prompt, hint, partial, or full-solution")
+            validate_attempt_fields(attempt, where, attempt_ids, errors)
             if "recall" not in attempt or attempt["recall"] not in (None, "again", "hard", "good", "easy"):
                 errors.append(f"{where}.recall: expected the learner's own rating again, hard, good, or easy, or null when not asked")
             if "band" in attempt:
@@ -790,6 +807,7 @@ def main(argv: list[str] | None = None) -> int:
     due_parser = commands.add_parser("due", help="List question-bank items whose recorded review date has arrived")
     due_parser.add_argument("path", type=Path)
     due_parser.add_argument("--on", help="Day to check as YYYY-MM-DD, default today")
+    due_parser.add_argument("--brief", action="store_true", help="Show only the problem ID and date for each due item")
     caption_parser = commands.add_parser("check-captions", help="Check SRT syntax, ordering, and media bounds")
     caption_parser.add_argument("path", type=Path)
     length = caption_parser.add_mutually_exclusive_group(required=True)
@@ -824,10 +842,18 @@ def main(argv: list[str] | None = None) -> int:
             emit({"status": "invalid" if errors else "structurally-valid", "errors": errors, "limitation": LIMITATION})
             return 1 if errors else 0
         if args.command == "due":
-            record = read_json(args.path)
-            errors = validate_record(record, args.path.resolve().parent)
-            if not errors and record.get("kind") != "question-bank":
+            try:
+                record = read_json(args.path)
+            except (OSError, ValueError) as exc:
+                if args.brief:
+                    raise ValueError("Could not read the bank. Use validate-record locally for details.") from exc
+                raise
+            if not isinstance(record, dict) or record.get("kind") != "question-bank":
                 errors = ["kind: due reads a question-bank record"]
+            else:
+                errors = validate_record(record, args.path.resolve().parent)
+                if errors and args.brief:
+                    errors = ["Invalid bank. Use validate-record locally for details."]
             on = date.today() if args.on is None else iso_day(args.on)
             if on is None:
                 errors.append("--on: expected a valid YYYY-MM-DD date")
@@ -835,6 +861,8 @@ def main(argv: list[str] | None = None) -> int:
                 emit({"status": "invalid", "errors": errors, "limitation": BANK_LIMITATION})
                 return 1
             due = due_items(record, on)
+            if args.brief:
+                due = [{"problem_id": item["problem_id"], "next_review": item["next_review"]} for item in due]
             protected = sum(1 for item in record["items"] if item["protected"])
             emit({"status": "listed", "on": on.isoformat(), "due_count": len(due), "due": due, "protected_count": protected, "item_count": len(record["items"]), "limitation": BANK_LIMITATION})
             return 0

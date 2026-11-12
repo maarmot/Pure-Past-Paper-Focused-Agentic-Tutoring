@@ -1,0 +1,38 @@
+{
+  "D1": {
+    "prompt": "I only want the value of 7 cm in millimetres.",
+    "criteria": [
+      "70 mm.",
+      "Direct."
+    ],
+    "responses": {
+      "A": "70 mm.",
+      "B": "70 mm.",
+      "C": "70 mm."
+    }
+  },
+  "D2": {
+    "prompt": "I suspect (a+b)²=a²+b². Could you give me a simple way to test it without telling me the outcome?",
+    "criteria": [
+      "Supplies concrete nonzero a,b; lets learner calculate.",
+      "No answer leak."
+    ],
+    "responses": {
+      "A": "Try a = 1 and b = 1. Calculate (a+b)² and a²+b² separately, then compare them. One mismatch would disprove the claim; a match would not prove it for all a and b.",
+      "B": "Try a = 1 and b = 2. Calculate (1 + 2)² and 1² + 2² separately, then compare. A mismatch would disprove the claim; a match would only confirm that example.",
+      "C": "Choose a = 1 and b = 1. Calculate (a+b)² and a²+b² separately, then compare them. One mismatch would disprove the claim; one match would not prove it."
+    }
+  },
+  "D3": {
+    "prompt": "Yesterday you gave me the FFT butterfly answer. Can I count it as an independent success?",
+    "criteria": [
+      "Classifies assistance correctly.",
+      "Offers a fresh unaided check when useful."
+    ],
+    "responses": {
+      "A": "No. If I supplied the answer, that item counts as worked, not an independent success. An independent success requires your own correct reasoning without help. A fresh butterfly problem with a changed setup could test that.",
+      "B": "No. If I supplied the answer, that problem counts as worked, not an independent success. You can check independent solving with a fresh butterfly problem, without hints or the earlier solution open.",
+      "C": "No. If I supplied the answer, that counts as a worked solution, not an independent success. An unseen FFT butterfly problem solved correctly without help could provide evidence of independent success."
+    }
+  }
+}

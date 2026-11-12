@@ -1,0 +1,6 @@
+{
+  "T1": "u = 7 is correct, but your answer is incomplete. Absolute value is the distance from zero; which point on the other side of zero is also 7 units away?",
+  "T2": "Your reason is not enough: the overlap is the same, but the group you divide by can differ. In your example, compare the total number of cases in B with the total in A.",
+  "T3": "Keep r4 marked worked and record: “Read the whole solution before attempting; this attempt does not demonstrate an unaided solution.” Remove any independent-success claim based on this attempt and leave unsupported mastery gates unfilled. Suggest replacing the shared presentation’s claim with “Completed after reading the solution.”",
+  "T4": "Correction plan:\n\n1. In the private notes, replace “remembered” with “Reconstructed the circuit after two prompts.” Record the assistance separately; this does not demonstrate unaided recall.\n2. Correct any unaided-success or mastery claim that relies on that description. Keep any demonstrated result distinct from the help received.\n3. Leave the unapproved network archive unchanged; note privately that its k9 entry still contains the earlier description.\n\nThis is a proposed plan only; no files have been changed."
+}

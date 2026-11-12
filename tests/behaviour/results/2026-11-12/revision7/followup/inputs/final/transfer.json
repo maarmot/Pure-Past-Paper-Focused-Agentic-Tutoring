@@ -1,0 +1,11 @@
+{
+  "sources": {
+    "SKILL.md": "52fa32d1a067dd7f0813491976604a23691316887e1f28f238c1fde09a80fe39",
+    "references/tutoring.md": "e4a31fa4d4dc0adf865e5e50fc2a19764686f574420d317cf3b513771903d0fe",
+    "references/study-habits.md": "52c4b49bed2ca715913a071ab934973ddd10d19f7a4c77c0e1f844c5fa749f74",
+    "references/roadmaps.md": "7aba0bc6812f9554224b7fe95238d408246b89c649e81f00e1a630fa23b478cc",
+    "references/end-to-end.md": "2811ae784ea295c1d2d6d9ee7e281cf13cb7c545a77ffa8d2e32c8f7bcb5d3f7",
+    "references/tools.md": "8ea3303fb42b4bdbef5707a35ad6d437be0ca7f97d9abbbff0c941b77c108774"
+  },
+  "packet_sha256": "a348fde57e894a34f37ad0dfa2c7951d3fc286b308494687e936193f511c3972"
+}

@@ -1,0 +1,38 @@
+{
+  "Q1": {
+    "A": [["P", "Gives the correct derivative 2x/(1+x²)."], ["P", "Stops after the answer."]],
+    "B": [["P", "Gives the correct derivative 2x/(1+x²)."], ["P", "Contains only the formatted answer."]],
+    "C": [["P", "Gives the correct derivative 2x/(1+x²)."], ["P", "Stops after the answer."]],
+    "D": [["P", "Gives the correct derivative 2x/(1+x²)."], ["P", "Stops after the answer."]]
+  },
+  "Q2": {
+    "A": [["P", "Correctly calculates 2¹² = 4096 bins and 4.096/4096 V = 0.001 V = 1 mV."], ["P", "Ends with the calculation and adds no plan, question, or exercise."]],
+    "B": [["P", "Correctly calculates 4096 bins and a step size of 0.001 V = 1 mV."], ["P", "Contains only the requested calculation."]],
+    "C": [["P", "Correctly divides 4.096 V by 4096 to obtain 0.001 V = 1 mV."], ["P", "Contains only the requested calculation."]],
+    "D": [["P", "Correctly divides 4.096 V by 4096 to obtain 0.001 V = 1 mV."], ["P", "Contains only the requested calculation."]]
+  },
+  "Q3": {
+    "A": [["P", "Contrasts the positive principal square root with whether a negative x satisfies the equation, without endorsing the reasoning."], ["P", "Hints at a negative possibility without stating the missing root or complete solution."]],
+    "B": [["P", "Explicitly distinguishes √9 from the effect of squaring on sign and identifies a reasoning gap."], ["P", "Withholds both the missing root and the complete solution."]],
+    "C": [["partial", "Challenges the reasoning through negative inputs, but does not distinguish the principal square root from equation solutions."], ["P", "Asks only a small hint question and gives no explicit missing root."]],
+    "D": [["partial", "Challenges the reasoning through squaring negative numbers, but leaves the principal-square-root distinction unstated."], ["P", "Gives a small sign hint without revealing any missing root or complete solution."]]
+  },
+  "Q4": {
+    "A": [["P", "Says two guesses do not show understanding and explains why reversing both factors fails to isolate either effect."], ["P", "Offers a controlled sign-reversal check with a fixed loop convention and a required explanation using Faraday's law."]],
+    "B": [["P", "Explicitly declines to infer understanding from the guesses and identifies the ambiguity of reversing both factors."], ["P", "Uses an unfamiliar diagram, a stated loop direction, and one field-change reversal requiring prediction and explanation."]],
+    "C": [["P", "Treats the guesses as insufficient evidence and does not diagnose an established skill deficit."], ["P", "Offers one diagnostic exercise with controlled single-factor reversals and asks for reasoning under a chosen loop convention."]],
+    "D": [["P", "States that correct guesses do not establish reasoning and explains the confounded reversal."], ["P", "Offers one diagram-based check with paired normal and loop conventions, separate single-factor reversals, and an unaided explanation."]]
+  },
+  "Q5": {
+    "A": [["P", "Computes v = (3 m/s³)t², distinguishes the retained coefficient from t², and correctly obtains 12 m/s at 2 s."], ["P", "Provides one solvable position-to-velocity practice problem without giving its result."]],
+    "B": [["P", "Computes v = (1 m/s³)3t² and correctly explains that t² has units s² while the full expression has units m/s."], ["P", "Provides one analogous polynomial differentiation problem with its answer withheld."]],
+    "C": [["P", "Gives the correct velocity, identifies 3 as dimensionless, retains the coefficient's units, and correctly evaluates 12 m/s at 2 s."], ["P", "Provides one solvable independent velocity calculation without revealing its answer."]],
+    "D": [["P", "Gives v = 3(1 m/s³)t², explains the dimensional coefficient and dimensionless 3, and correctly combines units to m/s."], ["P", "Provides one analogous velocity-to-acceleration problem with sufficient data and no result."]]
+  },
+  "Q6": {
+    "A": [["P", "Explicitly leaves attribution and original wording unverified while separately checking the supplied mathematics."], ["P", "Identifies positive roots 1 and 2 and labels the solvable all-positive-roots revision as generated."]],
+    "B": [["P", "Calls the attribution unverified and distinguishes source verification from the mathematical inconsistency."], ["P", "Correctly identifies roots 1 and 2 and supplies an explicitly adapted, solvable question."]],
+    "C": [["P", "Declines to confirm provenance or wording and limits its mathematical judgment to the supplied text."], ["P", "Identifies both positive roots and explicitly labels the all-positive-roots question as a generated correction."]],
+    "D": [["P", "Declines to authenticate the source and separately explains why the supplied uniqueness claim fails."], ["P", "Correctly identifies roots 1 and 2 and supplies an explicitly generated, solvable replacement."]]
+  }
+}

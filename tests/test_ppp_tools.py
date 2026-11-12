@@ -341,6 +341,125 @@ def bank():
     }
 
 
+class RevisionSevenRecordTests(unittest.TestCase):
+    """Synthetic observations exercise assistance, repeated saves and disclosure."""
+
+    def errors(self, record):
+        return tools.validate_record(record, Path.cwd())
+
+    def test_honest_unknown_or_ai_help_is_valid_but_never_independent(self):
+        for assistance in ("unknown", "ai-assisted"):
+            with self.subTest(assistance=assistance):
+                record = session()
+                event = record["events"][0]
+                event.update(assistance=assistance, independent_success=False)
+                self.assertEqual(self.errors(record), [])
+                event["independent_success"] = True
+                self.assertTrue(any("independent_success" in error for error in self.errors(record)))
+                review = bank()
+                review["items"][0]["attempts"][0]["assistance"] = assistance
+                self.assertEqual(self.errors(review), [])
+
+    def test_guess_recognition_or_unknown_basis_cannot_support_independence(self):
+        for basis in ("recognition", "guess", "unknown"):
+            with self.subTest(basis=basis):
+                record = session()
+                event = record["events"][0]
+                event["response_basis"] = basis
+                self.assertTrue(any("independent_success" in error for error in self.errors(record)))
+                event["independent_success"] = False
+                self.assertEqual(self.errors(record), [])
+        record = session()
+        record["events"][0]["response_basis"] = "reasoned"
+        self.assertEqual(self.errors(record), [])
+
+    def test_invalid_optional_fields_rejected_in_both_record_types(self):
+        for record in (session(), bank()):
+            event = record["events"][0] if "events" in record else record["items"][0]["attempts"][0]
+            for key, value in (("attempt_id", []), ("attempt_id", " "), ("response_basis", []),
+                               ("response_basis", "almost-mastered")):
+                with self.subTest(kind=record["kind"], key=key, value=value):
+                    event[key] = value
+                    self.assertTrue(any(key in error for error in self.errors(record)))
+                    del event[key]
+
+    def test_replayed_session_id_rejected_and_distinct_same_day_retry_accepted(self):
+        record = session()
+        event = record["events"][0]
+        event["attempt_id"] = "lesson-q1-first"
+        record["events"].append(copy.deepcopy(event))
+        self.assertTrue(any("attempt_id" in error for error in self.errors(record)))
+        record["events"][-1]["attempt_id"] = "lesson-q1-retry"
+        self.assertEqual(self.errors(record), [])
+
+    def test_bank_rejects_replayed_id_across_problems_and_accepts_in_place_correction(self):
+        record = bank()
+        original = record["items"][0]
+        attempt = original["attempts"][0]
+        attempt["attempt_id"] = "session-q1-a"
+        copied = copy.deepcopy(original)
+        copied["problem_id"] = "separate-problem"
+        record["items"].append(copied)
+        self.assertTrue(any("attempt_id" in error for error in self.errors(record)))
+        record["items"].pop()
+        attempt.update(assistance="unknown", response_basis="guess")
+        self.assertEqual(self.errors(record), [])
+        self.assertEqual(len(original["attempts"]), 1)
+
+    def test_legacy_v1_needs_no_backfill_and_unsupported_version_is_preserved(self):
+        with tempfile.TemporaryDirectory() as directory:
+            for record in (session(), bank()):
+                path = Path(directory) / "synthetic.json"
+                for version, expected_status in ((1, 0), (2, 1)):
+                    with self.subTest(kind=record["kind"], version=version):
+                        record["schema_version"] = version
+                        payload = json.dumps(record).encode()
+                        path.write_bytes(payload)
+                        with contextlib.redirect_stdout(io.StringIO()):
+                            self.assertEqual(tools.main(["validate-record", str(path)]), expected_status)
+                        self.assertEqual(path.read_bytes(), payload)
+
+    def test_brief_due_discloses_only_id_and_date_and_never_rewrites_the_bank(self):
+        record = bank()
+        record["items"][0]["private_note"] = "SYNTHETIC-PRIVATE-NOTE"
+        later = copy.deepcopy(record["items"][0])
+        later.update(problem_id="other", next_review="2026-11-08")
+        record["items"].insert(0, later)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "bank.json"
+            payload = json.dumps(record).encode()
+            path.write_bytes(payload)
+            args = [sys.executable, "-B", str(SCRIPT), "due", str(path), "--on", "2026-11-09"]
+            brief = subprocess.run([*args, "--brief"], capture_output=True)
+            self.assertEqual(brief.returncode, 0, brief.stderr)
+            report = json.loads(brief.stdout)
+            self.assertEqual(report["due"], [
+                {"problem_id": "generated-cubic-1", "next_review": "2026-11-04"},
+                {"problem_id": "other", "next_review": "2026-11-08"},
+            ])
+            self.assertNotIn(b"SYNTHETIC-PRIVATE-NOTE", brief.stdout + brief.stderr)
+            self.assertNotIn(b"exam-2025", brief.stdout + brief.stderr)
+            full = subprocess.run(args, capture_output=True, check=True)
+            self.assertEqual(json.loads(full.stdout)["due"][0], record["items"][1])
+            self.assertEqual(path.read_bytes(), payload)
+
+    def test_invalid_brief_input_cannot_expose_protected_names_or_duplicate_keys(self):
+        invalid = bank()
+        reserved = invalid["items"][1]
+        reserved["problem_id"] = "SYNTHETIC-PRIVATE-ID"
+        invalid["items"].append(dict(reserved))
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "bank.json"
+            for raw in (json.dumps(invalid), '{"SYNTHETIC-PRIVATE-KEY":1,"SYNTHETIC-PRIVATE-KEY":2}'):
+                with self.subTest(raw=raw):
+                    path.write_text(raw, encoding="utf-8")
+                    result = subprocess.run([sys.executable, "-B", str(SCRIPT), "due", str(path),
+                                             "--brief"], capture_output=True)
+                    self.assertEqual(result.returncode, 1)
+                    self.assertEqual(json.loads(result.stdout)["status"], "invalid")
+                    self.assertNotIn(b"SYNTHETIC-PRIVATE", result.stdout + result.stderr)
+
+
 class RevisionFourRecordTests(unittest.TestCase):
     """Defects reproduced against v3 on 2026-11-09, plus the question bank."""
 

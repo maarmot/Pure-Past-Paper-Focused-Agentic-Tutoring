@@ -1,0 +1,17 @@
+{
+  "D1": {
+    "A": [["P", "Correctly gives 70 mm."], ["P", "Gives only the requested value."]],
+    "B": [["P", "Correctly gives 70 mm."], ["P", "Gives only the requested value."]],
+    "C": [["P", "Correctly gives 70 mm."], ["P", "Gives only the requested value."]]
+  },
+  "D2": {
+    "A": [["P", "Supplies nonzero a = 1 and b = 1 and leaves both calculations to the learner."], ["P", "Does not reveal either calculated value or whether they match."]],
+    "B": [["P", "Supplies nonzero a = 1 and b = 2 and leaves both calculations to the learner."], ["P", "Does not reveal either calculated value or whether they match."]],
+    "C": [["P", "Supplies nonzero a = 1 and b = 1 and leaves both calculations to the learner."], ["P", "Does not reveal either calculated value or whether they match."]]
+  },
+  "D3": {
+    "A": [["P", "Correctly classifies an answer supplied by the tutor as worked rather than independent."], ["P", "Suggests a fresh butterfly problem with a changed setup and defines independence as solving without help."]],
+    "B": [["P", "Correctly classifies an answer supplied by the tutor as worked rather than independent."], ["P", "Suggests a fresh butterfly problem without hints or the earlier solution open."]],
+    "C": [["P", "Correctly classifies an answer supplied by the tutor as worked rather than independent."], ["P", "Suggests an unseen FFT butterfly problem solved correctly without help."]]
+  }
+}

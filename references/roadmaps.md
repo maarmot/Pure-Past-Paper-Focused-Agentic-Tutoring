@@ -14,9 +14,11 @@ Use [the roadmap template](../assets/roadmap.template.md). Inspect the current c
 4. Define each checkpoint's expected result and its source before evaluation. Include a boundary or invalid-method case when it can expose a plausible mistake.
 5. Record the observed result and assistance separately. Keep planned work, attempted work, verified artifacts, and untested claims distinct.
 
-For each knowledge point, track four kinds of evidence separately: explain, solve unaided, transfer, and delayed retrieval. [Study habits](study-habits.md) defines them. Fill a gate only from the learner's observed work, and report a point as the gates it has, such as "two of four", rather than as a percentage or a mastery label.
+For each knowledge point, track four kinds of evidence separately: explain, solve unaided, transfer, and delayed retrieval. [Study habits](study-habits.md) defines them. Describe the evidence in words and link each claim to the dated work and help used. Leave an untested prerequisite open.
 
 Maintain separate tracks for unaided solving and assisted engineering. Successful code produced with AI can support a claim about the implementation and the learner's documented review decisions. It does not establish unaided coding or mathematical competence. Simulation, source review, instrument measurements, and physical-device tests each support different claims.
+
+For a hardware or software project, connect one theory decision to a real implementation tradeoff. For example, before simulating a synchronous counter, predict the value after an enabled rising edge and after a disabled edge. Compare those expectations with the trace and include a reset case under the design's stated reset convention. Record what the learner predicted, what the simulator showed, and which physical measurements remain open. Advance the checkpoint that the observation supports.
 
 ## Sources and effort
 

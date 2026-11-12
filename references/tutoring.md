@@ -10,13 +10,15 @@ Use the exact supplied question and any attempt already provided. Establish what
 
 Prefer a suitable public past-paper problem within confirmed scope. Record the institution or source, year, question identifier, URL or local file, and any adaptation. If none is available, use a clearly labeled generated exam-style problem. Past-paper frequency suggests practice priorities; it does not confirm current exam coverage. Never use a paper or question designated as protected for a future timed attempt.
 
+For a substantive practice session, work the problem privately first. Check that the data determine the requested result. Independently verify the key and an edge case. Prepare an orientation hint, one worked step and a transfer item that changes a decision. If data are missing, explain what can be deduced and ask for the decisive datum. A quick question needs only its own check.
+
 Let the learner attempt the problem before exposing the solution. A supplied attempt already satisfies this step. If the learner requests direct instruction or a full solution, provide it immediately; offer independent practice afterward without making it a condition of receiving help.
 
 ## Diagnose and repair
 
 Find the first unsupported or incorrect step in the actual work. Separate the observed error from a hypothesis about its cause. A dropped sign does not establish a conceptual misunderstanding.
 
-When diagnosis would change the help, use one short probe. Useful distinctions include reading the prompt, translating to a model, choosing a representation, prerequisite knowledge, selecting a method, calculation, and checking the result. These categories guide the next response; they are not learner labels.
+If two causes fit, choose a short probe for which the answers lead to different help. For example, a learner who sets a velocity equal to area under a velocity–time graph might have confused the axes or the units. Ask what the area of one rectangular strip measures. If they multiply signed velocity by the interval duration and name displacement for a constant-velocity strip, return to the requested quantity. If they still call the strip a speed, try −3 m/s for 2 s. Its signed area gives −6 m displacement and the distance traveled is 6 m. Give the full explanation immediately if asked. Useful distinctions include reading the prompt, translating to a model, choosing a representation, prerequisite knowledge, selecting a method, calculation, and checking the result. These categories guide the next response; they are not learner labels.
 
 Choose the smallest intervention likely to unblock the learner:
 
@@ -28,7 +30,7 @@ Choose the smallest intervention likely to unblock the learner:
 | Worked step | Explain the disputed step, then invite the learner to continue. |
 | Full solution | Give the complete reasoning when requested or accepted. |
 
-This is a menu, not a compulsory ladder. Skip levels when the learner's request or evidence warrants it. Do not disguise the answer as a hint. When repairing a practice error, choose a diagram, explanation, or interaction that resolves that obstacle; ordinary coaching does not require a media project. Inquiry may begin with a visual before any error has occurred.
+This is a menu, not a compulsory ladder. Skip levels when the learner's request or evidence warrants it. When the learner names a distinction they are stuck on, explain that distinction in words before asking them to apply it. For example, a position and a change in position can share units while answering different questions. State which operation or assumption is at issue, then leave the requested numerical or symbolic result for the learner. A hint like “try again” can hide the answer and still leave the learner without a way forward. When repairing a practice error, choose a diagram, explanation, or interaction that resolves that obstacle; ordinary coaching does not require a media project. Inquiry may begin with a visual before any error has occurred.
 
 After a repair, invite a retry from a blank setup. Check the reasoning, applicable conditions, units, and interpretation as well as the final answer. For an ambitious extension, state new assumptions and label it as exploration rather than confirmed exam scope.
 
@@ -99,7 +101,7 @@ Report the narrow result supported by the work, such as "correct setup with one 
 
 ## Close and preserve a usable record
 
-When closing a substantive practice session, select 3-5 adaptive questions covering the key idea, a prediction or boundary case, a transfer task, and what remains confusing or useful. Reuse evidence already obtained instead of administering a repeated survey. Omit the formal close for short exchanges or while the learner wants to keep exploring. Inquiry uses its own optional checkpoint; do not force a transfer task. If the learner stops, leave unanswered questions pending.
+Choose a closing check only if its answer would change the next session. Use what the learner already explained or tried. A cold retry, boundary case, or reflection may resolve the remaining question. A decision to stop ends the exchange. Omit the formal close for short exchanges or while the learner wants to keep exploring. Inquiry uses its own optional checkpoint; do not force a transfer task. If the learner stops, leave unanswered questions pending.
 
 Use [the closing template](../assets/session-close.template.md) as a menu. Use [the session template](../assets/session.template.json) only after replacing its starter text with observed facts; the validator rejects a record that still contains it. Record the topic, goals, problems, concepts, actual responses, assistance, possible misconceptions, and a concrete next practice step. Distinguish the learner's statements from the tutor's interpretations. Record unknown duration unless start/end timestamps or a labeled learner estimate support it.
 

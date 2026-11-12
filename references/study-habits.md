@@ -6,21 +6,21 @@ These habits adapt ideas from DeepTutor, an open-source self-study system, to a 
 
 Create these files only where the project authorizes learning records, and say which file you wrote. If the learner declines logging, keep the routine in the conversation and stop there.
 
-## Three files
+## Use the project's existing records
 
 | File | Holds | Start from |
 |---|---|---|
-| Study journal | The mission, a handoff from each session, and confirmed learning records | [Journal template](../assets/study-journal.template.md) |
+| Study journal or dated session record | The goal, source, observed work, assistance, unresolved question and one next step | [Journal template](../assets/study-journal.template.md) |
 | Question bank | Every problem the learner has met: exposure, attempts, their own recall rating, next review date | [Bank template](../assets/question-bank.template.json) |
 | Roadmap | The knowledge-point map and which evidence each point has | [Roadmap template](../assets/roadmap.template.md) and [roadmaps](roadmaps.md) |
 
-The journal is for a person to read; the bank is for the tool to check; the roadmap changes slowly. Do not merge them.
+Use the dated session or journal entry as the evidence for an observation. A bank indexes attempts by problem. A roadmap points back to the evidence for a milestone. Reuse the project's existing files. Create a bank only for a requested review routine.
 
 ## Open a session
 
-1. Read the journal's mission and its most recent handoff. Treat the handoff as dated evidence about then, not proof of ability now.
-2. List what is due: `python scripts/ppp_tools.py due <bank.json>` (see [tools](tools.md)).
-3. Offer the learner a choice in one or two lines: the due reviews, the handoff's next step, or whatever they came with. Their choice wins. Due items are suggestions.
+1. For a continuation, open the latest relevant handoff in the authorized workspace. Check its date, source and assistance. If it is missing, carry on from the learner's account and identify what remains unknown. If it is old, offer a short cold check only if current ability changes the next step.
+2. For a review request with a bank, list due identifiers and dates with `python scripts/ppp_tools.py due <bank.json> --brief` (see [tools](tools.md)). Open additional history only for the chosen item when it matters.
+3. Offer the next problem or checkpoint supported by the evidence. Let the learner skip it, switch topics or stop.
 
 If there is no journal yet and the learner wants a routine, ask for the mission in their words (what they want to be able to do, by when, under what conditions) and create the journal with only that.
 
@@ -46,9 +46,15 @@ After a correct, unaided review, the better next task is often a transfer proble
 ## Keep the bank honest
 
 - Add a problem when the learner first meets it. Exposure moves one way: unseen, exposed, attempted, worked. Once a solution has been shown, the item is worked for good, and a later correct answer may be memory.
-- Record each attempt with its date, outcome, and the assistance given.
+- Record each observation once with its date, outcome, source and actual assistance. When resuming an interrupted save, compare the stable attempt ID and evidence in the session and bank. Complete only the missing part. Give a new learner attempt its own ID even on the same day. For a legacy entry without an ID, compare the work before deciding whether two entries describe one event.
 - Mark a paper reserved for a timed attempt as `protected`. The validator rejects a protected item that has been exposed, attempted, or scheduled, and `due` never lists one. Clear the flag only when the learner sits the paper.
 - Run `validate-record` after editing. It checks consistency, not truth.
+
+## Correct or remove a record
+
+A learner can correct a report about their own work, including help they received. Identify the authoritative entry by its source, date and attempt ID when present. Correct that entry once. Update a derived bank or roadmap claim only when the particular file is also within the authorized private location. A stale export, shared copy, or file of uncertain ownership stays untouched. Report the discrepancy from already available evidence and let the learner decide whether any further action is wanted. Keep the original date of the attempt distinct from the date of correction. If two sources still disagree about the work itself, identify the conflict, withhold the disputed conclusion and ask only if resolving it changes the next task. Never promote missing assistance to unaided success. A changed goal can take effect immediately.
+
+On a request to remove a saved item, use its ID or source to identify the entry and its derived claims. Remove only the requested material in authorized files and verify those locations. If a backup or host chat lies outside that scope, describe what you could verify. Do not copy private records into the skill, model evaluations or an external tool. A request against future logging takes effect now.
 
 ## Find weak areas
 
@@ -63,7 +69,7 @@ A single successful problem does not settle a knowledge point. Use these four ki
 3. **Transfer** - an unaided solution to a problem with a changed setup, representation, or method choice.
 4. **Delayed retrieval** - any of the above again after a gap of days, not in the same sitting.
 
-Leave a gate empty until the learner's own work fills it. Agent-written answers, recognition of a shown solution, and same-session repeats fill none of them. A point with three gates filled is "three of four", not "nearly mastered".
+Leave a gate empty until the learner's own work fills it. Agent-written answers, recognition of a shown solution, and same-session repeats fill none of them. Describe the actual evidence in words, such as “explained today with the diagram, cold recall still open.”
 
 ## Close a session
 

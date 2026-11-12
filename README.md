@@ -1,93 +1,69 @@
 # Pure Past Paper tutoring
 
-A portable tutoring skill for past-paper practice, good-faith argument, visual inquiry, and study review, in technical and essay subjects. PPP means **Pure Past Paper**: attempt a real question, locate the first unsupported step, repair it, retry, and then try a different problem.
+Bring a past-paper question, a line of working you distrust, or a mechanism you want to understand. PPP starts there. In exam practice, you try a problem, the tutor helps with the first step that needs repair, and you get a chance to try again independently. You can ask for the entire solution at any point.
 
-The skill also supports curiosity-led explanations. A learner can ask to see a mechanism, change a parameter, or request the full solution without completing a preliminary exercise.
+> **Learner** — I divided both sides of `x(x − 4) = 0` by `x` and got 4. Give me one hint.
+>
+> **Tutor** — Your division assumes that `x` is nonzero. Which value did that assumption set aside?
+>
+> **Learner** — Zero. Both 0 and 4 work in the original equation.
+>
+> **Tutor** — Yes. Checking the original equation recovers the missing root. A fresh test would ask you to spot the same restriction in a different equation.
 
-## What is included
+| What you want | How to ask | What happens |
+|---|---|---|
+| A direct answer under a deadline | “Give me the full solution now.” | The tutor gives the working immediately. |
+| Exam practice or essay feedback | “Here is my attempt and the mark scheme. Where would I lose marks?” | Feedback uses the supplied criteria and actual work. Generated questions are labeled. Reserved papers stay closed. |
+| Visual inquiry | “Show me how two different wheel speeds can look identical on camera.” | Compare a visual example, then change the sampling rate. [Download the interactive](assets/interactive.template.html) and open it in a browser or [watch the silent preview](examples/sampling-preview.mp4). |
+| Read or research critically | “Does this passage support the author's claim?” | The tutor checks the available passage or identifies the evidence it still needs. |
+| A technical project or roadmap | “Help me verify this counter in simulation. What should I predict before I run it?” | Connect a prerequisite to a prediction, trace and measurable checkpoint. |
+| Continue studying | “Pick up from my last attempt. Which step still needs practice?” | The tutor reads the authorized handoff, checks its date and assistance, and proposes one next step. |
 
-- **Tutoring instructions** that use the learner's actual work, preserve papers reserved for timed practice, and distinguish hints from unaided performance.
-- **A feedback standard and difficulty signals**: an early verdict grounded in the supplied work, specific feedback on the reasoning, and a next task chosen from observed performance.
-- **Across fields**: what an attempt, a first unsupported step, an independent check, and a transfer problem are in engineering subjects, programming, proofs, and essays marked against criteria.
-- **Argument and sources**: taking a position on named grounds, and working through a book chapter, textbook section, or video without stating from memory what it says.
-- **Visual inquiry and interactive builds**, with a complete sampling-ambiguity starter that runs in a browser.
-- **A study journal, question bank, and roadmap** for recorded attempts, learner recall ratings, review dates, and evidence of understanding.
-- **Verification tools** for structured records, due-review selection, caption timing, and media decoding.
-- **Manim and PDF guides**, a starter scene with one section per beat, a render-timing command, and five LaTeX starter formats. Their runtimes are optional and are not bundled.
-- **Delegation by job**: which builds are worth splitting among workers and what a checker must not be given.
+The core works in conversation. Codex discovers [the skill](SKILL.md) and loads specialized references as needed. Local tools validate records and select due items. Optional tools support checked browser activities, Manim animations and LaTeX study documents. REA can inspect a supplied software artifact on hosts that provide it. Superpowers can coordinate engineering work on the skill. Ordinary tutoring needs neither integration.
 
-Start with [SKILL.md](SKILL.md). It selects the reference needed for the current request rather than loading every workflow.
+## Install and update
 
-The [37-second silent preview](examples/sampling-preview.mp4) follows two rotating markers through a prediction, an extra photograph, and a change of camera rate. The [editable scene](assets/manim/lesson_beats.py) and [geometry check](assets/manim/check_scene.py) are included.
+**For Codex.** Use one enabled `ppp-learning` folder. The user scope is `~/.agents/skills/ppp-learning`, shared across that user's projects. Project scope is `.agents/skills/ppp-learning` inside the chosen project. A project's `AGENTS.md` supplies local course and storage instructions. Other assistants can read the Markdown manually. Automated discovery was tested with Codex. [Official OpenAI skills documentation](https://learn.chatgpt.com/docs/build-skills)
 
-## Install
+**Compact install.** From a checkout of this repository with Python 3.9+ and Git, build a ZIP from a commit. Choose an unused output path.
 
-The repository root is the skill folder. For a personal Codex installation, clone it into an unused skill directory:
+```sh
+python scripts/package_skill.py ../ppp-learning.zip --ref HEAD
+```
+
+Extract the archive into your chosen skills **parent** directory. It contains the top-level `ppp-learning/` folder. The [manifest](runtime-files.txt) selects instructions, metadata, templates, references and the local CLI. The command reads committed bytes, prints the resolved commit and package size, and excludes tests, archival responses, video and working-directory files. For an update, build from the desired commit, unpack into a temporary directory, and compare the contents before replacing the previous package. Keep the previous folder outside discovery paths for rollback.
+
+**Git install.** To keep a complete checkout, clone into an unused destination, e.g. in a shell that expands `~`:
 
 ```sh
 git clone https://github.com/maarmot/Pure-Past-Paper-Focused-Agentic-Tutoring.git ~/.agents/skills/ppp-learning
 ```
 
-For a project-only installation, use `.agents/skills/ppp-learning` inside that project instead. If the destination already exists, inspect and preserve its changes before replacing or updating it. Avoid two enabled installations with the same skill name.
+Inside a clean tracking checkout on `main`, use `git status --short --branch` and `git pull --ff-only`. Preserve local changes first. A local preview branch can be switched back to the original branch after checking its status. If an invocation loads an unexpected copy, inspect the paths and enabled scopes in Codex's skills list, check that `SKILL.md` sits directly inside the skill folder, and start a fresh chat. Invoke explicitly with `Use $ppp-learning to check this step`. Metadata and the starter prompt live in [agents/openai.yaml](agents/openai.yaml).
 
-Codex uses [agents/openai.yaml](agents/openai.yaml) for interface metadata. The skill can also be read manually by a compatible assistant, or installed in another host's supported skill location. Installing this folder does not install Python, Manim, LaTeX, or a browser, and does not grant permission to write learner records.
+## What persists
 
-## Use it
+The skill can operate entirely in chat. For ongoing study, designate a private location outside this repository. A dated session record or journal holds the goal, problem source, observed work, help received and next step. A question bank can index attempts and review dates. A roadmap can link a prerequisite or project checkpoint to that evidence. A later chat must actually open the relevant record to use it. [Study records and corrections](references/study-habits.md)
 
-Example requests:
+Ask to correct assistance, remove an attempt, or stop logging. The tutor should identify the authorized files it changed and reconcile any derived claim. A correct guess, recognition of a worked item and a solution produced with AI leave unaided performance open. The record format supports unknown help and duration. A review date is read when requested. Creating a calendar reminder requires a separate request and a successful scheduling action. The package provides no server, account memory, telemetry or background scheduler. Your host controls its own chat history.
 
-> Use $ppp-learning to check my working. Identify the first unsupported step and give me one useful hint.
+## Check and reproduce
 
-> Show me why a wheel can look as though it is turning backwards. Keep equations optional and let me investigate.
-
-> What should I review today? Use the question bank in this project, and leave my reserved paper unopened.
-
-> Give me the complete solution now. I do not want hints or a video.
-
-> Here is my essay plan on whether utilitarianism is convincing. Where is the argument weakest?
-
-> I think Euler-Bernoulli is fine for this beam. Argue with me.
-
-For a standalone visual example, open [assets/interactive.template.html](assets/interactive.template.html) in a browser. It compares two fixed motions under different camera measurements and includes a check of the drawn marks. When building a lesson, copy the starter into the active project's output area and edit that copy.
-
-## Personalize the workflow
-
-Use the active project's instructions to establish the subject, course or textbook, allowed methods, preferred explanation style, and permitted output locations. Keep curiosity and exam practice distinct. A visual inquiry can end with a useful observation or a sharper question; it does not require an exam-style exit task.
-
-Create a journal or question bank only where learning records are authorized. Keep dates, assistance, learner self-report, and observed work separate. A record in one workspace is not permission to read or write records in another. A specific problem or solution request takes precedence over opening the study journal.
-
-The review intervals in [study habits](references/study-habits.md) are adjustable planning suggestions. `due` reads the dates already recorded; it does not choose an optimal schedule, create reminders, or run in the background.
-
-## Command-line tools
-
-The helpers require Python 3.9 or newer and use its standard library. Media probing and decoding additionally require FFmpeg and ffprobe on `PATH`. Run these commands from the repository root:
+From the source checkout:
 
 ```sh
 python scripts/ppp_tools.py audit
-python scripts/ppp_tools.py validate-record assets/session.template.json --allow-template
-python scripts/ppp_tools.py validate-record path/to/session.json
-python scripts/ppp_tools.py due path/to/question-bank.json
-python scripts/ppp_tools.py check-captions captions.srt --media lesson.mp4
-python scripts/ppp_tools.py media-info lesson.mp4 --require-video --require-audio
-python scripts/ppp_tools.py render-timing scene.py SceneName
-```
-
-Replace the example input paths with actual files. `--allow-template` is for checking starter files; omit it when validating real records. The validator intentionally rejects leftover starter text in a real record. See [the CLI reference](references/tools.md) for fields, exit status, and limitations.
-
-For a chapter or a recorded lecture, the [reading companion](assets/reading-companion.template.md) gives the learner a place to reconstruct a claim, challenge its weakest premise, and return to the relevant passage.
-
-## Verify a change
-
-```sh
 python -B -m unittest discover -s tests -p "test_*.py" -v
+python -B assets/manim/lesson_beats.py --check
+python -B tests/behaviour/results/2026-11-12/revision7/check_results.py
 ```
 
-The suite covers record consistency, argument and essay fields, protected questions, due selection, captions, subprocess failures, the starter scene's model, and a real media round trip when FFmpeg is available. No test renders with Manim; `render-timing` and the starter scene need a Manim install to exercise. The browser starter also needs actual control, keyboard, layout, and theme checks; its self-check is not a substitute for those. The [behavior evaluation protocol](tests/behaviour/README.md) supplies separate tutor-response scenarios.
+The [CLI reference](references/tools.md) documents `validate-record`, `due --brief`, caption checks, media decoding and render timing. A starter JSON file needs `--allow-template` until filled with observations. The Python CLI uses the standard library. Installations that already provide FFmpeg and ffprobe can decode media. Browser interaction, Manim rendering, PDF compilation and audio quality each require their own checks.
 
-Passing tests establishes the properties checked. It does not establish a learner's understanding, retention, or exam performance. A valid record is not proof that its observations happened; only actual learner work supports progress claims.
+The [revision 7 evaluation](tests/behaviour/results/2026-11-12/revision7/README.md) provides the preregistered cases, exact replies, blind grading, sample sizes and reproduction instructions. The [release checks](tests/verification-revision7.md) cover record validation, packaging and optional media. The [historical evaluations](tests/behaviour/README.md) and [CI workflow](.github/workflows/tests.yml) retain earlier tests. A synthetic tutor response cannot demonstrate a person's retention or later transfer.
 
-## Sources and scope
+## Sources and contributions
 
-[Provenance](references/provenance.md) records the method's sources and the limits of those comparisons. Source references are retained for traceability. No creator's voice, lesson assets, or complete scenes are bundled.
+[Provenance](references/provenance.md) explains PPP's origins, the parts adapted from Jane Street's Socratic Tutor and the limitations of the comparisons. Its [upstream MIT notice](references/jane-street-license.txt) applies to Jane Street's material.
 
-This repository contains instructions, templates, and local tools. It provides no background service, shared learner database, automatic memory, or measured claim of improved learning outcomes.
+For a change, describe the learner request it affects, give a synthetic example where the old behavior fails, and identify an independent observation that could reject the proposed fix. Include relevant tests and report unrun checks. Keep private papers, chats and learner records out of issues, commits and example fixtures.

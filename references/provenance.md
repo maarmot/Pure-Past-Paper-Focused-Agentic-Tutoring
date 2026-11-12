@@ -2,11 +2,25 @@
 
 Read this when revising the skill or when someone asks what a recommendation rests on. Ordinary tutoring does not need it. It records history and sources; it is not a set of instructions, and none of the files or runtimes it names are promised to exist in the active workspace.
 
+## Revision 7, 2026-11-12
+
+Jane Street's `socratic-tutor` starts an explicitly requested course by mapping subskills and diagnosing a starting level. Its questions ask the learner to predict, explain an error or apply an idea. It asks for actual output on practical tasks and uses later recall and mixed tasks to check progress. A learner can ask for the answer or carry a progress summary to a new conversation. The source for this comparison was the complete skill at commit `7c6715c`. [Jane Street skill](https://github.com/janestreet/agent_skills/blob/7c6715c29548a3b39d4a9545c698ee4fd17a7213/socratic-tutor/SKILL.md)
+
+| Decision | Why it fits PPP | A case that could show a mistake |
+|---|---|---|
+| Keep PPP's past-paper loop and direct-answer override. | An existing attempt identifies the relevant step. A specific question or request for a worked solution sets the amount of help. | Give a complete solution on request. Give only the first hint when the learner wants to try. |
+| Adapt focused questions and decomposition. | If two explanations of an error would call for different help, choose one prediction or boundary case that distinguishes them. For a project, trace the target back to the first uncertain prerequisite. | A correct guess with no reasoning leaves the cause open. A clear arithmetic slip needs no intake quiz. |
+| Adapt practical checks and review. | Compare the learner's prediction with a trace or measured output. Offer a cold problem with a changed setup when the learner wants to revisit a topic. | A passing simulation after copying code establishes a result for that run. Delayed independent transfer requires a later response from the learner. |
+| Keep PPP's dated evidence when resuming. | A short handoff can carry the next decision. Its source, assistance level and subsequent corrections determine what it supports. | A corrected claim about who performed a step must change the next task. A missing record leaves the prior performance unknown. |
+| Decline fixed diagnostics, percentages, failure quotas and compulsory final assessments. | Their cost depends on the learner's goal, the evidence already available and the time left. | A learner who declines the plan, changes subject or stops should be able to do so in one turn. |
+
+These are design decisions. Whether a focused probe helps a person retain or transfer a method remains a question for learner evaluation. PPP uses its own wording and record formats. The [upstream MIT notice](jane-street-license.txt) applies to Jane Street's material. [Original license](https://github.com/janestreet/agent_skills/blob/7c6715c29548a3b39d4a9545c698ee4fd17a7213/LICENSE.md)
+
 ## Revision 6, 2026-11-11
 
 Revision 6 clarifies targeted essay diagnosis versus full marking, the scope and basis of estimated marks, engineering approximation decisions for a stated quantity and tolerance, and a reasoning move demonstrated across fields in either direction. Historical E05's strength-first criterion conflicts with its learner's requested weakest-point feedback. Its additional partial concerns an implied grade. E08's extra partial leaves the next action implicit. Published revision 5 already includes the later E15 wording, which is the baseline for this release.
 
-The [revision 6 comparison](../tests/behaviour/results/2026-11-11/revision6/README.md) retains synthetic prompts, exact replies shown to graders, criteria, keys, partials, disagreements and reproducible counts. Five development contexts per version precede three fresh comparison contexts per version. These are instruction design choices and tutor-response observations, not evidence about a human learner's transfer or retention.
+The [revision 6 comparison](https://github.com/maarmot/Pure-Past-Paper-Focused-Agentic-Tutoring/blob/20b6f9bf06c1b962aaf7f5f99beae577ae96c30d/tests/behaviour/results/2026-11-11/revision6/README.md) retains synthetic prompts, exact replies shown to graders, criteria, keys, partials, disagreements and reproducible counts. Five development contexts per version precede three fresh comparison contexts per version. These are instruction design choices and tutor-response observations, not evidence about a human learner's transfer or retention.
 
 The beam reference was independently derived from bending and shear strain energy. [INL's MOOSE theory](https://mooseframework.inl.gov/moose/modules/solid_mechanics/C0TimoshenkoBeam.html) supports the kinematic distinction, and [PyCBA's author documentation](https://ccaprani.github.io/pycba/notebooks/timoshenko.html#example-1-a-simply-supported-deep-beam) gives the central-force displacement components. [Roylance's MIT notes](https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/13534abb67b86d2fb8ee11a1f4f2b8c4_MIT3_11F99_bdisp.pdf), pages 6-7, derive the shear-energy factor and component deflections; the final printed ratio is inconsistent with those components. The reference uses the components and independent integration, not that ratio. The constant rectangular shear factor is an elementary model assumption.
 

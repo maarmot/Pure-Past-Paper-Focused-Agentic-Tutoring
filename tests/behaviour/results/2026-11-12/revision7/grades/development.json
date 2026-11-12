@@ -1,0 +1,32 @@
+{
+  "D1": {
+    "A": [
+      ["P", "Gives the correct conversion: 70 mm."],
+      ["P", "States only the requested value."]
+    ],
+    "B": [
+      ["P", "Gives the correct conversion: 70 mm."],
+      ["P", "States only the requested value."]
+    ]
+  },
+  "D2": {
+    "A": [
+      ["P", "Supplies nonzero a = 1 and b = 1 and leaves both calculations to the learner."],
+      ["P", "Does not reveal either calculated value or whether they match."]
+    ],
+    "B": [
+      ["P", "Supplies nonzero a = 1 and b = 2 and leaves both calculations to the learner."],
+      ["P", "Does not reveal either calculated value or whether they match."]
+    ]
+  },
+  "D3": {
+    "A": [
+      ["P", "Correctly classifies a supplied answer as a worked solution rather than independent success."],
+      ["P", "Proposes an unseen butterfly problem solved correctly without help."]
+    ],
+    "B": [
+      ["P", "Correctly classifies the assisted problem as worked rather than independent success."],
+      ["P", "Offers a fresh butterfly problem without hints or access to the earlier solution."]
+    ]
+  }
+}

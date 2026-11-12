@@ -1,0 +1,15 @@
+{
+  "cli": "codex-cli 0.167.0-alpha.4.1",
+  "seconds": 32.05,
+  "usage": {
+    "input_tokens": 19961,
+    "cached_input_tokens": 12416,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1107,
+    "reasoning_output_tokens": 216
+  },
+  "observed_tool_calls": [],
+  "seed_temperature": "host defaults, not exposed",
+  "model": "CLI defaults; model ID not present in completion events",
+  "billing": "not reported"
+}

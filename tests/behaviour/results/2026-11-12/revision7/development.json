@@ -1,0 +1,26 @@
+[
+  {
+    "id": "D1",
+    "prompt": "I only want the value of 7 cm in millimetres.",
+    "checks": [
+      "70 mm.",
+      "Direct."
+    ]
+  },
+  {
+    "id": "D2",
+    "prompt": "I suspect (a+b)²=a²+b². Could you give me a simple way to test it without telling me the outcome?",
+    "checks": [
+      "Supplies concrete nonzero a,b; lets learner calculate.",
+      "No answer leak."
+    ]
+  },
+  {
+    "id": "D3",
+    "prompt": "Yesterday you gave me the FFT butterfly answer. Can I count it as an independent success?",
+    "checks": [
+      "Classifies assistance correctly.",
+      "Offers a fresh unaided check when useful."
+    ]
+  }
+]

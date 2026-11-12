@@ -1,0 +1,6 @@
+{
+  "T1": "u = 7 is correct, but your answer is incomplete. Absolute value makes the output nonnegative; must the input also be nonnegative?",
+  "T2": "Your reason is not enough: the overlap is the same, but what total do you divide by in each conditional probability? Check those totals in your example.",
+  "T3": "Keep r4 marked worked. Correct the private record to: “Read the full solution before solving; assistance: full-solution. This attempt does not establish an unaided solution.” Retain any accurate details of your subsequent work. Flag the shared presentation’s claim as inaccurate and propose replacing it with “Completed after reading the full solution.” An independent check remains pending.",
+  "T4": "In the private notes, replace “remembered” for k9 with “Reconstructed the circuit after two prompts.” Record the prompts as assistance and leave correctness unconfirmed unless the circuit was checked. This does not establish unaided recall.\n\nLeave the unapproved network archive unchanged; note in the private correction that its duplicate remains uncorrected. If you want to test unaided recall later, use a cold reconstruction without prompts. No files have been changed."
+}

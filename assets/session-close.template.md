@@ -1,6 +1,6 @@
 # Adaptive session close
 
-Use after a substantive learning session. Select 3–5 questions suited to the actual topic and responses. The prompts below are a menu, not a repeated survey. Credit checks already completed during the session; do not ask them again merely to fill the template.
+Use after a substantive learning session. Choose a prompt only if its answer would change the next learning step. Credit checks already completed. Honor a stop immediately.
 
 - Explain: "Without looking at the solution, why does [the key relationship] hold? State the condition it needs."
 - Predict or test a boundary: "What would change if [one relevant constraint or limiting case] changed? Explain before calculating."
